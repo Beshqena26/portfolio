@@ -213,16 +213,17 @@ img{display:block;max-width:100%}
 
 /* ===== FAQ ===== */
 .faq{padding:120px 0}
-.faq-list{max-width:700px}
-.faq-item{border-bottom:1px solid var(--border)}
-.faq-item:first-child{border-top:1px solid var(--border)}
-.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 0;background:none;border:none;cursor:pointer;font-family:inherit;font-size:16px;font-weight:600;color:var(--text);text-align:left;transition:color .3s}
-.faq-q:hover{color:var(--accent)}
-.faq-icon{font-size:22px;font-weight:300;color:var(--text2);transition:transform .3s;flex-shrink:0;margin-left:16px}
+.faq .section-head{text-align:center}
+.faq-list{max-width:680px;margin:0 auto}
+.faq-item{margin-bottom:12px}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);cursor:pointer;font-family:inherit;font-size:15px;font-weight:600;color:var(--text);text-align:left;transition:all .3s}
+.faq-q:hover{border-color:var(--border-h)}
+.faq-item.open .faq-q{border-color:var(--accent);border-radius:var(--r) var(--r) 0 0;background:var(--surface2)}
+.faq-icon{font-size:20px;font-weight:400;color:var(--text2);transition:transform .3s;flex-shrink:0;margin-left:16px}
 .faq-item.open .faq-icon{transform:rotate(45deg);color:var(--accent)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease}
-.faq-item.open .faq-a{max-height:200px;padding-bottom:20px}
-.faq-a p{font-size:14px;color:var(--text2);line-height:1.7}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-item.open .faq-a{max-height:200px}
+.faq-a p{font-size:14px;color:var(--text2);line-height:1.7;padding:16px 24px;background:var(--surface);border:1px solid var(--border);border-top:none;border-radius:0 0 var(--r) var(--r)}
 
 /* ===== CONTACT ===== */
 .contact{padding:120px 0}
