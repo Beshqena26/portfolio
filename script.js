@@ -11,6 +11,66 @@ window.addEventListener('scroll', function() {
   document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
 });
 
+// Custom cursor (desktop only)
+var glow = document.getElementById('cursorGlow');
+var dot = document.getElementById('cursorDot');
+if (glow && dot && window.innerWidth > 1024) {
+  var mx = 0, my = 0, gx = 0, gy = 0;
+
+  document.addEventListener('mousemove', function(e) {
+    mx = e.clientX;
+    my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top = my + 'px';
+  });
+
+  // Smooth follow for outer ring
+  function followCursor() {
+    gx += (mx - gx) * 0.15;
+    gy += (my - gy) * 0.15;
+    glow.style.left = gx + 'px';
+    glow.style.top = gy + 'px';
+    requestAnimationFrame(followCursor);
+  }
+  followCursor();
+
+  // Hover effect on interactive elements
+  document.querySelectorAll('a, button, .work-row, .srv-card, .test-card, .tl-card').forEach(function(el) {
+    el.addEventListener('mouseenter', function() {
+      glow.classList.add('hovering');
+      dot.classList.add('hovering');
+    });
+    el.addEventListener('mouseleave', function() {
+      glow.classList.remove('hovering');
+      dot.classList.remove('hovering');
+    });
+  });
+} else {
+  // Hide custom cursor on mobile
+  if (glow) glow.style.display = 'none';
+  if (dot) dot.style.display = 'none';
+  document.body.style.cursor = 'auto';
+}
+
+// Particles
+var particlesEl = document.getElementById('particles');
+if (particlesEl && window.innerWidth > 768) {
+  for (var i = 0; i < 40; i++) {
+    var p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.top = Math.random() * 100 + '%';
+    p.style.width = (Math.random() * 2 + 1) + 'px';
+    p.style.height = p.style.width;
+    p.style.opacity = (Math.random() * 0.15 + 0.05).toFixed(2);
+    p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    particlesEl.appendChild(p);
+  }
+} else if (particlesEl) {
+  particlesEl.style.display = 'none';
+}
+
 // Mobile drawer menu
 var burger = document.getElementById('burger');
 var overlay = document.getElementById('mobileMenu');
@@ -43,17 +103,6 @@ overlay.querySelectorAll('a').forEach(function(a) {
     }
   });
 });
-
-// Cursor glow (desktop only)
-var glow = document.getElementById('cursorGlow');
-if (glow && window.innerWidth > 1024) {
-  document.addEventListener('mousemove', function(e) {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
-  });
-} else if (glow) {
-  glow.style.display = 'none';
-}
 
 // Testimonials show more
 var testBtn = document.getElementById('testMoreBtn');
