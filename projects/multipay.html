@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Multipay Case Study — Beka Jikurishvili</title>
-<meta name="description" content="Case study: designing Multipay, a multi-currency digital wallet for the Georgian market — from mood board and five color directions to a dev-ready handoff in one month.">
+<meta name="description" content="Case study: designing Multipay, a multi-currency digital wallet for the Georgian market — research, competitive analysis, 2,000+ screens, and a dev-ready handoff in one month.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><circle cx=%2750%27 cy=%2750%27 r=%2746%27 fill=%27%23ff6b35%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27white%27 text-anchor=%27middle%27>B</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=9">
+<link rel="stylesheet" href="../style.css?v=10">
 </head>
 <body>
 
@@ -30,7 +30,7 @@
   <div class="container anim">
     <a href="../index.html#work" class="proj-back">&larr; Back to Work</a>
     <h1>Multipay — a multi-currency wallet<br>Georgians can trust with their money</h1>
-    <p class="proj-desc">End-to-end product design of a fintech mobile app: multi-currency accounts (₾ / $ / €), card deposits from local banks, KYC with liveness verification, and biometric login — taken from mood board to a fully documented, dev-ready handoff in one month.</p>
+    <p class="proj-desc">End-to-end product design of a fintech mobile app: multi-currency accounts (₾ / $ / €), card deposits from local banks, KYC with liveness verification, and biometric login — taken from market research to a fully documented, dev-ready handoff in one month.</p>
     <div class="proj-meta">
       <div class="proj-meta-item"><label>Role</label><span>Product Designer</span></div>
       <div class="proj-meta-item"><label>Duration</label><span>1 Month</span></div>
@@ -38,11 +38,11 @@
       <div class="proj-meta-item"><label>Platform</label><span>Mobile App</span></div>
     </div>
     <div class="cs-stats">
-      <div class="cs-stat"><b>160+</b><span>Exploration screens</span></div>
-      <div class="cs-stat"><b>5</b><span>Color directions tested</span></div>
+      <div class="cs-stat"><b>2,000+</b><span>Screens designed</span></div>
+      <div class="cs-stat"><b>49</b><span>Reusable components</span></div>
       <div class="cs-stat"><b>20+</b><span>Flows documented</span></div>
+      <div class="cs-stat"><b>5</b><span>Color directions</span></div>
       <div class="cs-stat"><b>2</b><span>Languages (EN / ქარ)</span></div>
-      <div class="cs-stat"><b>1</b><span>Month to handoff</span></div>
     </div>
   </div>
 </section>
@@ -56,9 +56,43 @@
 </div>
 
 <section class="proj-section"><div class="container anim">
-  <h2>The problem</h2>
-  <p>People in Georgia live between three currencies: salaries in lari, savings in dollars, subscriptions in euros. Managing that usually means juggling two banking apps and a currency exchange. Multipay's goal was a single wallet where you hold GEL, USD and EUR side by side, top up from local bank cards, and move money between currencies without friction.</p>
-  <p>The hard part isn't the features — it's <strong>trust</strong>. A wallet asks people to hand over money, documents, and their face. Every screen had to earn that.</p>
+  <h2>Context &amp; goals</h2>
+  <p>People in Georgia live between three currencies: salaries in lari, savings in dollars, subscriptions in euros. Managing that usually means juggling two banking apps and a trip to an exchange booth. Multipay's bet was a single wallet where GEL, USD and EUR live side by side, funded from local bank cards, with exchange built into the transfer flow itself.</p>
+  <h3>What success had to look like</h3>
+  <ul>
+    <li><strong>Business:</strong> ship an MVP covering the full money lifecycle — deposit, hold, exchange, transfer, withdraw — ready for development in one month.</li>
+    <li><strong>Users:</strong> open the app and answer "how much do I have, in which currency?" in under a second; move money between currencies without leaving one screen.</li>
+    <li><strong>Compliance:</strong> full KYC (documents + liveness) that people actually finish — the flow where wallets traditionally bleed users.</li>
+    <li><strong>Handoff:</strong> zero-ambiguity documentation — every state drawn, so developers never have to invent an error screen.</li>
+  </ul>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Research: how Georgians actually handle money</h2>
+  <p>Before drawing screens I mapped the competitive landscape and interviewed people around me who live the multi-currency reality — freelancers paid in USD, families with EUR subscriptions, everyone spending in GEL.</p>
+  <h3>The competitive landscape</h3>
+  <ul>
+    <li><strong>TBC &amp; Bank of Georgia apps</strong> — powerful, trusted, but single-bank by design. Currency exchange exists but lives several taps deep, and moving money to the <em>other</em> bank means fees and friction. Their UIs carry the weight of full banking suites.</li>
+    <li><strong>Local wallets (eMoney, PayBox-style services)</strong> — great at utility payments, but dated visually, weak on multi-currency, and English-first or mixed-language in the worst places (errors, legal text).</li>
+    <li><strong>Revolut-style neobanks</strong> — the UX benchmark, but not built for Georgia: no first-class GEL rails, no Georgian language, and top-ups from local cards are where they hurt.</li>
+  </ul>
+  <h3>What the research changed in the design</h3>
+  <ul>
+    <li>People convert currency <strong>on salary day, in round amounts</strong> → exchange lives inside the transfer flow with quick-amount chips, not in a separate "FX" section.</li>
+    <li>The #1 stated fear was <strong>"my money disappears mid-transfer"</strong> → every transaction must end in an explicit Processing / Successful / Denied state with a reason and a next step.</li>
+    <li>KYC abandonment comes from <strong>uncertainty, not effort</strong> — people quit when documents vanish "into review" → verification states (pending / rejected / verified) are first-class screens, not emails.</li>
+    <li>Georgian speakers are underserved — most fintech UIs degrade to English exactly where trust matters most → Georgian designed as a parallel version, not a translation pass.</li>
+  </ul>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Design principles</h2>
+  <div class="cs-decision">
+    <div class="cs-dec-card chose"><h4>01 — Trust by default</h4><p>Balances always visible, IBAN masked but copyable, panic actions (block account, freeze card) one tap from Home. The app never hides what's happening with money.</p></div>
+    <div class="cs-dec-card chose"><h4>02 — One screen, one decision</h4><p>Every step of every flow asks exactly one question: from where, to where, how much, confirm. No screen mixes decisions — which is why 20+ flows stay learnable.</p></div>
+    <div class="cs-dec-card chose"><h4>03 — Multi-currency is the product</h4><p>Currency chips sit directly under the main balance on every account screen. Switching ₾ / $ / € is a glance, not a journey.</p></div>
+    <div class="cs-dec-card chose"><h4>04 — Bilingual as first-class</h4><p>Every flow exists in English and Georgian, reviewed for layout, truncation and tone — because trust collapses the moment an error message switches language.</p></div>
+  </div>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
@@ -77,23 +111,40 @@
 </div></section>
 
 <section class="proj-section"><div class="container anim">
-  <h2>Designing money flows people don't second-guess</h2>
-  <p>Deposits, withdrawals, internal and external transfers, currency exchange — every flow follows the same contract: <strong>show where money comes from, where it goes, and end in an explicit state.</strong> No transaction ever just "finishes"; it resolves to Processing, Successful, or Denied with a reason and a next step.</p>
-  <figure class="cs-fig"><img src="../assets/case/multipay/flow-deposit.jpg" alt="Complete deposit flow: add card, choose account, quick amounts, BOG and TBC card selection, processing, success and denied states" loading="lazy"><figcaption>The full deposit flow — including the unhappy paths. Quick-amount chips (10/20/50/100₾), local BOG &amp; TBC card support, and explicit processing / success / denied endings.</figcaption></figure>
-  <h3>Small decisions that carry the trust</h3>
-  <p>The IBAN is masked but one-tap copyable. Amounts get quick-select chips because most top-ups are round numbers. Multi-currency balances sit in pill switchers directly under the main balance, so "how much do I have in dollars?" never requires navigation. Blocking your account is one tap from Home — panic features must never hide in settings.</p>
+  <h2>Key features, and why they work this way</h2>
+
+  <h3>Home: the answer before the question</h3>
+  <p>The home screen leads with the physical card and total balance, currency chips directly beneath (₾ 15,354.60 / $ 14.53 / € 0.00), then the five actions people actually come for: Deposit, Withdraw, Transfer, Block, Card details. The hexagonal <strong>PAY</strong> button anchors the tab bar — payment is the center of the product, so it's the literal center of navigation.</p>
+
+  <h3>Deposits that survive failure</h3>
+  <p>Top-ups come from local <strong>BOG and TBC cards</strong> — the two cards every Georgian actually owns. Quick-amount chips (10 / 20 / 50 / 100₾) cover most real deposits; card entry supports save-for-next-time; and the flow always resolves to an explicit end state.</p>
+  <figure class="cs-fig"><img src="../assets/case/multipay/flow-deposit.jpg" alt="Complete deposit flow: add card, choose account, quick amounts, BOG and TBC card selection, processing, success and denied states" loading="lazy"><figcaption>The full deposit flow — including the unhappy paths: processing, success, and denied with a reason and retry.</figcaption></figure>
+
+  <h3>Three transfers, one mental model</h3>
+  <p>Internal same-currency, internal with exchange, and external to IBAN are three separate flows in the spec — but to the user they're the same four questions: from, to, amount, confirm. Exchange shows the rate inline at the amount step, so converting salary into dollars is a transfer, not a feature to find.</p>
+
+  <h3>Withdrawals &amp; cards</h3>
+  <p>Money leaves either to a bank card or an IBAN — mirrored flows with the same confirmation contract. Card management covers linking, blocking and detail views without leaving the wallet.</p>
+  <div class="cs-grid2">
+    <figure class="cs-fig"><img src="../assets/case/multipay/flow-withdraw.jpg" alt="Withdrawal flow to card with confirmation and result states" loading="lazy"><figcaption>Withdraw to card — same contract: source, destination, amount, explicit ending.</figcaption></figure>
+    <figure class="cs-fig"><img src="../assets/case/multipay/my-cards.jpg" alt="My Cards management screens" loading="lazy"><figcaption>My Cards — link, view, block.</figcaption></figure>
+  </div>
+
+  <h3>Security users can feel</h3>
+  <p>Face ID / Touch ID after first login, a Devices screen listing every active session, and account blocking one tap from Home. Security isn't a settings page — it's furniture in the main rooms of the app.</p>
+  <figure class="cs-fig"><img src="../assets/case/multipay/faceid-exploration.jpg" alt="Face ID and Touch ID enablement screens" loading="lazy"><figcaption>Biometric enablement — designed so the password becomes a one-time event.</figcaption></figure>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
   <h2>Onboarding &amp; KYC: the messy middle</h2>
-  <p>KYC is where wallets lose users. I explored it wide — OTP entry, document scanning, selfie liveness — and designed every failure state, not just the happy path: blurry ID, rejected selfie, pending review, verified. The exploration page grew to 160+ screens before the final flow was distilled.</p>
+  <p>KYC is where wallets lose users. I explored it wide — OTP entry, document scanning, selfie liveness — and designed every failure state, not just the happy path: blurry ID, rejected selfie, pending review, verified. The exploration page alone grew past 600 screens before the final flow was distilled.</p>
   <figure class="cs-fig"><img src="../assets/case/multipay/playground-kyc.jpg" alt="KYC exploration: ID document scanning, selfie liveness check with rejected, pending and verified states" loading="lazy"><figcaption>Straight from my exploration page: ID scan and selfie liveness with rejected / pending / verified states. I keep the messy middle — it's where the real decisions happened.</figcaption></figure>
-  <figure class="cs-fig"><img src="../assets/case/multipay/playground-registration.jpg" alt="Registration and OTP flow explorations" loading="lazy"><figcaption>Registration &amp; OTP explorations. After first login, the app offers Face ID / Touch ID so the password is a one-time event.</figcaption></figure>
+  <figure class="cs-fig"><img src="../assets/case/multipay/playground-registration.jpg" alt="Registration and OTP flow explorations" loading="lazy"><figcaption>Registration &amp; OTP explorations — the status of your verification is always a screen, never an email.</figcaption></figure>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
   <h2>A component system, not a screen pile</h2>
-  <p>Every overlay in the app is built from two documented structures — a popup and an action drawer — with fixed spacing rules. Buttons, inputs, selects and OTP fields each ship with neutral, focused, typed, error and disabled states. That's what made 20+ flows consistent without 20+ redesigns.</p>
+  <p>2,000+ screens stay consistent because they're built from <strong>49 components</strong> and two documented overlay structures — a popup and an action drawer — with fixed spacing rules. Buttons, inputs, selects and OTP fields each ship with neutral, focused, typed, error and disabled states. That's what made 20+ flows consistent without 20+ redesigns.</p>
   <div class="cs-grid2">
     <figure class="cs-fig"><img src="../assets/case/multipay/popup-structure.jpg" alt="Documented popup structure with spacing rules" loading="lazy"><figcaption>Popup structure</figcaption></figure>
     <figure class="cs-fig"><img src="../assets/case/multipay/drawer-structure.jpg" alt="Documented action drawer structure with spacing rules" loading="lazy"><figcaption>Action drawer structure</figcaption></figure>
@@ -111,7 +162,7 @@
 
 <section class="proj-section"><div class="container anim">
   <h2>Designed twice: English and Georgian</h2>
-  <p>Georgian isn't a translation pass — it's a layout stress test. Georgian strings run long and the script has no uppercase, which changes button widths, truncation rules and typographic hierarchy. Every flow was rebuilt and reviewed in Georgian before handoff, not after.</p>
+  <p>Georgian isn't a translation pass — it's a layout stress test. Georgian strings run long and the script has no uppercase, which changes button widths, truncation rules and typographic hierarchy. All 20+ flows — 300+ screens — were rebuilt and reviewed in Georgian before handoff, not after.</p>
   <figure class="cs-fig"><img src="../assets/case/multipay/georgian-home.jpg" alt="Multipay home and account flows fully localized in Georgian" loading="lazy"><figcaption>The full home &amp; accounts flow in Georgian — shipped as a first-class version, not an afterthought.</figcaption></figure>
 </div></section>
 
@@ -119,7 +170,7 @@
   <h2>The handoff</h2>
   <p>The final deliverable was a dedicated Handoff page: 20 flows — sign-in, registration, deposits, three transfer types, two withdrawal types, cards, transactions, notifications, devices, account management — each laid out screen-by-screen with the style guide at the top. A developer can build any screen without asking "what happens if this fails?", because the answer is already drawn.</p>
   <figure class="cs-fig"><img src="../assets/case/multipay/handoff-home.jpg" alt="Handoff documentation of the homepage and inside-accounts flow" loading="lazy"><figcaption>Handoff page: Homepage &amp; inside-accounts, documented end to end.</figcaption></figure>
-  <div class="cs-callout"><p>"Research, five directions, 160 explorations, one system, two languages, twenty documented flows — one month."</p></div>
+  <div class="cs-callout"><p>"Research, five directions, 2,000+ screens, 49 components, two languages, twenty documented flows — one month."</p></div>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
