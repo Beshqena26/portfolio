@@ -48,10 +48,12 @@
 </section>
 
 <div class="container anim">
-  <div class="cs-phones">
-    <img src="../assets/case/multipay/phone-home-1.jpg" alt="Multipay primary account screen with black premium card, GEL balance and multi-currency chips">
-    <img src="../assets/case/multipay/phone-home-2.jpg" alt="Multipay account screen variant" loading="lazy">
-    <img src="../assets/case/multipay/phone-home-3.jpg" alt="Multipay account screen variant" loading="lazy">
+  <div class="cs-showcase">
+    <div class="cs-phones">
+      <div class="cs-device"><img src="../assets/case/multipay/phone-home-2.jpg" alt="Multipay account screen variant"></div>
+      <div class="cs-device lift"><img src="../assets/case/multipay/phone-home-1.jpg" alt="Multipay primary account screen with black premium card, GEL balance and multi-currency chips"></div>
+      <div class="cs-device"><img src="../assets/case/multipay/phone-home-3.jpg" alt="Multipay account screen variant" loading="lazy"></div>
+    </div>
   </div>
 </div>
 
@@ -118,7 +120,7 @@
 
   <h3>Deposits that survive failure</h3>
   <p>Top-ups come from local <strong>BOG and TBC cards</strong> — the two cards every Georgian actually owns. Quick-amount chips (10 / 20 / 50 / 100₾) cover most real deposits; card entry supports save-for-next-time; and the flow always resolves to an explicit end state.</p>
-  <figure class="cs-fig"><img src="../assets/case/multipay/flow-deposit.jpg" alt="Complete deposit flow: add card, choose account, quick amounts, BOG and TBC card selection, processing, success and denied states" loading="lazy"><figcaption>The full deposit flow — including the unhappy paths: processing, success, and denied with a reason and retry.</figcaption></figure>
+  <figure class="cs-fig panel"><div class="panel-bg"><img src="../assets/case/multipay/flow-deposit.jpg" alt="Complete deposit flow: add card, choose account, quick amounts, BOG and TBC card selection, processing, success and denied states" loading="lazy"></div><figcaption>The full deposit flow — including the unhappy paths: processing, success, and denied with a reason and retry.</figcaption></figure>
 
   <h3>Three transfers, one mental model</h3>
   <p>Internal same-currency, internal with exchange, and external to IBAN are three separate flows in the spec — but to the user they're the same four questions: from, to, amount, confirm. Exchange shows the rate inline at the amount step, so converting salary into dollars is a transfer, not a feature to find.</p>
@@ -132,13 +134,13 @@
 
   <h3>Security users can feel</h3>
   <p>Face ID / Touch ID after first login, a Devices screen listing every active session, and account blocking one tap from Home. Security isn't a settings page — it's furniture in the main rooms of the app.</p>
-  <figure class="cs-fig"><img src="../assets/case/multipay/faceid-exploration.jpg" alt="Face ID and Touch ID enablement screens" loading="lazy"><figcaption>Biometric enablement — designed so the password becomes a one-time event.</figcaption></figure>
+  <figure class="cs-fig panel"><div class="panel-bg"><img src="../assets/case/multipay/faceid-exploration.jpg" alt="Face ID and Touch ID enablement screens" loading="lazy"></div><figcaption>Biometric enablement — designed so the password becomes a one-time event.</figcaption></figure>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
   <h2>Onboarding &amp; KYC: the messy middle</h2>
   <p>KYC is where wallets lose users. I explored it wide — OTP entry, document scanning, selfie liveness — and designed every failure state, not just the happy path: blurry ID, rejected selfie, pending review, verified. The exploration page alone grew past 600 screens before the final flow was distilled.</p>
-  <figure class="cs-fig"><img src="../assets/case/multipay/playground-kyc.jpg" alt="KYC exploration: ID document scanning, selfie liveness check with rejected, pending and verified states" loading="lazy"><figcaption>Straight from my exploration page: ID scan and selfie liveness with rejected / pending / verified states. I keep the messy middle — it's where the real decisions happened.</figcaption></figure>
+  <figure class="cs-fig panel"><div class="panel-bg"><img src="../assets/case/multipay/playground-kyc.jpg" alt="KYC exploration: ID document scanning, selfie liveness check with rejected, pending and verified states" loading="lazy"></div><figcaption>Straight from my exploration page: ID scan and selfie liveness with rejected / pending / verified states. I keep the messy middle — it's where the real decisions happened.</figcaption></figure>
   <figure class="cs-fig"><img src="../assets/case/multipay/playground-registration.jpg" alt="Registration and OTP flow explorations" loading="lazy"><figcaption>Registration &amp; OTP explorations — the status of your verification is always a screen, never an email.</figcaption></figure>
 </div></section>
 
@@ -163,13 +165,13 @@
 <section class="proj-section"><div class="container anim">
   <h2>Designed twice: English and Georgian</h2>
   <p>Georgian isn't a translation pass — it's a layout stress test. Georgian strings run long and the script has no uppercase, which changes button widths, truncation rules and typographic hierarchy. All 20+ flows — 300+ screens — were rebuilt and reviewed in Georgian before handoff, not after.</p>
-  <figure class="cs-fig"><img src="../assets/case/multipay/georgian-home.jpg" alt="Multipay home and account flows fully localized in Georgian" loading="lazy"><figcaption>The full home &amp; accounts flow in Georgian — shipped as a first-class version, not an afterthought.</figcaption></figure>
+  <figure class="cs-fig panel"><div class="panel-bg"><img src="../assets/case/multipay/georgian-home.jpg" alt="Multipay home and account flows fully localized in Georgian" loading="lazy"></div><figcaption>The full home &amp; accounts flow in Georgian — shipped as a first-class version, not an afterthought.</figcaption></figure>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
   <h2>The handoff</h2>
   <p>The final deliverable was a dedicated Handoff page: 20 flows — sign-in, registration, deposits, three transfer types, two withdrawal types, cards, transactions, notifications, devices, account management — each laid out screen-by-screen with the style guide at the top. A developer can build any screen without asking "what happens if this fails?", because the answer is already drawn.</p>
-  <figure class="cs-fig"><img src="../assets/case/multipay/handoff-home.jpg" alt="Handoff documentation of the homepage and inside-accounts flow" loading="lazy"><figcaption>Handoff page: Homepage &amp; inside-accounts, documented end to end.</figcaption></figure>
+  <figure class="cs-fig panel"><div class="panel-bg"><img src="../assets/case/multipay/handoff-home.jpg" alt="Handoff documentation of the homepage and inside-accounts flow" loading="lazy"></div><figcaption>Handoff page: Homepage &amp; inside-accounts, documented end to end.</figcaption></figure>
   <div class="cs-callout"><p>"Research, five directions, 2,000+ screens, 49 components, two languages, twenty documented flows — one month."</p></div>
 </div></section>
 
