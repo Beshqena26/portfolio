@@ -324,6 +324,45 @@ figure.cs-fig.panel img{border-radius:12px;border:1px solid rgba(255,255,255,.08
   .cs-next strong{font-size:17px}
 }
 
+/* ===== CASE STUDY: PERSONAS / JOURNEY / FLOW ===== */
+.cs-personas{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
+.persona{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:26px}
+.persona-head{display:flex;gap:14px;align-items:center}
+.persona-ava{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;background:linear-gradient(135deg,rgba(44,79,255,.35),rgba(44,79,255,.08));border:1px solid rgba(44,79,255,.35)}
+.persona-head strong{display:block;font-size:16px}
+.persona-head span{font-size:12.5px;color:var(--text2)}
+.persona-quote{font-size:14px;font-style:italic;border-left:3px solid var(--accent);padding-left:12px;margin:16px 0;line-height:1.6}
+.persona h6{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent2);margin:16px 0 8px;font-weight:700}
+.persona ul{list-style:none;padding:0;margin:0}
+.persona li{font-size:13.5px;color:var(--text2);padding-left:16px;position:relative;margin-bottom:5px;line-height:1.55}
+.persona li::before{content:'—';position:absolute;left:0;color:var(--accent)}
+.journey-scroll{overflow-x:auto;margin:28px 0;border:1px solid var(--border);border-radius:var(--r2);-webkit-overflow-scrolling:touch}
+.journey{display:grid;grid-template-columns:104px repeat(5,minmax(158px,1fr));min-width:940px;background:var(--surface)}
+.j-cell{padding:13px 14px;border-bottom:1px solid var(--border);border-left:1px solid var(--border);font-size:12.5px;color:var(--text2);line-height:1.55}
+.j-cell:nth-child(6n+1){border-left:none}
+.journey>.j-cell:nth-last-child(-n+6){border-bottom:none}
+.j-head{font-weight:700;color:var(--text);font-size:13px;background:var(--surface2)}
+.j-label{font-size:10.5px;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--accent2);display:flex;align-items:center}
+.j-emo{text-align:center;font-size:24px}
+.j-emo em{display:block;font-style:normal;font-size:11px;color:var(--text2);margin-top:2px}
+.j-fix{color:var(--text)}
+.j-fix::before{content:'→ ';color:var(--green)}
+.journey-hint{display:none;font-size:12px;color:var(--text2);text-align:center;margin-top:-18px;margin-bottom:24px}
+.uflow-lane{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2);font-weight:700;margin:24px 0 10px}
+.uflow{display:flex;flex-wrap:wrap;gap:8px;row-gap:12px;align-items:center}
+.uf-node{padding:9px 15px;border-radius:10px;background:var(--surface);border:1px solid var(--border);font-size:13px;font-weight:600;white-space:nowrap}
+.uf-node.start{border-radius:50px;border-color:var(--accent);color:var(--accent)}
+.uf-node.decision{border-color:rgba(245,158,11,.5);color:#f59e0b;border-style:dashed}
+.uf-node.good{border-color:rgba(52,211,153,.4);color:var(--green)}
+.uf-node.bad{border-color:rgba(239,68,68,.4);color:#ef4444}
+.uf-arrow{color:var(--text2);font-size:14px}
+.uf-fork{display:flex;flex-direction:column;gap:6px}
+.uf-fork .uf-mini{display:flex;gap:6px;align-items:center;font-size:12px}
+@media(max-width:768px){
+  .cs-personas{grid-template-columns:1fr}
+  .journey-hint{display:block}
+}
+
 /* ===== CASE STUDY: LIVE DESIGN SYSTEM ===== */
 .ds{--mp-bg:#090411;--mp-drawer:#0E1020;--mp-stroke:#22273F;--mp-select:#1A182D;--mp-primary:#2C4FFF;--mp-text2:#7584A3;--mp-success:#49BA27;--mp-warn:#FFA812;--mp-error:#FF2D55;
   background:var(--mp-bg);border:1px solid #1c2247;border-radius:22px;padding:40px;margin:32px 0;color:#fff;font-family:'Inter',sans-serif}

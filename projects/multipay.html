@@ -78,12 +78,91 @@
     <li><strong>Local wallets (eMoney, PayBox-style services)</strong> — great at utility payments, but dated visually, weak on multi-currency, and English-first or mixed-language in the worst places (errors, legal text).</li>
     <li><strong>Revolut-style neobanks</strong> — the UX benchmark, but not built for Georgia: no first-class GEL rails, no Georgian language, and top-ups from local cards are where they hurt.</li>
   </ul>
-  <h3>What the research changed in the design</h3>
-  <ul>
-    <li>People convert currency <strong>on salary day, in round amounts</strong> → exchange lives inside the transfer flow with quick-amount chips, not in a separate "FX" section.</li>
-    <li>The #1 stated fear was <strong>"my money disappears mid-transfer"</strong> → every transaction must end in an explicit Processing / Successful / Denied state with a reason and a next step.</li>
-    <li>KYC abandonment comes from <strong>uncertainty, not effort</strong> — people quit when documents vanish "into review" → verification states (pending / rejected / verified) are first-class screens, not emails.</li>
-  </ul>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Who I designed for</h2>
+  <div class="cs-personas">
+    <div class="persona">
+      <div class="persona-head">
+        <div class="persona-ava">👩‍💻</div>
+        <div><strong>Nino, 27 — Freelance designer</strong><span>Paid in USD by foreign clients · spends in GEL</span></div>
+      </div>
+      <p class="persona-quote">"Every time my salary lands I lose money — the bank's rate, the transfer fee, the waiting."</p>
+      <h6>Goals</h6>
+      <ul>
+        <li>Convert USD → GEL on salary day at a rate she can see upfront</li>
+        <li>One place for balances in both currencies</li>
+        <li>Instant card for everyday GEL spending</li>
+      </ul>
+      <h6>Frustrations</h6>
+      <ul>
+        <li>FX buried several taps deep in her banking app</li>
+        <li>Fees revealed only after the transfer</li>
+        <li>Juggling two banks to reach the better rate</li>
+      </ul>
+    </div>
+    <div class="persona">
+      <div class="persona-head">
+        <div class="persona-ava">👨‍🔧</div>
+        <div><strong>Dato, 43 — Shop owner</strong><span>Cash-first habits · large balances · low app trust</span></div>
+      </div>
+      <p class="persona-quote">"If I can't see where my money is right now, I don't trust the app holding it."</p>
+      <h6>Goals</h6>
+      <ul>
+        <li>Top up fast from the TBC card he already owns</li>
+        <li>Always-visible balance — no hidden states</li>
+        <li>Freeze everything instantly if his phone is lost</li>
+      </ul>
+      <h6>Frustrations</h6>
+      <ul>
+        <li>Verification that swallows his documents "into review"</li>
+        <li>Transfers that end without a clear confirmation</li>
+        <li>Security options hidden deep in settings</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Journey map — from download to daily use</h3>
+  <div class="journey-scroll">
+    <div class="journey">
+      <div class="j-cell j-head"></div>
+      <div class="j-cell j-head">Discover</div>
+      <div class="j-cell j-head">Register</div>
+      <div class="j-cell j-head">Verify (KYC)</div>
+      <div class="j-cell j-head">First deposit</div>
+      <div class="j-cell j-head">Exchange &amp; daily use</div>
+
+      <div class="j-cell j-label">Doing</div>
+      <div class="j-cell">Downloads after hearing about multi-currency accounts</div>
+      <div class="j-cell">Phone number, OTP, password, enables Face ID</div>
+      <div class="j-cell">Fills personal info, scans ID, takes a selfie</div>
+      <div class="j-cell">Links a BOG/TBC card, picks an amount, confirms</div>
+      <div class="j-cell">Converts salary ₾↔$, transfers, checks balances</div>
+
+      <div class="j-cell j-label">Feeling</div>
+      <div class="j-cell j-emo">🙂<em>curious</em></div>
+      <div class="j-cell j-emo">😐<em>cautious</em></div>
+      <div class="j-cell j-emo">😟<em>anxious — the low point</em></div>
+      <div class="j-cell j-emo">😬<em>testing with small money</em></div>
+      <div class="j-cell j-emo">😌<em>confident</em></div>
+
+      <div class="j-cell j-label">Pain point</div>
+      <div class="j-cell">"Another wallet app?" — no reason to trust it yet</div>
+      <div class="j-cell">Password rules and OTP friction invite drop-off</div>
+      <div class="j-cell">Fear of documents vanishing "into review"</div>
+      <div class="j-cell">"What if the money disappears mid-transfer?"</div>
+      <div class="j-cell">Rates and fees usually hidden until too late</div>
+
+      <div class="j-cell j-label">Design response</div>
+      <div class="j-cell j-fix">Balance-first home shown in store screens</div>
+      <div class="j-cell j-fix">One question per screen; biometrics offered, never forced</div>
+      <div class="j-cell j-fix">Pending / rejected / verified are real screens with next steps</div>
+      <div class="j-cell j-fix">Quick chips, saved cards, explicit success / denied endings</div>
+      <div class="j-cell j-fix">Rate shown inline at the amount step, inside the transfer</div>
+    </div>
+  </div>
+  <p class="journey-hint">← swipe the map →</p>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
@@ -162,7 +241,45 @@
 <section class="proj-section"><div class="container anim">
   <h2>Onboarding: a real flow, not a happy path</h2>
   <p>KYC is where wallets lose users, so onboarding was designed as one continuous journey — register, verify your phone, secure the account, prove your identity — with every failure state drawn: blurry ID, rejected selfie, pending review. My exploration page grew past 600 screens before this flow was distilled.</p>
-  <p><strong>Don't take my word for it — tap through it.</strong> This is the same click-through build I use for usability testing:</p>
+  <div class="uflow-lane">User flow — onboarding</div>
+  <div class="uflow">
+    <span class="uf-node start">Download</span><span class="uf-arrow">→</span>
+    <span class="uf-node">Register — phone</span><span class="uf-arrow">→</span>
+    <span class="uf-node">OTP</span><span class="uf-arrow">→</span>
+    <span class="uf-node">Password</span><span class="uf-arrow">→</span>
+    <span class="uf-node decision">Biometrics?</span>
+    <span class="uf-fork">
+      <span class="uf-mini"><span class="uf-node good">Enable Face ID</span></span>
+      <span class="uf-mini"><span class="uf-node">Skip for now</span></span>
+    </span>
+    <span class="uf-arrow">→</span>
+    <span class="uf-node">KYC — personal info</span><span class="uf-arrow">→</span>
+    <span class="uf-node">ID scan</span><span class="uf-arrow">→</span>
+    <span class="uf-node decision">Liveness check</span>
+    <span class="uf-fork">
+      <span class="uf-mini"><span class="uf-node good">Verified</span><span class="uf-arrow">→</span><span class="uf-node">Home</span></span>
+      <span class="uf-mini"><span class="uf-node bad">Rejected</span><span class="uf-arrow">→</span><span class="uf-node">Retry with guidance</span></span>
+      <span class="uf-mini"><span class="uf-node">Pending</span><span class="uf-arrow">→</span><span class="uf-node">Status screen, not email</span></span>
+    </span>
+  </div>
+  <div class="uflow-lane">User flow — first deposit</div>
+  <div class="uflow">
+    <span class="uf-node start">Home</span><span class="uf-arrow">→</span>
+    <span class="uf-node">Deposit</span><span class="uf-arrow">→</span>
+    <span class="uf-node decision">Card?</span>
+    <span class="uf-fork">
+      <span class="uf-mini"><span class="uf-node good">Saved BOG / TBC</span></span>
+      <span class="uf-mini"><span class="uf-node">Add new card</span></span>
+    </span>
+    <span class="uf-arrow">→</span>
+    <span class="uf-node">Amount + quick chips</span><span class="uf-arrow">→</span>
+    <span class="uf-node">Confirm</span><span class="uf-arrow">→</span>
+    <span class="uf-fork">
+      <span class="uf-mini"><span class="uf-node good">Success</span></span>
+      <span class="uf-mini"><span class="uf-node bad">Denied</span><span class="uf-arrow">→</span><span class="uf-node">Reason + retry</span></span>
+    </span>
+  </div>
+  <p style="margin-top:24px"><strong>Now tap through it.</strong> The same click-through build I use for usability testing:</p>
   <div class="cs-showcase">
     <div class="proto-wrap">
       <div class="proto-device" id="protoDevice" role="button" tabindex="0" aria-label="Interactive onboarding prototype — tap to advance">
