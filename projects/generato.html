@@ -179,7 +179,7 @@ a{color:inherit;text-decoration:none}
 .elastic:hover{transform:translateY(-12px) scale(1.03);box-shadow:0 24px 48px rgba(255,255,255,.1)}
 
 /* ===== STROKE TEXT (outline only) ===== */
-.stroke-text{-webkit-text-stroke:2px #0a0a0a;color:transparent;transition:color 1s var(--ease),-webkit-text-stroke-color 1s var(--ease)}
+.stroke-text{-webkit-text-stroke:2px rgba(255,255,255,.75);color:transparent;transition:color 1s var(--ease),-webkit-text-stroke-color 1s var(--ease)}
 .stroke-text.vis,.stroke-text:hover{color:#eee;-webkit-text-stroke-color:transparent}
 .stroke-text--white{-webkit-text-stroke-color:rgba(255,255,255,.3);color:transparent}
 .stroke-text--white.vis{color:#fff;-webkit-text-stroke-color:transparent}
@@ -285,7 +285,7 @@ a{color:inherit;text-decoration:none}
 .app-main{flex:1;padding:16px 20px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
 .app-prompt{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px 14px}
 .app-input{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:9px 11px;font-size:11.5px;color:#8a8a8a;margin-bottom:8px}
-.app-enhanced{background:rgba(255,107,53,.05);border:1px solid rgba(255,107,53,.12);border-radius:7px;padding:9px 11px;font-size:10.5px;color:#c4a0ff;line-height:1.5}
+.app-enhanced{background:rgba(255,107,53,.05);border:1px solid rgba(255,107,53,.12);border-radius:7px;padding:9px 11px;font-size:10.5px;color:#ffb088;line-height:1.5}
 .app-enhanced b{color:#ff8c5a}
 .app-tag{display:inline-block;font-size:8px;font-weight:700;padding:2px 6px;border-radius:3px;background:rgba(255,107,53,.14);color:#ff8c5a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
 .app-meter{display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(255,255,255,.03);border-radius:8px}
@@ -387,7 +387,7 @@ a{color:inherit;text-decoration:none}
 .wf__name{font-family:var(--fh);font-size:15px;font-weight:700;margin-bottom:3px;color:#eee}
 .wf__desc{font-size:12px;color:#8a8a8a}
 .wf__badge{display:inline-block;font-size:9px;font-weight:700;padding:4px 12px;border-radius:100px;margin-top:8px;text-transform:uppercase;letter-spacing:.04em}
-.wf__badge--y{background:#0a0a0a;color:#fff}
+.wf__badge--y{background:#ff6b35;color:#fff}
 .wf__badge--n{background:#1c1c1c;color:#7d7d7d}
 
 /* Decision caption */
@@ -426,7 +426,7 @@ a{color:inherit;text-decoration:none}
 .jmap__pain strong{display:block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7d7d7d;margin-bottom:4px}
 .jmap__curve{margin-top:clamp(24px,4vh,40px);position:relative;height:80px}
 .jmap__curve svg{display:block;width:100%;height:100%;overflow:visible}
-.jmap__curve-path{fill:none;stroke:#0a0a0a;stroke-width:2}
+.jmap__curve-path{fill:none;stroke:#ff6b35;stroke-width:2}
 .jmap__curve-area{fill:rgba(255,255,255,.06)}
 .jmap__curve-label{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;fill:#999}
 @media(max-width:900px){.jmap__grid{grid-template-columns:1fr;gap:32px}.jmap__action,.jmap__thought{min-height:auto}.jmap__curve{display:none}}
@@ -852,8 +852,8 @@ a{color:inherit;text-decoration:none}
 <!-- ===== PRODUCT SHOWCASE — CINEMATIC ===== -->
 <div class="dark showcase" data-darkglow>
   <div class="dark-glow"></div>
-  <div class="morph-blob" style="width:420px;height:420px;background:#a855f7;top:10%;left:15%"></div>
-  <div class="morph-blob" style="width:340px;height:340px;background:#6366f1;bottom:10%;right:15%;animation-delay:3s"></div>
+  <div class="morph-blob" style="width:420px;height:420px;background:#ff6b35;top:10%;left:15%"></div>
+  <div class="morph-blob" style="width:340px;height:340px;background:#ff8c5a;bottom:10%;right:15%;animation-delay:3s"></div>
   <p class="showcase__label rv rv--blur">The Product</p>
   <div class="w rv rv--scale">
     <div class="ph ph--hero ph--dark"></div>
@@ -943,9 +943,9 @@ a{color:inherit;text-decoration:none}
 <!-- ===== INSIGHT — FULL VIEWPORT BLACK ===== -->
 <div class="dark insight" data-darkglow>
   <div class="dark-glow"></div>
-  <div class="glow-dot" style="width:300px;height:300px;background:rgba(168,85,247,.08);top:20%;left:10%"></div>
-  <div class="glow-dot" style="width:200px;height:200px;background:rgba(99,102,241,.06);bottom:15%;right:15%;animation-delay:2s"></div>
-  <div class="morph-blob" style="width:350px;height:350px;background:#a855f7;top:30%;right:20%;animation-delay:2s"></div>
+  <div class="glow-dot" style="width:300px;height:300px;background:rgba(255,107,53,.08);top:20%;left:10%"></div>
+  <div class="glow-dot" style="width:200px;height:200px;background:rgba(255,140,90,.06);bottom:15%;right:15%;animation-delay:2s"></div>
+  <div class="morph-blob" style="width:350px;height:350px;background:#ff6b35;top:30%;right:20%;animation-delay:2s"></div>
   <div class="rv rv--blur">
     <p class="insight__text" data-split="word">The problem wasn't the AI.<br>It was the gap between what users <em>imagined</em> and what they could <em>describe</em>.</p>
   </div>
@@ -1142,11 +1142,11 @@ a{color:inherit;text-decoration:none}
             <line class="ia-line" x1="120" y1="140" x2="50" y2="190"/><line class="ia-line" x1="120" y1="140" x2="190" y2="190"/>
             <rect class="ia-node" x="0" y="190" width="100" height="36" rx="10" ry="10"/><text class="ia-sub" x="50" y="213" text-anchor="middle">Recent</text>
             <rect class="ia-node" x="140" y="190" width="100" height="36" rx="10" ry="10"/><text class="ia-sub" x="190" y="213" text-anchor="middle">Quick Start</text>
-            <line class="ia-line" x1="295" y1="140" x2="240" y2="190" style="stroke:#0a0a0a;opacity:.15"/><line class="ia-line" x1="330" y1="140" x2="340" y2="190" style="stroke:#0a0a0a;opacity:.15"/><line class="ia-line" x1="370" y1="140" x2="440" y2="190" style="stroke:#0a0a0a;opacity:.15"/>
+            <line class="ia-line" x1="295" y1="140" x2="240" y2="190" style="stroke:#fff;opacity:.18"/><line class="ia-line" x1="330" y1="140" x2="340" y2="190" style="stroke:#fff;opacity:.18"/><line class="ia-line" x1="370" y1="140" x2="440" y2="190" style="stroke:#fff;opacity:.18"/>
             <rect class="ia-node ia-root" x="185" y="190" width="110" height="36" rx="10" ry="10"/><text class="ia-sub" x="240" y="213" text-anchor="middle" style="font-size:10px;fill:#0a0a0a">Prompt Input</text>
             <rect class="ia-node ia-root" x="305" y="190" width="70" height="36" rx="10" ry="10"/><text class="ia-sub" x="340" y="213" text-anchor="middle" style="font-size:10px;fill:#0a0a0a">Enhance</text>
             <rect class="ia-node ia-root" x="385" y="190" width="110" height="36" rx="10" ry="10"/><text class="ia-sub" x="440" y="213" text-anchor="middle" style="font-size:10px;fill:#0a0a0a">Strength</text>
-            <line class="ia-line" x1="240" y1="226" x2="195" y2="270" style="stroke:#0a0a0a;opacity:.1"/><line class="ia-line" x1="240" y1="226" x2="290" y2="270" style="stroke:#0a0a0a;opacity:.1"/><line class="ia-line" x1="440" y1="226" x2="440" y2="270" style="stroke:#0a0a0a;opacity:.1"/>
+            <line class="ia-line" x1="240" y1="226" x2="195" y2="270" style="stroke:#fff;opacity:.12"/><line class="ia-line" x1="240" y1="226" x2="290" y2="270" style="stroke:#fff;opacity:.12"/><line class="ia-line" x1="440" y1="226" x2="440" y2="270" style="stroke:#fff;opacity:.12"/>
             <rect class="ia-node" x="145" y="270" width="100" height="32" rx="10" ry="10"/><text class="ia-sub" x="195" y="291" text-anchor="middle" style="font-size:9px">Style Options</text>
             <rect class="ia-node" x="255" y="270" width="70" height="32" rx="10" ry="10"/><text class="ia-sub" x="290" y="291" text-anchor="middle" style="font-size:9px">Advanced</text>
             <rect class="ia-node" x="390" y="270" width="100" height="32" rx="10" ry="10"/><text class="ia-sub" x="440" y="291" text-anchor="middle" style="font-size:9px">Score Detail</text>
@@ -1365,7 +1365,7 @@ a{color:inherit;text-decoration:none}
 <!-- ===== FINAL PRODUCT SHOT ===== -->
 <div class="dark" data-darkglow style="padding:clamp(80px,14vh,180px) 0;text-align:center">
   <div class="dark-glow"></div>
-  <div class="morph-blob" style="width:500px;height:500px;background:#a855f7;top:10%;left:50%;transform:translateX(-50%);animation-delay:1s"></div>
+  <div class="morph-blob" style="width:500px;height:500px;background:#ff6b35;top:10%;left:50%;transform:translateX(-50%);animation-delay:1s"></div>
   <div class="w">
     <p class="rv rv--blur" style="font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:clamp(24px,4vh,48px)">The final product</p>
     <div class="rv rv--scale" style="max-width:1100px;margin:0 auto">
@@ -1534,7 +1534,7 @@ a{color:inherit;text-decoration:none}
   /* ===== CURSOR GLOW (subtle) ===== */
   if(!prefersRM&&window.innerWidth>768){
     const glow=document.createElement('div');
-    glow.style.cssText='position:fixed;width:300px;height:300px;border-radius:50%;pointer-events:none;z-index:9998;background:radial-gradient(circle,rgba(168,85,247,.03) 0%,transparent 70%);transform:translate(-50%,-50%);transition:opacity .3s;opacity:0';
+    glow.style.cssText='position:fixed;width:300px;height:300px;border-radius:50%;pointer-events:none;z-index:9998;background:radial-gradient(circle,rgba(255,107,53,.03) 0%,transparent 70%);transform:translate(-50%,-50%);transition:opacity .3s;opacity:0';
     document.body.appendChild(glow);
     let glowRaf;
     document.addEventListener('mousemove',e=>{
@@ -1855,20 +1855,20 @@ a{color:inherit;text-decoration:none}
 
   function buildScreen(s){
     let html='<div class="lb__screen"><div class="lb__screen-bar"><div class="lb__screen-dot" style="background:#ff5f57"></div><div class="lb__screen-dot" style="background:#ffbd2e"></div><div class="lb__screen-dot" style="background:#27c93f"></div></div><div class="lb__screen-inner">';
-    if(s.hasFilter)html+='<div style="display:flex;gap:6px;margin-bottom:10px"><span style="font-size:8px;padding:3px 8px;border-radius:10px;background:rgba(168,85,247,.12);color:#c084fc">All</span><span style="font-size:8px;padding:3px 8px;border-radius:10px;background:rgba(255,255,255,.04);color:#555">Portraits</span><span style="font-size:8px;padding:3px 8px;border-radius:10px;background:rgba(255,255,255,.04);color:#555">Landscapes</span></div>';
-    if(s.hasChat)html+='<div style="display:flex;flex-direction:column;gap:8px;flex:1"><div style="align-self:flex-start;background:rgba(255,255,255,.04);border-radius:8px 8px 8px 2px;padding:8px 12px;font-size:10px;color:#888;max-width:75%">What subject would you like?</div><div style="align-self:flex-end;background:rgba(168,85,247,.08);border-radius:8px 8px 2px 8px;padding:8px 12px;font-size:10px;color:#b0a0cc;max-width:75%">A cat in a window</div><div style="align-self:flex-start;background:rgba(255,255,255,.04);border-radius:8px 8px 8px 2px;padding:8px 12px;font-size:10px;color:#888;max-width:75%">What mood or lighting?</div><div style="align-self:flex-end;background:rgba(168,85,247,.08);border-radius:8px 8px 2px 8px;padding:8px 12px;font-size:10px;color:#b0a0cc;max-width:75%">Warm, sunset</div></div>';
+    if(s.hasFilter)html+='<div style="display:flex;gap:6px;margin-bottom:10px"><span style="font-size:8px;padding:3px 8px;border-radius:10px;background:rgba(255,107,53,.12);color:#ff8c5a">All</span><span style="font-size:8px;padding:3px 8px;border-radius:10px;background:rgba(255,255,255,.04);color:#555">Portraits</span><span style="font-size:8px;padding:3px 8px;border-radius:10px;background:rgba(255,255,255,.04);color:#555">Landscapes</span></div>';
+    if(s.hasChat)html+='<div style="display:flex;flex-direction:column;gap:8px;flex:1"><div style="align-self:flex-start;background:rgba(255,255,255,.04);border-radius:8px 8px 8px 2px;padding:8px 12px;font-size:10px;color:#888;max-width:75%">What subject would you like?</div><div style="align-self:flex-end;background:rgba(255,107,53,.08);border-radius:8px 8px 2px 8px;padding:8px 12px;font-size:10px;color:#b0a0cc;max-width:75%">A cat in a window</div><div style="align-self:flex-start;background:rgba(255,255,255,.04);border-radius:8px 8px 8px 2px;padding:8px 12px;font-size:10px;color:#888;max-width:75%">What mood or lighting?</div><div style="align-self:flex-end;background:rgba(255,107,53,.08);border-radius:8px 8px 2px 8px;padding:8px 12px;font-size:10px;color:#b0a0cc;max-width:75%">Warm, sunset</div></div>';
     if(s.bars)s.bars.forEach(b=>{html+='<div style="height:5px;background:rgba(255,255,255,.06);border-radius:3px;margin-bottom:8px;width:'+b.w+'"></div>'});
     if(s.hasCircle)html+='<div style="display:flex;gap:8px;margin:10px 0;align-items:center"><div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.04)"></div><div style="flex:1"><div style="height:4px;background:rgba(255,255,255,.05);border-radius:2px;width:60%"></div></div></div>';
-    if(s.hasEnhance&&!s.enhanceEmpty)html+='<div style="background:rgba(168,85,247,.05);border:1px solid rgba(168,85,247,.1);border-radius:8px;padding:10px;margin:8px 0"><div style="font-size:7px;font-weight:700;color:#a855f7;background:rgba(168,85,247,.12);display:inline-block;padding:2px 6px;border-radius:3px;margin-bottom:4px;text-transform:uppercase">Enhanced</div><div style="height:4px;background:rgba(168,85,247,.12);border-radius:2px;width:90%;margin-bottom:3px"></div><div style="height:4px;background:rgba(168,85,247,.08);border-radius:2px;width:70%"></div></div>';
+    if(s.hasEnhance&&!s.enhanceEmpty)html+='<div style="background:rgba(255,107,53,.05);border:1px solid rgba(255,107,53,.1);border-radius:8px;padding:10px;margin:8px 0"><div style="font-size:7px;font-weight:700;color:#ff6b35;background:rgba(255,107,53,.12);display:inline-block;padding:2px 6px;border-radius:3px;margin-bottom:4px;text-transform:uppercase">Enhanced</div><div style="height:4px;background:rgba(255,107,53,.12);border-radius:2px;width:90%;margin-bottom:3px"></div><div style="height:4px;background:rgba(255,107,53,.08);border-radius:2px;width:70%"></div></div>';
     if(s.hasEnhance&&s.enhanceEmpty)html+='<div style="background:rgba(255,255,255,.02);border:1px dashed rgba(255,255,255,.06);border-radius:8px;padding:14px;margin:8px 0;text-align:center;font-size:9px;color:#444">AI suggestion will appear here</div>';
-    if(s.hasRing)html+='<div style="display:flex;align-items:center;gap:10px;margin:8px 0"><div style="width:28px;height:28px;border-radius:50%;background:conic-gradient(#a855f7 0deg,rgba(255,255,255,.04) 0deg);mask:radial-gradient(transparent 50%,#000 52%);-webkit-mask:radial-gradient(transparent 50%,#000 52%)"></div><div style="flex:1;height:3px;background:rgba(255,255,255,.05);border-radius:2px"></div></div>';
+    if(s.hasRing)html+='<div style="display:flex;align-items:center;gap:10px;margin:8px 0"><div style="width:28px;height:28px;border-radius:50%;background:conic-gradient(#ff6b35 0deg,rgba(255,255,255,.04) 0deg);mask:radial-gradient(transparent 50%,#000 52%);-webkit-mask:radial-gradient(transparent 50%,#000 52%)"></div><div style="flex:1;height:3px;background:rgba(255,255,255,.05);border-radius:2px"></div></div>';
     if(s.grid)html+='<div style="display:grid;grid-template-columns:repeat('+(s.gridCols||2)+',1fr);gap:5px;flex:1;min-height:80px;margin:8px 0">'+'<div style="border-radius:6px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04)"></div>'.repeat(s.gridItems||4)+'</div>';
     if(s.hasGrid)html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;flex:1;min-height:80px;margin:8px 0"><div style="border-radius:6px;background:linear-gradient(135deg,#2d1b69,#1e3a5f)"></div><div style="border-radius:6px;background:linear-gradient(135deg,#1a0a2e,#2d1b69)"></div><div style="border-radius:6px;background:linear-gradient(135deg,#0a192f,#1a1a2e)"></div><div style="border-radius:6px;background:linear-gradient(135deg,#1e3a5f,#0f0f1a)"></div></div>';
     if(s.hasResult)html+='<div style="height:60px;border-radius:8px;background:linear-gradient(135deg,#2d1b69,#1e3a5f);margin:8px 0"></div>';
     if(s.hasVars)html+='<div style="display:flex;flex-direction:column;gap:4px;margin:8px 0"><div style="display:flex;justify-content:space-between;font-size:8px;color:#555"><span>Subject</span><span style="color:#888">[your subject]</span></div><div style="display:flex;justify-content:space-between;font-size:8px;color:#555"><span>Style</span><span style="color:#888">cinematic</span></div></div>';
-    if(s.hasSliders)html+='<div style="display:flex;flex-direction:column;gap:6px;margin:8px 0"><div style="height:3px;background:rgba(255,255,255,.06);border-radius:2px;position:relative"><div style="position:absolute;left:60%;top:-3px;width:9px;height:9px;background:rgba(168,85,247,.4);border-radius:50%"></div></div><div style="height:3px;background:rgba(255,255,255,.06);border-radius:2px;position:relative"><div style="position:absolute;left:35%;top:-3px;width:9px;height:9px;background:rgba(168,85,247,.4);border-radius:50%"></div></div></div>';
-    if(s.hasPalette)html+='<div style="display:flex;gap:4px;margin:6px 0;flex-wrap:wrap"><span style="font-size:7px;padding:2px 6px;border-radius:4px;background:rgba(168,85,247,.1);color:#c084fc">mood</span><span style="font-size:7px;padding:2px 6px;border-radius:4px;background:rgba(99,102,241,.1);color:#818cf8">style</span><span style="font-size:7px;padding:2px 6px;border-radius:4px;background:rgba(14,165,233,.1);color:#38bdf8">subject</span></div>';
-    if(s.hasBtn)html+='<div style="padding:8px;background:linear-gradient(135deg,#a855f7,#6366f1);border-radius:8px;text-align:center;font-size:10px;font-weight:600;color:#fff;margin-top:auto">'+(s.btnText||'Generate')+'</div>';
+    if(s.hasSliders)html+='<div style="display:flex;flex-direction:column;gap:6px;margin:8px 0"><div style="height:3px;background:rgba(255,255,255,.06);border-radius:2px;position:relative"><div style="position:absolute;left:60%;top:-3px;width:9px;height:9px;background:rgba(255,107,53,.4);border-radius:50%"></div></div><div style="height:3px;background:rgba(255,255,255,.06);border-radius:2px;position:relative"><div style="position:absolute;left:35%;top:-3px;width:9px;height:9px;background:rgba(255,107,53,.4);border-radius:50%"></div></div></div>';
+    if(s.hasPalette)html+='<div style="display:flex;gap:4px;margin:6px 0;flex-wrap:wrap"><span style="font-size:7px;padding:2px 6px;border-radius:4px;background:rgba(255,107,53,.1);color:#ff8c5a">mood</span><span style="font-size:7px;padding:2px 6px;border-radius:4px;background:rgba(255,140,90,.1);color:#818cf8">style</span><span style="font-size:7px;padding:2px 6px;border-radius:4px;background:rgba(14,165,233,.1);color:#38bdf8">subject</span></div>';
+    if(s.hasBtn)html+='<div style="padding:8px;background:linear-gradient(135deg,#ff6b35,#ff8c5a);border-radius:8px;text-align:center;font-size:10px;font-weight:600;color:#fff;margin-top:auto">'+(s.btnText||'Generate')+'</div>';
     html+='</div><div class="lb__screen-label">'+s.label+'</div></div>';
     return html;
   }
