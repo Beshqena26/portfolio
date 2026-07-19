@@ -280,7 +280,7 @@ img{display:block;max-width:100%}
 .cs-dir>span{font-size:12px;font-weight:600;color:rgba(255,255,255,.55);letter-spacing:.5px;text-transform:uppercase}
 figure.cs-fig .cs-showcase{margin:0}
 .cs-device{border-radius:38px;border:7px solid #14141d;outline:1px solid rgba(255,255,255,.09);background:#000;overflow:hidden;box-shadow:0 34px 70px rgba(0,0,0,.6),0 8px 24px rgba(44,79,255,.12);transition:transform .5s cubic-bezier(.16,1,.3,1)}
-.cs-device:hover{transform:translateY(-8px)}
+@media(hover:hover){.cs-device:hover{transform:translateY(-8px)}}
 .cs-device img{width:100%;height:auto;display:block}
 .cs-device.lift{transform:translateY(-14px) scale(1.04)}
 .cs-device.lift:hover{transform:translateY(-22px) scale(1.04)}
@@ -311,7 +311,10 @@ figure.cs-fig.panel img{border-radius:12px;border:1px solid rgba(255,255,255,.08
 .cs-next .work-arrow{font-size:24px}
 .proj-section h3{font-size:17px;font-weight:600;margin:32px 0 12px}
 @media(max-width:768px){
-  .cs-stats{grid-template-columns:repeat(2,1fr) }
+  .cs-stats{grid-template-columns:repeat(2,1fr)}
+  .cs-stats .cs-stat:nth-child(odd):last-child{grid-column:span 2}
+  .ds-type .spec{white-space:normal;font-size:11px}
+  .ds-type td{padding:10px 8px}
   .cs-showcase{padding:32px 20px}
   .cs-phones{grid-template-columns:1fr;max-width:280px;margin:0 auto;gap:24px}
   .cs-phones.cols4{grid-template-columns:1fr 1fr;max-width:100%;gap:16px}
@@ -372,8 +375,8 @@ figure.cs-fig.panel img{border-radius:12px;border:1px solid rgba(255,255,255,.08
 
 /* ===== ONBOARDING PROTOTYPE ===== */
 .proto-wrap{display:grid;grid-template-columns:320px 1fr;gap:48px;align-items:center}
-.proto-device{position:relative;border-radius:40px;border:8px solid #14141d;outline:1px solid rgba(255,255,255,.09);background:#000;overflow:hidden;box-shadow:0 34px 70px rgba(0,0,0,.6),0 8px 24px rgba(44,79,255,.14);cursor:pointer;user-select:none;-webkit-user-select:none}
-.proto-device img{width:100%;height:auto;display:none}
+.proto-device{position:relative;aspect-ratio:9/19.2;border-radius:40px;border:8px solid #14141d;outline:1px solid rgba(255,255,255,.09);background:#000;overflow:hidden;box-shadow:0 34px 70px rgba(0,0,0,.6),0 8px 24px rgba(44,79,255,.14);cursor:pointer;user-select:none;-webkit-user-select:none}
+.proto-device img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:none}
 .proto-device img.active{display:block}
 .proto-device::after{content:'';position:absolute;inset:0}
 .proto-hint{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);padding:6px 14px;border-radius:50px;background:rgba(9,4,17,.78);border:1px solid rgba(255,255,255,.12);font-size:11px;color:#fff;white-space:nowrap;pointer-events:none;transition:opacity .4s}
@@ -391,7 +394,7 @@ figure.cs-fig.panel img{border-radius:12px;border:1px solid rgba(255,255,255,.08
 .proto-count{font-size:12px;color:var(--text2);margin-top:14px}
 @media(max-width:860px){
   .proto-wrap{grid-template-columns:1fr;gap:28px}
-  .proto-device{max-width:280px;margin:0 auto}
+  .proto-device{max-width:260px;margin:0 auto;width:100%}
   .proto-step-desc{min-height:0}
   .ds{padding:24px 18px}
   .ds-comps{grid-template-columns:1fr}
@@ -417,6 +420,7 @@ figure.cs-fig.panel img{border-radius:12px;border:1px solid rgba(255,255,255,.08
 }
 @media(max-width:768px){
   .container{padding:0 20px}
+  .hero-title br,.proj-hero h1 br{display:none}
   .nav-logo{font-size:14px}
   .nav-avatar{width:28px;height:28px}
   .hero{padding:120px 0 60px;min-height:auto}
