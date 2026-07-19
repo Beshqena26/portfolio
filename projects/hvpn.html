@@ -76,6 +76,117 @@
   </div>
 </div></section>
 
+
+<section class="proj-section"><div class="container anim">
+  <h2>Who I designed for</h2>
+  <div class="cs-personas">
+    <div class="persona">
+      <div class="persona-head">
+        <div class="persona-ava">N</div>
+        <div><strong>Nikoloz, 29</strong><span>Remote developer · works for a US company from Tbilisi</span></div>
+      </div>
+      <div class="persona-chips">
+        <i><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Tbilisi</i>
+        <i><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>3 devices</i>
+        <i><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Pays for tools</i>
+      </div>
+      <p class="persona-quote">If the VPN drops during a deploy, I don't find out until something breaks. I need to see I'm connected.</p>
+      <div class="persona-meters">
+        <div class="pm"><span>Tech comfort</span><div class="pm-bar"><i style="width:95%"></i></div></div>
+        <div class="pm"><span>Speed sensitivity</span><div class="pm-bar"><i style="width:90%"></i></div></div>
+        <div class="pm"><span>Privacy anxiety</span><div class="pm-bar"><i style="width:55%"></i></div></div>
+      </div>
+      <div class="persona-cols">
+        <div>
+          <h6 class="goals">Goals</h6>
+          <ul>
+            <li class="g">Stable, fast connection for work — all day</li>
+            <li class="g">Same account on laptop, phone and browser</li>
+            <li class="g">Connection state visible at a glance</li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="pains">Frustrations</h6>
+          <ul>
+            <li class="p">Silent disconnects mid-session</li>
+            <li class="p">Speed loss from encryption overhead</li>
+            <li class="p">Settings written for network admins</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="persona">
+      <div class="persona-head">
+        <div class="persona-ava">T</div>
+        <div><strong>Tamar, 34</strong><span>Journalist · privacy is professional survival</span></div>
+      </div>
+      <div class="persona-chips">
+        <i><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>High-risk work</i>
+        <i><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/></svg>Phone-first</i>
+        <i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>Geo-blocked sources</i>
+      </div>
+      <p class="persona-quote">Every VPN says "no logs." I can't audit that — so I judge them by whether the product feels honest.</p>
+      <div class="persona-meters">
+        <div class="pm"><span>Tech comfort</span><div class="pm-bar"><i style="width:45%"></i></div></div>
+        <div class="pm"><span>Speed sensitivity</span><div class="pm-bar"><i style="width:40%"></i></div></div>
+        <div class="pm"><span>Privacy anxiety</span><div class="pm-bar"><i style="width:95%"></i></div></div>
+      </div>
+      <div class="persona-cols">
+        <div>
+          <h6 class="goals">Goals</h6>
+          <ul>
+            <li class="g">Know instantly whether she's exposed</li>
+            <li class="g">Reach geo-blocked sources reliably</li>
+            <li class="g">Zero-jargon setup on her phone</li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="pains">Frustrations</h6>
+          <ul>
+            <li class="p">Trust claims she can't verify</li>
+            <li class="p">Ambiguous connection indicators</li>
+            <li class="p">Free tiers that feel like traps</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>Nikoloz drove the multi-surface system and the always-visible state; Tamar drove the honest free tier, the IP before/after readout, and the one-tap simplicity. When a decision served both, it shipped.</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>User flows</h2>
+  <div class="uflow-lane">User flow — connect</div>
+  <div class="uflow">
+    <span class="uf-node start">Open app</span><span class="uf-arrow">→</span>
+    <span class="uf-node bad">Unprotected — real IP shown</span><span class="uf-arrow">→</span>
+    <span class="uf-node decision">Location?</span>
+    <span class="uf-fork">
+      <span class="uf-mini"><span class="uf-node good">Free location</span></span>
+      <span class="uf-mini"><span class="uf-node">Pro location</span><span class="uf-arrow">→</span><span class="uf-node decision">Upgrade?</span></span>
+    </span>
+    <span class="uf-arrow">→</span>
+    <span class="uf-node">Tap power</span><span class="uf-arrow">→</span>
+    <span class="uf-node good">Protected — IP masked, timer on</span>
+  </div>
+  <div class="uflow-lane">User flow — upgrade to Pro</div>
+  <div class="uflow">
+    <span class="uf-node start">Free limit hit</span><span class="uf-arrow">→</span>
+    <span class="uf-node">Plans — honest comparison</span><span class="uf-arrow">→</span>
+    <span class="uf-node decision">Payment?</span>
+    <span class="uf-fork">
+      <span class="uf-mini"><span class="uf-node good">Card</span></span>
+      <span class="uf-mini"><span class="uf-node good">PayPal</span></span>
+    </span>
+    <span class="uf-arrow">→</span>
+    <span class="uf-node">Confirm</span><span class="uf-arrow">→</span>
+    <span class="uf-fork">
+      <span class="uf-mini"><span class="uf-node good">Pro unlocked — all 94 countries</span></span>
+      <span class="uf-mini"><span class="uf-node bad">Declined</span><span class="uf-arrow">→</span><span class="uf-node">Reason + retry</span></span>
+    </span>
+  </div>
+</div></section>
+
 <section class="proj-section"><div class="container anim">
   <h2>The core decision: state is the interface</h2>
   <p>Every VPN screen answers one question — <em>am I exposed?</em> H-VPN makes the answer unmissable. The entire home screen changes temperature: <span style="color:#f87171;font-weight:600">red</span> when your real IP is visible, <span style="color:#34d399;font-weight:600">green</span> when you're masked. Your real IP and the VPN IP sit side by side, so protection isn't a claim — it's a visible before/after. One power tap flips the world.</p>
