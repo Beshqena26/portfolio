@@ -754,14 +754,14 @@ a{color:inherit;text-decoration:none}
 .proto__correction{border-radius:8px;padding:12px;font-size:10px;line-height:1.5}
 .proto__correction--auto{background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.12)}
 .proto__correction--auto .proto__corr-tag{background:rgba(239,68,68,.1);color:#ef4444}
-.proto__correction--opt{background:rgba(168,85,247,.04);border:1px solid rgba(168,85,247,.12)}
-.proto__correction--opt .proto__corr-tag{background:rgba(168,85,247,.1);color:#a855f7}
+.proto__correction--opt{background:rgba(255,107,53,.05);border:1px solid rgba(255,107,53,.15)}
+.proto__correction--opt .proto__corr-tag{background:rgba(255,107,53,.12);color:#ff6b35}
 .proto__corr-tag{display:inline-block;font-size:8px;font-weight:700;padding:2px 8px;border-radius:3px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
 .proto__corr-text{color:#777;font-size:10px;line-height:1.5}
 .proto__corr-text s{color:#ccc;text-decoration:line-through}
 .proto__actions{display:flex;gap:6px}
 .proto__action{flex:1;text-align:center;padding:8px;border-radius:6px;font-size:9px;font-weight:600}
-.proto__action--accept{background:#a855f7;color:#fff}
+.proto__action--accept{background:#ff6b35;color:#fff}
 .proto__action--dismiss{background:#f0f0f0;color:#999}
 
 /* Analytics screen */
@@ -1264,10 +1264,34 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <!-- ===== FEATURES ===== -->
-<div class="dark feat"><div class="w"><div class="feat__inner rv"><div><div class="feat__num rv rv--zoom" style="transition-delay:0s">01</div><div class="feat__title">Dynamic Prompt<br>Enhancement</div><p class="feat__body">Type a rough idea. The AI suggests lighting, angles, and style in real-time. One click to accept. Users learn vocabulary naturally.</p><div class="feat__tag">Solves: Prompt Anxiety</div></div><div class="ph ph--feat ph--dark"><img class="ph-shot" src="../assets/case/generato/d-opened.jpg" alt="Workspace with generation opened full view" loading="lazy" style="object-position:top"></div></div></div></div>
-<div class="dark feat"><div class="w"><div class="feat__inner feat__inner--rev rv"><div><div class="feat__num rv rv--zoom" style="transition-delay:0s">02</div><div class="feat__title">Prompt Strength<br>Indicator</div><p class="feat__body">A visual meter scoring specificity, style, and technical detail before generating. Users see exactly what to improve. Confidence +41%.</p><div class="feat__tag">Solves: No Feedback Loop</div></div><div class="ph ph--feat ph--dark"><img class="ph-shot" src="../assets/case/generato/d-169.jpg" alt="Prompt bar with aspect, resolution and style chips" loading="lazy" style="object-position:top"></div></div></div></div>
-<div class="dark feat"><div class="w"><div class="feat__inner rv"><div><div class="feat__num rv rv--zoom" style="transition-delay:0s">03</div><div class="feat__title">Simplified<br>Interface</div><p class="feat__body">Prompt field front and center. Advanced settings behind progressive disclosure. 40% less noise. Generate button found 3s faster.</p><div class="feat__tag">Solves: Interface Overload</div></div><div class="ph ph--feat ph--dark"><img class="ph-shot" src="../assets/case/generato/d-bgremover.jpg" alt="Clean single-action background remover screen" loading="lazy" style="object-position:top"></div></div></div></div>
-<div class="dark feat"><div class="w"><div class="feat__inner feat__inner--rev rv"><div><div class="feat__num rv rv--zoom" style="transition-delay:0s">04</div><div class="feat__title">Customizable<br>Themes</div><p class="feat__body">Six themes adjusting density, contrast, and accent colors. Users shape the tool to how they work. Sessions +23%.</p><div class="feat__tag">Solves: One-Size-Fits-All</div></div><div class="ph ph--feat ph--dark"><img class="ph-shot" src="../assets/case/generato/m-styles.jpg" alt="Visual style picker with thumbnails" loading="lazy" style="object-position:top"></div></div></div></div>
+<div class="dark feat"><div class="w"><div class="feat__inner rv"><div><div class="feat__num rv rv--zoom" style="transition-delay:0s">01</div><div class="feat__title">Dynamic Prompt<br>Enhancement</div><p class="feat__body">Type a rough idea. The AI suggests lighting, angles, and style in real-time. One click to accept. Users learn vocabulary naturally.</p><div class="feat__tag">Solves: Prompt Anxiety</div></div><div class="feat-mock"><div class="pe">
+  <div class="pe__from">a cat on a chair</div>
+  <div class="pe__arrow">&darr;</div>
+  <div class="pe__to"><span class="pe__tag">AI Enhanced</span>
+    <p class="pe__result">A <strong>fluffy ginger cat</strong> curled on a <strong>mid-century armchair</strong>, soft window light, shallow depth of field</p>
+    <div class="pe__chips"><span class="pe__chip">+ soft lighting</span><span class="pe__chip">+ 50mm lens</span><span class="pe__chip">+ warm tones</span></div>
+  </div>
+</div></div></div></div></div>
+<div class="dark feat"><div class="w"><div class="feat__inner feat__inner--rev rv"><div><div class="feat__num rv rv--zoom" style="transition-delay:0s">02</div><div class="feat__title">Prompt Strength<br>Indicator</div><p class="feat__body">A visual meter scoring specificity, style, and technical detail before generating. Users see exactly what to improve. Confidence +41%.</p><div class="feat__tag">Solves: No Feedback Loop</div></div><div class="feat-mock"><div class="sr">
+  <div class="sr__ring"><div class="sr__arc"></div><div><div class="sr__val">82</div><div class="sr__sub">Prompt strength</div></div></div>
+  <div class="sr__scores">
+    <div class="sr__score"><small>Specificity</small><strong>A</strong></div>
+    <div class="sr__score"><small>Style</small><strong>B+</strong></div>
+    <div class="sr__score"><small>Detail</small><strong>A-</strong></div>
+  </div>
+</div></div></div></div></div>
+<div class="dark feat"><div class="w"><div class="feat__inner rv"><div><div class="feat__num rv rv--zoom" style="transition-delay:0s">03</div><div class="feat__title">Simplified<br>Interface</div><p class="feat__body">Prompt field front and center. Advanced settings behind progressive disclosure. 40% less noise. Generate button found 3s faster.</p><div class="feat__tag">Solves: Interface Overload</div></div><div class="feat-mock"><div class="cui">
+  <div class="cui__bar"><span class="cui__dot" style="background:#ff5f57"></span><span class="cui__dot" style="background:#febc2e"></span><span class="cui__dot" style="background:#28c840"></span></div>
+  <div class="cui__body"><div class="cui__line cui__line--s"></div><div class="cui__line"></div><div class="cui__canvas"></div><div class="cui__btn">Generate</div></div>
+</div></div></div></div></div>
+<div class="dark feat"><div class="w"><div class="feat__inner feat__inner--rev rv"><div><div class="feat__num rv rv--zoom" style="transition-delay:0s">04</div><div class="feat__title">Customizable<br>Themes</div><p class="feat__body">Six themes adjusting density, contrast, and accent colors. Users shape the tool to how they work. Sessions +23%.</p><div class="feat__tag">Solves: One-Size-Fits-All</div></div><div class="feat-mock"><div class="themes">
+  <div class="th sel" style="background:linear-gradient(160deg,#0a0a0f,#1a1a24)"><span class="th__name">Midnight</span></div>
+  <div class="th" style="background:linear-gradient(160deg,#f5f5f0,#e2e2da)"><span class="th__name" style="color:rgba(0,0,0,.5)">Paper</span></div>
+  <div class="th" style="background:linear-gradient(160deg,#1a1206,#3a2a10)"><span class="th__name">Amber</span></div>
+  <div class="th" style="background:linear-gradient(160deg,#061218,#103040)"><span class="th__name">Deep Sea</span></div>
+  <div class="th" style="background:linear-gradient(160deg,#000,#222)"><span class="th__name">Contrast</span></div>
+  <div class="th" style="background:linear-gradient(160deg,#12061a,#2a1040)"><span class="th__name">Violet</span></div>
+</div></div></div></div></div>
 
 <!-- ===== TESTING ===== -->
 <section class="testing">
@@ -1291,11 +1315,28 @@ a{color:inherit;text-decoration:none}
     <div class="screen-pair" style="margin:clamp(32px,5vh,56px) 0">
       <div class="rv rv--left">
         <div class="screen-label" style="color:rgba(255,255,255,.3)">V1 &mdash; Auto-correct (killed)</div>
-        <div class="ph ph--screen ph--dark"><img class="ph-shot" src="../assets/case/generato/m-gen1.jpg" alt="Mobile generation flow, version 1" loading="lazy" style="object-position:top"></div>
+        <div class="proto proto--dark">
+  <div class="proto__bar proto__bar--dark"><span class="proto__dot" style="background:#ff5f57"></span><span class="proto__dot" style="background:#febc2e"></span><span class="proto__dot" style="background:#28c840"></span></div>
+  <div class="proto__body">
+    <div class="proto__input proto__input--dark">a dog running in park</div>
+    <div class="proto__correction proto__correction--auto"><span class="proto__corr-tag">Auto-corrected</span>
+      <p class="proto__corr-text"><s>a dog running in park</s> &rarr; A golden retriever sprinting through an autumn park, motion blur, golden hour</p>
+    </div>
+  </div>
+</div>
       </div>
       <div class="rv rv--right">
         <div class="screen-label" style="color:rgba(255,255,255,.3)">V2 &mdash; Opt-in suggestions (shipped)</div>
-        <div class="ph ph--screen ph--dark"><img class="ph-shot" src="../assets/case/generato/m-gen3.jpg" alt="Mobile generation flow, shipped version" loading="lazy" style="object-position:top"></div>
+        <div class="proto proto--dark">
+  <div class="proto__bar proto__bar--dark"><span class="proto__dot" style="background:#ff5f57"></span><span class="proto__dot" style="background:#febc2e"></span><span class="proto__dot" style="background:#28c840"></span></div>
+  <div class="proto__body">
+    <div class="proto__input proto__input--dark">a dog running in park</div>
+    <div class="proto__correction proto__correction--opt"><span class="proto__corr-tag">Suggestion</span>
+      <p class="proto__corr-text">Add "golden hour, motion blur" for a more dynamic shot?</p>
+      <div class="proto__actions"><span class="proto__action proto__action--accept">Accept</span><span class="proto__action proto__action--dismiss">Dismiss</span></div>
+    </div>
+  </div>
+</div>
       </div>
     </div>
 
@@ -1334,8 +1375,26 @@ a{color:inherit;text-decoration:none}
 
     <!-- ANALYTICS DASHBOARD SCREEN -->
     <div style="margin-top:clamp(48px,8vh,100px)">
-      <div class="screen-label rv" style="color:#aaa">Handoff — the type system spec</div>
-      <div class="ph ph--wide ph--dark rv rv--scale" style="margin-top:16px"><img class="ph-shot" src="../assets/case/generato/typography.jpg" alt="Type system spec — Clash Grotesk scale" loading="lazy" style="object-position:top"></div>
+      <div class="screen-label rv" style="color:#aaa">Post-launch metrics dashboard</div>
+      <div class="ph ph--wide ph--dark rv rv--scale" style="margin-top:16px;display:block;aspect-ratio:auto">
+<div class="analytics" style="width:100%">
+  <div class="analytics__row">
+    <div class="analytics__card"><div class="analytics__card-val" style="color:#ff6b35">-62%</div><div class="analytics__card-label">Time to first image</div></div>
+    <div class="analytics__card"><div class="analytics__card-val">+41%</div><div class="analytics__card-label">Prompt confidence</div></div>
+    <div class="analytics__card"><div class="analytics__card-val">+28pp</div><div class="analytics__card-label">First-gen acceptance</div></div>
+    <div class="analytics__card"><div class="analytics__card-val">+48%</div><div class="analytics__card-label">Satisfaction</div></div>
+  </div>
+  <div class="analytics__chart"><div class="analytics__bars">
+    <div class="analytics__bar" style="height:28%;background:rgba(255,255,255,.12)"></div>
+    <div class="analytics__bar" style="height:34%;background:rgba(255,255,255,.14)"></div>
+    <div class="analytics__bar" style="height:31%;background:rgba(255,255,255,.16)"></div>
+    <div class="analytics__bar" style="height:42%;background:rgba(255,107,53,.45)"></div>
+    <div class="analytics__bar" style="height:55%;background:rgba(255,107,53,.6)"></div>
+    <div class="analytics__bar" style="height:63%;background:rgba(255,107,53,.7)"></div>
+    <div class="analytics__bar" style="height:78%;background:rgba(255,107,53,.85)"></div>
+    <div class="analytics__bar" style="height:92%;background:#ff6b35"></div>
+  </div></div>
+</div></div>
     </div>
   </div>
 </section>
