@@ -721,7 +721,7 @@ a{color:inherit;text-decoration:none}
 .ab.settled{transition:transform .6s var(--ease),box-shadow .6s var(--ease),opacity .6s var(--ease)}
 .ab__layer{position:absolute;inset:0}
 .ab__old{background:#141414}
-.ab__new{opacity:var(--xn,.5)}
+.ab__new{opacity:var(--xn,0)}
 .ab__label{position:absolute;top:clamp(16px,3vw,28px);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px;border-radius:100px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);pointer-events:none}
 .ab__label--before{left:clamp(16px,3vw,28px);background:rgba(0,0,0,.06);color:#555}
 .ab__label--after{right:clamp(16px,3vw,28px);background:rgba(255,255,255,.08);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.1)}
@@ -931,7 +931,7 @@ a{color:inherit;text-decoration:none}
     <div style="margin-top:clamp(80px,12vh,160px)">
       <div class="compare-arrow rv"><span>The Resolution Upscaler &mdash; drag right for 4K, left for standard</span></div>
       <div class="ab-wrap">
-        <div class="ab" id="ab" style="--x:50%">
+        <div class="ab" id="ab" style="--x:4%;--xn:0.04">
           <div class="ab__layer ab__old"><img src="../assets/case/generato/ab-hq.jpg" alt="Same image after 4K AI upscaling" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
           <div class="ab__layer ab__new"><img src="../assets/case/generato/ab-lq.jpg" alt="Standard low-resolution AI output" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
           <span class="ab__label ab__label--before">&larr; Standard</span>
