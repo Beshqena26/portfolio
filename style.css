@@ -265,6 +265,42 @@ img{display:block;max-width:100%}
 .proj-section ul{list-style:disc;padding-left:20px;margin-top:8px}
 .proj-section li{margin-bottom:6px}
 
+/* ===== CASE STUDY ===== */
+.cs-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:48px 0 8px}
+.cs-stat{padding:20px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);text-align:center}
+.cs-stat b{display:block;font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:var(--accent2)}
+.cs-stat span{font-size:12px;color:var(--text2);font-weight:500}
+.cs-phones{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:40px 0}
+.cs-phones img{border-radius:var(--r2);border:1px solid var(--border);width:100%;height:auto}
+figure.cs-fig{margin:32px 0}
+figure.cs-fig img{width:100%;height:auto;border-radius:var(--r2);border:1px solid var(--border)}
+figure.cs-fig figcaption{font-size:13px;color:var(--text2);margin-top:12px;text-align:center}
+.cs-grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0}
+.cs-grid2 figure.cs-fig{margin:0}
+.cs-decision{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+.cs-dec-card{padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r)}
+.cs-dec-card h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.cs-dec-card.chose h4{color:var(--green)}
+.cs-dec-card.rejected h4{color:#ef4444}
+.cs-dec-card p{font-size:14px;color:var(--text2);line-height:1.7}
+.cs-tokens{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.cs-token{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:50px;background:var(--surface);border:1px solid var(--border);font-size:13px;color:var(--text2);font-family:'Space Grotesk',monospace}
+.cs-token i{width:14px;height:14px;border-radius:50%;display:inline-block;border:1px solid rgba(255,255,255,.15)}
+.cs-callout{padding:28px 32px;background:var(--surface);border-left:3px solid var(--accent);border-radius:0 var(--r) var(--r) 0;margin:32px 0}
+.cs-callout p{font-size:15px;color:var(--text);line-height:1.8;font-style:italic}
+.cs-next{display:flex;justify-content:space-between;align-items:center;padding:32px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);margin-top:40px;transition:border-color .3s}
+.cs-next:hover{border-color:var(--accent)}
+.cs-next span{font-size:13px;color:var(--text2)}
+.cs-next strong{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700}
+.cs-next .work-arrow{font-size:24px}
+.proj-section h3{font-size:17px;font-weight:600;margin:32px 0 12px}
+@media(max-width:768px){
+  .cs-stats{grid-template-columns:repeat(2,1fr) }
+  .cs-phones{grid-template-columns:1fr;max-width:320px;margin:32px auto}
+  .cs-grid2,.cs-decision{grid-template-columns:1fr}
+  .cs-next strong{font-size:17px}
+}
+
 /* ===== REDUCED MOTION ===== */
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
