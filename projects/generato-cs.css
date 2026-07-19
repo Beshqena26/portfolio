@@ -1,0 +1,575 @@
+/* ==========================================================
+   CASE STUDY STYLES — Inherits design tokens from style.css
+   ========================================================== */
+
+/* ==========================================================
+   CASE STUDY HERO
+   ========================================================== */
+.cs-hero {
+    position:relative; padding:clamp(140px,18vw,200px) 0 clamp(60px,8vw,100px);
+    overflow:hidden;
+}
+.cs-hero-bg {
+    position:absolute; inset:0; z-index:0;
+}
+.cs-hero-gradient {
+    position:absolute; inset:0;
+    background:
+        radial-gradient(ellipse 60% 50% at 50% 30%, rgba(200,255,0,.06) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 70% 70%, rgba(0,240,255,.03) 0%, transparent 60%);
+}
+
+/* Back link */
+.cs-back {
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:.78rem; font-weight:600; color:var(--text-2);
+    text-transform:uppercase; letter-spacing:1.5px;
+    transition:color .3s, gap .3s;
+    margin-bottom:clamp(32px,5vw,56px);
+    position:relative; z-index:1;
+}
+.cs-back:hover { color:var(--accent); gap:12px; }
+.cs-back svg { transition:transform .3s var(--ease-spring); }
+.cs-back:hover svg { transform:translateX(-3px); }
+
+/* Hero content */
+.cs-hero-content {
+    position:relative; z-index:1;
+    max-width:860px;
+}
+
+/* Title */
+.cs-title {
+    font-size:clamp(2rem,5.5vw,4rem); font-weight:900;
+    line-height:1.02; letter-spacing:-.045em;
+    margin-bottom:clamp(32px,5vw,48px);
+}
+.cs-title em {
+    font-family:var(--font-mono); font-style:normal; font-weight:700;
+    color:transparent;
+    -webkit-text-stroke:1.5px var(--accent);
+    position:relative;
+}
+.cs-title em::after {
+    content:''; position:absolute; bottom:2px; left:0; right:0; height:3px;
+    background:linear-gradient(90deg, var(--accent), var(--accent-2));
+    border-radius:2px; opacity:.4; filter:blur(4px);
+}
+
+/* Meta bar */
+.cs-meta {
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:1px;
+    background:var(--border); border-radius:var(--r);
+    overflow:hidden;
+    margin-bottom:clamp(48px,8vw,80px);
+}
+.cs-meta-item {
+    padding:clamp(16px,2.5vw,28px) clamp(16px,2.5vw,24px);
+    background:var(--bg-2);
+    display:flex; flex-direction:column; gap:6px;
+}
+.cs-meta-item:first-child { border-radius:var(--r) 0 0 var(--r); }
+.cs-meta-item:last-child { border-radius:0 var(--r) var(--r) 0; }
+.cs-meta-label {
+    font-size:.62rem; font-weight:600; text-transform:uppercase;
+    letter-spacing:2.5px; color:var(--accent); opacity:.6;
+}
+.cs-meta-value {
+    font-size:.88rem; font-weight:500; color:var(--text-1);
+    letter-spacing:-.015em;
+}
+
+/* Hero image mockup */
+.cs-hero-image {
+    position:relative; z-index:1;
+}
+.cs-hero-mockup {
+    overflow:hidden; border-radius:var(--r);
+    transition:transform .6s var(--ease-out), box-shadow .6s;
+}
+.cs-hero-mockup:hover {
+    transform:translateY(-4px);
+    box-shadow:0 32px 80px rgba(0,0,0,.4), 0 0 60px rgba(200,255,0,.04);
+}
+.cs-mockup-bar {
+    padding:10px 14px; display:flex; align-items:center; gap:6px;
+    border-bottom:1px solid var(--border); background:rgba(255,255,255,.01);
+}
+.cs-mockup-bar span {
+    width:8px; height:8px; border-radius:50%;
+}
+.cs-mockup-bar span:nth-child(1) { background:var(--accent); opacity:.6; }
+.cs-mockup-bar span:nth-child(2) { background:var(--accent-2); opacity:.4; }
+.cs-mockup-bar span:nth-child(3) { background:var(--text-3); }
+.cs-mockup-url {
+    flex:1; max-width:200px; height:8px; border-radius:4px;
+    background:rgba(255,255,255,.04); margin-left:12px;
+}
+.cs-mockup-screen {
+    padding:clamp(24px,4vw,48px);
+    background:var(--bg-2);
+}
+
+/* Generato hero mockup content */
+.cs-gen-hero { text-align:center; }
+.cs-gen-hero h2 {
+    font-size:clamp(1.2rem,2.5vw,2rem); font-weight:800;
+    letter-spacing:-.03em; margin-bottom:clamp(16px,2vw,28px);
+}
+.cs-gen-hero h2 em {
+    font-family:var(--font-mono); font-style:normal; font-weight:700;
+    color:var(--accent);
+}
+.cs-gen-input {
+    display:flex; gap:8px; max-width:500px; margin:0 auto clamp(20px,3vw,36px);
+    padding:8px; background:rgba(255,255,255,.03); border-radius:12px;
+    border:1px solid var(--border);
+}
+.cs-gen-input-text {
+    flex:1; height:36px; border-radius:8px;
+    background:rgba(255,255,255,.04);
+}
+.cs-gen-btn {
+    width:36px; height:36px; border-radius:8px;
+    background:var(--accent); opacity:.7;
+}
+.cs-gen-grid {
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:10px;
+}
+.cs-gen-img {
+    aspect-ratio:1; border-radius:10px;
+    background:var(--bg); opacity:.3;
+    border:1px solid var(--border);
+    transition:opacity .4s, transform .4s var(--ease-out);
+}
+.cs-gen-img::before {
+    content:''; display:block; width:100%; height:100%;
+    border-radius:inherit; background:var(--bg);
+}
+.cs-hero-mockup:hover .cs-gen-img {
+    opacity:.5; transform:scale(1.02);
+}
+
+/* ==========================================================
+   CASE STUDY SECTIONS
+   ========================================================== */
+.cs-section {
+    padding:clamp(60px,10vw,120px) 0;
+    position:relative;
+}
+.cs-section--alt {
+    background:var(--bg-2);
+}
+.cs-section--alt::before {
+    content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
+    width:clamp(300px,50vw,600px); height:1px;
+    background:linear-gradient(90deg, transparent, rgba(200,255,0,.12), transparent);
+}
+
+/* Constrain prose width */
+.cs-container {
+    max-width:720px;
+}
+
+/* ==========================================================
+   TYPOGRAPHY — Case Study Specific
+   ========================================================== */
+.cs-heading-xl {
+    font-size:clamp(2.2rem,6vw,4.5rem); font-weight:900;
+    line-height:.95; letter-spacing:-.055em;
+    margin-bottom:clamp(20px,3vw,32px);
+}
+.cs-heading-xl em {
+    font-family:var(--font-mono); font-style:normal; font-weight:700;
+    color:transparent;
+    -webkit-text-stroke:1.5px var(--accent);
+}
+
+.cs-heading-lg {
+    font-size:clamp(1.6rem,4vw,2.8rem); font-weight:800;
+    line-height:1.08; letter-spacing:-.045em;
+    margin-bottom:clamp(16px,2.5vw,24px);
+}
+.cs-heading-lg em {
+    font-family:var(--font-mono); font-style:normal; font-weight:700;
+    color:var(--accent);
+}
+
+.cs-heading-md {
+    font-size:clamp(1.1rem,2.2vw,1.5rem); font-weight:700;
+    letter-spacing:-.03em; line-height:1.15;
+    margin-bottom:12px;
+}
+.cs-heading-md em {
+    font-family:var(--font-mono); font-style:normal; font-weight:700;
+    color:var(--accent);
+}
+
+.cs-body {
+    font-size:clamp(.92rem,1.2vw,1.05rem); color:var(--text-2);
+    line-height:1.8; margin-bottom:20px; letter-spacing:-.005em;
+}
+.cs-body:last-child { margin-bottom:0; }
+
+.cs-greeting {
+    font-size:clamp(1.1rem,2vw,1.45rem); font-weight:500;
+    line-height:1.6; color:var(--text-1);
+    letter-spacing:-.02em;
+}
+.cs-emoji { font-size:1.2em; }
+
+/* ==========================================================
+   NUMBERED LIST
+   ========================================================== */
+.cs-list {
+    display:flex; flex-direction:column; gap:0;
+    margin-top:clamp(24px,4vw,40px);
+}
+.cs-list-item {
+    display:flex; align-items:flex-start; gap:clamp(16px,2.5vw,24px);
+    padding:clamp(16px,2.5vw,24px) 0;
+    border-bottom:1px solid var(--border);
+}
+.cs-list-item:first-child { border-top:1px solid var(--border); }
+.cs-list-num {
+    font-size:.75rem; font-weight:700; color:var(--accent);
+    min-width:28px; opacity:.5;
+    font-feature-settings:'tnum';
+}
+.cs-list-item p {
+    font-size:.92rem; color:var(--text-2); line-height:1.7;
+    margin:0; letter-spacing:-.005em;
+}
+
+/* ==========================================================
+   CALLOUT
+   ========================================================== */
+.cs-callout {
+    display:flex; align-items:flex-start; gap:clamp(16px,2.5vw,24px);
+    padding:clamp(20px,3vw,32px);
+    margin-top:clamp(24px,4vw,40px);
+    border-left:2px solid var(--accent);
+    border-radius:0 var(--r) var(--r) 0;
+    font-size:.92rem; color:var(--text-2); line-height:1.7;
+}
+.cs-callout strong { color:var(--accent); font-weight:700; }
+.cs-callout-icon {
+    color:var(--accent); opacity:.4;
+    flex-shrink:0; margin-top:2px;
+}
+
+/* ==========================================================
+   COMPETITIVE ANALYSIS GRID
+   ========================================================== */
+.cs-img-full {
+    border-radius:var(--r); overflow:hidden;
+}
+.cs-comp-grid {
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:1px;
+    background:var(--border); border-radius:var(--r); overflow:hidden;
+}
+.cs-comp-card {
+    padding:clamp(20px,3vw,36px);
+    background:var(--bg-2);
+    display:flex; flex-direction:column; gap:12px;
+    text-align:center;
+    transition:background .3s;
+}
+.cs-comp-card:hover { background:var(--bg-3); }
+.cs-comp-img {
+    aspect-ratio:16/10; border-radius:var(--r-sm);
+    background:var(--bg); opacity:.4;
+    border:1px solid var(--border);
+}
+.cs-comp-img::before {
+    content:''; display:block; width:100%; height:100%;
+    border-radius:inherit; background:var(--bg);
+}
+.cs-comp-card span {
+    font-size:.72rem; font-weight:600; color:var(--text-3);
+    text-transform:uppercase; letter-spacing:2px;
+}
+
+/* ==========================================================
+   PROMPT DEMO
+   ========================================================== */
+.cs-prompt-demo {
+    padding:clamp(24px,4vw,40px);
+    border-radius:var(--r);
+}
+.cs-prompt-bar {
+    display:flex; gap:10px; margin-bottom:clamp(16px,2.5vw,28px);
+}
+.cs-prompt-input {
+    flex:1; padding:12px 16px; border-radius:var(--r-sm);
+    background:rgba(255,255,255,.03); border:1px solid var(--border);
+}
+.cs-prompt-placeholder {
+    width:60%; height:6px; background:rgba(255,255,255,.06);
+    border-radius:3px;
+}
+.cs-prompt-send {
+    width:44px; height:44px; border-radius:var(--r-sm);
+    background:var(--accent); opacity:.5;
+    flex-shrink:0;
+}
+.cs-prompt-results {
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:10px;
+}
+.cs-prompt-img {
+    aspect-ratio:1; border-radius:var(--r-sm);
+    border:1px solid var(--border);
+    background:var(--bg); opacity:.3;
+}
+.cs-prompt-img::before {
+    content:''; display:block; width:100%; height:100%;
+    border-radius:inherit; background:var(--bg);
+}
+
+/* ==========================================================
+   SPLIT LAYOUT
+   ========================================================== */
+.cs-split {
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:clamp(32px,5vw,64px);
+    align-items:start;
+}
+
+/* AHA visual */
+.cs-split-visual {
+    display:flex; align-items:center; justify-content:center;
+}
+.cs-aha-visual {
+    width:100%; aspect-ratio:1;
+    border-radius:var(--r); position:relative;
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+}
+.cs-aha-glow {
+    position:absolute; width:60%; height:60%;
+    background:radial-gradient(circle, rgba(200,255,0,.08) 0%, transparent 70%);
+    border-radius:50%; filter:blur(40px);
+    animation:ahaGlow 4s ease-in-out infinite;
+}
+@keyframes ahaGlow {
+    0%,100% { transform:scale(1); opacity:.5; }
+    50% { transform:scale(1.3); opacity:.8; }
+}
+
+/* ==========================================================
+   QUESTIONS
+   ========================================================== */
+.cs-questions {
+    display:flex; flex-direction:column; gap:12px;
+    margin-top:clamp(24px,4vw,36px);
+}
+.cs-question-item {
+    display:flex; align-items:flex-start; gap:16px;
+    padding:clamp(16px,2vw,24px);
+    border-radius:var(--r-sm);
+    background:rgba(255,255,255,.02);
+    border:1px solid var(--border);
+    transition:border-color .3s, background .3s;
+}
+.cs-question-item:hover {
+    border-color:rgba(200,255,0,.1);
+    background:rgba(200,255,0,.02);
+}
+.cs-q-mark {
+    font-family:var(--font-mono); font-size:1.4rem; font-weight:700; color:var(--accent);
+    opacity:.4; line-height:1; flex-shrink:0; min-width:20px;
+}
+.cs-question-item p {
+    font-size:.9rem; color:var(--text-2); line-height:1.65;
+    margin:0; letter-spacing:-.005em;
+}
+
+/* ==========================================================
+   RESULTS
+   ========================================================== */
+.cs-results {
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;
+    margin-top:clamp(32px,5vw,48px);
+}
+.cs-result-card {
+    padding:clamp(24px,3vw,36px);
+    text-align:center;
+    border-radius:var(--r);
+    transition:transform .4s var(--ease-out), box-shadow .4s;
+}
+.cs-result-card:hover {
+    transform:translateY(-6px);
+    box-shadow:0 20px 60px rgba(0,0,0,.3), 0 0 40px rgba(200,255,0,.04);
+}
+.cs-result-val {
+    display:block;
+    font-size:clamp(2rem,4vw,3rem); font-weight:900;
+    letter-spacing:-.05em; color:var(--accent);
+    text-shadow:0 0 40px rgba(200,255,0,.15);
+    margin-bottom:8px;
+    font-feature-settings:'tnum';
+}
+.cs-result-lbl {
+    font-size:.72rem; color:var(--text-3);
+    text-transform:uppercase; letter-spacing:1.5px; font-weight:500;
+}
+
+/* ==========================================================
+   OUTCOME
+   ========================================================== */
+.cs-section--outcome {
+    background:var(--bg);
+    text-align:center;
+}
+.cs-section--outcome .cs-container {
+    display:flex; flex-direction:column; align-items:center;
+}
+.cs-section--outcome .cs-body {
+    max-width:600px; text-align:center;
+}
+.cs-outcome-stats {
+    display:flex; gap:clamp(32px,5vw,64px);
+    margin-top:clamp(32px,5vw,48px);
+    justify-content:center;
+}
+.cs-outcome-stat { text-align:center; }
+.cs-outcome-val {
+    display:block;
+    font-size:clamp(2.5rem,5vw,4rem); font-weight:900;
+    letter-spacing:-.055em; color:var(--accent);
+    text-shadow:0 0 60px rgba(200,255,0,.15);
+    line-height:.95;
+    font-feature-settings:'tnum';
+}
+.cs-outcome-lbl {
+    display:block; margin-top:10px;
+    font-size:.7rem; color:var(--text-3);
+    text-transform:uppercase; letter-spacing:1.5px; font-weight:500;
+}
+
+/* ==========================================================
+   NEXT PROJECT
+   ========================================================== */
+.cs-next {
+    padding:clamp(100px,15vw,200px) 0;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+.cs-next::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse 60% 50% at 50% 50%, rgba(200,255,0,.04) 0%, transparent 60%);
+    pointer-events:none;
+}
+.cs-next-inner {
+    display:flex; flex-direction:column; align-items:center;
+    position:relative; z-index:1;
+}
+.cs-next .cs-heading-xl {
+    margin-bottom:clamp(24px,4vw,40px);
+}
+
+/* ==========================================================
+   ENHANCED INTERACTIONS — Case Study
+   ========================================================== */
+
+/* Section reveal with stagger */
+.cs-section { opacity:0; transform:translateY(40px); transition:opacity .9s var(--ease-out), transform .9s var(--ease-out); }
+.cs-section.visible { opacity:1; transform:translateY(0); }
+
+/* List item stagger animation */
+.cs-list-item {
+    opacity:0; transform:translateX(-20px);
+    transition:opacity .6s var(--ease-out), transform .6s var(--ease-out);
+}
+.cs-list.visible .cs-list-item:nth-child(1) { opacity:1; transform:translateX(0); transition-delay:.1s; }
+.cs-list.visible .cs-list-item:nth-child(2) { opacity:1; transform:translateX(0); transition-delay:.2s; }
+.cs-list.visible .cs-list-item:nth-child(3) { opacity:1; transform:translateX(0); transition-delay:.3s; }
+
+/* Question items stagger */
+.cs-question-item {
+    opacity:0; transform:translateY(16px);
+    transition:opacity .5s var(--ease-out), transform .5s var(--ease-out);
+}
+.cs-questions.visible .cs-question-item:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:.1s; }
+.cs-questions.visible .cs-question-item:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:.2s; }
+.cs-questions.visible .cs-question-item:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:.3s; }
+
+/* Result cards entrance animation */
+.cs-result-card {
+    opacity:0; transform:translateY(30px) scale(.95);
+    transition:opacity .6s var(--ease-out), transform .6s var(--ease-out);
+}
+.cs-results.visible .cs-result-card:nth-child(1) { opacity:1; transform:translateY(0) scale(1); transition-delay:.1s; }
+.cs-results.visible .cs-result-card:nth-child(2) { opacity:1; transform:translateY(0) scale(1); transition-delay:.2s; }
+.cs-results.visible .cs-result-card:nth-child(3) { opacity:1; transform:translateY(0) scale(1); transition-delay:.3s; }
+
+/* Comp card hover glow */
+.cs-comp-card { position:relative; }
+.cs-comp-card::after {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(circle at 50% 50%, rgba(200,255,0,.04) 0%, transparent 70%);
+    opacity:0; transition:opacity .4s;
+    pointer-events:none;
+}
+.cs-comp-card:hover::after { opacity:1; }
+
+/* AHA visual enhanced pulse */
+.cs-aha-visual::after {
+    content:''; position:absolute;
+    width:80%; height:80%; border-radius:50%;
+    border:1px solid rgba(200,255,0,.08);
+    animation:ahaPulse 3s ease-in-out infinite;
+}
+@keyframes ahaPulse {
+    0%,100% { transform:scale(1); opacity:.3; }
+    50% { transform:scale(1.2); opacity:.1; }
+}
+
+/* Outcome stats counter pop */
+.cs-outcome-stat.counted .cs-outcome-val {
+    animation:statPop .6s var(--ease-spring);
+}
+
+/* Mockup enhanced hover */
+.cs-hero-mockup {
+    transition:transform .6s var(--ease-out), box-shadow .6s;
+}
+.cs-hero-mockup:hover {
+    transform:translateY(-8px) scale(1.01);
+    box-shadow:0 40px 100px rgba(0,0,0,.45), 0 0 80px rgba(200,255,0,.05);
+}
+
+/* Split layout parallax-ready */
+.cs-split-visual {
+    transition:transform .5s var(--ease-out);
+}
+
+/* ==========================================================
+   RESPONSIVE — Case Study
+   ========================================================== */
+@media (max-width:1024px) {
+    .cs-meta { grid-template-columns:repeat(2, 1fr); }
+    .cs-meta-item:first-child { border-radius:var(--r) 0 0 0; }
+    .cs-meta-item:nth-child(2) { border-radius:0 var(--r) 0 0; }
+    .cs-meta-item:nth-child(3) { border-radius:0 0 0 var(--r); }
+    .cs-meta-item:last-child { border-radius:0 0 var(--r) 0; }
+    .cs-split { grid-template-columns:1fr; gap:40px; }
+    .cs-comp-grid { grid-template-columns:repeat(2, 1fr); }
+}
+
+@media (max-width:768px) {
+    .cs-meta { grid-template-columns:1fr; }
+    .cs-meta-item { border-radius:0!important; }
+    .cs-meta-item:first-child { border-radius:var(--r) var(--r) 0 0!important; }
+    .cs-meta-item:last-child { border-radius:0 0 var(--r) var(--r)!important; }
+    .cs-results { grid-template-columns:1fr; gap:12px; }
+    .cs-gen-grid { grid-template-columns:repeat(2, 1fr); }
+    .cs-prompt-results { grid-template-columns:repeat(2, 1fr); }
+    .cs-comp-grid { grid-template-columns:1fr 1fr; }
+    .cs-outcome-stats { flex-direction:column; gap:24px; }
+}
+
+@media (max-width:480px) {
+    .cs-comp-grid { grid-template-columns:1fr; }
+}

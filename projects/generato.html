@@ -1,268 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Generato Case Study — Beka Jikurishvili</title>
-<meta name="description" content="Case study: designing Generato, an AI image platform uniting generation, background removal, upscaling and magic eraser in one canvas-first workspace — 92% onboarding success.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><circle cx=%2750%27 cy=%2750%27 r=%2746%27 fill=%27%23ff6b35%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27white%27 text-anchor=%27middle%27>B</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=13">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generato — AI Image Generator Case Study | Beka Jikurishvili</title>
+    <meta name="description" content="Case study: redesigning an AI image generator so anyone can create — research, prompt strength indicator, and a calm canvas workspace.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><circle cx=%2750%27 cy=%2750%27 r=%2746%27 fill=%27%23ff6b35%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27white%27 text-anchor=%27middle%27>B</text></svg>">
+    <link rel="stylesheet" href="generato-site.css">
+    <link rel="stylesheet" href="generato-cs.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-ring"></div>
+        <div class="cursor-text" id="cursor-text"></div>
+    </div>
 
-<header class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="../index.html" class="nav-logo"><img src="../assets/thumbs/avatar.jpg" alt="Beka" class="nav-avatar">Beka Jikurishvili</a>
-    <div class="nav-menu" id="navMenu">
-      <a href="../index.html#work">Work</a>
-      <a href="../index.html#about">About</a>
-      <a href="../index.html#services">Services</a>
-      <a href="../index.html#contact">Contact</a>
-    </div>
-    <div class="nav-actions">
-      <a href="../index.html#contact" class="nav-cta">Let's Talk</a>
-    </div>
-  </div>
-</header>
+    <!-- Grain Overlay -->
+    <div class="grain"></div>
 
-<section class="proj-hero">
-  <div class="container anim">
-    <a href="../index.html#work" class="proj-back">&larr; Back to Work</a>
-    <h1>Generato — one workspace from<br>prompt to production-ready image</h1>
-    <p class="proj-desc">Product design for an AI image platform that unites generation, background removal, 4K upscaling and content-aware erasing in a single canvas-first workspace — so creators stop juggling four tools to ship one visual.</p>
-    <div class="proj-meta">
-      <div class="proj-meta-item"><label>Role</label><span>Product Designer</span></div>
-      <div class="proj-meta-item"><label>Duration</label><span>6 Months</span></div>
-      <div class="proj-meta-item"><label>Organization</label><span>Novatori</span></div>
-      <div class="proj-meta-item"><label>Platform</label><span>Web &amp; Mobile</span></div>
-    </div>
-    <div class="cs-stats">
-      <div class="cs-stat"><b>92%</b><span>First-timers generate &amp; refine in &lt;5 min</span></div>
-      <div class="cs-stat"><b>~40%</b><span>Image prep time cut vs 3–4 tools</span></div>
-      <div class="cs-stat"><b>3</b><span>Tools used per session (avg)</span></div>
-      <div class="cs-stat"><b>5</b><span>Core AI tools, one canvas</span></div>
-      <div class="cs-stat"><b>2</b><span>Platforms — desktop &amp; mobile</span></div>
-    </div>
-  </div>
-</section>
-
-<div class="container anim">
-  <div class="cs-showcase lime">
-    <div class="cs-browser">
-      <div class="cs-browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">generato.app/workspace</span></div>
-      <div class="cs-browser-view" style="aspect-ratio:16/9;overflow:hidden">
-        <img src="../assets/case/generato/d-generated.jpg" alt="Generato workspace: prompt bar with setting chips, sidebar tools, and a generated war-scene image">
-      </div>
-    </div>
-  </div>
-</div>
-
-<section class="proj-section"><div class="container anim">
-  <h2>Context &amp; goals</h2>
-  <p>AI image generation exploded — but shipping a usable visual still meant a relay race: generate in one tool, remove the background in a second, upscale in a third, erase artifacts in a fourth. Generato's bet: merge the whole pipeline into one workspace that a first-time user can operate with zero training, without dumbing it down for professionals.</p>
-  <ul>
-    <li><strong>Business:</strong> a compelling MVP fast, in a market where competitors ship weekly.</li>
-    <li><strong>Users:</strong> from advanced designers to first-time creators — one interface for both.</li>
-    <li><strong>Quality bar:</strong> outputs must be production-ready — campaigns, e-commerce, print.</li>
-  </ul>
-</div></section>
-
-<section class="proj-section"><div class="container anim">
-  <h2>Competitor analysis</h2>
-  <p>I benchmarked the three products that defined the space. Each generates; none finishes the job:</p>
-  <div class="cs-personas three">
-    <div class="persona">
-      <div class="persona-head"><div class="persona-ava">M</div><div><strong>MidJourney</strong><span>The artistry benchmark</span></div></div>
-      <p class="persona-quote">Beautiful output — then you export to Photoshop to actually finish it.</p>
-      <ul>
-        <li class="g">Best-in-class image quality</li>
-        <li class="p">No built-in editing at all</li>
-        <li class="p">Discord-bound UX intimidates non-technical users</li>
-      </ul>
-    </div>
-    <div class="persona">
-      <div class="persona-head"><div class="persona-ava">D</div><div><strong>DALL·E</strong><span>The accessible one</span></div></div>
-      <p class="persona-quote">Easy to start, hard to rely on — quality varies shot to shot.</p>
-      <ul>
-        <li class="g">Simple, approachable input</li>
-        <li class="p">Inconsistent output quality</li>
-        <li class="p">Limited workflow integration</li>
-      </ul>
-    </div>
-    <div class="persona">
-      <div class="persona-head"><div class="persona-ava">S</div><div><strong>Stable Diffusion</strong><span>The power tool</span></div></div>
-      <p class="persona-quote">Infinitely customizable — if you can set it up.</p>
-      <ul>
-        <li class="g">Deep control and customization</li>
-        <li class="p">Technical setup blocks most users</li>
-        <li class="p">No unified editing workflow</li>
-      </ul>
-    </div>
-  </div>
-  <p>The gap: an <strong>accessible, end-to-end platform</strong> where generation, editing and enhancement live in one flow. That gap became Generato's mission.</p>
-</div></section>
-
-<section class="proj-section"><div class="container anim">
-  <h2>Research &amp; who I designed for</h2>
-  <p>Interviews and surveys with digital creators, social media managers, e-commerce sellers and agencies; task observation of their ideation-to-asset flows; and sentiment mining across Reddit, Discord, Dribbble and Behance. Four patterns kept repeating — <strong>speed beats perfection</strong>, <strong>low tolerance for complexity</strong>, <strong>a craving for one cohesive flow</strong>, and <strong>fear of pixelated results at print size</strong>. They condensed into three personas:</p>
-  <div class="cs-personas three">
-    <div class="persona">
-      <div class="persona-head"><div class="persona-ava">M</div><div><strong>The Marketer</strong><span>Campaign visuals, weekly volume</span></div></div>
-      <ul>
-        <li class="g">Fast turnaround, brand consistency, minimal learning curve</li>
-        <li class="p">Juggling platforms slows campaign delivery</li>
-      </ul>
-    </div>
-    <div class="persona">
-      <div class="persona-head"><div class="persona-ava">D</div><div><strong>The Designer</strong><span>Client work, quality bar</span></div></div>
-      <ul>
-        <li class="g">Precision control, professional output, room to refine</li>
-        <li class="p">AI tools feel "black box," lack editing finesse</li>
-      </ul>
-    </div>
-    <div class="persona">
-      <div class="persona-head"><div class="persona-ava">C</div><div><strong>The Creator</strong><span>Content daily, mobile-first</span></div></div>
-      <ul>
-        <li class="g">Easy, inspirational, works on a phone</li>
-        <li class="p">No time for advanced editing; inconsistent results frustrate</li>
-      </ul>
-    </div>
-  </div>
-</div></section>
-
-<section class="proj-section"><div class="container anim">
-  <h2>The defining decision: canvas-first, not prompt-first</h2>
-  <p>Low-fi wireframes tested two competing layouts. This one decision shaped the entire product:</p>
-  <div class="cs-decision">
-    <div class="cs-dec-card chose"><h4>✓ Canvas-first</h4><p>The workspace opens on an evolving canvas where generation and editing merge. Users <em>see and edit in the same place</em> — the disconnect between "generator" and "editor" disappears. Validated through rapid prototype testing: more creative control without feeling technical.</p></div>
-    <div class="cs-dec-card rejected"><h4>✕ Prompt-first</h4><p>Prioritized the text input and results feed — familiar from MidJourney, but it reinforces the exact fragmentation we were killing: generate here, edit somewhere else. Testers treated results as endpoints instead of starting points.</p></div>
-  </div>
-  <div class="cs-decision">
-    <div class="cs-dec-card chose"><h4>Progressive disclosure</h4><p>Beginners see a prompt bar and quick-setting chips (aspect, resolution, style, lighting, composition). Power users expand panels for depth. One interface serves both personas — no "pro mode" fork.</p></div>
-    <div class="cs-dec-card chose"><h4>Prompt strength checker</h4><p>Research showed most users can't write effective prompts. A built-in checker coaches them toward better results — a small feature that bridges beginners to professional output quality.</p></div>
-  </div>
-</div></section>
-
-<section class="proj-section"><div class="container anim">
-  <h2>The workspace</h2>
-  <p>Dark canvas, one electric-lime accent, Clash Grotesk display type. The sidebar holds the five tools; credits and upgrade sit bottom-left; every setting is a chip on the prompt bar, not a buried panel. Empty states illustrate instead of lecture.</p>
-  <figure class="cs-fig">
-    <div class="cs-showcase lime">
-      <div class="cs-browser"><div class="cs-browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">generato.app — generation result, expanded view</span></div>
-      <div class="cs-browser-view" style="aspect-ratio:16/9;overflow:hidden"><img src="../assets/case/generato/d-opened.jpg" alt="Generated image opened full-view in the workspace" loading="lazy"></div></div>
-    </div>
-    <figcaption>A generation opened full-view — the canvas is the product, chrome stays out of the way.</figcaption>
-  </figure>
-  <div class="cs-grid2">
-    <figure class="cs-fig"><img src="../assets/case/generato/d-169.jpg" alt="Workspace generating in 16:9 aspect ratio" loading="lazy"><figcaption>Aspect ratios are first-class: 16:9 for banners…</figcaption></figure>
-    <figure class="cs-fig"><img src="../assets/case/generato/d-916.jpg" alt="Workspace generating in 9:16 aspect ratio" loading="lazy"><figcaption>…9:16 for stories, set from a chip, not a settings page.</figcaption></figure>
-  </div>
-</div></section>
-
-<section class="proj-section"><div class="container anim">
-  <h2>Beyond generation: the editing suite</h2>
-  <p>The features competitors don't have, designed as one consistent pattern — upload or pick a result, apply, download in standard or HD:</p>
-  <figure class="cs-fig">
-    <div class="cs-showcase lime">
-      <div class="cs-browser"><div class="cs-browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">generato.app/background-remover</span></div>
-      <div class="cs-browser-view" style="aspect-ratio:16/9;overflow:hidden"><img src="../assets/case/generato/d-bgremover.jpg" alt="Background remover upload screen with drag-and-drop area" loading="lazy"></div></div>
-    </div>
-    <figcaption>Background Remover — drag-and-drop, one click, done. Upscaler (to 4K) and AI Magic Eraser follow the identical interaction contract.</figcaption>
-  </figure>
-  <div class="cs-grid2">
-    <figure class="cs-fig"><img src="../assets/case/generato/d-upscaler.jpg" alt="Resolution upscaler interface" loading="lazy"><figcaption>Upscaler — print-ready 4K from any result.</figcaption></figure>
-    <figure class="cs-fig"><img src="../assets/case/generato/d-brush.jpg" alt="AI magic eraser brush interface" loading="lazy"><figcaption>Magic Eraser — non-destructive, content-aware removal.</figcaption></figure>
-  </div>
-</div></section>
-
-<section class="proj-section"><div class="container anim">
-  <h2>Mobile: the full product, not a teaser</h2>
-  <p>The Creator persona lives on a phone — so every tool ships on mobile with the same mental model: prompt, chips, filter sheets, credits. Style, lighting and composition pickers become visual bottom-sheets you can scan with a thumb.</p>
-  <div class="cs-showcase lime">
-    <div class="cs-phones cols4">
-      <div class="cs-device"><img src="../assets/case/generato/m-gen1.jpg" alt="Mobile generation result" loading="lazy"></div>
-      <div class="cs-device"><img src="../assets/case/generato/m-styles.jpg" alt="Mobile style picker sheet with visual thumbnails" loading="lazy"></div>
-      <div class="cs-device"><img src="../assets/case/generato/m-lighting.jpg" alt="Mobile lighting picker sheet" loading="lazy"></div>
-      <div class="cs-device"><img src="../assets/case/generato/m-credits.jpg" alt="Out of credits state with upgrade path" loading="lazy"></div>
-    </div>
-  </div>
-  <figure class="cs-fig">
-    <div class="cs-showcase lime">
-      <div class="cs-phones">
-        <div class="cs-device"><img src="../assets/case/generato/m-bgrem.jpg" alt="Mobile background remover processing" loading="lazy"></div>
-        <div class="cs-device"><img src="../assets/case/generato/m-upscale.jpg" alt="Mobile upscaler" loading="lazy"></div>
-        <div class="cs-device"><img src="../assets/case/generato/m-brush.jpg" alt="Mobile magic brush" loading="lazy"></div>
-      </div>
-    </div>
-    <figcaption>The full editing suite on mobile — including the honest states: processing spinners and out-of-credits with a clear upgrade path.</figcaption>
-  </figure>
-</div></section>
-
-<section class="proj-section"><div class="container anim">
-  <h2>The landing — scroll it yourself</h2>
-  <p>The marketing site carries the same dark-and-lime system. This is the real page in a live scroll container — desktop and mobile:</p>
-  <div class="cs-showcase lime">
-    <div class="proto-wrap" style="grid-template-columns:1fr 300px;align-items:start">
-      <div class="cs-browser">
-        <div class="cs-browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">generato.app</span></div>
-        <div class="cs-browser-view" id="genLanding">
-          <img src="../assets/case/generato/landing-full.jpg" alt="Full Generato landing page — scrollable" loading="lazy">
-          <span class="cs-scrollbadge" id="genLandingBadge"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>scroll</span>
+    <!-- Navigation -->
+    <nav class="nav scrolled" id="nav">
+        <a href="../index.html" class="nav-logo">
+            <span class="nav-logo-text">Beka</span>
+            <span class="nav-logo-dot"></span>
+        </a>
+        <div class="nav-center" id="nav-center">
+            <a href="../index.html#about" class="nav-pill">About</a>
+            <a href="../index.html#work" class="nav-pill">Work</a>
+            <a href="../index.html#services" class="nav-pill">Services</a>
+            <a href="../index.html#contact" class="nav-pill">Contact</a>
         </div>
-      </div>
-      <div class="proto-device tall-scroll" style="max-width:300px">
-        <div class="proto-screen active" id="genMobLanding" style="opacity:1;pointer-events:auto;transform:none">
-          <img src="../assets/case/generato/mobile-landing.jpg" alt="Mobile landing page — scrollable" loading="lazy">
+        <a href="../index.html#contact" class="nav-cta">
+            <span>Let's Talk</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        </a>
+        <button class="nav-burger" id="nav-burger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="drawer" id="drawer">
+        <div class="drawer-links">
+            <a href="../index.html#about" class="drawer-link"><span>About</span><span class="drawer-num">01</span></a>
+            <a href="../index.html#work" class="drawer-link"><span>Work</span><span class="drawer-num">02</span></a>
+            <a href="../index.html#services" class="drawer-link"><span>Services</span><span class="drawer-num">03</span></a>
+            <a href="../index.html#contact" class="drawer-link"><span>Contact</span><span class="drawer-num">04</span></a>
         </div>
-      </div>
+        <div class="drawer-footer">
+            <div class="drawer-socials">
+                <a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/Beshqena26" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a>
+            </div>
+        </div>
     </div>
-  </div>
-  <figure class="cs-fig"><img src="../assets/case/generato/pricing.jpg" alt="Pricing page with plan tiers" loading="lazy"><figcaption>Pricing follows the same system — plans framed around credits, the unit users already understand from the workspace.</figcaption></figure>
-</div></section>
 
-<section class="proj-section"><div class="container anim">
-  <h2>Type system</h2>
-  <p>Clash Grotesk Variable for display and UI (8 weights, documented from Light to Black), Inter for dense body text — specified with full size/line-height/case tables for handoff.</p>
-  <figure class="cs-fig"><img src="../assets/case/generato/typography.jpg" alt="Typography spec: Clash Grotesk Variable weights and full type scale table" loading="lazy"><figcaption>The handoff type spec — every style with font, weight, size, line height and case.</figcaption></figure>
-</div></section>
+    <!-- ==================== CASE STUDY HERO ==================== -->
+    <header class="cs-hero">
+        <div class="cs-hero-bg">
+            <div class="cs-hero-gradient"></div>
+        </div>
+        <div class="container">
+            <a href="../index.html#work" class="cs-back reveal-el">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <span>Back to Projects</span>
+            </a>
 
-<section class="proj-section"><div class="container anim">
-  <h2>Results</h2>
-  <ul>
-    <li><strong>92%</strong> of first-time users generated and refined an image within 5 minutes, unaided. Testers called it "effortless" and "a tool I'd actually use daily."</li>
-    <li><strong>~40% time savings</strong> reported by marketers versus their previous 3–4-tool pipeline; agencies noted it could replace 2–3 subscriptions.</li>
-    <li><strong>3 tools per session</strong> on average — the integration bet worked: people don't just generate, they finish.</li>
-    <li>Designers singled out the upscaler and Magic Eraser as what made AI output <em>production-ready</em>.</li>
-  </ul>
-  <div class="cs-callout"><p>"Not just generation like MidJourney, not just editing like Photoshop — an end-to-end ecosystem balancing speed, quality, and accessibility."</p></div>
-</div></section>
+            <div class="cs-hero-content">
+                <span class="label reveal-el">Case Study</span>
+                <h1 class="cs-title reveal-el">
+                    Designing an AI Image Generator for <em>Everyone</em>
+                </h1>
 
-<section class="proj-section"><div class="container anim">
-  <h2>What I'd do differently</h2>
-  <p>The hardest trade-off was depth versus simplicity — progressive disclosure solved most of it, but only after several iterations that earlier user testing would have shortened. And some users initially distrusted AI outputs entirely; positioning Generato as a <em>creative partner</em> rather than a replacement should have been baked into the UI copy from day one, not added later.</p>
-  <a href="multipay.html" class="cs-next anim"><div><span>Next case study</span><br><strong>Multipay — Multi-Currency Wallet</strong></div><span class="work-arrow">&nearr;</span></a>
-</div></section>
+                <!-- Project Meta Bar -->
+                <div class="cs-meta reveal-el">
+                    <div class="cs-meta-item">
+                        <span class="cs-meta-label">Role</span>
+                        <span class="cs-meta-value">Product &amp; UI/UX Designer</span>
+                    </div>
+                    <div class="cs-meta-item">
+                        <span class="cs-meta-label">Timeline</span>
+                        <span class="cs-meta-value">4 weeks</span>
+                    </div>
+                    <div class="cs-meta-item">
+                        <span class="cs-meta-label">Team Size</span>
+                        <span class="cs-meta-value">Solo</span>
+                    </div>
+                    <div class="cs-meta-item">
+                        <span class="cs-meta-label">Tools</span>
+                        <span class="cs-meta-value">Figma, Midjourney, FigJam</span>
+                    </div>
+                </div>
+            </div>
 
-<section class="contact" id="contact"><div class="container"><div class="contact-box anim">
-  <span class="tag">Get in Touch</span>
-  <h2>Let's create something great together</h2>
-  <p>Have a project in mind? I'd love to hear about it.</p>
-  <div class="contact-btns">
-    <a href="https://mail.google.com/mail/?view=cm&to=jikurishvilib26@gmail.com&su=Meeting%20Request&body=Hi%20Beka%2C%20I%27d%20like%20to%20schedule%20a%20Google%20Meet%20call." target="_blank" rel="noopener noreferrer" class="btn-primary">Book a Call</a>
-    <a href="mailto:jikurishvilib26@gmail.com" class="btn-ghost">jikurishvilib26@gmail.com</a>
-  </div>
-</div></div></section>
+            <!-- Hero Image -->
+            <div class="cs-hero-image reveal-el">
+                <div class="cs-hero-mockup glass hover-glow">
+                    <div class="cs-mockup-bar">
+                        <span></span><span></span><span></span>
+                        <div class="cs-mockup-url"></div>
+                    </div>
+                    <div class="cs-mockup-screen" style="padding:0">
+                        <img src="../assets/case/generato/d-generated.jpg" alt="Generato workspace — prompt bar with setting chips and a generated image" style="width:100%;display:block">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<footer class="footer"><div class="container footer-inner">
-  <span>&copy; 2026 Beka Jikurishvili</span>
-  <div class="footer-links"><a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a></div>
-</div></footer>
+    <!-- ==================== INTRO / GREETING ==================== -->
+    <section class="cs-section">
+        <div class="container cs-container">
+            <div class="cs-prose reveal-el">
+                <p class="cs-greeting">Hey there <span class="cs-emoji">&#x1F44B;</span> Hope your day's going great.<br>Let's travel through my design journey.</p>
+            </div>
+        </div>
+    </section>
 
-<script src="../script.js?v=8"></script>
-<script>
-var gl=document.getElementById('genLanding'),gb=document.getElementById('genLandingBadge');
-if(gl&&gb){gl.addEventListener('scroll',function(){gb.classList.toggle('hide',gl.scrollTop>60)})}
-</script>
+    <!-- ==================== MY MISSION ==================== -->
+    <section class="cs-section">
+        <div class="container cs-container">
+            <div class="cs-prose">
+                <h2 class="cs-heading-lg reveal-el">My <em>mission?</em></h2>
+                <p class="cs-body reveal-el">Redesigning the entire experience for an AI-powered image generator to make it more intuitive, accessible, and enjoyable for everyday users. The goal was simple &mdash; help anyone create stunning images without needing to learn complex prompt engineering or technical jargon.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== RESEARCH SAGA ==================== -->
+    <section class="cs-section cs-section--alt">
+        <div class="container cs-container">
+            <div class="cs-prose">
+                <h2 class="cs-heading-lg reveal-el">The Research Saga <em>Begins</em></h2>
+                <p class="cs-body reveal-el">I started by doing what any curious designer would do &mdash; analyzing what's already out there.</p>
+
+                <div class="cs-list reveal-el">
+                    <div class="cs-list-item">
+                        <span class="cs-list-num">01</span>
+                        <p>Competitive analysis across Midjourney, DALL-E, Stable Diffusion, and Leonardo AI</p>
+                    </div>
+                    <div class="cs-list-item">
+                        <span class="cs-list-num">02</span>
+                        <p>User interviews with 12 participants ranging from beginners to power users</p>
+                    </div>
+                    <div class="cs-list-item">
+                        <span class="cs-list-num">03</span>
+                        <p>Behavioral analysis using heatmaps, recordings, and analytics data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FULL WIDTH IMAGE — Competitive Analysis ==================== -->
+    <section class="cs-section">
+        <div class="container">
+            <div class="cs-img-full reveal-el">
+                <div class="cs-comp-grid glass">
+                    <div class="cs-comp-card">
+                        <div class="cs-comp-img" style="--bg:linear-gradient(135deg, #1a1a2e, #0f0f1a);"></div>
+                        <span>Midjourney</span>
+                    </div>
+                    <div class="cs-comp-card">
+                        <div class="cs-comp-img" style="--bg:linear-gradient(135deg, #0a2a1a, #0f1f0f);"></div>
+                        <span>DALL-E</span>
+                    </div>
+                    <div class="cs-comp-card">
+                        <div class="cs-comp-img" style="--bg:linear-gradient(135deg, #2a1a1a, #1f0f0f);"></div>
+                        <span>Stable Diffusion</span>
+                    </div>
+                    <div class="cs-comp-card">
+                        <div class="cs-comp-img" style="--bg:linear-gradient(135deg, #1a1a2e, #0f0f2a);"></div>
+                        <span>Leonardo AI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== KEY FINDING ==================== -->
+    <section class="cs-section">
+        <div class="container cs-container">
+            <div class="cs-prose">
+                <h2 class="cs-heading-lg reveal-el">And you know <em>what?</em></h2>
+                <p class="cs-body reveal-el">Competitive tools were &mdash; overwhelming, confusing, full of jargon.</p>
+
+                <div class="cs-callout glass hover-glow reveal-el">
+                    <div class="cs-callout-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div>
+                        <strong>Prompt engineering</strong> &mdash; you needed to be a literal scientist to get good results.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FULL WIDTH — Prompt Complexity ==================== -->
+    <section class="cs-section">
+        <div class="container">
+            <div class="cs-img-full reveal-el">
+                <img src="../assets/case/generato/d-opened.jpg" alt="Generation result opened full-view in the workspace" style="width:100%;display:block;border-radius:inherit" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== AHA MOMENT ==================== -->
+    <section class="cs-section">
+        <div class="container">
+            <div class="cs-split reveal-el">
+                <div class="cs-split-visual">
+                    <div class="cs-aha-visual glass">
+                        <div class="cs-aha-glow"></div>
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" opacity=".4"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                    </div>
+                </div>
+                <div class="cs-split-text">
+                    <h2 class="cs-heading-lg">That was my <em>Aha!</em> moment.</h2>
+                    <p class="cs-body">I realized the fundamental problem wasn't the AI models themselves &mdash; it was how they were presented to users. The interface was designed for engineers, not for everyday creative people who just want beautiful results.</p>
+                    <p class="cs-body">The interface itself was the barrier, not the technology.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LOOP OF DOOM ==================== -->
+    <section class="cs-section cs-section--alt">
+        <div class="container cs-container">
+            <div class="cs-prose">
+                <h2 class="cs-heading-lg reveal-el">The Loop of <em>Doom</em></h2>
+                <p class="cs-body reveal-el">After organizing data from the design process, I identified the core pain points in the user journey.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== GETTING STUCK ==================== -->
+    <section class="cs-section">
+        <div class="container cs-container">
+            <div class="cs-prose">
+                <h2 class="cs-heading-lg reveal-el">And then... I got stuck. Like, <em>really</em> stuck.</h2>
+                <p class="cs-body reveal-el">How do you make something as complex as prompt engineering feel simple without dumbing it down? How do you give users creative control without overwhelming them?</p>
+
+                <div class="cs-questions reveal-el">
+                    <div class="cs-question-item">
+                        <span class="cs-q-mark">?</span>
+                        <p>How do you balance simplicity with creative control?</p>
+                    </div>
+                    <div class="cs-question-item">
+                        <span class="cs-q-mark">?</span>
+                        <p>How do you help users who don't know what they want?</p>
+                    </div>
+                    <div class="cs-question-item">
+                        <span class="cs-q-mark">?</span>
+                        <p>What if the first result isn't what they had in mind?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FIRST TRY: AUTO-CORRECTION ==================== -->
+    <section class="cs-section cs-section--alt">
+        <div class="container cs-container">
+            <div class="cs-prose">
+                <h2 class="cs-heading-lg reveal-el">Our first try? <em>Auto-correction.</em></h2>
+                <p class="cs-body reveal-el">We built an AI assistant that would auto-correct and auto-enhance user prompts in real-time. The idea was to take whatever users typed and silently make it better.</p>
+                <p class="cs-body reveal-el">But it felt like the tool was overriding user intent. People didn't trust results they didn't control.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BACK TO DRAWING BOARD ==================== -->
+    <section class="cs-section">
+        <div class="container cs-container">
+            <div class="cs-prose">
+                <h2 class="cs-heading-lg reveal-el">Back to the <em>drawing board.</em></h2>
+                <p class="cs-body reveal-el">This led to a fundamental shift in our design strategy.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SOLUTION: DYNAMIC PROMPT + STRENGTH INDICATOR ==================== -->
+    <section class="cs-section">
+        <div class="container">
+            <div class="cs-split reveal-el">
+                <div class="cs-split-text">
+                    <h3 class="cs-heading-md">Dynamic Prompt Enhancement</h3>
+                    <p class="cs-body">A side drawer, a live sidebar that suggests improvements to the user's prompt in real-time &mdash; without overriding their intent. Users choose what to accept.</p>
+                </div>
+                <div class="cs-split-text">
+                    <h3 class="cs-heading-md">Prompt Strength Indicator</h3>
+                    <p class="cs-body">A real-time visual signal (like a password strength meter) that shows how detailed and effective the current prompt is, encouraging users to add more context.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== RESULTS ==================== -->
+    <section class="cs-section cs-section--alt">
+        <div class="container cs-container">
+            <div class="cs-prose">
+                <h2 class="cs-heading-lg reveal-el"><em>Results?</em></h2>
+                <p class="cs-body reveal-el">After 3 rounds of usability testing and iterating, here's what we saw.</p>
+
+                <div class="cs-results reveal-el">
+                    <div class="cs-result-card glass">
+                        <span class="cs-result-val">+40%</span>
+                        <span class="cs-result-lbl">User satisfaction</span>
+                    </div>
+                    <div class="cs-result-card glass">
+                        <span class="cs-result-val">-60%</span>
+                        <span class="cs-result-lbl">Prompt retry rate</span>
+                    </div>
+                    <div class="cs-result-card glass">
+                        <span class="cs-result-val">3x</span>
+                        <span class="cs-result-lbl">Faster first result</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DESIGN PRINCIPLES ==================== -->
+    <section class="cs-section">
+        <div class="container">
+            <div class="cs-split reveal-el">
+                <div class="cs-split-text">
+                    <h3 class="cs-heading-md">Minimalism Over <em>Chaos</em></h3>
+                    <p class="cs-body">Every element on screen earns its place. No feature bloat, no visual noise. Reduce cognitive load at every touchpoint.</p>
+                </div>
+                <div class="cs-split-text">
+                    <h3 class="cs-heading-md">Clean, decluttered <em>layouts.</em></h3>
+                    <p class="cs-body">White space isn't wasted space &mdash; it's breathing room. The interface stays calm so users can focus on what matters: their creativity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cs-section">
+        <div class="container">
+            <div class="cs-split reveal-el">
+                <div class="cs-split-text">
+                    <h3 class="cs-heading-md">Contextual tools instead of <em>overwhelming menus.</em></h3>
+                    <p class="cs-body">Controls appear when needed, where needed. Progressive disclosure keeps the interface simple for beginners while remaining powerful for experts.</p>
+                </div>
+                <div class="cs-split-text">
+                    <h3 class="cs-heading-md">A customizable theme system for <em>accessibility</em> and personal <em>comfort.</em></h3>
+                    <p class="cs-body">Dark mode, light mode, and high contrast options. Because a tool you use for hours needs to feel like home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL OUTCOME ==================== -->
+    <section class="cs-section cs-section--alt">
+        <div class="container cs-container">
+            <div class="cs-prose">
+                <p class="cs-body reveal-el">No more "spaceship cockpit" UI.<br>Just a calm, modern experience anyone could enjoy.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL OUTCOME SECTION ==================== -->
+    <section class="cs-section cs-section--outcome">
+        <div class="container cs-container">
+            <div class="cs-prose">
+                <h2 class="cs-heading-xl reveal-el"><em>Final Outcome</em></h2>
+                <p class="cs-body reveal-el">The redesigned Generato became an AI-powered creative tool that feels approachable, empowering, and delightful. By focusing on user intent over technical complexity, we transformed a specialist tool into something anyone can pick up and create with.</p>
+
+                <div class="cs-outcome-stats reveal-el">
+                    <div class="cs-outcome-stat">
+                        <span class="cs-outcome-val">92%</span>
+                        <span class="cs-outcome-lbl">Task completion rate</span>
+                    </div>
+                    <div class="cs-outcome-stat">
+                        <span class="cs-outcome-val">4.8</span>
+                        <span class="cs-outcome-lbl">User satisfaction (out of 5)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== NEXT PROJECT ==================== -->
+    <section class="cs-section cs-next">
+        <div class="container">
+            <div class="cs-next-inner reveal-el">
+                <span class="label">Next Project</span>
+                <h2 class="cs-heading-xl split-text">
+                    <span>Multipay <em>Wallet</em></span>
+                </h2>
+                <a href="multipay.html" class="btn-primary">
+                    <span class="btn-text">View Project</span>
+                    <span class="btn-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </span>
+                    <div class="btn-glow"></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-logo">BJ<span class="logo-dot">.</span></span>
+                    <p class="footer-tagline">Crafting digital experiences<br>that leave a mark.</p>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-col">
+                        <span class="footer-col-title">Navigation</span>
+                        <a href="../index.html#about">About</a>
+                        <a href="../index.html#work">Work</a>
+                        <a href="../index.html#services">Services</a>
+                        <a href="../index.html#contact">Contact</a>
+                    </div>
+                    <div class="footer-col">
+                        <span class="footer-col-title">Socials</span>
+                        <a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="https://github.com/Beshqena26" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2026 Beka Jikurishvili. All rights reserved.</p>
+                <a href="#" class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+                    Top
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="case-study.js"></script>
 </body>
 </html>
