@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H-VPN Case Study — Beka Jikurishvili</title>
+<meta name="description" content="Case study: designing H-VPN — a privacy VPN across four surfaces (mobile app, browser widget, desktop, landing) with one-tap protection you can feel.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><circle cx=%2750%27 cy=%2750%27 r=%2746%27 fill=%27%23ff6b35%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27white%27 text-anchor=%27middle%27>B</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=14">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/thumbs/avatar.jpg" alt="Beka" class="nav-avatar">Beka Jikurishvili</a>
+    <div class="nav-menu" id="navMenu">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#services">Services</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="../index.html#contact" class="nav-cta">Let's Talk</a>
+    </div>
+  </div>
+</header>
+
+<section class="proj-hero">
+  <div class="container anim">
+    <a href="../index.html#work" class="proj-back">&larr; Back to Work</a>
+    <h1>H-VPN — privacy you can feel,<br>on every screen you own</h1>
+    <p class="proj-desc">Product design for a privacy-first VPN: a mobile app, a browser widget, a desktop client and a marketing site — one design system, one mental model, one tap between exposed and protected.</p>
+    <div class="proj-meta">
+      <div class="proj-meta-item"><label>Role</label><span>Product Designer</span></div>
+      <div class="proj-meta-item"><label>Duration</label><span>3 Months</span></div>
+      <div class="proj-meta-item"><label>Organization</label><span>Novatori</span></div>
+      <div class="proj-meta-item"><label>Platform</label><span>Multi-platform</span></div>
+    </div>
+    <div class="cs-stats">
+      <div class="cs-stat"><b>4</b><span>Surfaces — app, widget, desktop, web</span></div>
+      <div class="cs-stat"><b>1 tap</b><span>From exposed to protected</span></div>
+      <div class="cs-stat"><b>94</b><span>Server countries</span></div>
+      <div class="cs-stat"><b>2</b><span>Payment rails (card / PayPal)</span></div>
+      <div class="cs-stat"><b>3</b><span>Months to full handoff</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="container anim">
+  <div class="cs-showcase violet">
+    <div class="cs-phones">
+      <div class="cs-device"><img src="../assets/case/hvpn/m-unprotected.jpg" alt="H-VPN home in unprotected state — red status, exposed IP"></div>
+      <div class="cs-device lift"><img src="../assets/case/hvpn/m-protected.jpg" alt="H-VPN home in protected state — green status, masked IP, connect timer"></div>
+      <div class="cs-device"><img src="../assets/case/hvpn/m-countries.jpg" alt="Country picker with server locations" loading="lazy"></div>
+    </div>
+  </div>
+</div>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Context &amp; goals</h2>
+  <p>VPNs have a UX problem: the products that take privacy seriously look like network engineering tools, and the ones that look friendly get distrusted. H-VPN's bet was that <strong>trust is a design outcome</strong> — if a person can see their protection state instantly and change it with one tap, they'll believe the product. And because people browse on phones, laptops and inside browsers, the same mental model had to survive on <strong>four different surfaces</strong>.</p>
+  <ul>
+    <li><strong>Users:</strong> answer "am I safe right now?" in under a second, on any device.</li>
+    <li><strong>Business:</strong> a free tier that converts — visible limits, painless upgrade, two payment rails.</li>
+    <li><strong>Design:</strong> one system stretched from a 375px phone to a 1920px marketing page without breaking.</li>
+  </ul>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Competitor snapshot</h2>
+  <p>I benchmarked NordVPN, ExpressVPN, ProtonVPN and TunnelBear before drawing anything. The pattern across all of them:</p>
+  <div class="cs-decision">
+    <div class="cs-dec-card rejected"><h4>✕ Where they lose people</h4><p>Server lists as spreadsheets, settings full of protocol jargon, connection state buried in a tiny icon, and free tiers so limited they feel like tricks. Power features designed as if everyone is a network admin.</p></div>
+    <div class="cs-dec-card chose"><h4>✓ What H-VPN takes from them</h4><p>Nord's map-driven sense of place, TunnelBear's friendliness, Proton's honest free tier — combined into one screen where the <strong>state is the interface</strong>: color, IP readout and the power button tell the whole story.</p></div>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>The core decision: state is the interface</h2>
+  <p>Every VPN screen answers one question — <em>am I exposed?</em> H-VPN makes the answer unmissable. The entire home screen changes temperature: <span style="color:#f87171;font-weight:600">red</span> when your real IP is visible, <span style="color:#34d399;font-weight:600">green</span> when you're masked. Your real IP and the VPN IP sit side by side, so protection isn't a claim — it's a visible before/after. One power tap flips the world.</p>
+  <div class="cs-showcase violet">
+    <div class="cs-state">
+      <figure style="margin:0"><div class="cs-device"><img src="../assets/case/hvpn/m-unprotected.jpg" alt="Unprotected state"></div><figcaption class="bad">Unprotected — real IP exposed</figcaption></figure>
+      <span class="cs-state-vs">one tap</span>
+      <figure style="margin:0"><div class="cs-device"><img src="../assets/case/hvpn/m-protected.jpg" alt="Protected state"></div><figcaption class="good">Protected — IP masked, timer running</figcaption></figure>
+    </div>
+  </div>
+  <h3>Details that carry the trust</h3>
+  <p>The connect timer proves the tunnel is alive. The dotted globe anchors "where in the world" without a heavy map. The location picker is a bottom sheet — country, flag, location count — not a spreadsheet. And the free tier is honest: locked locations are visible with a clear path to Pro, never hidden.</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>The mobile app</h2>
+  <p>Home, locations, free-tier prompts, profile — every screen keeps the same anatomy: status at the top, globe in the middle, location and navigation at the thumb line.</p>
+  <div class="cs-showcase violet">
+    <div class="cs-phones cols4">
+      <div class="cs-device"><img src="../assets/case/hvpn/m-dropdown.jpg" alt="Quick location dropdown over the home screen" loading="lazy"></div>
+      <div class="cs-device"><img src="../assets/case/hvpn/m-countries.jpg" alt="Full country list with search" loading="lazy"></div>
+      <div class="cs-device"><img src="../assets/case/hvpn/m-free.jpg" alt="Free connection limits with upgrade path" loading="lazy"></div>
+      <div class="cs-device"><img src="../assets/case/hvpn/m-profile.jpg" alt="Profile and account screen" loading="lazy"></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>One system, four surfaces</h2>
+  <p>The same product lives as a <strong>browser widget</strong> (the fastest path — protection without leaving the tab), a <strong>desktop client</strong> with account, subscription and download management, and the mobile app. Same states, same colors, same button — different ergonomics per surface.</p>
+  <div class="cs-showcase violet">
+    <div class="cs-phones">
+      <div class="cs-device"><img src="../assets/case/hvpn/w-off.jpg" alt="Browser widget — disconnected state" loading="lazy"></div>
+      <div class="cs-device lift"><img src="../assets/case/hvpn/w-on.jpg" alt="Browser widget — connected state" loading="lazy"></div>
+      <div class="cs-device"><img src="../assets/case/hvpn/w-countries.jpg" alt="Browser widget — country picker" loading="lazy"></div>
+    </div>
+  </div>
+  <figure class="cs-fig">
+    <div class="cs-showcase violet">
+      <div class="cs-browser"><div class="cs-browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">h-vpn.app/account</span></div>
+      <div class="cs-browser-view" style="aspect-ratio:4/3;overflow:hidden"><img src="../assets/case/hvpn/d-connect.jpg" alt="Desktop client — account settings with Apple connect modal" loading="lazy"></div></div>
+    </div>
+    <figcaption>Desktop: account, connected logins (Google / Apple), subscription and downloads — the boring screens designed with the same care as the hero ones.</figcaption>
+  </figure>
+  <div class="cs-grid2">
+    <figure class="cs-fig"><img src="../assets/case/hvpn/d-account.jpg" alt="Desktop account settings" loading="lazy"><figcaption>Account settings</figcaption></figure>
+    <figure class="cs-fig"><img src="../assets/case/hvpn/d-downloads.jpg" alt="Desktop downloads page for all platforms" loading="lazy"><figcaption>Downloads — every platform from one place</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>The landing — scroll it</h2>
+  <p>"Your Virtual Guardian in the Cyber Jungle." The marketing site sells the same story the product tells: benefits up front, honest plan comparison, platform downloads and setup guides.</p>
+  <div class="cs-showcase violet">
+    <div class="cs-browser">
+      <div class="cs-browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">h-vpn.app</span></div>
+      <div class="cs-browser-view" id="vpnLanding">
+        <img src="../assets/case/hvpn/landing-hero.jpg" alt="H-VPN landing page — hero, trusted-by logos, four benefits">
+        <span class="cs-scrollbadge" id="vpnLandingBadge" style="border-color:rgba(124,58,237,.5);color:#a78bfa"><svg viewBox="0 0 24 24" style="stroke:#a78bfa"><path d="M6 9l6 6 6-6"/></svg>scroll</span>
+      </div>
+    </div>
+  </div>
+  <figure class="cs-fig panel"><div class="panel-bg" style="background:radial-gradient(ellipse 80% 70% at 20% 10%,rgba(124,58,237,.18),transparent 60%),#0b0714;border-color:#2a2050"><img src="../assets/case/hvpn/landing-plans.jpg" alt="Pricing tiers, plan comparison table and FAQ" loading="lazy"></div><figcaption>Plans: three tiers, a feature-by-feature comparison table, FAQ — pricing designed to be read, not decoded.</figcaption></figure>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Design language</h2>
+  <p>Near-black violet space, one electric accent, and three semantic colors that never lie: green means protected, red means exposed, yellow means Pro. The dotted globe is the brand's signature — security with a sense of place, not a padlock cliché.</p>
+  <div class="cs-tokens">
+    <span class="cs-token"><i style="background:#0b0714"></i>Space #0B0714</span>
+    <span class="cs-token"><i style="background:#7c3aed"></i>Violet #7C3AED</span>
+    <span class="cs-token"><i style="background:#a78bfa"></i>Violet-2 #A78BFA</span>
+    <span class="cs-token"><i style="background:#22c55e"></i>Protected #22C55E</span>
+    <span class="cs-token"><i style="background:#ef4444"></i>Exposed #EF4444</span>
+    <span class="cs-token"><i style="background:#fbbf24"></i>Pro #FBBF24</span>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>What I'd do differently</h2>
+  <p>The auth and payment flows (sign-in, sign-up, reset, card, PayPal) ate more of the three months than the hero screens did — next time I'd systematize those first, because every surface needed its own variant. And I'd usability-test the widget earlier: it's the surface people actually live in, but it was designed last.</p>
+  <a href="multipay.html" class="cs-next anim"><div><span>Next case study</span><br><strong>Multipay — Multi-Currency Wallet</strong></div><span class="work-arrow">&nearr;</span></a>
+</div></section>
+
+<section class="contact" id="contact"><div class="container"><div class="contact-box anim">
+  <span class="tag">Get in Touch</span>
+  <h2>Let's create something great together</h2>
+  <p>Have a project in mind? I'd love to hear about it.</p>
+  <div class="contact-btns">
+    <a href="https://mail.google.com/mail/?view=cm&to=jikurishvilib26@gmail.com&su=Meeting%20Request&body=Hi%20Beka%2C%20I%27d%20like%20to%20schedule%20a%20Google%20Meet%20call." target="_blank" rel="noopener noreferrer" class="btn-primary">Book a Call</a>
+    <a href="mailto:jikurishvilib26@gmail.com" class="btn-ghost">jikurishvilib26@gmail.com</a>
+  </div>
+</div></div></section>
+
+<footer class="footer"><div class="container footer-inner">
+  <span>&copy; 2026 Beka Jikurishvili</span>
+  <div class="footer-links"><a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a></div>
+</div></footer>
+
+<script src="../script.js?v=8"></script>
+<script>
+var vl=document.getElementById('vpnLanding'),vb=document.getElementById('vpnLandingBadge');
+if(vl&&vb){vl.addEventListener('scroll',function(){vb.classList.toggle('hide',vl.scrollTop>60)})}
+</script>
+</body>
+</html>
