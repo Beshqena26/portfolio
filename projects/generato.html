@@ -717,11 +717,11 @@ a{color:inherit;text-decoration:none}
 
 /* ===== A/B COMPARE SLIDER ===== */
 .ab-wrap{perspective:1400px}
-.ab{position:relative;width:100%;max-width:1200px;margin:0 auto;aspect-ratio:16/9;border-radius:20px;overflow:hidden;cursor:ew-resize;user-select:none;-webkit-user-select:none;touch-action:none;box-shadow:0 30px 80px -20px rgba(0,0,0,.15);transform:scale(var(--ab-s,.7)) translateY(calc((1 - var(--ab-s,.7)) * 40px));transform-origin:center top;transition:transform .08s linear,box-shadow .6s var(--ease),opacity .6s var(--ease);opacity:calc(.2 + var(--ab-s,.7) * .8)}
+.ab{position:relative;width:100%;max-width:900px;margin:0 auto;aspect-ratio:1/1;border-radius:20px;overflow:hidden;cursor:ew-resize;user-select:none;-webkit-user-select:none;touch-action:none;box-shadow:0 30px 80px -20px rgba(0,0,0,.15);transform:scale(var(--ab-s,.7)) translateY(calc((1 - var(--ab-s,.7)) * 40px));transform-origin:center top;transition:transform .08s linear,box-shadow .6s var(--ease),opacity .6s var(--ease);opacity:calc(.2 + var(--ab-s,.7) * .8)}
 .ab.settled{transition:transform .6s var(--ease),box-shadow .6s var(--ease),opacity .6s var(--ease)}
 .ab__layer{position:absolute;inset:0}
-.ab__old{background:#f0f0f0}
-.ab__new{background:linear-gradient(135deg,#1e1e24,#0a0a0f);clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
+.ab__old{background:#141414}
+.ab__new{clip-path:inset(0 0 0 var(--x,50%))}
 .ab__label{position:absolute;top:clamp(16px,3vw,28px);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px;border-radius:100px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);pointer-events:none}
 .ab__label--before{left:clamp(16px,3vw,28px);background:rgba(0,0,0,.06);color:#555}
 .ab__label--after{right:clamp(16px,3vw,28px);background:rgba(255,255,255,.08);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.1)}
@@ -929,58 +929,13 @@ a{color:inherit;text-decoration:none}
 
     <!-- BEFORE / AFTER SLIDER -->
     <div style="margin-top:clamp(80px,12vh,160px)">
-      <div class="compare-arrow rv"><span>Drag to compare &middot; Industry standard vs. redesigned</span></div>
+      <div class="compare-arrow rv"><span>Drag to compare &middot; The Resolution Upscaler &mdash; standard output vs. 4K</span></div>
       <div class="ab-wrap">
         <div class="ab" id="ab" style="--x:50%">
-          <div class="ab__layer ab__old">
-  <div style="position:absolute;inset:0;display:flex;flex-direction:column;font-family:var(--f);font-size:10px">
-    <div style="height:34px;background:#e8e8e8;border-bottom:1px solid #d8d8d8;display:flex;align-items:center;gap:8px;padding:0 12px;flex-shrink:0">
-      <b style="color:#444;font-size:11px">ImageGen Pro</b>
-      <span style="padding:3px 9px;background:#d0d0d0;border-radius:4px;color:#666">Home</span>
-      <span style="padding:3px 9px;background:#d0d0d0;border-radius:4px;color:#666">Browse</span>
-      <span style="padding:3px 9px;background:#555;border-radius:4px;color:#fff">Generate</span>
-      <span style="padding:3px 9px;background:#d0d0d0;border-radius:4px;color:#666">Templates</span>
-      <span style="padding:3px 9px;background:#d0d0d0;border-radius:4px;color:#666">Community</span>
-      <span style="padding:3px 9px;background:#d0d0d0;border-radius:4px;color:#666">Trending</span>
-    </div>
-    <div style="flex:1;display:flex;min-height:0">
-      <div style="width:22%;background:#f2f2f2;border-right:1px solid #e0e0e0;padding:10px;display:flex;flex-direction:column;gap:6px">
-        <span style="font-size:8px;font-weight:700;color:#999;text-transform:uppercase">Model</span>
-        <div style="height:20px;background:#fff;border:1px solid #ccc;border-radius:4px"></div>
-        <span style="font-size:8px;font-weight:700;color:#999;text-transform:uppercase">Sampler</span>
-        <div style="height:20px;background:#fff;border:1px solid #ccc;border-radius:4px"></div>
-        <span style="font-size:8px;font-weight:700;color:#999;text-transform:uppercase">CFG Scale · 7.5</span>
-        <div style="height:4px;background:#ddd;border-radius:2px;position:relative"><i style="position:absolute;left:55%;top:-3px;width:9px;height:9px;background:#888;border-radius:50%"></i></div>
-        <span style="font-size:8px;font-weight:700;color:#999;text-transform:uppercase">Steps · 30</span>
-        <div style="height:4px;background:#ddd;border-radius:2px;position:relative"><i style="position:absolute;left:35%;top:-3px;width:9px;height:9px;background:#888;border-radius:50%"></i></div>
-        <span style="font-size:8px;font-weight:700;color:#999;text-transform:uppercase">Seed</span>
-        <div style="height:20px;background:#fff;border:1px solid #ccc;border-radius:4px"></div>
-        <span style="font-size:8px;font-weight:700;color:#999;text-transform:uppercase">Negative prompt</span>
-        <div style="height:34px;background:#fff;border:1px solid #ccc;border-radius:4px"></div>
-      </div>
-      <div style="flex:1;padding:12px;display:flex;flex-direction:column;gap:8px">
-        <div style="border:1px solid #ccc;background:#fff;border-radius:5px;padding:8px;color:#999">masterpiece, best quality, ultra-detailed, 8k, trending on artstation, cinematic lighting…</div>
-        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:6px;min-height:0">
-          <div style="background:#e5e5e5;border-radius:5px;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:18px">?</div>
-          <div style="background:#e5e5e5;border-radius:5px;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:18px">?</div>
-          <div style="background:#e5e5e5;border-radius:5px;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:18px">?</div>
-          <div style="background:#e5e5e5;border-radius:5px;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:18px">?</div>
-        </div>
-        <div style="padding:8px;background:#777;color:#fff;border-radius:5px;text-align:center;font-weight:600">Generate (2 credits)</div>
-      </div>
-      <div style="width:15%;background:#f2f2f2;border-left:1px solid #e0e0e0;padding:10px;display:flex;flex-direction:column;gap:6px">
-        <span style="font-size:8px;font-weight:700;color:#999;text-transform:uppercase">History</span>
-        <div style="height:26px;background:#e5e5e5;border-radius:4px"></div>
-        <div style="height:26px;background:#e5e5e5;border-radius:4px"></div>
-        <div style="height:26px;background:#e5e5e5;border-radius:4px"></div>
-        <div style="height:26px;background:#e5e5e5;border-radius:4px"></div>
-      </div>
-    </div>
-  </div>
-</div>
-          <div class="ab__layer ab__new"><img src="../assets/case/generato/d-generated.jpg" alt="Redesigned Generato workspace" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top"></div>
-          <span class="ab__label ab__label--before">Industry Standard</span>
-          <span class="ab__label ab__label--after">Redesigned</span>
+          <div class="ab__layer ab__old"><img src="../assets/case/generato/ab-lq.jpg" alt="Standard low-resolution AI output" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+          <div class="ab__layer ab__new"><img src="../assets/case/generato/ab-hq.jpg" alt="Same image after 4K AI upscaling" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+          <span class="ab__label ab__label--before">Standard output</span>
+          <span class="ab__label ab__label--after">AI Upscaled &middot; 4K</span>
           <div class="ab__handle"><div class="ab__knob"></div></div>
           <span class="ab__hint">Drag</span>
         </div>
