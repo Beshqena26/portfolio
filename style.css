@@ -487,6 +487,10 @@ figure.cs-fig.panel img{border-radius:12px;border:1px solid rgba(255,255,255,.08
 .cs-state .bad{color:#f87171}.cs-state .good{color:#34d399}
 @media(max-width:600px){.cs-state{grid-template-columns:1fr;justify-items:center}.cs-state-vs{display:none}}
 
+/* ===== NEMORA VARIANT ===== */
+.cs-showcase.rose{border-color:#3a1230;background:radial-gradient(ellipse 70% 60% at 25% 15%,rgba(255,46,126,.18),transparent 60%),radial-gradient(ellipse 60% 50% at 85% 95%,rgba(255,46,126,.08),transparent 55%),#0b0508}
+.cs-showcase.rose .panel-note{font-size:11px;color:rgba(255,255,255,.35);text-align:right;margin-top:10px}
+
 /* ===== ONBOARDING PROTOTYPE ===== */
 .proto-wrap{display:grid;grid-template-columns:320px 1fr;gap:48px;align-items:center}
 .proto-device{position:relative;aspect-ratio:9/19.2;border-radius:40px;border:8px solid #14141d;outline:1px solid rgba(255,255,255,.09);background:#000;overflow:hidden;box-shadow:0 34px 70px rgba(0,0,0,.6),0 8px 24px rgba(44,79,255,.14);cursor:pointer;user-select:none;-webkit-user-select:none}
