@@ -366,8 +366,9 @@
   <p style="margin-top:24px"><strong>Now tap through it.</strong> The same click-through build I use for usability testing:</p>
   <div class="cs-showcase">
     <div class="proto-wrap">
-      <div class="proto-device" id="protoDevice" role="button" tabindex="0" aria-label="Interactive onboarding prototype — tap to advance">
+      <div class="proto-device" id="protoDevice" role="button" tabindex="0" aria-label="Interactive onboarding prototype — tap to advance, scroll inside screens">
         <span class="proto-hint" id="protoHint">Tap to advance →</span>
+        <span class="proto-scrolltip" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
       </div>
       <div class="proto-side">
         <h3>Onboarding prototype</h3>
@@ -502,33 +503,58 @@
   var device=document.getElementById('protoDevice');
   if(!device)return;
   var hint=document.getElementById('protoHint'),title=document.getElementById('protoTitle'),desc=document.getElementById('protoDesc'),
-      dots=document.getElementById('protoDots'),count=document.getElementById('protoCount'),cur=0,imgs=[];
+      dots=document.getElementById('protoDots'),count=document.getElementById('protoCount'),cur=0,screens=[];
   STEPS.forEach(function(s,idx){
-    var im=document.createElement('img');im.src=s.src;im.alt=s.title;device.insertBefore(im,hint);imgs.push(im);
+    var wrap=document.createElement('div');wrap.className='proto-screen';
+    var im=document.createElement('img');im.src=s.src;im.alt=s.title;
+    wrap.appendChild(im);device.insertBefore(wrap,hint);screens.push(wrap);
+    wrap.addEventListener('scroll',updateScrolltip);
     var d=document.createElement('button');d.className='proto-dot';d.setAttribute('aria-label','Step '+(idx+1)+': '+s.title);
     d.addEventListener('click',function(){go(idx)});dots.appendChild(d);
   });
+  function updateScrolltip(){
+    var s=screens[cur];
+    var more=s.scrollHeight-s.clientHeight-s.scrollTop>10;
+    device.classList.toggle('scrollable',more);
+  }
   function go(i){
     cur=Math.max(0,Math.min(STEPS.length-1,i));
-    imgs.forEach(function(im,idx){im.classList.toggle('active',idx===cur)});
+    screens.forEach(function(s,idx){
+      s.classList.toggle('active',idx===cur);
+      if(idx===cur)s.scrollTop=0;
+    });
     Array.prototype.forEach.call(dots.children,function(d,idx){
       d.classList.toggle('on',idx===cur);d.classList.toggle('done',idx<cur);
     });
     title.textContent=STEPS[cur].title;desc.textContent=STEPS[cur].desc;
-    count.textContent='Step '+(cur+1)+' of '+STEPS.length;
+    count.textContent='Step '+(cur+1)+' of '+STEPS.length+(screens[cur].scrollHeight>screens[cur].clientHeight+10?' · scrollable screen':'');
     if(cur>0)hint.classList.add('hide');
+    requestAnimationFrame(updateScrolltip);
   }
+  var lastSwipe=0;
   device.addEventListener('click',function(e){
+    if(Date.now()-lastSwipe<500)return;
     var r=device.getBoundingClientRect();
     (e.clientX-r.left<r.width*0.3)?go(cur-1):go(cur+1);
   });
+  var tx=0,ty=0;
+  device.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+  device.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+    if(Math.abs(dx)>44&&Math.abs(dx)>Math.abs(dy)*1.5){
+      lastSwipe=Date.now();
+      go(dx<0?cur+1:cur-1);
+    }
+  },{passive:true});
   device.addEventListener('keydown',function(e){
     if(e.key==='ArrowRight'||e.key==='Enter'||e.key===' '){e.preventDefault();go(cur+1)}
     if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}
   });
+  window.addEventListener('resize',updateScrolltip);
   document.getElementById('protoNext').addEventListener('click',function(){go(cur+1)});
   document.getElementById('protoPrev').addEventListener('click',function(){go(cur-1)});
   document.getElementById('protoRestart').addEventListener('click',function(){hint.classList.remove('hide');go(0)});
+  window.addEventListener('load',function(){go(cur)});
   go(0);
 })();
 

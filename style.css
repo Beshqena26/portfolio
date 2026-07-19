@@ -463,11 +463,17 @@ figure.cs-fig.panel img{border-radius:12px;border:1px solid rgba(255,255,255,.08
 /* ===== ONBOARDING PROTOTYPE ===== */
 .proto-wrap{display:grid;grid-template-columns:320px 1fr;gap:48px;align-items:center}
 .proto-device{position:relative;aspect-ratio:9/19.2;border-radius:40px;border:8px solid #14141d;outline:1px solid rgba(255,255,255,.09);background:#000;overflow:hidden;box-shadow:0 34px 70px rgba(0,0,0,.6),0 8px 24px rgba(44,79,255,.14);cursor:pointer;user-select:none;-webkit-user-select:none}
-.proto-device img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:none}
-.proto-device img.active{display:block}
-.proto-device::after{content:'';position:absolute;inset:0}
-.proto-hint{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);padding:6px 14px;border-radius:50px;background:rgba(9,4,17,.78);border:1px solid rgba(255,255,255,.12);font-size:11px;color:#fff;white-space:nowrap;pointer-events:none;transition:opacity .4s}
+.proto-screen{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;background:#090411;opacity:0;pointer-events:none;transform:scale(.97);transition:opacity .35s ease,transform .35s ease}
+.proto-screen::-webkit-scrollbar{display:none}
+.proto-screen.active{opacity:1;pointer-events:auto;transform:scale(1)}
+.proto-screen img{width:100%;height:auto;display:block}
+.proto-hint{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);padding:6px 14px;border-radius:50px;background:rgba(9,4,17,.82);border:1px solid rgba(255,255,255,.14);font-size:11px;color:#fff;white-space:nowrap;pointer-events:none;transition:opacity .4s;z-index:6}
 .proto-hint.hide{opacity:0}
+.proto-scrolltip{position:absolute;right:10px;bottom:12px;width:26px;height:26px;border-radius:50%;background:rgba(9,4,17,.8);border:1px solid rgba(255,255,255,.2);display:none;align-items:center;justify-content:center;pointer-events:none;z-index:6}
+.proto-scrolltip svg{width:12px;height:12px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;animation:protobob 1.5s ease-in-out infinite}
+@keyframes protobob{0%,100%{transform:translateY(-1.5px)}50%{transform:translateY(2px)}}
+.proto-device.scrollable .proto-scrolltip{display:flex}
+@media(prefers-reduced-motion:reduce){.proto-scrolltip svg{animation:none}.proto-screen{transition:none}}
 .proto-side h3{font-size:17px;font-weight:600;margin-bottom:8px}
 .proto-step-label{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;margin:4px 0 8px}
 .proto-step-desc{font-size:14px;color:var(--text2);line-height:1.7;min-height:66px}
