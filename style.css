@@ -326,6 +326,8 @@ figure.cs-fig.panel img{border-radius:12px;border:1px solid rgba(255,255,255,.08
 
 /* ===== CASE STUDY: PERSONAS / JOURNEY / FLOW ===== */
 .cs-personas{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
+.cs-personas.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:1000px){.cs-personas.three{grid-template-columns:1fr}}
 .persona{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:28px;overflow:hidden;transition:border-color .3s,transform .3s}
 .persona:hover{border-color:var(--border-h);transform:translateY(-3px)}
 .persona::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent)}
@@ -459,6 +461,22 @@ figure.cs-fig.panel img{border-radius:12px;border:1px solid rgba(255,255,255,.08
 .ds-dd-item b{font-weight:600;color:var(--mp-text2);min-width:34px}
 .ds-note{margin-top:28px;font-size:13px;color:var(--mp-text2);border-top:1px solid var(--mp-stroke);padding-top:16px}
 .ds-note b{color:#fff}
+
+/* ===== GENERATO VARIANT ===== */
+.cs-showcase.lime{border-color:#2a3313;background:radial-gradient(ellipse 70% 60% at 25% 15%,rgba(214,249,41,.14),transparent 60%),radial-gradient(ellipse 60% 50% at 85% 95%,rgba(214,249,41,.07),transparent 55%),#0a0a0f}
+.cs-showcase.lime .cs-device{box-shadow:0 34px 70px rgba(0,0,0,.6),0 8px 24px rgba(214,249,41,.08)}
+.cs-browser{border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:#0a0a0f;box-shadow:0 30px 60px rgba(0,0,0,.55)}
+.cs-browser-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#15151c;border-bottom:1px solid rgba(255,255,255,.07)}
+.cs-browser-bar i{width:11px;height:11px;border-radius:50%;display:block}
+.cs-browser-bar .url{flex:1;margin-left:10px;padding:5px 14px;border-radius:7px;background:#0a0a0f;font-size:11.5px;color:var(--text2);font-family:'Space Grotesk',monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cs-browser-view{position:relative;aspect-ratio:16/10;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.cs-browser-view::-webkit-scrollbar{display:none}
+.cs-browser-view img{width:100%;height:auto;display:block}
+.cs-scrollbadge{position:absolute;right:12px;bottom:12px;display:flex;align-items:center;gap:6px;padding:6px 13px;border-radius:50px;background:rgba(10,10,15,.85);border:1px solid rgba(214,249,41,.4);font-size:11px;color:#d6f929;pointer-events:none;z-index:5;transition:opacity .4s}
+.cs-scrollbadge svg{width:11px;height:11px;stroke:#d6f929;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;animation:protobob 1.5s ease-in-out infinite}
+.cs-scrollbadge.hide{opacity:0}
+.proto-device.tall-scroll{aspect-ratio:9/19.2}
+@media(max-width:768px){.cs-browser-view{aspect-ratio:4/4.4}}
 
 /* ===== ONBOARDING PROTOTYPE ===== */
 .proto-wrap{display:grid;grid-template-columns:320px 1fr;gap:48px;align-items:center}

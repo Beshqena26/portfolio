@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Generato Case Study — Beka Jikurishvili</title><meta name="description" content="Case study: designing Generato, an AI-powered image generation tool — process, key features, and design decisions.">
+<title>Generato Case Study — Beka Jikurishvili</title>
+<meta name="description" content="Case study: designing Generato, an AI image platform uniting generation, background removal, upscaling and magic eraser in one canvas-first workspace — 92% onboarding success.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><circle cx=%2750%27 cy=%2750%27 r=%2746%27 fill=%27%23ff6b35%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27white%27 text-anchor=%27middle%27>B</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><circle cx=%2750%27 cy=%2750%27 r=%2746%27 fill=%27%23ff6b35%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27white%27 text-anchor=%27middle%27>B</text></svg>"><link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style.css?v=13">
 </head>
 <body>
 
@@ -20,7 +22,6 @@
     </div>
     <div class="nav-actions">
       <a href="../index.html#contact" class="nav-cta">Let's Talk</a>
-      
     </div>
   </div>
 </header>
@@ -28,44 +29,219 @@
 <section class="proj-hero">
   <div class="container anim">
     <a href="../index.html#work" class="proj-back">&larr; Back to Work</a>
-    <h1>Generato — Creativity at Your Fingertips</h1>
-    <p class="proj-desc">An AI-powered visual generation tool enabling users to create stunning images through text prompts. Ever wished you could bring your wildest ideas to life with just a few words? That's exactly what Generato does.</p>
+    <h1>Generato — one workspace from<br>prompt to production-ready image</h1>
+    <p class="proj-desc">Product design for an AI image platform that unites generation, background removal, 4K upscaling and content-aware erasing in a single canvas-first workspace — so creators stop juggling four tools to ship one visual.</p>
     <div class="proj-meta">
-      <div class="proj-meta-item"><label>Category</label><span>Web & Mobile</span></div>
+      <div class="proj-meta-item"><label>Role</label><span>Product Designer</span></div>
       <div class="proj-meta-item"><label>Duration</label><span>6 Months</span></div>
       <div class="proj-meta-item"><label>Organization</label><span>Novatori</span></div>
+      <div class="proj-meta-item"><label>Platform</label><span>Web &amp; Mobile</span></div>
+    </div>
+    <div class="cs-stats">
+      <div class="cs-stat"><b>92%</b><span>First-timers generate &amp; refine in &lt;5 min</span></div>
+      <div class="cs-stat"><b>~40%</b><span>Image prep time cut vs 3–4 tools</span></div>
+      <div class="cs-stat"><b>3</b><span>Tools used per session (avg)</span></div>
+      <div class="cs-stat"><b>5</b><span>Core AI tools, one canvas</span></div>
+      <div class="cs-stat"><b>2</b><span>Platforms — desktop &amp; mobile</span></div>
     </div>
   </div>
 </section>
 
-<div class="container anim"><div class="proj-img"><img src="../assets/generato.png" alt="Generato"></div></div>
+<div class="container anim">
+  <div class="cs-showcase lime">
+    <div class="cs-browser">
+      <div class="cs-browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">generato.app/workspace</span></div>
+      <div class="cs-browser-view" style="aspect-ratio:16/9;overflow:hidden">
+        <img src="../assets/case/generato/d-generated.jpg" alt="Generato workspace: prompt bar with setting chips, sidebar tools, and a generated war-scene image">
+      </div>
+    </div>
+  </div>
+</div>
 
 <section class="proj-section"><div class="container anim">
-  <h2>Key Features</h2>
+  <h2>Context &amp; goals</h2>
+  <p>AI image generation exploded — but shipping a usable visual still meant a relay race: generate in one tool, remove the background in a second, upscale in a third, erase artifacts in a fourth. Generato's bet: merge the whole pipeline into one workspace that a first-time user can operate with zero training, without dumbing it down for professionals.</p>
   <ul>
-    <li>Background Remover</li>
-    <li>Image Upscaler</li>
-    <li>Magic Erase</li>
+    <li><strong>Business:</strong> a compelling MVP fast, in a market where competitors ship weekly.</li>
+    <li><strong>Users:</strong> from advanced designers to first-time creators — one interface for both.</li>
+    <li><strong>Quality bar:</strong> outputs must be production-ready — campaigns, e-commerce, print.</li>
   </ul>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
-  <h2>Design Approach</h2>
-  <ul>
-    <li>Visual hierarchy implementation</li>
-    <li>Bold typography with interactive components</li>
-    <li>Accessibility-first methodology</li>
-    <li>Cross-device consistency (desktop, tablet, mobile)</li>
-  </ul>
+  <h2>Competitor analysis</h2>
+  <p>I benchmarked the three products that defined the space. Each generates; none finishes the job:</p>
+  <div class="cs-personas three">
+    <div class="persona">
+      <div class="persona-head"><div class="persona-ava">M</div><div><strong>MidJourney</strong><span>The artistry benchmark</span></div></div>
+      <p class="persona-quote">Beautiful output — then you export to Photoshop to actually finish it.</p>
+      <ul>
+        <li class="g">Best-in-class image quality</li>
+        <li class="p">No built-in editing at all</li>
+        <li class="p">Discord-bound UX intimidates non-technical users</li>
+      </ul>
+    </div>
+    <div class="persona">
+      <div class="persona-head"><div class="persona-ava">D</div><div><strong>DALL·E</strong><span>The accessible one</span></div></div>
+      <p class="persona-quote">Easy to start, hard to rely on — quality varies shot to shot.</p>
+      <ul>
+        <li class="g">Simple, approachable input</li>
+        <li class="p">Inconsistent output quality</li>
+        <li class="p">Limited workflow integration</li>
+      </ul>
+    </div>
+    <div class="persona">
+      <div class="persona-head"><div class="persona-ava">S</div><div><strong>Stable Diffusion</strong><span>The power tool</span></div></div>
+      <p class="persona-quote">Infinitely customizable — if you can set it up.</p>
+      <ul>
+        <li class="g">Deep control and customization</li>
+        <li class="p">Technical setup blocks most users</li>
+        <li class="p">No unified editing workflow</li>
+      </ul>
+    </div>
+  </div>
+  <p>The gap: an <strong>accessible, end-to-end platform</strong> where generation, editing and enhancement live in one flow. That gap became Generato's mission.</p>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
-  <h2>Process</h2>
+  <h2>Research &amp; who I designed for</h2>
+  <p>Interviews and surveys with digital creators, social media managers, e-commerce sellers and agencies; task observation of their ideation-to-asset flows; and sentiment mining across Reddit, Discord, Dribbble and Behance. Four patterns kept repeating — <strong>speed beats perfection</strong>, <strong>low tolerance for complexity</strong>, <strong>a craving for one cohesive flow</strong>, and <strong>fear of pixelated results at print size</strong>. They condensed into three personas:</p>
+  <div class="cs-personas three">
+    <div class="persona">
+      <div class="persona-head"><div class="persona-ava">M</div><div><strong>The Marketer</strong><span>Campaign visuals, weekly volume</span></div></div>
+      <ul>
+        <li class="g">Fast turnaround, brand consistency, minimal learning curve</li>
+        <li class="p">Juggling platforms slows campaign delivery</li>
+      </ul>
+    </div>
+    <div class="persona">
+      <div class="persona-head"><div class="persona-ava">D</div><div><strong>The Designer</strong><span>Client work, quality bar</span></div></div>
+      <ul>
+        <li class="g">Precision control, professional output, room to refine</li>
+        <li class="p">AI tools feel "black box," lack editing finesse</li>
+      </ul>
+    </div>
+    <div class="persona">
+      <div class="persona-head"><div class="persona-ava">C</div><div><strong>The Creator</strong><span>Content daily, mobile-first</span></div></div>
+      <ul>
+        <li class="g">Easy, inspirational, works on a phone</li>
+        <li class="p">No time for advanced editing; inconsistent results frustrate</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>The defining decision: canvas-first, not prompt-first</h2>
+  <p>Low-fi wireframes tested two competing layouts. This one decision shaped the entire product:</p>
+  <div class="cs-decision">
+    <div class="cs-dec-card chose"><h4>✓ Canvas-first</h4><p>The workspace opens on an evolving canvas where generation and editing merge. Users <em>see and edit in the same place</em> — the disconnect between "generator" and "editor" disappears. Validated through rapid prototype testing: more creative control without feeling technical.</p></div>
+    <div class="cs-dec-card rejected"><h4>✕ Prompt-first</h4><p>Prioritized the text input and results feed — familiar from MidJourney, but it reinforces the exact fragmentation we were killing: generate here, edit somewhere else. Testers treated results as endpoints instead of starting points.</p></div>
+  </div>
+  <div class="cs-decision">
+    <div class="cs-dec-card chose"><h4>Progressive disclosure</h4><p>Beginners see a prompt bar and quick-setting chips (aspect, resolution, style, lighting, composition). Power users expand panels for depth. One interface serves both personas — no "pro mode" fork.</p></div>
+    <div class="cs-dec-card chose"><h4>Prompt strength checker</h4><p>Research showed most users can't write effective prompts. A built-in checker coaches them toward better results — a small feature that bridges beginners to professional output quality.</p></div>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>The workspace</h2>
+  <p>Dark canvas, one electric-lime accent, Clash Grotesk display type. The sidebar holds the five tools; credits and upgrade sit bottom-left; every setting is a chip on the prompt bar, not a buried panel. Empty states illustrate instead of lecture.</p>
+  <figure class="cs-fig">
+    <div class="cs-showcase lime">
+      <div class="cs-browser"><div class="cs-browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">generato.app — generation result, expanded view</span></div>
+      <div class="cs-browser-view" style="aspect-ratio:16/9;overflow:hidden"><img src="../assets/case/generato/d-opened.jpg" alt="Generated image opened full-view in the workspace" loading="lazy"></div></div>
+    </div>
+    <figcaption>A generation opened full-view — the canvas is the product, chrome stays out of the way.</figcaption>
+  </figure>
+  <div class="cs-grid2">
+    <figure class="cs-fig"><img src="../assets/case/generato/d-169.jpg" alt="Workspace generating in 16:9 aspect ratio" loading="lazy"><figcaption>Aspect ratios are first-class: 16:9 for banners…</figcaption></figure>
+    <figure class="cs-fig"><img src="../assets/case/generato/d-916.jpg" alt="Workspace generating in 9:16 aspect ratio" loading="lazy"><figcaption>…9:16 for stories, set from a chip, not a settings page.</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Beyond generation: the editing suite</h2>
+  <p>The features competitors don't have, designed as one consistent pattern — upload or pick a result, apply, download in standard or HD:</p>
+  <figure class="cs-fig">
+    <div class="cs-showcase lime">
+      <div class="cs-browser"><div class="cs-browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">generato.app/background-remover</span></div>
+      <div class="cs-browser-view" style="aspect-ratio:16/9;overflow:hidden"><img src="../assets/case/generato/d-bgremover.jpg" alt="Background remover upload screen with drag-and-drop area" loading="lazy"></div></div>
+    </div>
+    <figcaption>Background Remover — drag-and-drop, one click, done. Upscaler (to 4K) and AI Magic Eraser follow the identical interaction contract.</figcaption>
+  </figure>
+  <div class="cs-grid2">
+    <figure class="cs-fig"><img src="../assets/case/generato/d-upscaler.jpg" alt="Resolution upscaler interface" loading="lazy"><figcaption>Upscaler — print-ready 4K from any result.</figcaption></figure>
+    <figure class="cs-fig"><img src="../assets/case/generato/d-brush.jpg" alt="AI magic eraser brush interface" loading="lazy"><figcaption>Magic Eraser — non-destructive, content-aware removal.</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Mobile: the full product, not a teaser</h2>
+  <p>The Creator persona lives on a phone — so every tool ships on mobile with the same mental model: prompt, chips, filter sheets, credits. Style, lighting and composition pickers become visual bottom-sheets you can scan with a thumb.</p>
+  <div class="cs-showcase lime">
+    <div class="cs-phones cols4">
+      <div class="cs-device"><img src="../assets/case/generato/m-gen1.jpg" alt="Mobile generation result" loading="lazy"></div>
+      <div class="cs-device"><img src="../assets/case/generato/m-styles.jpg" alt="Mobile style picker sheet with visual thumbnails" loading="lazy"></div>
+      <div class="cs-device"><img src="../assets/case/generato/m-lighting.jpg" alt="Mobile lighting picker sheet" loading="lazy"></div>
+      <div class="cs-device"><img src="../assets/case/generato/m-credits.jpg" alt="Out of credits state with upgrade path" loading="lazy"></div>
+    </div>
+  </div>
+  <figure class="cs-fig">
+    <div class="cs-showcase lime">
+      <div class="cs-phones">
+        <div class="cs-device"><img src="../assets/case/generato/m-bgrem.jpg" alt="Mobile background remover processing" loading="lazy"></div>
+        <div class="cs-device"><img src="../assets/case/generato/m-upscale.jpg" alt="Mobile upscaler" loading="lazy"></div>
+        <div class="cs-device"><img src="../assets/case/generato/m-brush.jpg" alt="Mobile magic brush" loading="lazy"></div>
+      </div>
+    </div>
+    <figcaption>The full editing suite on mobile — including the honest states: processing spinners and out-of-credits with a clear upgrade path.</figcaption>
+  </figure>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>The landing — scroll it yourself</h2>
+  <p>The marketing site carries the same dark-and-lime system. This is the real page in a live scroll container — desktop and mobile:</p>
+  <div class="cs-showcase lime">
+    <div class="proto-wrap" style="grid-template-columns:1fr 300px;align-items:start">
+      <div class="cs-browser">
+        <div class="cs-browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">generato.app</span></div>
+        <div class="cs-browser-view" id="genLanding">
+          <img src="../assets/case/generato/landing-full.jpg" alt="Full Generato landing page — scrollable" loading="lazy">
+          <span class="cs-scrollbadge" id="genLandingBadge"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>scroll</span>
+        </div>
+      </div>
+      <div class="proto-device tall-scroll" style="max-width:300px">
+        <div class="proto-screen active" id="genMobLanding" style="opacity:1;pointer-events:auto;transform:none">
+          <img src="../assets/case/generato/mobile-landing.jpg" alt="Mobile landing page — scrollable" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+  <figure class="cs-fig"><img src="../assets/case/generato/pricing.jpg" alt="Pricing page with plan tiers" loading="lazy"><figcaption>Pricing follows the same system — plans framed around credits, the unit users already understand from the workspace.</figcaption></figure>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Type system</h2>
+  <p>Clash Grotesk Variable for display and UI (8 weights, documented from Light to Black), Inter for dense body text — specified with full size/line-height/case tables for handoff.</p>
+  <figure class="cs-fig"><img src="../assets/case/generato/typography.jpg" alt="Typography spec: Clash Grotesk Variable weights and full type scale table" loading="lazy"><figcaption>The handoff type spec — every style with font, weight, size, line height and case.</figcaption></figure>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Results</h2>
   <ul>
-    <li>Wireframe development</li>
-    <li>High-fidelity mockups</li>
-    <li>User testing and iteration</li>
+    <li><strong>92%</strong> of first-time users generated and refined an image within 5 minutes, unaided. Testers called it "effortless" and "a tool I'd actually use daily."</li>
+    <li><strong>~40% time savings</strong> reported by marketers versus their previous 3–4-tool pipeline; agencies noted it could replace 2–3 subscriptions.</li>
+    <li><strong>3 tools per session</strong> on average — the integration bet worked: people don't just generate, they finish.</li>
+    <li>Designers singled out the upscaler and Magic Eraser as what made AI output <em>production-ready</em>.</li>
   </ul>
+  <div class="cs-callout"><p>"Not just generation like MidJourney, not just editing like Photoshop — an end-to-end ecosystem balancing speed, quality, and accessibility."</p></div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>What I'd do differently</h2>
+  <p>The hardest trade-off was depth versus simplicity — progressive disclosure solved most of it, but only after several iterations that earlier user testing would have shortened. And some users initially distrusted AI outputs entirely; positioning Generato as a <em>creative partner</em> rather than a replacement should have been baked into the UI copy from day one, not added later.</p>
+  <a href="multipay.html" class="cs-next anim"><div><span>Next case study</span><br><strong>Multipay — Multi-Currency Wallet</strong></div><span class="work-arrow">&nearr;</span></a>
 </div></section>
 
 <section class="contact" id="contact"><div class="container"><div class="contact-box anim">
@@ -83,6 +259,10 @@
   <div class="footer-links"><a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a></div>
 </div></footer>
 
-<script src="../script.js"></script>
+<script src="../script.js?v=8"></script>
+<script>
+var gl=document.getElementById('genLanding'),gb=document.getElementById('genLandingBadge');
+if(gl&&gb){gl.addEventListener('scroll',function(){gb.classList.toggle('hide',gl.scrollTop>60)})}
+</script>
 </body>
 </html>
