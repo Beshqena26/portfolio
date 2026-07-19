@@ -73,11 +73,61 @@
   <h2>Research: how Georgians actually handle money</h2>
   <p>Before drawing screens I mapped the competitive landscape and interviewed people around me who live the multi-currency reality — freelancers paid in USD, families with EUR subscriptions, everyone spending in GEL.</p>
   <h3>The competitive landscape</h3>
-  <ul>
-    <li><strong>TBC &amp; Bank of Georgia apps</strong> — powerful, trusted, but single-bank by design. Currency exchange exists but lives several taps deep, and moving money to the <em>other</em> bank means fees and friction. Their UIs carry the weight of full banking suites.</li>
-    <li><strong>Local wallets (eMoney, PayBox-style services)</strong> — great at utility payments, but dated visually, weak on multi-currency, and English-first or mixed-language in the worst places (errors, legal text).</li>
-    <li><strong>Revolut-style neobanks</strong> — the UX benchmark, but not built for Georgia: no first-class GEL rails, no Georgian language, and top-ups from local cards are where they hurt.</li>
-  </ul>
+  <p>I benchmarked the products Georgians actually use for money: the two big bank apps (TBC and Bank of Georgia's mBank, plus TBC's neobank <strong>Space</strong>), the local wallet <strong>eMoney</strong>, and the global neobanks people install for travel. Each wins somewhere — none covered the full loop of hold-in-three-currencies, top-up-from-any-local-card, pay-and-withdraw:</p>
+  <div class="comp-scroll">
+    <div class="comp">
+      <div class="c-cell c-head"></div>
+      <div class="c-cell c-head c-us">Multipay</div>
+      <div class="c-cell c-head">Space / TBC</div>
+      <div class="c-cell c-head">BOG mBank</div>
+      <div class="c-cell c-head">eMoney</div>
+      <div class="c-cell c-head">Revolut / Wise</div>
+
+      <div class="c-cell c-row">Multi-currency wallet (₾ $ €)</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-mid">~</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+
+      <div class="c-cell c-row">Top-up from both BOG &amp; TBC cards</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-mid">~</div>
+      <div class="c-cell c-mark c-mid">~</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-mid">~</div>
+
+      <div class="c-cell c-row">Send by phone number / QR</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-mid">~</div>
+
+      <div class="c-cell c-row">Withdraw to any Georgian IBAN</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-mid">~</div>
+      <div class="c-cell c-mark c-no">✕</div>
+
+      <div class="c-cell c-row">Tiered in-app KYC (start light, verify later)</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-mid">~</div>
+      <div class="c-cell c-mark c-mid">~</div>
+      <div class="c-cell c-mark c-mid">~</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+
+      <div class="c-cell c-row">Event &amp; merchant cashless payments</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-no">✕</div>
+      <div class="c-cell c-mark c-no">✕</div>
+      <div class="c-cell c-mark c-no">✕</div>
+      <div class="c-cell c-mark c-no">✕</div>
+    </div>
+  </div>
+  <p class="journey-hint">← swipe the matrix →</p>
+  <p style="font-size:13px;color:var(--text2)">Product context: Multipay is a real product by Multiverse (<a href="https://multipay.ge/" target="_blank" rel="noopener noreferrer" style="color:var(--accent2)">multipay.ge</a>) — QR &amp; phone-number transfers, IBAN withdrawals, event cashless payments, and two-tier registration, which shaped the flows below.</p>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
@@ -86,40 +136,64 @@
     <div class="persona">
       <div class="persona-head">
         <div class="persona-ava">👩‍💻</div>
-        <div><strong>Nino, 27 — Freelance designer</strong><span>Paid in USD by foreign clients · spends in GEL</span></div>
+        <div><strong>Nino, 27</strong><span>Freelance designer · paid in USD by foreign clients</span></div>
       </div>
-      <p class="persona-quote">"Every time my salary lands I lose money — the bank's rate, the transfer fee, the waiting."</p>
-      <h6>Goals</h6>
-      <ul>
-        <li>Convert USD → GEL on salary day at a rate she can see upfront</li>
-        <li>One place for balances in both currencies</li>
-        <li>Instant card for everyday GEL spending</li>
-      </ul>
-      <h6>Frustrations</h6>
-      <ul>
-        <li>FX buried several taps deep in her banking app</li>
-        <li>Fees revealed only after the transfer</li>
-        <li>Juggling two banks to reach the better rate</li>
-      </ul>
+      <div class="persona-chips"><i>📍 Tbilisi</i><i>📱 iPhone</i><i>💵 USD → ₾ monthly</i><i>🏦 2 banking apps</i></div>
+      <p class="persona-quote">Every time my salary lands I lose money — the bank's rate, the transfer fee, the waiting.</p>
+      <div class="persona-meters">
+        <div class="pm"><span>Tech comfort</span><div class="pm-bar"><i style="width:92%"></i></div></div>
+        <div class="pm"><span>Fintech trust</span><div class="pm-bar"><i style="width:70%"></i></div></div>
+        <div class="pm"><span>FX activity</span><div class="pm-bar"><i style="width:85%"></i></div></div>
+      </div>
+      <div class="persona-cols">
+        <div>
+          <h6 class="goals">Goals</h6>
+          <ul>
+            <li class="g">Convert USD → GEL on salary day, rate visible upfront</li>
+            <li class="g">Both balances in one place</li>
+            <li class="g">Card for everyday GEL spending</li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="pains">Frustrations</h6>
+          <ul>
+            <li class="p">FX buried taps-deep in her banking app</li>
+            <li class="p">Fees revealed only after transfer</li>
+            <li class="p">Two banks to reach the better rate</li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="persona">
       <div class="persona-head">
         <div class="persona-ava">👨‍🔧</div>
-        <div><strong>Dato, 43 — Shop owner</strong><span>Cash-first habits · large balances · low app trust</span></div>
+        <div><strong>Dato, 43</strong><span>Shop owner · cash-first habits · large balances</span></div>
       </div>
-      <p class="persona-quote">"If I can't see where my money is right now, I don't trust the app holding it."</p>
-      <h6>Goals</h6>
-      <ul>
-        <li>Top up fast from the TBC card he already owns</li>
-        <li>Always-visible balance — no hidden states</li>
-        <li>Freeze everything instantly if his phone is lost</li>
-      </ul>
-      <h6>Frustrations</h6>
-      <ul>
-        <li>Verification that swallows his documents "into review"</li>
-        <li>Transfers that end without a clear confirmation</li>
-        <li>Security options hidden deep in settings</li>
-      </ul>
+      <div class="persona-chips"><i>📍 Kutaisi</i><i>📱 Android</i><i>💳 TBC card</i><i>🔐 Low app trust</i></div>
+      <p class="persona-quote">If I can't see where my money is right now, I don't trust the app holding it.</p>
+      <div class="persona-meters">
+        <div class="pm"><span>Tech comfort</span><div class="pm-bar"><i style="width:45%"></i></div></div>
+        <div class="pm"><span>Fintech trust</span><div class="pm-bar"><i style="width:30%"></i></div></div>
+        <div class="pm"><span>FX activity</span><div class="pm-bar"><i style="width:40%"></i></div></div>
+      </div>
+      <div class="persona-cols">
+        <div>
+          <h6 class="goals">Goals</h6>
+          <ul>
+            <li class="g">Top up fast from the TBC card he owns</li>
+            <li class="g">Always-visible balance, no hidden states</li>
+            <li class="g">Freeze everything if his phone is lost</li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="pains">Frustrations</h6>
+          <ul>
+            <li class="p">Verification that swallows documents "into review"</li>
+            <li class="p">Transfers ending without clear confirmation</li>
+            <li class="p">Security hidden deep in settings</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -240,7 +314,7 @@
 
 <section class="proj-section"><div class="container anim">
   <h2>Onboarding: a real flow, not a happy path</h2>
-  <p>KYC is where wallets lose users, so onboarding was designed as one continuous journey — register, verify your phone, secure the account, prove your identity — with every failure state drawn: blurry ID, rejected selfie, pending review. My exploration page grew past 600 screens before this flow was distilled.</p>
+  <p>KYC is where wallets lose users, so verification is <strong>progressive</strong>: a light registration opens a limited account immediately, and full KYC — documents plus liveness — unlocks withdrawals when the user is ready. Nobody hits a wall of paperwork before seeing the product. Every failure state is drawn: blurry ID, rejected selfie, pending review. My exploration page grew past 600 screens before this flow was distilled.</p>
   <div class="uflow-lane">User flow — onboarding</div>
   <div class="uflow">
     <span class="uf-node start">Download</span><span class="uf-arrow">→</span>
@@ -253,11 +327,12 @@
       <span class="uf-mini"><span class="uf-node">Skip for now</span></span>
     </span>
     <span class="uf-arrow">→</span>
+    <span class="uf-node">Simple account — limited features</span><span class="uf-arrow">→</span>
     <span class="uf-node">KYC — personal info</span><span class="uf-arrow">→</span>
     <span class="uf-node">ID scan</span><span class="uf-arrow">→</span>
     <span class="uf-node decision">Liveness check</span>
     <span class="uf-fork">
-      <span class="uf-mini"><span class="uf-node good">Verified</span><span class="uf-arrow">→</span><span class="uf-node">Home</span></span>
+      <span class="uf-mini"><span class="uf-node good">Verified</span><span class="uf-arrow">→</span><span class="uf-node good">Complete account</span><span class="uf-arrow">→</span><span class="uf-node">Home</span></span>
       <span class="uf-mini"><span class="uf-node bad">Rejected</span><span class="uf-arrow">→</span><span class="uf-node">Retry with guidance</span></span>
       <span class="uf-mini"><span class="uf-node">Pending</span><span class="uf-arrow">→</span><span class="uf-node">Status screen, not email</span></span>
     </span>
