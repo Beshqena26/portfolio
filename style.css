@@ -146,7 +146,7 @@ img{display:block;max-width:100%}
 .work-badge-case{font-size:11px;font-weight:600;color:var(--green);background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);padding:4px 12px;border-radius:50px;white-space:nowrap}
 .work-nda-box{display:flex;align-items:center;gap:20px;margin-top:24px;padding:24px 28px;background:var(--surface);border:1px dashed var(--border);border-radius:var(--r);transition:border-color .3s}
 .work-nda-box:hover{border-color:var(--border-h)}
-.work-nda-icon{font-size:24px;flex-shrink:0}
+.work-nda-icon{flex-shrink:0;color:var(--accent);display:flex;align-items:center}
 .work-nda-content{flex:1}
 .work-nda-content h3{font-size:16px;font-weight:600;margin-bottom:4px}
 .work-nda-content p{font-size:13px;color:var(--text2);line-height:1.5}
@@ -369,8 +369,15 @@ figure.cs-fig.panel img{border-radius:12px;border:1px solid rgba(255,255,255,.08
 .journey>.j-cell:nth-last-child(-n+6){border-bottom:none}
 .j-head{font-weight:700;color:var(--text);font-size:13px;background:var(--surface2)}
 .j-label{font-size:10.5px;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--accent2);display:flex;align-items:center}
-.j-emo{text-align:center;font-size:24px}
-.j-emo em{display:block;font-style:normal;font-size:11px;color:var(--text2);margin-top:2px}
+.j-emo{text-align:center;flex-direction:column;justify-content:center;gap:4px}
+.j-emo svg{width:26px;height:26px;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin:0 auto}
+.j-emo svg .dot{fill:currentColor;stroke:none}
+.j-emo svg.mood-good{stroke:var(--green);color:var(--green)}
+.j-emo svg.mood-mid{stroke:#f59e0b;color:#f59e0b}
+.j-emo svg.mood-bad{stroke:#ef4444;color:#ef4444}
+.j-emo em{display:block;font-style:normal;font-size:11px;color:var(--text2)}
+.persona-chips i svg{width:12px;height:12px;fill:none;stroke:var(--accent2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-right:5px;vertical-align:-1.5px}
+.persona-ava{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--accent);font-size:26px}
 .j-fix{color:var(--text)}
 .j-fix::before{content:'→ ';color:var(--green)}
 .journey-hint{display:none;font-size:12px;color:var(--text2);text-align:center;margin-top:-18px;margin-bottom:24px}
