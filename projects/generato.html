@@ -721,7 +721,7 @@ a{color:inherit;text-decoration:none}
 .ab.settled{transition:transform .6s var(--ease),box-shadow .6s var(--ease),opacity .6s var(--ease)}
 .ab__layer{position:absolute;inset:0}
 .ab__old{background:#141414}
-.ab__new{clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
+.ab__new{opacity:var(--xn,.5)}
 .ab__label{position:absolute;top:clamp(16px,3vw,28px);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px;border-radius:100px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);pointer-events:none}
 .ab__label--before{left:clamp(16px,3vw,28px);background:rgba(0,0,0,.06);color:#555}
 .ab__label--after{right:clamp(16px,3vw,28px);background:rgba(255,255,255,.08);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.1)}
@@ -929,15 +929,15 @@ a{color:inherit;text-decoration:none}
 
     <!-- BEFORE / AFTER SLIDER -->
     <div style="margin-top:clamp(80px,12vh,160px)">
-      <div class="compare-arrow rv"><span>Drag to compare &middot; The Resolution Upscaler &mdash; standard output vs. 4K</span></div>
+      <div class="compare-arrow rv"><span>The Resolution Upscaler &mdash; drag right for 4K, left for standard</span></div>
       <div class="ab-wrap">
         <div class="ab" id="ab" style="--x:50%">
           <div class="ab__layer ab__old"><img src="../assets/case/generato/ab-hq.jpg" alt="Same image after 4K AI upscaling" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
           <div class="ab__layer ab__new"><img src="../assets/case/generato/ab-lq.jpg" alt="Standard low-resolution AI output" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
-          <span class="ab__label ab__label--before">Standard output</span>
-          <span class="ab__label ab__label--after">AI Upscaled &middot; 4K</span>
+          <span class="ab__label ab__label--before">&larr; Standard</span>
+          <span class="ab__label ab__label--after">4K Upscaled &rarr;</span>
           <div class="ab__handle"><div class="ab__knob"></div></div>
-          <span class="ab__hint">Drag</span>
+          <span class="ab__hint">Drag right to upscale</span>
         </div>
       </div>
     </div>
@@ -1662,7 +1662,7 @@ a{color:inherit;text-decoration:none}
     const setX=clientX=>{
       const r=ab.getBoundingClientRect();
       const pct=Math.max(0,Math.min(100,((clientX-r.left)/r.width)*100));
-      ab.style.setProperty('--x',pct+'%');
+      ab.style.setProperty('--x',pct+'%');ab.style.setProperty('--xn',(pct/100).toFixed(3));
     };
     let dragging=false;
     const onDown=e=>{dragging=true;ab.classList.add('dragging');setX((e.touches?e.touches[0]:e).clientX);e.preventDefault()};
@@ -1694,7 +1694,7 @@ a{color:inherit;text-decoration:none}
           if(dragging||steps>50)return;
           pct+=dir*1.1;
           if(pct>=60){dir=-1}else if(pct<=40){dir=1}
-          ab.style.setProperty('--x',pct+'%');
+          ab.style.setProperty('--x',pct+'%');ab.style.setProperty('--xn',(pct/100).toFixed(3));
           steps++;
           if(steps<50)requestAnimationFrame(tick);
           else ab.style.setProperty('--x','50%');
