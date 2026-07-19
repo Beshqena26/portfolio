@@ -14,7 +14,9 @@ window.addEventListener('scroll', function() {
 // Custom cursor (desktop only)
 var glow = document.getElementById('cursorGlow');
 var dot = document.getElementById('cursorDot');
-if (glow && dot && window.innerWidth > 1024) {
+var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (glow && dot && window.innerWidth > 1024 && !reduceMotion) {
+  document.body.classList.add('has-cursor');
   var mx = 0, my = 0, gx = 0, gy = 0;
 
   document.addEventListener('mousemove', function(e) {
@@ -49,12 +51,11 @@ if (glow && dot && window.innerWidth > 1024) {
   // Hide custom cursor on mobile
   if (glow) glow.style.display = 'none';
   if (dot) dot.style.display = 'none';
-  document.body.style.cursor = 'auto';
 }
 
 // Particles
 var particlesEl = document.getElementById('particles');
-if (particlesEl && window.innerWidth > 768) {
+if (particlesEl && window.innerWidth > 768 && !reduceMotion) {
   for (var i = 0; i < 40; i++) {
     var p = document.createElement('div');
     p.className = 'particle';
@@ -77,32 +78,36 @@ var overlay = document.getElementById('mobileMenu');
 var backdrop = document.getElementById('menuBackdrop');
 var closeBtn = document.getElementById('menuClose');
 
-function openMenu() {
-  overlay.classList.add('open');
-  backdrop.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeMenu() {
-  overlay.classList.remove('open');
-  backdrop.classList.remove('open');
-  document.body.style.overflow = '';
-}
+if (burger && overlay && backdrop && closeBtn) {
+  var openMenu = function() {
+    overlay.classList.add('open');
+    backdrop.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  };
+  var closeMenu = function() {
+    overlay.classList.remove('open');
+    backdrop.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  };
 
-burger.addEventListener('click', openMenu);
-closeBtn.addEventListener('click', closeMenu);
-backdrop.addEventListener('click', closeMenu);
+  burger.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
 
-overlay.querySelectorAll('a').forEach(function(a) {
-  a.addEventListener('click', function(e) {
-    closeMenu();
-    var hash = this.getAttribute('href');
-    var target = document.querySelector(hash);
-    if (target) {
-      e.preventDefault();
-      setTimeout(function() { target.scrollIntoView({ behavior: 'smooth' }); }, 150);
-    }
+  overlay.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      closeMenu();
+      var hash = this.getAttribute('href');
+      var target = document.querySelector(hash);
+      if (target) {
+        e.preventDefault();
+        setTimeout(function() { target.scrollIntoView({ behavior: 'smooth' }); }, 150);
+      }
+    });
   });
-});
+}
 
 // Testimonials show more
 var testBtn = document.getElementById('testMoreBtn');
@@ -129,11 +134,21 @@ if (themeToggle) {
 
 // FAQ accordion
 document.querySelectorAll('.faq-q').forEach(function(btn) {
+  btn.setAttribute('aria-expanded', 'false');
   btn.addEventListener('click', function() {
     var item = this.parentElement;
     var wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-    if (!wasOpen) item.classList.add('open');
+    document.querySelectorAll('.faq-item').forEach(function(i) {
+      i.classList.remove('open');
+      i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      i.querySelector('.faq-a').style.maxHeight = '';
+    });
+    if (!wasOpen) {
+      item.classList.add('open');
+      this.setAttribute('aria-expanded', 'true');
+      var answer = item.querySelector('.faq-a');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
   });
 });
 
