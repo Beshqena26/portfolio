@@ -421,10 +421,23 @@
         <button class="ds-btn primary">Log In</button>
         <button class="ds-btn secondary">Register</button>
         <button class="ds-btn primary" disabled>Log In — disabled</button>
-        <span class="ds-label" style="margin-top:10px">Phone select</span>
+        <span class="ds-label" style="margin-top:10px">Phone select — tap the code</span>
         <div class="ds-phone-row">
-          <div class="ds-cc">🇬🇪 +995</div>
-          <input class="ds-input" type="tel" placeholder="123 123 123" aria-label="Phone number">
+          <button class="ds-cc" id="dsCc" aria-haspopup="listbox" aria-expanded="false">
+            <svg class="ds-flag" id="dsCcFlag" viewBox="0 0 18 13"><rect width="18" height="13" fill="#fff"/><rect x="8" width="2" height="13" fill="#e8112d"/><rect y="5.5" width="18" height="2" fill="#e8112d"/><path d="M3.5 2h1v.8h.8v1h-.8v.8h-1v-.8h-.8v-1h.8zM13.5 2h1v.8h.8v1h-.8v.8h-1v-.8h-.8v-1h.8zM3.5 8.4h1v.8h.8v1h-.8v.8h-1V10h-.8V9h.8zM13.5 8.4h1v.8h.8v1h-.8v.8h-1V10h-.8V9h.8z" fill="#e8112d"/></svg>
+            <span id="dsCcCode">+995</span>
+            <svg class="chev" viewBox="0 0 12 8"><path d="M1 1.5l5 5 5-5"/></svg>
+          </button>
+          <input class="ds-input" type="tel" id="dsPhone" placeholder="123 123 123" aria-label="Phone number">
+          <div class="ds-dd" id="dsDd" role="listbox" aria-label="Country code">
+            <input class="ds-dd-search" id="dsDdSearch" placeholder="Search" aria-label="Search country">
+            <button class="ds-dd-item sel" data-code="+995" data-name="Georgia"><svg class="ds-flag" viewBox="0 0 18 13"><rect width="18" height="13" fill="#fff"/><rect x="8" width="2" height="13" fill="#e8112d"/><rect y="5.5" width="18" height="2" fill="#e8112d"/><path d="M3.5 2h1v.8h.8v1h-.8v.8h-1v-.8h-.8v-1h.8zM13.5 2h1v.8h.8v1h-.8v.8h-1v-.8h-.8v-1h.8zM3.5 8.4h1v.8h.8v1h-.8v.8h-1V10h-.8V9h.8zM13.5 8.4h1v.8h.8v1h-.8v.8h-1V10h-.8V9h.8z" fill="#e8112d"/></svg><b>+995</b>Georgia</button>
+            <button class="ds-dd-item" data-code="+1" data-name="United States"><svg class="ds-flag" viewBox="0 0 18 13"><rect width="18" height="13" fill="#fff"/><g fill="#b22234"><rect width="18" height="1"/><rect y="2" width="18" height="1"/><rect y="4" width="18" height="1"/><rect y="6" width="18" height="1"/><rect y="8" width="18" height="1"/><rect y="10" width="18" height="1"/><rect y="12" width="18" height="1"/></g><rect width="7.2" height="7" fill="#3c3b6e"/></svg><b>+1</b>United States</button>
+            <button class="ds-dd-item" data-code="+44" data-name="United Kingdom"><svg class="ds-flag" viewBox="0 0 18 13"><rect width="18" height="13" fill="#012169"/><path d="M0 0l18 13M18 0L0 13" stroke="#fff" stroke-width="2.4"/><path d="M0 0l18 13M18 0L0 13" stroke="#c8102e" stroke-width="1"/><rect x="7" width="4" height="13" fill="#fff"/><rect y="4.5" width="18" height="4" fill="#fff"/><rect x="7.9" width="2.2" height="13" fill="#c8102e"/><rect y="5.4" width="18" height="2.2" fill="#c8102e"/></svg><b>+44</b>United Kingdom</button>
+            <button class="ds-dd-item" data-code="+1" data-name="Canada"><svg class="ds-flag" viewBox="0 0 18 13"><rect width="18" height="13" fill="#fff"/><rect width="4.5" height="13" fill="#d80621"/><rect x="13.5" width="4.5" height="13" fill="#d80621"/><path d="M9 3l.7 1.8 1.6-.4-.8 1.9 1.2.5L9 8.6 6.3 6.8l1.2-.5-.8-1.9 1.6.4z" fill="#d80621"/></svg><b>+1</b>Canada</button>
+            <button class="ds-dd-item" data-code="+86" data-name="China"><svg class="ds-flag" viewBox="0 0 18 13"><rect width="18" height="13" fill="#ee1c25"/><path d="M3.6 1.7l.6 1.4 1.5.1-1.1 1 .3 1.4-1.3-.8-1.3.8.3-1.4-1.1-1 1.5-.1z" fill="#ffde00"/></svg><b>+86</b>China</button>
+            <button class="ds-dd-item" data-code="+91" data-name="India"><svg class="ds-flag" viewBox="0 0 18 13"><rect width="18" height="4.33" fill="#f93"/><rect y="4.33" width="18" height="4.33" fill="#fff"/><rect y="8.66" width="18" height="4.34" fill="#128807"/><circle cx="9" cy="6.5" r="1.4" fill="none" stroke="#008" stroke-width=".5"/></svg><b>+91</b>India</button>
+          </div>
         </div>
       </div>
       <div class="ds-comp-col">
@@ -450,7 +463,7 @@
 <section class="proj-section"><div class="container anim">
   <h2>The handoff</h2>
   <p>The final deliverable was a dedicated Handoff page: 20 flows — sign-in, registration, deposits, three transfer types, two withdrawal types, cards, transactions, notifications, devices, account management — each laid out screen-by-screen with the style guide at the top. A developer can build any screen without asking "what happens if this fails?", because the answer is already drawn.</p>
-  <div class="cs-callout"><p>"Research, five directions, 2,000+ screens, 49 components, two languages, twenty documented flows — one month."</p></div>
+  <div class="cs-callout"><p>"Research, five directions, 2,000+ screens, 49 components, twenty documented flows — one month."</p></div>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
@@ -530,9 +543,52 @@ document.querySelectorAll('.ds-swatch').forEach(function(sw){
 
 // ---- Design system: password error state ----
 var dsPw=document.getElementById('dsPw');
-if(dsPw){dsPw.addEventListener('blur',function(){
-  document.getElementById('dsPwField').classList.toggle('error',dsPw.value.length>0&&dsPw.value.length<8);
-})}
+if(dsPw){
+  var pwField=document.getElementById('dsPwField');
+  dsPw.addEventListener('blur',function(){
+    pwField.classList.toggle('error',dsPw.value.length>0&&dsPw.value.length<8);
+  });
+  dsPw.addEventListener('input',function(){
+    if(dsPw.value.length>=8||dsPw.value.length===0)pwField.classList.remove('error');
+  });
+}
+
+// ---- Design system: phone country select ----
+(function(){
+  var cc=document.getElementById('dsCc'),dd=document.getElementById('dsDd');
+  if(!cc||!dd)return;
+  var code=document.getElementById('dsCcCode'),flag=document.getElementById('dsCcFlag'),
+      search=document.getElementById('dsDdSearch'),items=dd.querySelectorAll('.ds-dd-item'),
+      phone=document.getElementById('dsPhone');
+  function close(){dd.classList.remove('open');cc.setAttribute('aria-expanded','false')}
+  function open(){dd.classList.add('open');cc.setAttribute('aria-expanded','true');search.value='';filter('');search.focus()}
+  function filter(q){
+    q=q.toLowerCase();
+    items.forEach(function(it){
+      var hit=it.getAttribute('data-name').toLowerCase().indexOf(q)>-1||it.getAttribute('data-code').indexOf(q)>-1;
+      it.style.display=hit?'flex':'none';
+    });
+  }
+  cc.addEventListener('click',function(e){
+    e.stopPropagation();
+    dd.classList.contains('open')?close():open();
+  });
+  search.addEventListener('input',function(){filter(search.value)});
+  search.addEventListener('click',function(e){e.stopPropagation()});
+  items.forEach(function(it){
+    it.addEventListener('click',function(e){
+      e.stopPropagation();
+      items.forEach(function(o){o.classList.remove('sel')});
+      it.classList.add('sel');
+      code.textContent=it.getAttribute('data-code');
+      flag.innerHTML=it.querySelector('.ds-flag').innerHTML;
+      close();phone.focus();
+    });
+  });
+  document.addEventListener('click',function(e){if(!dd.contains(e.target))close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  if(phone){phone.addEventListener('input',function(){phone.value=phone.value.replace(/[^\d ]/g,'')})}
+})();
 
 // ---- Design system: OTP boxes ----
 var otp=document.getElementById('dsOtp');
