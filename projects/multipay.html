@@ -7,7 +7,7 @@
 <meta name="description" content="Case study: designing Multipay, a multi-currency digital wallet for the Georgian market — research, competitive analysis, 2,000+ screens, and a dev-ready handoff in one month.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><circle cx=%2750%27 cy=%2750%27 r=%2746%27 fill=%27%23ff6b35%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27white%27 text-anchor=%27middle%27>B</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=10">
+<link rel="stylesheet" href="../style.css?v=11">
 </head>
 <body>
 
@@ -42,7 +42,7 @@
       <div class="cs-stat"><b>49</b><span>Reusable components</span></div>
       <div class="cs-stat"><b>20+</b><span>Flows documented</span></div>
       <div class="cs-stat"><b>5</b><span>Color directions</span></div>
-      <div class="cs-stat"><b>2</b><span>Languages (EN / ქარ)</span></div>
+      <div class="cs-stat"><b>3</b><span>Currencies (₾ $ €)</span></div>
     </div>
   </div>
 </section>
@@ -83,7 +83,6 @@
     <li>People convert currency <strong>on salary day, in round amounts</strong> → exchange lives inside the transfer flow with quick-amount chips, not in a separate "FX" section.</li>
     <li>The #1 stated fear was <strong>"my money disappears mid-transfer"</strong> → every transaction must end in an explicit Processing / Successful / Denied state with a reason and a next step.</li>
     <li>KYC abandonment comes from <strong>uncertainty, not effort</strong> — people quit when documents vanish "into review" → verification states (pending / rejected / verified) are first-class screens, not emails.</li>
-    <li>Georgian speakers are underserved — most fintech UIs degrade to English exactly where trust matters most → Georgian designed as a parallel version, not a translation pass.</li>
   </ul>
 </div></section>
 
@@ -93,7 +92,7 @@
     <div class="cs-dec-card chose"><h4>01 — Trust by default</h4><p>Balances always visible, IBAN masked but copyable, panic actions (block account, freeze card) one tap from Home. The app never hides what's happening with money.</p></div>
     <div class="cs-dec-card chose"><h4>02 — One screen, one decision</h4><p>Every step of every flow asks exactly one question: from where, to where, how much, confirm. No screen mixes decisions — which is why 20+ flows stay learnable.</p></div>
     <div class="cs-dec-card chose"><h4>03 — Multi-currency is the product</h4><p>Currency chips sit directly under the main balance on every account screen. Switching ₾ / $ / € is a glance, not a journey.</p></div>
-    <div class="cs-dec-card chose"><h4>04 — Bilingual as first-class</h4><p>Every flow exists in English and Georgian, reviewed for layout, truncation and tone — because trust collapses the moment an error message switches language.</p></div>
+    <div class="cs-dec-card chose"><h4>04 — Every state is drawn</h4><p>No screen ships without its siblings: loading, empty, error, denied. If a developer has to invent a failure screen, the design isn't finished.</p></div>
   </div>
 </div></section>
 
@@ -161,36 +160,91 @@
 </div></section>
 
 <section class="proj-section"><div class="container anim">
-  <h2>Onboarding &amp; KYC: the messy middle</h2>
-  <p>KYC is where wallets lose users. I explored it wide — OTP entry, document scanning, selfie liveness — and designed every failure state, not just the happy path: blurry ID, rejected selfie, pending review, verified. The exploration page alone grew past 600 screens before the final flow was distilled.</p>
-  <figure class="cs-fig panel"><div class="panel-bg"><img src="../assets/case/multipay/playground-kyc.jpg" alt="KYC exploration: ID document scanning, selfie liveness check with rejected, pending and verified states" loading="lazy"></div><figcaption>Straight from my exploration page: ID scan and selfie liveness with rejected / pending / verified states. I keep the messy middle — it's where the real decisions happened.</figcaption></figure>
-</div></section>
-
-<section class="proj-section"><div class="container anim">
-  <h2>A component system, not a screen pile</h2>
-  <p>2,000+ screens stay consistent because they're built from <strong>49 components</strong> and two documented overlay structures — a popup and an action drawer — with fixed spacing rules. Buttons, inputs, selects and OTP fields each ship with neutral, focused, typed, error and disabled states. That's what made 20+ flows consistent without 20+ redesigns.</p>
-  <figure class="cs-fig"><img src="../assets/case/multipay/styleguide.jpg" alt="Multipay style guide: color tokens, Gilroy typography scale, button, input, select and OTP component states" loading="lazy"><figcaption>The handoff style guide: named color tokens, Gilroy type scale, and every component state developers need — plus documented popup and action-drawer structures with fixed spacing rules.</figcaption></figure>
-  <div class="cs-tokens">
-    <span class="cs-token"><i style="background:#090411"></i>Background #090411</span>
-    <span class="cs-token"><i style="background:#2C4FFF"></i>Primary #2C4FFF</span>
-    <span class="cs-token"><i style="background:#7584A3"></i>Text-2 #7584A3</span>
-    <span class="cs-token"><i style="background:#49BA27"></i>Success #49BA27</span>
-    <span class="cs-token"><i style="background:#FFA812"></i>Warning #FFA812</span>
-    <span class="cs-token"><i style="background:#FF2D55"></i>Error #FF2D55</span>
+  <h2>Onboarding: a real flow, not a happy path</h2>
+  <p>KYC is where wallets lose users, so onboarding was designed as one continuous journey — register, verify your phone, secure the account, prove your identity — with every failure state drawn: blurry ID, rejected selfie, pending review. My exploration page grew past 600 screens before this flow was distilled.</p>
+  <p><strong>Don't take my word for it — tap through it.</strong> This is the same click-through build I use for usability testing:</p>
+  <div class="cs-showcase">
+    <div class="proto-wrap">
+      <div class="proto-device" id="protoDevice" role="button" tabindex="0" aria-label="Interactive onboarding prototype — tap to advance">
+        <span class="proto-hint" id="protoHint">Tap to advance →</span>
+      </div>
+      <div class="proto-side">
+        <h3>Onboarding prototype</h3>
+        <div class="proto-step-label" id="protoTitle"></div>
+        <p class="proto-step-desc" id="protoDesc"></p>
+        <div class="proto-dots" id="protoDots"></div>
+        <div class="proto-ctrl">
+          <button class="proto-btn" id="protoPrev">← Back</button>
+          <button class="proto-btn" id="protoNext">Next →</button>
+          <button class="proto-btn" id="protoRestart">↺ Restart</button>
+        </div>
+        <p class="proto-count" id="protoCount"></p>
+      </div>
+    </div>
   </div>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
-  <h2>Designed twice: English and Georgian</h2>
-  <p>Georgian isn't a translation pass — it's a layout stress test. Georgian strings run long and the script has no uppercase, which changes button widths, truncation rules and typographic hierarchy. All 20+ flows — 300+ screens — were rebuilt and reviewed in Georgian before handoff, not after.</p>
-  <figure class="cs-fig">
-    <div class="cs-showcase"><div class="cs-phones">
-      <div class="cs-device"><img src="../assets/case/multipay/geo-1.jpg" alt="Multipay home screen in Georgian" loading="lazy"></div>
-      <div class="cs-device"><img src="../assets/case/multipay/geo-2.jpg" alt="Block account confirmation in Georgian" loading="lazy"></div>
-      <div class="cs-device"><img src="../assets/case/multipay/geo-3.jpg" alt="Account screen with linked card in Georgian" loading="lazy"></div>
-    </div></div>
-    <figcaption>Home, account and even the block-account warning in Georgian — a first-class version, not an afterthought.</figcaption>
-  </figure>
+  <h2>The design system — rebuilt in code</h2>
+  <p>2,000+ screens stay consistent because they're built from <strong>49 components</strong> and two documented overlay structures — a popup and an action drawer — with fixed spacing rules. Every control ships with neutral, focused, typed, error and disabled states.</p>
+  <p>Below isn't a screenshot. It's Multipay's actual token set and core components <strong>rebuilt in live code</strong> — click a swatch to copy its hex, focus the inputs, type in the OTP:</p>
+  <div class="ds">
+    <h5>Color tokens — click to copy</h5>
+    <div class="ds-swatches">
+      <button class="ds-swatch" data-hex="#090411"><i style="background:#090411"></i><div><b>Background</b><span>#090411</span></div></button>
+      <button class="ds-swatch" data-hex="#0E1020"><i style="background:#0E1020"></i><div><b>Drawer BG</b><span>#0E1020</span></div></button>
+      <button class="ds-swatch" data-hex="#22273F"><i style="background:#22273F"></i><div><b>Stroke</b><span>#22273F</span></div></button>
+      <button class="ds-swatch" data-hex="#1A182D"><i style="background:#1A182D"></i><div><b>Select BG</b><span>#1A182D</span></div></button>
+      <button class="ds-swatch" data-hex="#2C4FFF"><i style="background:#2C4FFF"></i><div><b>Primary</b><span>#2C4FFF</span></div></button>
+      <button class="ds-swatch" data-hex="#2C4FFF60"><i style="background:rgba(44,79,255,.38)"></i><div><b>Primary BG</b><span>#2C4FFF60</span></div></button>
+      <button class="ds-swatch" data-hex="#FFFFFF"><i style="background:#FFFFFF"></i><div><b>Text Primary</b><span>#FFFFFF</span></div></button>
+      <button class="ds-swatch" data-hex="#7584A3"><i style="background:#7584A3"></i><div><b>Text Secondary</b><span>#7584A3</span></div></button>
+      <button class="ds-swatch" data-hex="#49BA27"><i style="background:#49BA27"></i><div><b>Success</b><span>#49BA27</span></div></button>
+      <button class="ds-swatch" data-hex="#FFA812"><i style="background:#FFA812"></i><div><b>Warning</b><span>#FFA812</span></div></button>
+      <button class="ds-swatch" data-hex="#FF2D55"><i style="background:#FF2D55"></i><div><b>Error</b><span>#FF2D55</span></div></button>
+      <button class="ds-swatch" data-hex="#09041150"><i style="background:rgba(9,4,17,.31);border-style:dashed"></i><div><b>Overlay</b><span>#09041150</span></div></button>
+    </div>
+
+    <h5>Typography — Gilroy</h5>
+    <table class="ds-type">
+      <tr><td class="ds-th3">Heading 3</td><td class="spec">Gilroy Bold · 24 / 20</td></tr>
+      <tr><td class="ds-tbody">Body — Balances always visible, actions one tap away.</td><td class="spec">Gilroy Medium · 14 / 16</td></tr>
+      <tr><td class="ds-tcap">Caption — Amounts are given in GEL for a year</td><td class="spec">Gilroy Regular · 12 / 16</td></tr>
+      <tr><td class="ds-tbtn">Button Label</td><td class="spec">Gilroy Bold · 14 / 20</td></tr>
+    </table>
+
+    <h5>Components — live, try them</h5>
+    <div class="ds-comps">
+      <div class="ds-comp-col">
+        <span class="ds-label">Buttons — hover &amp; press them</span>
+        <button class="ds-btn primary">Log In</button>
+        <button class="ds-btn secondary">Register</button>
+        <button class="ds-btn primary" disabled>Log In — disabled</button>
+        <span class="ds-label" style="margin-top:10px">Phone select</span>
+        <div class="ds-phone-row">
+          <div class="ds-cc">🇬🇪 +995</div>
+          <input class="ds-input" type="tel" placeholder="123 123 123" aria-label="Phone number">
+        </div>
+      </div>
+      <div class="ds-comp-col">
+        <span class="ds-label">Input states — focus it, then leave it empty</span>
+        <div class="ds-field" id="dsPwField">
+          <label>Password</label>
+          <input class="ds-input" type="password" placeholder="Enter Password" id="dsPw">
+          <span class="ds-err-msg">Must be at least 8 characters</span>
+        </div>
+        <span class="ds-label" style="margin-top:10px">OTP — type a code</span>
+        <div class="ds-otp" id="dsOtp">
+          <input maxlength="1" inputmode="numeric" aria-label="OTP digit 1">
+          <input maxlength="1" inputmode="numeric" aria-label="OTP digit 2">
+          <input maxlength="1" inputmode="numeric" aria-label="OTP digit 3">
+          <input maxlength="1" inputmode="numeric" aria-label="OTP digit 4">
+        </div>
+      </div>
+    </div>
+    <p class="ds-note"><b>Why this matters:</b> I hand off design systems developers can trust — and I can rebuild them in code myself. Every state above (hover, press, focus, error, disabled) matches the documented Figma spec.</p>
+  </div>
+  <figure class="cs-fig"><img src="../assets/case/multipay/styleguide.jpg" alt="Multipay style guide: color tokens, Gilroy typography scale, button, input, select and OTP component states" loading="lazy"><figcaption>The actual handoff artifact: the style-guide board developers received, with popup and action-drawer structures and fixed spacing rules.</figcaption></figure>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
@@ -201,7 +255,7 @@
 
 <section class="proj-section"><div class="container anim">
   <h2>What I'd do differently</h2>
-  <p>I'd bring usability testing earlier into the KYC flow — I designed all the failure states, but real users would have shown me which ones they actually hit most, and the flow could be ordered around that. And I'd define the Georgian type scale on day one instead of adapting it mid-project; localization touched more components than I'd budgeted for.</p>
+  <p>I'd bring usability testing earlier into the KYC flow — I designed all the failure states, but real users would have shown me which ones they actually hit most, and the flow could be ordered around that. And I'd lock the component library before the color explorations instead of after; rebuilding five directions on unfinished components cost me days I could have spent testing.</p>
   <a href="generato.html" class="cs-next anim"><div><span>Next case study</span><br><strong>Generato — AI Image Generation</strong></div><span class="work-arrow">&nearr;</span></a>
 </div></section>
 
@@ -221,5 +275,80 @@
 </div></footer>
 
 <script src="../script.js?v=8"></script>
+<script>
+// ---- Onboarding prototype ----
+(function(){
+  var STEPS=[
+    {src:'../assets/case/multipay/kyc-2.jpg',title:'Personal information',desc:'KYC starts with the questions regulation demands — address, activity, income — grouped so each screen asks one thing.'},
+    {src:'../assets/case/multipay/kyc-4.jpg',title:'Financial profile',desc:'Source of income and anticipated turnover. Radio groups and checklists keep a legal questionnaire feeling like a form, not an interrogation.'},
+    {src:'../assets/case/multipay/bio-1.jpg',title:'Secure the account',desc:'After first login the app offers biometrics, so the password becomes a one-time event.'},
+    {src:'../assets/case/multipay/bio-2.jpg',title:'Face ID',desc:'One tap to enable. Skipping is allowed — security prompts that block progress get abandoned.'},
+    {src:'../assets/case/multipay/bio-3.jpg',title:'Touch ID fallback',desc:'Older devices get Touch ID with identical framing — one system, two sensors.'},
+    {src:'../assets/case/multipay/phone-home-1.jpg',title:'Verified — welcome home',desc:'Onboarding ends on the account screen: balance visible, card ready, deposit one tap away.'}
+  ];
+  var device=document.getElementById('protoDevice');
+  if(!device)return;
+  var hint=document.getElementById('protoHint'),title=document.getElementById('protoTitle'),desc=document.getElementById('protoDesc'),
+      dots=document.getElementById('protoDots'),count=document.getElementById('protoCount'),cur=0,imgs=[];
+  STEPS.forEach(function(s,idx){
+    var im=document.createElement('img');im.src=s.src;im.alt=s.title;device.insertBefore(im,hint);imgs.push(im);
+    var d=document.createElement('button');d.className='proto-dot';d.setAttribute('aria-label','Step '+(idx+1)+': '+s.title);
+    d.addEventListener('click',function(){go(idx)});dots.appendChild(d);
+  });
+  function go(i){
+    cur=Math.max(0,Math.min(STEPS.length-1,i));
+    imgs.forEach(function(im,idx){im.classList.toggle('active',idx===cur)});
+    Array.prototype.forEach.call(dots.children,function(d,idx){
+      d.classList.toggle('on',idx===cur);d.classList.toggle('done',idx<cur);
+    });
+    title.textContent=STEPS[cur].title;desc.textContent=STEPS[cur].desc;
+    count.textContent='Step '+(cur+1)+' of '+STEPS.length;
+    if(cur>0)hint.classList.add('hide');
+  }
+  device.addEventListener('click',function(e){
+    var r=device.getBoundingClientRect();
+    (e.clientX-r.left<r.width*0.3)?go(cur-1):go(cur+1);
+  });
+  device.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='Enter'||e.key===' '){e.preventDefault();go(cur+1)}
+    if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}
+  });
+  document.getElementById('protoNext').addEventListener('click',function(){go(cur+1)});
+  document.getElementById('protoPrev').addEventListener('click',function(){go(cur-1)});
+  document.getElementById('protoRestart').addEventListener('click',function(){hint.classList.remove('hide');go(0)});
+  go(0);
+})();
+
+// ---- Design system: copy swatch ----
+document.querySelectorAll('.ds-swatch').forEach(function(sw){
+  sw.addEventListener('click',function(){
+    var hex=sw.getAttribute('data-hex'),label=sw.querySelector('span'),old=label.textContent;
+    function done(){sw.classList.add('copied');label.textContent='Copied!';setTimeout(function(){sw.classList.remove('copied');label.textContent=old},1200)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(hex).then(done,done)}else{done()}
+  });
+});
+
+// ---- Design system: password error state ----
+var dsPw=document.getElementById('dsPw');
+if(dsPw){dsPw.addEventListener('blur',function(){
+  document.getElementById('dsPwField').classList.toggle('error',dsPw.value.length>0&&dsPw.value.length<8);
+})}
+
+// ---- Design system: OTP boxes ----
+var otp=document.getElementById('dsOtp');
+if(otp){
+  var boxes=otp.querySelectorAll('input');
+  boxes.forEach(function(b,i){
+    b.addEventListener('input',function(){
+      b.value=b.value.replace(/\D/g,'');
+      b.classList.toggle('filled',!!b.value);
+      if(b.value&&i<boxes.length-1)boxes[i+1].focus();
+    });
+    b.addEventListener('keydown',function(e){
+      if(e.key==='Backspace'&&!b.value&&i>0)boxes[i-1].focus();
+    });
+  });
+}
+</script>
 </body>
 </html>
