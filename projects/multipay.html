@@ -100,12 +100,15 @@
 <section class="proj-section"><div class="container anim">
   <h2>Finding the visual direction</h2>
   <p>I started with a mood board, then built the same core screens in <strong>five complete color directions</strong> — not swatch tests, but full flows: a Google-inspired palette, a Facebook-style blue, a mentor-suggested variant, deep purple, and cyan. Seeing real screens side by side made the decision honest instead of theoretical.</p>
-  <div class="cs-grid2">
-    <figure class="cs-fig"><img src="../assets/case/multipay/color-deeppurple.jpg" alt="Deep purple color direction — full flow explorations" loading="lazy"><figcaption>Direction: Deep Purple</figcaption></figure>
-    <figure class="cs-fig"><img src="../assets/case/multipay/color-cyan.jpg" alt="Cyan color direction — full flow explorations" loading="lazy"><figcaption>Direction: Cyan</figcaption></figure>
-    <figure class="cs-fig"><img src="../assets/case/multipay/color-google.jpg" alt="Google-palette color direction" loading="lazy"><figcaption>Direction: Google palette</figcaption></figure>
-    <figure class="cs-fig"><img src="../assets/case/multipay/color-giorgi.jpg" alt="Alternative palette direction" loading="lazy"><figcaption>Direction: mentor variant</figcaption></figure>
-  </div>
+  <figure class="cs-fig">
+    <div class="cs-showcase"><div class="cs-phones cols4">
+      <div class="cs-dir"><div class="cs-device"><img src="../assets/case/multipay/dir-purple.jpg" alt="Deep purple direction — welcome screen" loading="lazy"></div><span>Deep Purple</span></div>
+      <div class="cs-dir"><div class="cs-device"><img src="../assets/case/multipay/dir-cyan.jpg" alt="Cyan direction — home screen" loading="lazy"></div><span>Cyan</span></div>
+      <div class="cs-dir"><div class="cs-device"><img src="../assets/case/multipay/dir-google.jpg" alt="Google palette direction — home screen" loading="lazy"></div><span>Google palette</span></div>
+      <div class="cs-dir"><div class="cs-device"><img src="../assets/case/multipay/dir-giorgi.jpg" alt="Mentor variant direction — home screen" loading="lazy"></div><span>Mentor variant</span></div>
+    </div></div>
+    <figcaption>One screen, four of the five rejected directions — each was explored as a complete flow before deciding.</figcaption>
+  </figure>
   <div class="cs-decision">
     <div class="cs-dec-card chose"><h4>✓ What I chose</h4><p>Electric blue <b>#2C4FFF</b> on near-black navy <b>#090411</b>. Blue reads as banking and security; the dark base makes balances and the premium card the heroes of every screen, and passes contrast checks even at caption sizes.</p></div>
     <div class="cs-dec-card rejected"><h4>✕ What I rejected</h4><p>Deep purple looked striking but read as crypto/gaming — the wrong association for an app holding salaries. The Google and Facebook palettes tested friendlier, but felt borrowed; a wallet shouldn't remind you of someone else's brand.</p></div>
@@ -120,38 +123,53 @@
 
   <h3>Deposits that survive failure</h3>
   <p>Top-ups come from local <strong>BOG and TBC cards</strong> — the two cards every Georgian actually owns. Quick-amount chips (10 / 20 / 50 / 100₾) cover most real deposits; card entry supports save-for-next-time; and the flow always resolves to an explicit end state.</p>
-  <figure class="cs-fig panel"><div class="panel-bg"><img src="../assets/case/multipay/flow-deposit.jpg" alt="Complete deposit flow: add card, choose account, quick amounts, BOG and TBC card selection, processing, success and denied states" loading="lazy"></div><figcaption>The full deposit flow — including the unhappy paths: processing, success, and denied with a reason and retry.</figcaption></figure>
+  <figure class="cs-fig">
+    <div class="cs-showcase"><div class="cs-phones cols4">
+      <div class="cs-device"><img src="../assets/case/multipay/dep-1.jpg" alt="First-time deposit screen with quick amount chips" loading="lazy"></div>
+      <div class="cs-device"><img src="../assets/case/multipay/dep-2.jpg" alt="Choose your card drawer with BOG and TBC cards" loading="lazy"></div>
+      <div class="cs-device"><img src="../assets/case/multipay/dep-3.jpg" alt="Transaction successful state" loading="lazy"></div>
+      <div class="cs-device"><img src="../assets/case/multipay/dep-4.jpg" alt="Transaction denied state with reason and retry" loading="lazy"></div>
+    </div></div>
+    <figcaption>Deposit: amount with quick chips → local BOG / TBC card → and both endings, success <em>and</em> denied with a retry path.</figcaption>
+  </figure>
 
   <h3>Three transfers, one mental model</h3>
   <p>Internal same-currency, internal with exchange, and external to IBAN are three separate flows in the spec — but to the user they're the same four questions: from, to, amount, confirm. Exchange shows the rate inline at the amount step, so converting salary into dollars is a transfer, not a feature to find.</p>
 
   <h3>Withdrawals &amp; cards</h3>
   <p>Money leaves either to a bank card or an IBAN — mirrored flows with the same confirmation contract. Card management covers linking, blocking and detail views without leaving the wallet.</p>
-  <div class="cs-grid2">
-    <figure class="cs-fig"><img src="../assets/case/multipay/flow-withdraw.jpg" alt="Withdrawal flow to card with confirmation and result states" loading="lazy"><figcaption>Withdraw to card — same contract: source, destination, amount, explicit ending.</figcaption></figure>
-    <figure class="cs-fig"><img src="../assets/case/multipay/my-cards.jpg" alt="My Cards management screens" loading="lazy"><figcaption>My Cards — link, view, block.</figcaption></figure>
-  </div>
+  <figure class="cs-fig">
+    <div class="cs-showcase"><div class="cs-phones cols4">
+      <div class="cs-device"><img src="../assets/case/multipay/wd-1.jpg" alt="Withdraw form" loading="lazy"></div>
+      <div class="cs-device"><img src="../assets/case/multipay/wd-3.jpg" alt="Withdrawal success state" loading="lazy"></div>
+      <div class="cs-device"><img src="../assets/case/multipay/card-1.jpg" alt="Linked cards list with TBC and BOG cards" loading="lazy"></div>
+      <div class="cs-device"><img src="../assets/case/multipay/card-3.jpg" alt="Card detail view with transactions" loading="lazy"></div>
+    </div></div>
+    <figcaption>Withdraw to card and My Cards — the same source → destination → amount → explicit-ending contract everywhere.</figcaption>
+  </figure>
 
   <h3>Security users can feel</h3>
   <p>Face ID / Touch ID after first login, a Devices screen listing every active session, and account blocking one tap from Home. Security isn't a settings page — it's furniture in the main rooms of the app.</p>
-  <figure class="cs-fig panel"><div class="panel-bg"><img src="../assets/case/multipay/faceid-exploration.jpg" alt="Face ID and Touch ID enablement screens" loading="lazy"></div><figcaption>Biometric enablement — designed so the password becomes a one-time event.</figcaption></figure>
+  <figure class="cs-fig">
+    <div class="cs-showcase"><div class="cs-phones">
+      <div class="cs-device"><img src="../assets/case/multipay/bio-1.jpg" alt="Face ID enablement screen" loading="lazy"></div>
+      <div class="cs-device"><img src="../assets/case/multipay/bio-2.jpg" alt="Biometric login screen" loading="lazy"></div>
+      <div class="cs-device"><img src="../assets/case/multipay/bio-3.jpg" alt="Touch ID enablement screen" loading="lazy"></div>
+    </div></div>
+    <figcaption>Biometric enablement — designed so the password becomes a one-time event.</figcaption>
+  </figure>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
   <h2>Onboarding &amp; KYC: the messy middle</h2>
   <p>KYC is where wallets lose users. I explored it wide — OTP entry, document scanning, selfie liveness — and designed every failure state, not just the happy path: blurry ID, rejected selfie, pending review, verified. The exploration page alone grew past 600 screens before the final flow was distilled.</p>
   <figure class="cs-fig panel"><div class="panel-bg"><img src="../assets/case/multipay/playground-kyc.jpg" alt="KYC exploration: ID document scanning, selfie liveness check with rejected, pending and verified states" loading="lazy"></div><figcaption>Straight from my exploration page: ID scan and selfie liveness with rejected / pending / verified states. I keep the messy middle — it's where the real decisions happened.</figcaption></figure>
-  <figure class="cs-fig"><img src="../assets/case/multipay/playground-registration.jpg" alt="Registration and OTP flow explorations" loading="lazy"><figcaption>Registration &amp; OTP explorations — the status of your verification is always a screen, never an email.</figcaption></figure>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
   <h2>A component system, not a screen pile</h2>
   <p>2,000+ screens stay consistent because they're built from <strong>49 components</strong> and two documented overlay structures — a popup and an action drawer — with fixed spacing rules. Buttons, inputs, selects and OTP fields each ship with neutral, focused, typed, error and disabled states. That's what made 20+ flows consistent without 20+ redesigns.</p>
-  <div class="cs-grid2">
-    <figure class="cs-fig"><img src="../assets/case/multipay/popup-structure.jpg" alt="Documented popup structure with spacing rules" loading="lazy"><figcaption>Popup structure</figcaption></figure>
-    <figure class="cs-fig"><img src="../assets/case/multipay/drawer-structure.jpg" alt="Documented action drawer structure with spacing rules" loading="lazy"><figcaption>Action drawer structure</figcaption></figure>
-  </div>
-  <figure class="cs-fig"><img src="../assets/case/multipay/styleguide.jpg" alt="Multipay style guide: color tokens, Gilroy typography scale, button, input, select and OTP component states" loading="lazy"><figcaption>The handoff style guide: named color tokens, Gilroy type scale, and every component state developers need.</figcaption></figure>
+  <figure class="cs-fig"><img src="../assets/case/multipay/styleguide.jpg" alt="Multipay style guide: color tokens, Gilroy typography scale, button, input, select and OTP component states" loading="lazy"><figcaption>The handoff style guide: named color tokens, Gilroy type scale, and every component state developers need — plus documented popup and action-drawer structures with fixed spacing rules.</figcaption></figure>
   <div class="cs-tokens">
     <span class="cs-token"><i style="background:#090411"></i>Background #090411</span>
     <span class="cs-token"><i style="background:#2C4FFF"></i>Primary #2C4FFF</span>
@@ -165,13 +183,19 @@
 <section class="proj-section"><div class="container anim">
   <h2>Designed twice: English and Georgian</h2>
   <p>Georgian isn't a translation pass — it's a layout stress test. Georgian strings run long and the script has no uppercase, which changes button widths, truncation rules and typographic hierarchy. All 20+ flows — 300+ screens — were rebuilt and reviewed in Georgian before handoff, not after.</p>
-  <figure class="cs-fig panel"><div class="panel-bg"><img src="../assets/case/multipay/georgian-home.jpg" alt="Multipay home and account flows fully localized in Georgian" loading="lazy"></div><figcaption>The full home &amp; accounts flow in Georgian — shipped as a first-class version, not an afterthought.</figcaption></figure>
+  <figure class="cs-fig">
+    <div class="cs-showcase"><div class="cs-phones">
+      <div class="cs-device"><img src="../assets/case/multipay/geo-1.jpg" alt="Multipay home screen in Georgian" loading="lazy"></div>
+      <div class="cs-device"><img src="../assets/case/multipay/geo-2.jpg" alt="Block account confirmation in Georgian" loading="lazy"></div>
+      <div class="cs-device"><img src="../assets/case/multipay/geo-3.jpg" alt="Account screen with linked card in Georgian" loading="lazy"></div>
+    </div></div>
+    <figcaption>Home, account and even the block-account warning in Georgian — a first-class version, not an afterthought.</figcaption>
+  </figure>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
   <h2>The handoff</h2>
   <p>The final deliverable was a dedicated Handoff page: 20 flows — sign-in, registration, deposits, three transfer types, two withdrawal types, cards, transactions, notifications, devices, account management — each laid out screen-by-screen with the style guide at the top. A developer can build any screen without asking "what happens if this fails?", because the answer is already drawn.</p>
-  <figure class="cs-fig panel"><div class="panel-bg"><img src="../assets/case/multipay/handoff-home.jpg" alt="Handoff documentation of the homepage and inside-accounts flow" loading="lazy"></div><figcaption>Handoff page: Homepage &amp; inside-accounts, documented end to end.</figcaption></figure>
   <div class="cs-callout"><p>"Research, five directions, 2,000+ screens, 49 components, two languages, twenty documented flows — one month."</p></div>
 </div></section>
 
