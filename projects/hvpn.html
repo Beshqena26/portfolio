@@ -8,6 +8,69 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><circle cx=%2750%27 cy=%2750%27 r=%2746%27 fill=%27%23ff6b35%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27white%27 text-anchor=%27middle%27>B</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css?v=14">
+
+<style>
+/* ===== coded H-VPN landing (scoped) ===== */
+#hvpnLand{background:#08040f;color:#ece9f7;font-family:'Inter',sans-serif;font-size:13px}
+#hvpnLand *{box-sizing:border-box}
+#hvpnLand .hl-nav{display:flex;align-items:center;gap:18px;padding:14px 22px;border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;background:rgba(8,4,15,.85);backdrop-filter:blur(10px);z-index:5}
+#hvpnLand .hl-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;display:flex;align-items:center;gap:7px}
+#hvpnLand .hl-logo i{width:18px;height:18px;border:2px solid #7c3aed;border-radius:5px;display:inline-block;transform:rotate(45deg)}
+#hvpnLand .hl-links{display:flex;gap:14px;margin-left:auto;color:#9b93b8;font-size:12px}
+#hvpnLand .hl-links span:hover{color:#fff;cursor:pointer}
+#hvpnLand .hl-cta{padding:7px 16px;border-radius:8px;background:#7c3aed;color:#fff;font-weight:600;font-size:12px;cursor:pointer;transition:background .2s}
+#hvpnLand .hl-cta:hover{background:#6d2fd6}
+#hvpnLand .hl-hero{position:relative;text-align:center;padding:56px 24px 130px;overflow:hidden}
+#hvpnLand .hl-hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:200px;background:url('../assets/case/hvpn/globe.jpg') center top/cover no-repeat;opacity:.85;mask:linear-gradient(#000 40%,transparent);-webkit-mask:linear-gradient(#000 40%,transparent)}
+#hvpnLand h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:.5px;line-height:1.15;margin:0 0 14px}
+#hvpnLand .hl-sub{color:#9b93b8;max-width:420px;margin:0 auto 24px;line-height:1.6}
+#hvpnLand .hl-btns{display:flex;gap:10px;justify-content:center;position:relative;z-index:2}
+#hvpnLand .hl-btn{padding:11px 26px;border-radius:9px;font-weight:600;cursor:pointer;transition:transform .2s,background .2s}
+#hvpnLand .hl-btn.fill{background:#7c3aed;color:#fff}
+#hvpnLand .hl-btn.fill:hover{background:#6d2fd6;transform:translateY(-2px)}
+#hvpnLand .hl-btn.ghost{border:1px solid rgba(255,255,255,.2);color:#ece9f7}
+#hvpnLand .hl-btn.ghost:hover{border-color:#7c3aed;transform:translateY(-2px)}
+#hvpnLand .hl-guar{margin-top:14px;font-size:11px;color:#6f6790}
+#hvpnLand .hl-marq{overflow:hidden;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:12px 0}
+#hvpnLand .hl-marq-track{display:flex;gap:44px;width:max-content;animation:hlm 22s linear infinite;color:#6f6790;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;white-space:nowrap}
+@keyframes hlm{to{transform:translateX(-50%)}}
+#hvpnLand .hl-sec{padding:44px 24px;text-align:center}
+#hvpnLand .hl-tag{color:#a78bfa;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+#hvpnLand h2{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;margin:0 0 26px}
+#hvpnLand .hl-bens{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:680px;margin:0 auto}
+#hvpnLand .hl-ben{padding:18px 12px;border:1px solid rgba(255,255,255,.07);border-radius:12px;background:rgba(255,255,255,.02);transition:transform .25s,border-color .25s}
+#hvpnLand .hl-ben:hover{transform:translateY(-4px);border-color:rgba(124,58,237,.5)}
+#hvpnLand .hl-ben svg{width:22px;height:22px;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;margin-bottom:8px}
+#hvpnLand .hl-ben b{display:block;font-size:12px;margin-bottom:5px}
+#hvpnLand .hl-ben p{margin:0;font-size:10.5px;color:#8a82a8;line-height:1.5}
+#hvpnLand .hl-toggle{display:inline-flex;gap:4px;padding:4px;border:1px solid rgba(255,255,255,.1);border-radius:10px;margin-bottom:24px}
+#hvpnLand .hl-per{padding:7px 14px;border-radius:7px;font-size:11.5px;font-weight:600;color:#9b93b8;cursor:pointer;transition:all .2s}
+#hvpnLand .hl-per.on{background:#7c3aed;color:#fff}
+#hvpnLand .hl-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:700px;margin:0 auto;text-align:left}
+#hvpnLand .hl-plan{border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:18px;background:rgba(255,255,255,.02);position:relative;transition:transform .25s,border-color .25s}
+#hvpnLand .hl-plan:hover{transform:translateY(-4px)}
+#hvpnLand .hl-plan.rec{border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.15)}
+#hvpnLand .hl-rec-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#7c3aed;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:100px;white-space:nowrap}
+#hvpnLand .hl-plan small{color:#8a82a8;font-size:10.5px}
+#hvpnLand .hl-plan h3{font-family:'Space Grotesk',sans-serif;font-size:14px;margin:6px 0 2px}
+#hvpnLand .hl-price{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700}
+#hvpnLand .hl-price em{font-style:normal;font-size:11px;color:#8a82a8;font-weight:400}
+#hvpnLand .hl-plan .hl-cta{display:block;text-align:center;margin:12px 0 10px}
+#hvpnLand .hl-plan ul{list-style:none;margin:0;padding:0;font-size:10.5px;color:#9b93b8}
+#hvpnLand .hl-plan li{padding:3px 0 3px 16px;position:relative}
+#hvpnLand .hl-plan li::before{content:'✓';position:absolute;left:0;color:#7c3aed;font-weight:700}
+#hvpnLand .hl-save{position:absolute;top:14px;right:14px;font-size:9px;font-weight:700;color:#22c55e;background:rgba(34,197,94,.1);padding:3px 8px;border-radius:100px}
+#hvpnLand .hl-faq{max-width:620px;margin:0 auto;text-align:left}
+#hvpnLand .hl-q{border:1px solid rgba(255,255,255,.08);border-radius:11px;margin-bottom:8px;background:rgba(255,255,255,.02);overflow:hidden}
+#hvpnLand .hl-q button{width:100%;display:flex;justify-content:space-between;align-items:center;background:none;border:none;color:#a78bfa;font-family:inherit;font-size:12.5px;font-weight:600;padding:13px 16px;cursor:pointer;text-align:left}
+#hvpnLand .hl-q .hl-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+#hvpnLand .hl-q.open .hl-a{max-height:160px}
+#hvpnLand .hl-a p{margin:0;padding:0 16px 14px;color:#9b93b8;font-size:11.5px;line-height:1.65}
+#hvpnLand .hl-q .chev{transition:transform .3s;color:#6f6790}
+#hvpnLand .hl-q.open .chev{transform:rotate(180deg)}
+#hvpnLand .hl-foot{padding:22px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;color:#6f6790;font-size:11px}
+@media(max-width:700px){#hvpnLand .hl-bens{grid-template-columns:1fr 1fr}#hvpnLand .hl-plans{grid-template-columns:1fr}#hvpnLand .hl-links{display:none}}
+</style>
 </head>
 <body>
 
@@ -243,13 +306,53 @@
   <div class="cs-showcase violet">
     <div class="cs-browser">
       <div class="cs-browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">h-vpn.app</span></div>
-      <div class="cs-browser-view" id="vpnLanding">
-        <img src="../assets/case/hvpn/landing-hero.jpg" alt="H-VPN landing page — hero, trusted-by logos, four benefits">
+      <div class="cs-browser-view" id="vpnLanding" style="height:620px">
+        <div id="hvpnLand">
+          <div class="hl-nav"><span class="hl-logo"><i></i>H-VPN</span><div class="hl-links"><span>What is HVPN</span><span>Plans</span><span>Download</span><span>Support</span><span>Blog</span></div><span class="hl-cta">Get it now</span></div>
+          <div class="hl-hero">
+            <h1>Your Virtual Guardian<br>in the Cyber Jungle</h1>
+            <p class="hl-sub">Enjoy secure, fast, and private internet access from anywhere in the world.</p>
+            <div class="hl-btns"><span class="hl-btn fill">Get it now</span><span class="hl-btn ghost">Download</span></div>
+            <div class="hl-guar">🛡 30-day money-back guarantee</div>
+          </div>
+          <div class="hl-marq"><div class="hl-marq-track"><span>◈ waves</span><span>✦ FlowShow</span><span>♛ travelers.</span><span>◎ goldlines</span><span>▲ velocity</span><span>◈ waves</span><span>✦ FlowShow</span><span>♛ travelers.</span><span>◎ goldlines</span><span>▲ velocity</span></div></div>
+          <div class="hl-sec">
+            <div class="hl-tag">Experience the difference</div>
+            <h2>4 Benefits of using H-VPN</h2>
+            <div class="hl-bens">
+              <div class="hl-ben"><svg viewBox="0 0 24 24" style="stroke:#a78bfa"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M8 15h4"/></svg><b>Block Ads</b><p>Enjoy a cleaner, faster and more streamlined web.</p></div>
+              <div class="hl-ben"><svg viewBox="0 0 24 24" style="stroke:#f87171"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM4 4l16 16"/></svg><b>Hide Identity</b><p>Prevent tracking by securing your online presence.</p></div>
+              <div class="hl-ben"><svg viewBox="0 0 24 24" style="stroke:#34d399"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><b>Easy to Install</b><p>It only takes a moment to install our H-VPN.</p></div>
+              <div class="hl-ben"><svg viewBox="0 0 24 24" style="stroke:#38bdf8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg><b>Global Access</b><p>Bypass geo-restrictions and access content worldwide.</p></div>
+            </div>
+          </div>
+          <div class="hl-sec">
+            <div class="hl-tag">Unlimited privacy in a few clicks</div>
+            <h2>Choose your plan</h2>
+            <div class="hl-toggle"><span class="hl-per" data-per="0">1 Month</span><span class="hl-per on" data-per="1">12 Months</span><span class="hl-per" data-per="2">2 Years</span></div>
+            <div class="hl-plans">
+              <div class="hl-plan"><span class="hl-save">Save 50%</span><small>Enterprise</small><h3>Enterprise Plan</h3><div class="hl-price">$<span data-prices="79|40|32">40</span><em>/mth</em></div><span class="hl-cta">Get Now</span><ul><li>Advanced custom fields</li><li>Audit log and data history</li><li>Unlimited individual users</li><li>Unlimited individual data</li></ul></div>
+              <div class="hl-plan rec"><span class="hl-rec-badge">⏱ Recommended</span><small>Plus</small><h3>Plus Plan</h3><div class="hl-price">$<span data-prices="19|10|8">10</span><em>/mth</em></div><span class="hl-cta">Get Now</span><ul><li>Access to all basic features</li><li>Basic reporting and analytics</li><li>Up to 10 individual users</li><li>20 GB individual data each user</li></ul></div>
+              <div class="hl-plan"><span class="hl-save">Save 50%</span><small>Basic</small><h3>Basic Plan</h3><div class="hl-price">$<span data-prices="9.99|5.23|3.99">5.23</span><em>/mth</em></div><span class="hl-cta">Get Now</span><ul><li>Advanced custom fields</li><li>Audit log and data history</li><li>Unlimited individual users</li><li>Unlimited individual data</li></ul></div>
+            </div>
+          </div>
+          <div class="hl-sec">
+            <div class="hl-tag">Get to know more about us</div>
+            <h2>Frequently Asked Questions</h2>
+            <div class="hl-faq">
+              <div class="hl-q open"><button>How do I buy a H-VPN subscription?<span class="chev">▾</span></button><div class="hl-a"><p>Order straight from our website — pick the plan you want and click "Continue to payment." Enter your email address, select your payment method, and finish the transaction.</p></div></div>
+              <div class="hl-q"><button>How much does a VPN cost?<span class="chev">▾</span></button><div class="hl-a"><p>Most VPN providers offer monthly and long-term plans. Monthly subscriptions cost $8.00–$13.00/month, while yearly plans most often go for $6.00–$7.00/month — the longer the plan, the better the deal.</p></div></div>
+              <div class="hl-q"><button>Does H-VPN log my traffic?<span class="chev">▾</span></button><div class="hl-a"><p>No. H-VPN follows a strict no-logs policy — your browsing history, IP and connection timestamps are never stored.</p></div></div>
+              <div class="hl-q"><button>How many devices can I protect?<span class="chev">▾</span></button><div class="hl-a"><p>One account covers the mobile app, browser widget and desktop client — sign in on all of them at once.</p></div></div>
+            </div>
+          </div>
+          <div class="hl-foot"><span>© H-VPN</span><span>Privacy · Terms · Support</span></div>
+        </div>
         <span class="cs-scrollbadge" id="vpnLandingBadge" style="border-color:rgba(124,58,237,.5);color:#a78bfa"><svg viewBox="0 0 24 24" style="stroke:#a78bfa"><path d="M6 9l6 6 6-6"/></svg>scroll</span>
       </div>
     </div>
   </div>
-  <figure class="cs-fig panel"><div class="panel-bg" style="background:radial-gradient(ellipse 80% 70% at 20% 10%,rgba(124,58,237,.18),transparent 60%),#0b0714;border-color:#2a2050"><img src="../assets/case/hvpn/landing-plans.jpg" alt="Pricing tiers, plan comparison table and FAQ" loading="lazy"></div><figcaption>Plans: three tiers, a feature-by-feature comparison table, FAQ — pricing designed to be read, not decoded.</figcaption></figure>
+  <figure class="cs-fig panel"><div class="panel-bg" style="background:radial-gradient(ellipse 80% 70% at 20% 10%,rgba(124,58,237,.18),transparent 60%),#0b0714;border-color:#2a2050"><img src="../assets/case/hvpn/landing-plans.jpg" alt="Pricing tiers, plan comparison table and FAQ" loading="lazy"></div><figcaption>The full Plans spec from the design file — tiers, feature-by-feature comparison, FAQ.</figcaption></figure>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
@@ -290,6 +393,21 @@
 <script>
 var vl=document.getElementById('vpnLanding'),vb=document.getElementById('vpnLandingBadge');
 if(vl&&vb){vl.addEventListener('scroll',function(){vb.classList.toggle('hide',vl.scrollTop>60)})}
+// plan period toggle
+document.querySelectorAll('#hvpnLand .hl-per').forEach(function(p){
+  p.addEventListener('click',function(){
+    document.querySelectorAll('#hvpnLand .hl-per').forEach(function(o){o.classList.remove('on')});
+    p.classList.add('on');
+    var i=+p.getAttribute('data-per');
+    document.querySelectorAll('#hvpnLand [data-prices]').forEach(function(el){
+      el.textContent=el.getAttribute('data-prices').split('|')[i];
+    });
+  });
+});
+// FAQ accordion
+document.querySelectorAll('#hvpnLand .hl-q button').forEach(function(b){
+  b.addEventListener('click',function(){b.parentElement.classList.toggle('open')});
+});
 </script>
 </body>
 </html>
