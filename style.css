@@ -529,12 +529,16 @@ figure.cs-fig.panel img{border-radius:12px;border:1px solid rgba(255,255,255,.08
 .nem-col{display:flex;flex-direction:column;gap:12px}
 .nem-lab{font-size:11px;color:#8a8296;font-weight:600}
 .nem-btn{width:100%;padding:13px;border-radius:12px;border:none;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s}
+.nem-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px}
 .nem-btn.primary{background:#ff2e7e;color:#fff}
 .nem-btn.primary:hover{background:#e91e6c}
 .nem-btn.primary:active{transform:scale(.985)}
-.nem-btn.grad{background:linear-gradient(135deg,#7b2bff,#ff2e7e);color:#fff}
-.nem-btn.ghost{background:transparent;color:#fff;border:1px solid #2a1220}
+.nem-btn.outline{background:transparent;color:#ff2e7e;border:1.5px solid #ff2e7e}
+.nem-btn.outline:hover{background:#ff2e7e;color:#fff}
+.nem-btn.ghost{background:#160910;color:#fff;border:1px solid #2a1220}
 .nem-btn.ghost:hover{border-color:#ff2e7e}
+.nem-btn.upgrade{position:relative;background:#160910;color:#fff;border:1.5px solid transparent;background-image:linear-gradient(#160910,#160910),linear-gradient(135deg,#7b2bff,#ff2e7e);background-origin:border-box;background-clip:padding-box,border-box}
+.nem-btn.upgrade:hover{box-shadow:0 6px 22px rgba(123,43,255,.28)}
 .nem-btn:disabled{opacity:.4;cursor:not-allowed}
 .nem-field{display:flex;flex-direction:column;gap:6px}
 .nem-field label{font-size:13px;font-weight:600}
