@@ -48,6 +48,10 @@ function isAdmin(req) {
 }
 
 export default async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, x-admin-key');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  if (req.method === 'OPTIONS') return res.status(204).end();
   if (!TOKEN) {
     if (req.method === 'GET') return res.status(200).json({ reviews: [] });
     return res.status(501).json({ error: 'store_not_connected' });
