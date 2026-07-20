@@ -17,6 +17,13 @@ const MAX = 40;
 const PAGES = ['home', 'multipay', 'generato', 'nemora', 'hvpn', 'chkari', 'resume'];
 const api = (p) => `https://api.vercel.com/v1/edge-config/${CONFIG_ID}${p}?teamId=${TEAM_ID}`;
 
+// Fast read path via the EDGE_CONFIG connection string (high throughput, NOT the
+// 20-reads/minute-limited management API that was causing intermittent 500s).
+let EC_ID = '', EC_TOKEN = '';
+try { const u = new URL(process.env.EDGE_CONFIG || ''); EC_ID = u.pathname.replace(/^\//, ''); EC_TOKEN = u.searchParams.get('token') || ''; } catch (e) {}
+const readUrl = (key) => `https://edge-config.vercel.com/${EC_ID}/item/${key}?token=${EC_TOKEN}`;
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
 function clean(s, max) {
   return String(s == null ? '' : s)
     .replace(/[\u0000-\u001F\u007F]/g, ' ')
@@ -25,6 +32,16 @@ function clean(s, max) {
     .slice(0, max);
 }
 async function read(key) {
+  // Primary: fast edge endpoint (effectively unlimited reads, returns the raw value).
+  if (EC_ID && EC_TOKEN) {
+    try {
+      const r = await fetch(readUrl(key), { cache: 'no-store' });
+      if (r.status === 404 || r.status === 204) return null;
+      if (r.ok) { const t = await r.text(); if (!t) return null; try { return JSON.parse(t); } catch (e) { return null; } }
+      // any other status: fall through to management API
+    } catch (e) { /* fall through */ }
+  }
+  // Fallback: management API (rate-limited to ~20/min — only used if the fast path fails).
   const r = await fetch(api(`/item/${key}`), { headers: { Authorization: `Bearer ${TOKEN}` } });
   if (r.status === 404 || r.status === 204) return null;
   if (!r.ok) throw new Error('read ' + r.status);
@@ -35,12 +52,20 @@ async function read(key) {
 }
 async function list(key) { const v = await read(key); return Array.isArray(v) ? v : []; }
 async function write(items) {
-  const r = await fetch(api('/items'), {
-    method: 'PATCH',
-    headers: { Authorization: `Bearer ${TOKEN}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ items }),
-  });
-  if (!r.ok) throw new Error('write ' + r.status + ' ' + (await r.text()));
+  // Retry on transient failures (e.g. management-API write rate limit) so submits/approvals aren't lost.
+  let lastErr;
+  for (let attempt = 0; attempt < 4; attempt++) {
+    if (attempt) await sleep(250 * attempt);
+    const r = await fetch(api('/items'), {
+      method: 'PATCH',
+      headers: { Authorization: `Bearer ${TOKEN}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items }),
+    });
+    if (r.ok) return;
+    lastErr = 'write ' + r.status + ' ' + (await r.text());
+    if (r.status !== 429 && r.status < 500) break; // don't retry a genuine client error
+  }
+  throw new Error(lastErr || 'write failed');
 }
 function isAdmin(req) {
   const k = req.headers['x-admin-key'] || (req.query && req.query.key) || '';
