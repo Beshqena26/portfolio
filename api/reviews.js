@@ -44,7 +44,7 @@ async function write(items) {
 }
 function isAdmin(req) {
   const k = req.headers['x-admin-key'] || (req.query && req.query.key) || '';
-  return ADMIN && k === ADMIN;
+  return ADMIN && String(k).trim().toLowerCase() === ADMIN.trim().toLowerCase();
 }
 
 export default async function handler(req, res) {

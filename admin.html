@@ -123,6 +123,11 @@ function bind(){
 }
 document.getElementById('load').onclick=load;
 document.getElementById('key').addEventListener('keydown',function(e){if(e.key==='Enter')load();});
+// remember key + auto-load on return
+(function(){try{var saved=localStorage.getItem('admk');if(saved){document.getElementById('key').value=saved;load();}}catch(e){}})();
+var _load=load;load=function(){try{localStorage.setItem('admk',document.getElementById('key').value.trim());}catch(e){}_load();};
+document.getElementById('load').onclick=load;
+document.getElementById('key').addEventListener('keydown',function(e){if(e.key==='Enter')load();});
 </script>
 </body>
 </html>
