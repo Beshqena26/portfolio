@@ -161,9 +161,8 @@ if (burger && overlay && backdrop && closeBtn) {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ rating: rating, name: name, role: role, message: msg, hp: hp })
     }).then(function (r) { return r.status === 200 ? r.json() : Promise.reject(r.status); })
-      .then(function (d) {
-        if (d.review) { grid.insertBefore(card(d.review), grid.children[4] || null); }
-        note.className = 'review-note ok'; note.textContent = 'Thanks! Your review is live ❤';
+      .then(function () {
+        note.className = 'review-note ok'; note.textContent = 'Thanks! Your review was sent — it’ll appear here once approved ❤';
         form.reset(); rating = 0; paint(0); label.textContent = 'Tap to rate';
       })
       .catch(function (code) {
