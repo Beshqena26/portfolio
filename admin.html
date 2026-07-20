@@ -51,6 +51,7 @@ h2{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
   <div class="gate">
     <input type="password" id="key" placeholder="Admin key" autocomplete="off">
     <button class="btn-p" id="load">Load</button>
+    <button class="btn-p" id="refresh" style="display:none;background:#1c1c1c;border:1px solid #333">↻ Refresh</button>
   </div>
   <p class="msg" id="msg"></p>
   <div id="panel" style="display:none">
@@ -99,13 +100,13 @@ function render(d){
   document.getElementById('approved').innerHTML=a.length?a.map(function(r){return card(r,'live')}).join(''):'<div class="empty">No testimonials yet.</div>';
   bind();
 }
-function load(){
+function load(silent){
   key=document.getElementById('key').value.trim();
   if(!key){msg.textContent='Enter the admin key.';return;}
-  msg.textContent='Loading…';
+  if(!silent)msg.textContent='Loading…';
   fetch('/api/reviews?admin=1&t='+Date.now(),{headers:{'x-admin-key':key},cache:'no-store'})
     .then(function(r){if(r.status===401)throw new Error('Wrong key.');return r.json();})
-    .then(function(d){msg.textContent='';render(d);})
+    .then(function(d){if(!silent)msg.textContent='';render(d);})
     .catch(function(e){msg.textContent=e.message||'Error.';document.getElementById('panel').style.display='none';});
 }
 function act(a,id,at){
@@ -121,13 +122,20 @@ function bind(){
     b.onclick=function(){act(b.getAttribute('data-a'),b.getAttribute('data-id'),b.getAttribute('data-at'));};
   });
 }
-document.getElementById('load').onclick=load;
-document.getElementById('key').addEventListener('keydown',function(e){if(e.key==='Enter')load();});
+function start(){
+  try{localStorage.setItem('admk',document.getElementById('key').value.trim());}catch(e){}
+  load();
+  document.getElementById('refresh').style.display='inline-block';
+}
+document.getElementById('load').onclick=start;
+document.getElementById('refresh').onclick=load;
+document.getElementById('key').addEventListener('keydown',function(e){if(e.key==='Enter')start();});
+// auto-refresh so new submissions appear without re-clicking Load
+setInterval(function(){if(key&&document.getElementById('panel').style.display==='block'&&!document.hidden)load(true);},12000);
+document.addEventListener('visibilitychange',function(){if(!document.hidden&&key)load(true);});
+window.addEventListener('focus',function(){if(key)load(true);});
 // remember key + auto-load on return
-(function(){try{var saved=localStorage.getItem('admk');if(saved){document.getElementById('key').value=saved;load();}}catch(e){}})();
-var _load=load;load=function(){try{localStorage.setItem('admk',document.getElementById('key').value.trim());}catch(e){}_load();};
-document.getElementById('load').onclick=load;
-document.getElementById('key').addEventListener('keydown',function(e){if(e.key==='Enter')load();});
+(function(){try{var saved=localStorage.getItem('admk');if(saved){document.getElementById('key').value=saved;start();}}catch(e){}})();
 </script>
 </body>
 </html>
