@@ -109,15 +109,35 @@ if (burger && overlay && backdrop && closeBtn) {
   });
 }
 
-// Testimonials show more
-var testBtn = document.getElementById('testMoreBtn');
-var testGrid = document.getElementById('testGrid');
-if (testBtn && testGrid) {
-  testBtn.addEventListener('click', function() {
-    testGrid.classList.toggle('expanded');
-    testBtn.textContent = testGrid.classList.contains('expanded') ? 'Show Less' : 'Show More';
+// Review form (star rating + submit to email)
+(function () {
+  var form = document.getElementById('reviewForm');
+  if (!form) return;
+  var stars = document.querySelectorAll('#reviewStars button');
+  var label = document.getElementById('rateLabel');
+  var note = document.getElementById('reviewNote');
+  var rating = 0;
+  var words = ['', 'Poor', 'Fair', 'Good', 'Great', 'Excellent'];
+  function paint(n) { stars.forEach(function (s, i) { s.classList.toggle('on', i < n); }); }
+  stars.forEach(function (s) {
+    s.addEventListener('mouseenter', function () { paint(+s.dataset.v); });
+    s.addEventListener('mouseleave', function () { paint(rating); });
+    s.addEventListener('click', function () { rating = +s.dataset.v; paint(rating); label.textContent = words[rating] + ' — ' + rating + '/5'; });
   });
-}
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('revName').value.trim();
+    var role = document.getElementById('revRole').value.trim();
+    var msg = document.getElementById('revMsg').value.trim();
+    if (!rating) { note.className = 'review-note err'; note.textContent = 'Please pick a star rating first.'; return; }
+    if (!name || !msg) { note.className = 'review-note err'; note.textContent = 'Please add your name and a short message.'; return; }
+    var body = 'Rating: ' + rating + '/5\nName: ' + name + (role ? '\nRole: ' + role : '') + '\n\n' + msg + '\n\n— Sent from jikurishvili.com';
+    var mail = 'mailto:jikurishvilib26@gmail.com?subject=' + encodeURIComponent('Testimonial (' + rating + '/5) from ' + name) + '&body=' + encodeURIComponent(body);
+    window.location.href = mail;
+    note.className = 'review-note ok';
+    note.textContent = 'Thanks! Your email app should open — just hit send.';
+  });
+})();
 
 // Theme toggle
 var themeToggle = document.getElementById('themeToggle');

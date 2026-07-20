@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=26">
+<link rel="stylesheet" href="style.css?v=27">
 </head>
 <body>
 
@@ -343,40 +343,30 @@
           <div><strong>Nini Akhobadze</strong><span>Senior Graphic Designer</span></div>
         </div>
       </div>
-      <div class="test-card anim">
-        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Messy brief, perfect result. No drama, just gets it done. We keep coming back."</p>
-        <div class="test-author">
-          <div class="test-avatar-init" style="background:linear-gradient(135deg,#ff6b35,#ffb088)">DK</div>
-          <div><strong>Dato Kvirtia</strong><span>Startup Founder</span></div>
-        </div>
-      </div>
-      <div class="test-card anim anim-d1">
-        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Redesigned our app, onboarding completion went way up. That's all you need to know."</p>
-        <div class="test-author">
-          <div class="test-avatar-init" style="background:linear-gradient(135deg,#34d399,#6ee7b7)">LT</div>
-          <div><strong>Luka Tsiklauri</strong><span>Product Manager</span></div>
-        </div>
-      </div>
-      <div class="test-card anim">
-        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Most designers make things pretty. Beka makes things work. Big difference. Would hire again."</p>
-        <div class="test-author">
-          <div class="test-avatar-init" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">AG</div>
-          <div><strong>Ana Gogishvili</strong><span>Frontend Developer</span></div>
-        </div>
-      </div>
-      <div class="test-card anim anim-d1">
-        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Nailed our game UI on first try. Understands players, designs feel right when you play."</p>
-        <div class="test-author">
-          <div class="test-avatar-init" style="background:linear-gradient(135deg,#ff8c5a,#fbbf24)">NB</div>
-          <div><strong>Nika Beridze</strong><span>Game Developer</span></div>
-        </div>
-      </div>
     </div>
-    <div class="test-more-wrap anim"><button class="test-more-btn" id="testMoreBtn">Show More</button></div>
+    <div class="review anim">
+      <div class="review-head">
+        <h3>Worked with me? Leave a review.</h3>
+        <p>Rate the work and drop a few words — it goes straight to my inbox, and the best ones land right here.</p>
+      </div>
+      <form class="review-form" id="reviewForm">
+        <div class="review-stars" id="reviewStars" role="radiogroup" aria-label="Rating">
+          <button type="button" data-v="1" aria-label="1 star">&#9733;</button>
+          <button type="button" data-v="2" aria-label="2 stars">&#9733;</button>
+          <button type="button" data-v="3" aria-label="3 stars">&#9733;</button>
+          <button type="button" data-v="4" aria-label="4 stars">&#9733;</button>
+          <button type="button" data-v="5" aria-label="5 stars">&#9733;</button>
+          <span class="review-rate-label" id="rateLabel">Tap to rate</span>
+        </div>
+        <div class="review-row">
+          <input type="text" id="revName" placeholder="Your name" required>
+          <input type="text" id="revRole" placeholder="Role / company (optional)">
+        </div>
+        <textarea id="revMsg" rows="3" placeholder="What was it like working with me?" required></textarea>
+        <button type="submit" class="btn-primary review-submit">Send review</button>
+        <p class="review-note" id="reviewNote"></p>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -445,7 +435,7 @@
   </div>
 </footer>
 
-<script src="script.js?v=11"></script>
+<script src="script.js?v=12"></script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
