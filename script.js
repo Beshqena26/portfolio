@@ -130,17 +130,21 @@ if (burger && overlay && backdrop && closeBtn) {
   function card(r) {
     var el = document.createElement('div');
     el.className = 'test-card anim show';
+    var avatar = r.img
+      ? '<img src="' + esc(r.img) + '" alt="' + esc(r.name) + '">'
+      : '<div class="test-avatar-init" style="background:linear-gradient(135deg,#ff6b35,#ffb088)">' + esc((r.name || '?').trim().charAt(0).toUpperCase()) + '</div>';
     el.innerHTML = '<div class="test-stars">' + starHtml(r.rating) + '</div>' +
       '<p>"' + esc(r.message) + '"</p>' +
-      '<div class="test-author"><div class="test-avatar-init" style="background:linear-gradient(135deg,#ff6b35,#ffb088)">' +
-      esc((r.name || '?').trim().charAt(0).toUpperCase()) + '</div>' +
+      '<div class="test-author">' + avatar +
       '<div><strong>' + esc(r.name) + '</strong><span>' + esc(r.role || 'Client') + '</span></div></div>';
     return el;
   }
-  // load existing visitor reviews (cache-busted so approvals show immediately)
-  fetch('/api/reviews?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (d) {
-    (d.reviews || []).forEach(function (r) { grid.appendChild(card(r)); });
-  }).catch(function () {});
+  // load all testimonials (cache-busted so approvals/edits show immediately)
+  if (grid) {
+    fetch('/api/reviews?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (d) {
+      (d.reviews || []).forEach(function (r) { grid.appendChild(card(r)); });
+    }).catch(function () {});
+  }
 
   function emailFallback(name, role, msg) {
     var body = 'Rating: ' + rating + '/5\nName: ' + name + (role ? '\nRole: ' + role : '') + '\n\n' + msg + '\n\n— Sent from jikurishvili.com';
@@ -255,4 +259,22 @@ document.querySelectorAll('.nav-menu a[href^="#"]').forEach(function(a) {
     b.setAttribute('data-cal-namespace', 'book');
     b.setAttribute('data-cal-config', JSON.stringify({ layout: 'month_view', notes: note }));
   });
+})();
+
+// ===== lightweight page-view tracking (once per session per page) =====
+(function () {
+  var p = location.pathname, page = 'home';
+  if (/multipay/.test(p)) page = 'multipay';
+  else if (/generato/.test(p)) page = 'generato';
+  else if (/nemora/.test(p)) page = 'nemora';
+  else if (/hvpn/.test(p)) page = 'hvpn';
+  else if (/chkari/.test(p)) page = 'chkari';
+  else if (/resume/.test(p)) page = 'resume';
+  else if (p !== '/' && !/index/.test(p)) return; // skip admin etc.
+  try {
+    var k = 'tracked_' + page;
+    if (sessionStorage.getItem(k)) return;
+    sessionStorage.setItem(k, '1');
+  } catch (e) {}
+  fetch('/api/reviews', { method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true, body: JSON.stringify({ action: 'track', page: page }) }).catch(function () {});
 })();

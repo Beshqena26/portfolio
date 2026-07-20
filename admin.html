@@ -3,49 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Review moderation — private</title>
+<title>Admin — private</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><circle cx=%2750%27 cy=%2750%27 r=%2746%27 fill=%27%23ff6b35%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27white%27 text-anchor=%27middle%27>B</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',system-ui,sans-serif;background:#0a0a0a;color:#eee;padding:32px 18px;line-height:1.5}
-.wrap{max-width:720px;margin:0 auto}
+.wrap{max-width:760px;margin:0 auto}
 h1{font-family:'Space Grotesk',sans-serif;font-size:24px;margin-bottom:4px}
 .sub{color:#8a8a8a;font-size:13px;margin-bottom:24px}
-.gate{display:flex;gap:10px;margin-bottom:28px}
+.gate{display:flex;gap:10px;margin-bottom:26px}
 input{flex:1;padding:12px 15px;border-radius:12px;background:#141414;border:1px solid #222;color:#eee;font-family:inherit;font-size:14px}
 input:focus{outline:none;border-color:#ff6b35}
 button{font-family:inherit;font-weight:600;font-size:13px;padding:12px 18px;border-radius:12px;border:none;cursor:pointer;transition:.2s}
 .btn-p{background:#ff6b35;color:#fff}.btn-p:hover{background:#e8530f}
-.btn-g{background:#141414;color:#eee;border:1px solid #222}.btn-g:hover{border-color:#ff6b35}
-h2{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#8a8a8a;margin:24px 0 12px}
-.card{background:#141414;border:1px solid #222;border-radius:14px;padding:18px;margin-bottom:12px}
+h2{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#8a8a8a;margin:28px 0 12px}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stat{background:#141414;border:1px solid #222;border-radius:12px;padding:16px 14px}
+.stat b{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;display:block}
+.stat span{font-size:11px;color:#8a8a8a}
+.stat.big b{color:#ff6b35}
+/* cards */
+.card{background:#141414;border:1px solid #222;border-radius:14px;padding:16px 18px;margin-bottom:10px}
+.card.hidden{opacity:.5}
 .card .stars{color:#fbbf24;letter-spacing:2px;font-size:14px}
-.card p{font-size:14px;color:#ddd;font-style:italic;margin:8px 0}
+.card p{font-size:14px;color:#ddd;font-style:italic;margin:7px 0}
 .card .who{font-size:13px;color:#8a8a8a}
 .card .who b{color:#eee}
-.acts{display:flex;gap:8px;margin-top:14px}
-.acts button{padding:8px 16px}
+.card .tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#f59e0b;margin-left:8px}
+.acts{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.acts button{padding:7px 14px;font-size:12px}
 .approve{background:rgba(52,211,153,.12);color:#34d399;border:1px solid rgba(52,211,153,.3)}
 .reject,.delete{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.3)}
-.empty{color:#6a6a6a;font-size:14px;padding:16px 0}
+.eye{background:#1c1c1c;color:#eee;border:1px solid #333}
+.eye:hover{border-color:#ff6b35}
+.empty{color:#6a6a6a;font-size:14px;padding:12px 0}
 .msg{font-size:13px;min-height:18px;margin:8px 0;color:#8a8a8a}
+@media(max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>Review moderation</h1>
-  <p class="sub">Private page — approve or reject visitor reviews before they go live.</p>
+  <h1>Admin</h1>
+  <p class="sub">Private — moderate reviews, show/hide testimonials, and see site stats.</p>
   <div class="gate">
     <input type="password" id="key" placeholder="Admin key" autocomplete="off">
     <button class="btn-p" id="load">Load</button>
   </div>
   <p class="msg" id="msg"></p>
   <div id="panel" style="display:none">
-    <h2>Pending <span id="pcount"></span></h2>
+    <h2>Site stats</h2>
+    <div class="stats" id="stats"></div>
+    <h2>Pending approval <span id="pcount"></span></h2>
     <div id="pending"></div>
-    <h2>Live on site <span id="acount"></span></h2>
+    <h2>Testimonials on site <span id="acount"></span></h2>
     <div id="approved"></div>
   </div>
 </div>
@@ -53,20 +66,37 @@ h2{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
 var key='', msg=document.getElementById('msg');
 function esc(s){var d=document.createElement('div');d.textContent=s==null?'':s;return d.innerHTML;}
 function stars(n){var o='';for(var i=0;i<5;i++)o+=(i<n?'★':'☆');return o;}
-function card(r,kind){
-  return '<div class="card"><div class="stars">'+stars(r.rating)+'</div>'+
-    '<p>"'+esc(r.message)+'"</p><div class="who"><b>'+esc(r.name)+'</b>'+(r.role?' · '+esc(r.role):'')+'</div>'+
-    '<div class="acts">'+(kind==='pending'
-      ? '<button class="approve" data-a="approve" data-at="'+r.at+'">✓ Approve</button><button class="reject" data-a="reject" data-at="'+r.at+'">✕ Reject</button>'
-      : '<button class="delete" data-a="delete" data-at="'+r.at+'">Remove from site</button>')+'</div></div>';
+function idOf(r){return r.id?('"'+r.id+'"'):('null,'+r.at);}
+function actBtns(r,kind){
+  var ref='data-id="'+(r.id||'')+'" data-at="'+(r.at||'')+'"';
+  if(kind==='pending') return '<button class="approve" data-a="approve" '+ref+'>✓ Approve</button><button class="reject" data-a="reject" '+ref+'>✕ Reject</button>';
+  var eye = r.hidden
+    ? '<button class="eye" data-a="unhide" '+ref+'>👁 Show</button>'
+    : '<button class="eye" data-a="hide" '+ref+'>🚫 Hide</button>';
+  return eye+'<button class="delete" data-a="delete" '+ref+'>Delete</button>';
 }
+function card(r,kind){
+  return '<div class="card'+(r.hidden?' hidden':'')+'"><div class="stars">'+stars(r.rating)+
+    (r.hidden?'<span class="tag">Hidden</span>':'')+'</div>'+
+    '<p>"'+esc(r.message)+'"</p><div class="who"><b>'+esc(r.name)+'</b>'+(r.role?' · '+esc(r.role):'')+'</div>'+
+    '<div class="acts">'+actBtns(r,kind)+'</div></div>';
+}
+function statCard(v,label,big){return '<div class="stat'+(big?' big':'')+'"><b>'+v+'</b><span>'+label+'</span></div>';}
 function render(d){
   document.getElementById('panel').style.display='block';
+  var v=(d.stats&&d.stats.views)||{}, total=Object.keys(v).reduce(function(s,k){return s+(v[k]||0)},0);
+  var html=statCard(total,'Total page views',true)+
+    statCard(v.home||0,'Homepage')+
+    statCard((d.stats&&d.stats.reviewsSubmitted)||0,'Reviews received')+
+    statCard((v.multipay||0)+(v.generato||0)+(v.nemora||0)+(v.hvpn||0)+(v.chkari||0),'Case-study views')+
+    statCard(v.multipay||0,'Multipay')+statCard(v.generato||0,'Generato')+statCard(v.nemora||0,'Nemora')+
+    statCard(v.hvpn||0,'H-VPN')+statCard(v.chkari||0,'Chkari')+statCard(v.resume||0,'Resume');
+  document.getElementById('stats').innerHTML=html;
   var p=d.pending||[], a=d.approved||[];
   document.getElementById('pcount').textContent='('+p.length+')';
   document.getElementById('acount').textContent='('+a.length+')';
   document.getElementById('pending').innerHTML=p.length?p.map(function(r){return card(r,'pending')}).join(''):'<div class="empty">Nothing pending.</div>';
-  document.getElementById('approved').innerHTML=a.length?a.map(function(r){return card(r,'live')}).join(''):'<div class="empty">No live reviews yet.</div>';
+  document.getElementById('approved').innerHTML=a.length?a.map(function(r){return card(r,'live')}).join(''):'<div class="empty">No testimonials yet.</div>';
   bind();
 }
 function load(){
@@ -78,16 +108,17 @@ function load(){
     .then(function(d){msg.textContent='';render(d);})
     .catch(function(e){msg.textContent=e.message||'Error.';document.getElementById('panel').style.display='none';});
 }
-function act(a,at){
+function act(a,id,at){
   msg.textContent='Working…';
-  fetch('/api/reviews',{method:'POST',headers:{'Content-Type':'application/json','x-admin-key':key},cache:'no-store',body:JSON.stringify({action:a,at:at})})
+  var body={action:a}; if(id)body.id=id; if(at)body.at=Number(at);
+  fetch('/api/reviews',{method:'POST',headers:{'Content-Type':'application/json','x-admin-key':key},cache:'no-store',body:JSON.stringify(body)})
     .then(function(r){if(!r.ok)throw new Error('Failed.');return r.json();})
-    .then(function(){msg.textContent = a==='approve'?'Approved — now live on the site.':(a==='reject'?'Rejected.':'Removed.'); setTimeout(load, 700);})
+    .then(function(){msg.textContent={approve:'Approved — now live.',reject:'Rejected.',hide:'Hidden from the site.',unhide:'Shown on the site.',delete:'Deleted.'}[a]||'Done.';setTimeout(load,700);})
     .catch(function(e){msg.textContent=e.message||'Error.';});
 }
 function bind(){
   document.querySelectorAll('.acts button').forEach(function(b){
-    b.onclick=function(){act(b.getAttribute('data-a'),Number(b.getAttribute('data-at')));};
+    b.onclick=function(){act(b.getAttribute('data-a'),b.getAttribute('data-id'),b.getAttribute('data-at'));};
   });
 }
 document.getElementById('load').onclick=load;

@@ -1,8 +1,10 @@
-// Reviews with moderation, stored in Vercel Edge Config.
-//   'reviews'         -> approved list (shown publicly)
-//   'reviews_pending' -> awaiting approval (private)
-// Public: GET returns approved; POST (submit) adds to pending.
-// Admin (needs REVIEW_ADMIN_KEY): list pending, approve, reject, delete.
+// Reviews (with moderation + show/hide) and lightweight view stats,
+// stored in Vercel Edge Config.
+//   'reviews'         -> approved list (each may have hidden:true)
+//   'reviews_pending' -> awaiting approval
+//   'stats'           -> { views: {home, multipay, ...}, reviewsSubmitted }
+// Public: GET -> approved & not hidden; POST submit -> pending; POST track -> stats++
+// Admin (REVIEW_ADMIN_KEY): list all, approve, reject, delete, hide, unhide.
 
 const CONFIG_ID = process.env.EDGE_CONFIG_ID || 'ecfg_v7eafmjnzewnnac1rvmglrdviphy';
 const TEAM_ID = process.env.VERCEL_TEAM_ID || 'team_MUQrMKzLWvMuvXrYELxgGQW2';
@@ -10,7 +12,9 @@ const TOKEN = process.env.VERCEL_API_TOKEN || '';
 const ADMIN = process.env.REVIEW_ADMIN_KEY || '';
 const LIVE = 'reviews';
 const PEND = 'reviews_pending';
-const MAX = 30;
+const STATS = 'stats';
+const MAX = 40;
+const PAGES = ['home', 'multipay', 'generato', 'nemora', 'hvpn', 'chkari', 'resume'];
 const api = (p) => `https://api.vercel.com/v1/edge-config/${CONFIG_ID}${p}?teamId=${TEAM_ID}`;
 
 function clean(s, max) {
@@ -22,14 +26,14 @@ function clean(s, max) {
 }
 async function read(key) {
   const r = await fetch(api(`/item/${key}`), { headers: { Authorization: `Bearer ${TOKEN}` } });
-  if (r.status === 404 || r.status === 204) return [];
+  if (r.status === 404 || r.status === 204) return null;
   if (!r.ok) throw new Error('read ' + r.status);
   const t = await r.text();
-  if (!t) return [];
-  let d; try { d = JSON.parse(t); } catch (e) { return []; }
-  const v = d && typeof d === 'object' && !Array.isArray(d) && 'value' in d ? d.value : d;
-  return Array.isArray(v) ? v : [];
+  if (!t) return null;
+  try { const d = JSON.parse(t); return d && typeof d === 'object' && !Array.isArray(d) && 'value' in d ? d.value : d; }
+  catch (e) { return null; }
 }
+async function list(key) { const v = await read(key); return Array.isArray(v) ? v : []; }
 async function write(items) {
   const r = await fetch(api('/items'), {
     method: 'PATCH',
@@ -53,15 +57,29 @@ export default async function handler(req, res) {
       res.setHeader('Cache-Control', 'no-store');
       if (req.query && req.query.admin !== undefined) {
         if (!isAdmin(req)) return res.status(401).json({ error: 'unauthorized' });
-        return res.status(200).json({ pending: await read(PEND), approved: await read(LIVE) });
+        const stats = (await read(STATS)) || { views: {}, reviewsSubmitted: 0 };
+        return res.status(200).json({ pending: await list(PEND), approved: await list(LIVE), stats });
       }
-      return res.status(200).json({ reviews: await read(LIVE) });
+      const approved = (await list(LIVE)).filter((r) => !r.hidden);
+      return res.status(200).json({ reviews: approved });
     }
 
     if (req.method === 'POST') {
       const b = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
       const action = b.action || 'submit';
 
+      // ---- public: page-view tracking ----
+      if (action === 'track') {
+        const page = String(b.page || '');
+        if (!PAGES.includes(page)) return res.status(200).json({ ok: true });
+        const stats = (await read(STATS)) || { views: {}, reviewsSubmitted: 0 };
+        stats.views = stats.views || {};
+        stats.views[page] = (stats.views[page] || 0) + 1;
+        await write([{ operation: 'upsert', key: STATS, value: stats }]);
+        return res.status(200).json({ ok: true });
+      }
+
+      // ---- public: submit review ----
       if (action === 'submit') {
         if (b.hp) return res.status(200).json({ ok: true }); // honeypot
         const rating = Math.round(Number(b.rating));
@@ -71,35 +89,51 @@ export default async function handler(req, res) {
         if (!(rating >= 1 && rating <= 5) || !name || message.length < 4) {
           return res.status(400).json({ error: 'invalid' });
         }
-        const review = { rating, name, role, message, at: Date.now() };
-        const pending = [review, ...(await read(PEND))].slice(0, 100);
-        await write([{ operation: 'upsert', key: PEND, value: pending }]);
+        const review = { id: 'r' + Date.now(), rating, name, role, message, at: Date.now(), hidden: false };
+        const pending = [review, ...(await list(PEND))].slice(0, 100);
+        const stats = (await read(STATS)) || { views: {}, reviewsSubmitted: 0 };
+        stats.reviewsSubmitted = (stats.reviewsSubmitted || 0) + 1;
+        await write([
+          { operation: 'upsert', key: PEND, value: pending },
+          { operation: 'upsert', key: STATS, value: stats },
+        ]);
         return res.status(200).json({ ok: true, pending: true });
       }
 
       // ---- admin actions ----
       if (!isAdmin(req)) return res.status(401).json({ error: 'unauthorized' });
+      const id = b.id;
       const at = Number(b.at);
+      const match = (r) => (id && r.id === id) || (at && r.at === at);
 
       if (action === 'approve') {
-        const pending = await read(PEND);
-        const item = pending.find((r) => r.at === at);
+        const pending = await list(PEND);
+        const item = pending.find(match);
         if (!item) return res.status(404).json({ error: 'not_found' });
-        const approved = [item, ...(await read(LIVE))].slice(0, MAX);
+        item.hidden = false;
+        const approved = [item, ...(await list(LIVE))].slice(0, MAX);
         await write([
           { operation: 'upsert', key: LIVE, value: approved },
-          { operation: 'upsert', key: PEND, value: pending.filter((r) => r.at !== at) },
+          { operation: 'upsert', key: PEND, value: pending.filter((r) => !match(r)) },
         ]);
         return res.status(200).json({ ok: true });
       }
       if (action === 'reject') {
-        const pending = await read(PEND);
-        await write([{ operation: 'upsert', key: PEND, value: pending.filter((r) => r.at !== at) }]);
+        const pending = await list(PEND);
+        await write([{ operation: 'upsert', key: PEND, value: pending.filter((r) => !match(r)) }]);
         return res.status(200).json({ ok: true });
       }
       if (action === 'delete') {
-        const approved = await read(LIVE);
-        await write([{ operation: 'upsert', key: LIVE, value: approved.filter((r) => r.at !== at) }]);
+        const approved = await list(LIVE);
+        await write([{ operation: 'upsert', key: LIVE, value: approved.filter((r) => !match(r)) }]);
+        return res.status(200).json({ ok: true });
+      }
+      if (action === 'hide' || action === 'unhide') {
+        const approved = await list(LIVE);
+        const item = approved.find(match);
+        if (!item) return res.status(404).json({ error: 'not_found' });
+        item.hidden = action === 'hide';
+        await write([{ operation: 'upsert', key: LIVE, value: approved }]);
         return res.status(200).json({ ok: true });
       }
       return res.status(400).json({ error: 'bad_action' });
