@@ -110,7 +110,9 @@ export default async function handler(req, res) {
 
       // ---- public: submit review ----
       if (action === 'submit') {
-        if (b.hp) return res.status(200).json({ ok: true }); // honeypot
+        // NOTE: no honeypot drop here. Browser autofill was filling the hidden field
+        // and silently discarding real submissions. Every review is moderated (must be
+        // approved in /admin), so moderation is the spam defense instead.
         const rating = Math.round(Number(b.rating));
         const name = clean(b.name, 60);
         const role = clean(b.role, 80);
