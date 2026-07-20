@@ -150,5 +150,12 @@ h2:first-child{margin-top:0}
   </div>
 </div>
 
+<script>
+// count a resume view once per session (mirrors the site's tracking)
+(function () {
+  try { if (sessionStorage.getItem('tracked_resume')) return; sessionStorage.setItem('tracked_resume', '1'); } catch (e) {}
+  fetch('/api/reviews', { method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true, body: JSON.stringify({ action: 'track', page: 'resume' }) }).catch(function () {});
+})();
+</script>
 </body>
 </html>
