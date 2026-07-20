@@ -73,16 +73,16 @@ function load(){
   key=document.getElementById('key').value.trim();
   if(!key){msg.textContent='Enter the admin key.';return;}
   msg.textContent='Loading…';
-  fetch('/api/reviews?admin=1',{headers:{'x-admin-key':key}})
+  fetch('/api/reviews?admin=1&t='+Date.now(),{headers:{'x-admin-key':key},cache:'no-store'})
     .then(function(r){if(r.status===401)throw new Error('Wrong key.');return r.json();})
     .then(function(d){msg.textContent='';render(d);})
     .catch(function(e){msg.textContent=e.message||'Error.';document.getElementById('panel').style.display='none';});
 }
 function act(a,at){
   msg.textContent='Working…';
-  fetch('/api/reviews',{method:'POST',headers:{'Content-Type':'application/json','x-admin-key':key},body:JSON.stringify({action:a,at:at})})
+  fetch('/api/reviews',{method:'POST',headers:{'Content-Type':'application/json','x-admin-key':key},cache:'no-store',body:JSON.stringify({action:a,at:at})})
     .then(function(r){if(!r.ok)throw new Error('Failed.');return r.json();})
-    .then(function(){msg.textContent='Done.';load();})
+    .then(function(){msg.textContent = a==='approve'?'Approved — now live on the site.':(a==='reject'?'Rejected.':'Removed.'); setTimeout(load, 700);})
     .catch(function(e){msg.textContent=e.message||'Error.';});
 }
 function bind(){
