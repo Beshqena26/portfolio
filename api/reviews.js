@@ -22,10 +22,12 @@ function clean(s, max) {
 }
 async function read(key) {
   const r = await fetch(api(`/item/${key}`), { headers: { Authorization: `Bearer ${TOKEN}` } });
-  if (r.status === 404) return [];
+  if (r.status === 404 || r.status === 204) return [];
   if (!r.ok) throw new Error('read ' + r.status);
-  const d = await r.json();
-  const v = d && typeof d === 'object' && 'value' in d ? d.value : d;
+  const t = await r.text();
+  if (!t) return [];
+  let d; try { d = JSON.parse(t); } catch (e) { return []; }
+  const v = d && typeof d === 'object' && !Array.isArray(d) && 'value' in d ? d.value : d;
   return Array.isArray(v) ? v : [];
 }
 async function write(items) {
