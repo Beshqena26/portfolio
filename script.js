@@ -187,9 +187,17 @@ document.querySelectorAll('.nav-menu a[href^="#"]').forEach(function(a) {
   })(window, "https://app.cal.com/embed/embed.js", "init");
   Cal("init", "book", { origin: "https://cal.com" });
   Cal.ns.book("ui", { theme: "dark", cssVarsPerTheme: { dark: { "cal-brand": "#ff6b35" } }, hideEventTypeDetails: false, layout: "month_view" });
+  // Note pre-fill: tell Beka which page the booking came from
+  var p = location.pathname, src = 'the portfolio homepage';
+  if (/multipay/.test(p)) src = 'the Multipay case study';
+  else if (/generato/.test(p)) src = 'the Generato case study';
+  else if (/nemora/.test(p)) src = 'the Nemora case study';
+  else if (/hvpn/.test(p)) src = 'the H-VPN case study';
+  else if (/chkari/.test(p)) src = 'the Chkari case study';
+  var note = 'Booked from ' + src + '.';
   books.forEach(function (b) {
     b.setAttribute('data-cal-link', CAL_LINK);
     b.setAttribute('data-cal-namespace', 'book');
-    b.setAttribute('data-cal-config', '{"layout":"month_view"}');
+    b.setAttribute('data-cal-config', JSON.stringify({ layout: 'month_view', notes: note }));
   });
 })();
