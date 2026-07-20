@@ -162,10 +162,10 @@ document.querySelectorAll('.nav-menu a[href^="#"]').forEach(function(a) {
 });
 
 // ===== Cal.com booking popup =====
-// TODO: replace CAL_LINK with your real cal.com link (format: "username/event-slug"),
-// e.g. "beka-jikurishvili/15min". Until then the popup opens to a placeholder.
+// Cal.com link (username page — shows all event types).
+
 (function () {
-  var CAL_LINK = "beka-jikurishvili/15min";
+  var CAL_LINK = "beka-jikurishvili-j9shuw";
   var books = document.querySelectorAll('[data-book]');
   if (!books.length) return;
   (function (C, A, L) {
