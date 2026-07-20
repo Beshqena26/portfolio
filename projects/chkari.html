@@ -6,8 +6,8 @@
 <title>ჩქარი (Chkari) Case Study — Beka Jikurishvili</title>
 <meta name="description" content="Case study: designing Chkari — a doorstep car-repair service that makes a distrusted industry radically transparent, with live photo/video tracking, insurance and guarantees.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><circle cx=%2750%27 cy=%2750%27 r=%2746%27 fill=%27%23ff6b35%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27white%27 text-anchor=%27middle%27>B</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=23">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Georgian:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=24">
 </head>
 <body>
 
@@ -187,14 +187,56 @@
 </div></section>
 
 <section class="proj-section"><div class="container anim">
-  <h2>Design language</h2>
-  <p>Confident dark surfaces, a single high-energy orange that reads as speed and action, and generous, calm spacing that reassures rather than shouts — the opposite of a chaotic garage. Space Grotesk for the display type gives it a modern, trustworthy edge.</p>
-  <div class="cs-tokens">
-    <span class="cs-token"><i style="background:#131110"></i>Base #131110</span>
-    <span class="cs-token"><i style="background:#1D1E20"></i>Surface #1D1E20</span>
-    <span class="cs-token"><i style="background:#FF611D"></i>Chkari Orange #FF611D</span>
-    <span class="cs-token"><i style="background:#FFA740"></i>Amber #FFA740</span>
-    <span class="cs-token"><i style="background:#ACACAC"></i>Text-2 #ACACAC</span>
+  <h2>The design system — rebuilt in code</h2>
+  <p>Confident dark surfaces, a single high-energy orange that reads as speed and action, and a set of category colors for the service icons. Below isn't a screenshot — it's Chkari's token set and core components <strong>rebuilt in live code</strong>, in the real Noto Sans Georgian type: click a swatch to copy its hex, focus the input, press the button.</p>
+  <div class="chk-ds">
+    <h5>Color tokens — click to copy</h5>
+    <div class="chk-sw">
+      <button class="chk-swatch" data-hex="#131110"><i style="background:#131110"></i><div><b>Base</b><span>#131110</span></div></button>
+      <button class="chk-swatch" data-hex="#1D1E20"><i style="background:#1D1E20"></i><div><b>Surface</b><span>#1D1E20</span></div></button>
+      <button class="chk-swatch" data-hex="#FF611D"><i style="background:#FF611D"></i><div><b>Chkari Orange</b><span>#FF611D</span></div></button>
+      <button class="chk-swatch" data-hex="#FFA740"><i style="background:#FFA740"></i><div><b>Amber</b><span>#FFA740</span></div></button>
+      <button class="chk-swatch" data-hex="#FFFFFF"><i style="background:#FFFFFF"></i><div><b>Text</b><span>#FFFFFF</span></div></button>
+      <button class="chk-swatch" data-hex="#ACACAC"><i style="background:#ACACAC"></i><div><b>Text-2</b><span>#ACACAC</span></div></button>
+    </div>
+
+    <h5>Category colors — service icons</h5>
+    <div class="chk-cats">
+      <span class="chk-cat"><i style="background:#FF3D8B"></i>Magenta</span>
+      <span class="chk-cat"><i style="background:#88EB5A"></i>Green</span>
+      <span class="chk-cat"><i style="background:#1977F3"></i>Blue</span>
+      <span class="chk-cat"><i style="background:#7B4DFF"></i>Violet</span>
+      <span class="chk-cat"><i style="background:#FFA740"></i>Amber</span>
+      <span class="chk-cat"><i style="background:#0C5880"></i>Teal</span>
+    </div>
+
+    <h5>Opacity ramp — Chkari Orange</h5>
+    <div class="chk-ramp">
+      <i style="background:rgba(255,97,29,1)">100</i><i style="background:rgba(255,97,29,.9)">90</i><i style="background:rgba(255,97,29,.8)">80</i><i style="background:rgba(255,97,29,.7)">70</i><i style="background:rgba(255,97,29,.6)">60</i><i style="background:rgba(255,97,29,.5)">50</i><i style="background:rgba(255,97,29,.4)">40</i><i style="background:rgba(255,97,29,.3)">30</i><i style="background:rgba(255,97,29,.2)">20</i><i style="background:rgba(255,97,29,.1)">10</i>
+    </div>
+
+    <h5>Typography — Noto Sans Georgian</h5>
+    <table class="chk-type" style="width:100%;border-collapse:collapse">
+      <tr><td class="chk-ka" style="font-size:26px;font-weight:700">შეაკეთე ავტომობილი</td><td class="spec">Bold · 40 / display</td></tr>
+      <tr><td class="chk-ka" style="font-size:16px;font-weight:500">დაზოგე დრო და ენერგია</td><td class="spec">Medium · 16 / body</td></tr>
+      <tr><td class="chk-ka" style="font-size:13px;color:#acacac">უფასო დიაგნოსტიკა</td><td class="spec">Regular · 14 / caption</td></tr>
+    </table>
+
+    <h5>Components — live, try them</h5>
+    <div class="chk-comps">
+      <div class="chk-col">
+        <span class="chk-lab">Buttons — hover &amp; press</span>
+        <button class="chk-btn primary chk-ka">გამოიძახე ჩქარი</button>
+        <button class="chk-btn ghost chk-ka">უფასო კონსულტაცია</button>
+        <button class="chk-btn primary" disabled>Disabled</button>
+      </div>
+      <div class="chk-col">
+        <span class="chk-lab">Input — focus it</span>
+        <div class="chk-field"><label>ტელეფონის ნომერი</label><input class="chk-input" placeholder="+995 555 55 55 55"></div>
+        <div class="chk-field"><label>მანქანის ბრენდი</label><input class="chk-input" placeholder="mercedes-benz"></div>
+      </div>
+    </div>
+    <p class="chk-note"><b>Why this matters:</b> the booking form is the entire funnel, so its inputs and the orange CTA had to be flawless. Every state above — hover, press, focus, disabled — matches the handoff spec, rendered in the product's real Georgian type.</p>
   </div>
 </div></section>
 
@@ -223,6 +265,13 @@
 <script>
 var cl=document.getElementById('chkariHero'),cb=document.getElementById('chkariBadge');
 if(cl&&cb){cl.style.maxHeight='620px';cl.style.overflowY='auto';cl.addEventListener('scroll',function(){cb.classList.toggle('hide',cl.scrollTop>60)})}
+document.querySelectorAll('.chk-swatch').forEach(function(sw){
+  sw.addEventListener('click',function(){
+    var hex=sw.getAttribute('data-hex'),lab=sw.querySelector('span'),old=lab.textContent;
+    function done(){sw.classList.add('copied');lab.textContent='Copied!';setTimeout(function(){sw.classList.remove('copied');lab.textContent=old},1200)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(hex).then(done,done)}else{done()}
+  });
+});
 </script>
 </body>
 </html>
