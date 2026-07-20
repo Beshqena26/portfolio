@@ -137,8 +137,8 @@ if (burger && overlay && backdrop && closeBtn) {
       '<div><strong>' + esc(r.name) + '</strong><span>' + esc(r.role || 'Client') + '</span></div></div>';
     return el;
   }
-  // load existing visitor reviews
-  fetch('/api/reviews').then(function (r) { return r.json(); }).then(function (d) {
+  // load existing visitor reviews (cache-busted so approvals show immediately)
+  fetch('/api/reviews?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (d) {
     (d.reviews || []).forEach(function (r) { grid.appendChild(card(r)); });
   }).catch(function () {});
 
