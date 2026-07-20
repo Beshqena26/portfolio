@@ -563,6 +563,29 @@ figure.cs-fig.panel img{border-radius:12px;border:1px solid rgba(255,255,255,.08
 .nem-phone .cap{position:absolute;left:0;right:0;bottom:0;padding:8px 10px 9px;font-size:10px;font-weight:600;color:#fff;text-align:center;background:linear-gradient(transparent,rgba(6,3,8,.85));z-index:2}
 @media(max-width:600px){.nem-phone{width:44vw}.nem-phone.lift{transform:none}}
 
+
+/* ===== CHKARI VARIANT ===== */
+.cs-showcase.amber{border-color:#33210f;background:radial-gradient(ellipse 70% 60% at 25% 15%,rgba(255,97,29,.16),transparent 60%),radial-gradient(ellipse 60% 50% at 85% 95%,rgba(255,167,64,.08),transparent 55%),#131110}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:step;margin:8px 0}
+.step{position:relative;padding:24px 18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);transition:transform .3s,border-color .3s}
+.step:hover{transform:translateY(-5px);border-color:rgba(255,97,29,.4)}
+.step::before{counter-increment:step;content:"0" counter(step);font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:#ff611d}
+.step-ico{width:44px;height:44px;margin:14px 0 12px;border-radius:12px;background:rgba(255,97,29,.1);border:1px solid rgba(255,97,29,.25);display:flex;align-items:center;justify-content:center}
+.step-ico svg{width:22px;height:22px;stroke:#ff8a4d;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.step h4{font-size:15px;font-weight:600;margin-bottom:6px}
+.step p{font-size:13px;color:var(--text2);line-height:1.55}
+.step-arrow{position:absolute;right:-13px;top:50%;transform:translateY(-50%);color:var(--border-h);z-index:2;font-size:16px}
+.step:last-child .step-arrow{display:none}
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0}
+.trust-card{padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);transition:border-color .3s,transform .3s}
+.trust-card:hover{border-color:rgba(255,97,29,.35);transform:translateY(-3px)}
+.trust-card .ti{width:38px;height:38px;border-radius:10px;background:rgba(255,97,29,.1);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.trust-card .ti svg{width:20px;height:20px;stroke:#ff8a4d;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.trust-card h4{font-size:15px;font-weight:600;margin-bottom:6px}
+.trust-card p{font-size:13.5px;color:var(--text2);line-height:1.6}
+@media(max-width:860px){.steps{grid-template-columns:1fr 1fr}.step-arrow{display:none}.trust-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.steps,.trust-grid{grid-template-columns:1fr}}
+
 /* ===== ONBOARDING PROTOTYPE ===== */
 .proto-wrap{display:grid;grid-template-columns:320px 1fr;gap:48px;align-items:center}
 .proto-device{position:relative;aspect-ratio:9/19.2;border-radius:40px;border:8px solid #14141d;outline:1px solid rgba(255,255,255,.09);background:#000;overflow:hidden;box-shadow:0 34px 70px rgba(0,0,0,.6),0 8px 24px rgba(44,79,255,.14);cursor:pointer;user-select:none;-webkit-user-select:none}
