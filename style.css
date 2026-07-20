@@ -497,10 +497,10 @@ figure.cs-fig.panel img{border-radius:12px;border:1px solid rgba(255,255,255,.08
 .live-desk{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:#0b0508;box-shadow:0 30px 60px rgba(0,0,0,.55)}
 .live-desk .cs-browser-bar{position:relative;z-index:3}
 .live-view{position:relative;aspect-ratio:16/10;overflow:hidden}
-.live-view iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:none}
+.live-view iframe{position:absolute;top:0;left:0;width:200%;height:200%;border:0;display:none;transform:scale(.5);transform-origin:top left}
 .live-view.on iframe{display:block}
 .live-phone{position:relative;justify-self:center;width:280px;aspect-ratio:390/844;border-radius:34px;border:7px solid #14141d;outline:1px solid rgba(255,255,255,.12);overflow:hidden;background:#000;box-shadow:0 34px 70px rgba(0,0,0,.6),0 8px 24px rgba(255,46,126,.14)}
-.live-phone iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:none}
+.live-phone iframe{position:absolute;top:0;left:0;width:150%;height:150%;border:0;display:none;transform:scale(.6667);transform-origin:top left}
 .live-phone.on iframe{display:block}
 .live-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
 .live-load{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(6,3,8,.55);backdrop-filter:blur(2px);cursor:pointer;z-index:2;transition:opacity .3s}
