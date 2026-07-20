@@ -124,18 +124,54 @@ if (burger && overlay && backdrop && closeBtn) {
     s.addEventListener('mouseleave', function () { paint(rating); });
     s.addEventListener('click', function () { rating = +s.dataset.v; paint(rating); label.textContent = words[rating] + ' — ' + rating + '/5'; });
   });
+  var grid = document.getElementById('testGrid');
+  function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+  function starHtml(n) { var o = ''; for (var i = 0; i < 5; i++) o += (i < n ? '★' : '☆'); return o; }
+  function card(r) {
+    var el = document.createElement('div');
+    el.className = 'test-card anim show';
+    el.innerHTML = '<div class="test-stars">' + starHtml(r.rating) + '</div>' +
+      '<p>"' + esc(r.message) + '"</p>' +
+      '<div class="test-author"><div class="test-avatar-init" style="background:linear-gradient(135deg,#ff6b35,#ffb088)">' +
+      esc((r.name || '?').trim().charAt(0).toUpperCase()) + '</div>' +
+      '<div><strong>' + esc(r.name) + '</strong><span>' + esc(r.role || 'Client') + '</span></div></div>';
+    return el;
+  }
+  // load existing visitor reviews
+  fetch('/api/reviews').then(function (r) { return r.json(); }).then(function (d) {
+    (d.reviews || []).forEach(function (r) { grid.appendChild(card(r)); });
+  }).catch(function () {});
+
+  function emailFallback(name, role, msg) {
+    var body = 'Rating: ' + rating + '/5\nName: ' + name + (role ? '\nRole: ' + role : '') + '\n\n' + msg + '\n\n— Sent from jikurishvili.com';
+    window.location.href = 'mailto:jikurishvilib26@gmail.com?subject=' + encodeURIComponent('Testimonial (' + rating + '/5) from ' + name) + '&body=' + encodeURIComponent(body);
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var name = document.getElementById('revName').value.trim();
     var role = document.getElementById('revRole').value.trim();
     var msg = document.getElementById('revMsg').value.trim();
+    var hp = document.getElementById('revHp').value;
     if (!rating) { note.className = 'review-note err'; note.textContent = 'Please pick a star rating first.'; return; }
     if (!name || !msg) { note.className = 'review-note err'; note.textContent = 'Please add your name and a short message.'; return; }
-    var body = 'Rating: ' + rating + '/5\nName: ' + name + (role ? '\nRole: ' + role : '') + '\n\n' + msg + '\n\n— Sent from jikurishvili.com';
-    var mail = 'mailto:jikurishvilib26@gmail.com?subject=' + encodeURIComponent('Testimonial (' + rating + '/5) from ' + name) + '&body=' + encodeURIComponent(body);
-    window.location.href = mail;
-    note.className = 'review-note ok';
-    note.textContent = 'Thanks! Your email app should open — just hit send.';
+    var btn = form.querySelector('.review-submit');
+    btn.disabled = true; note.className = 'review-note'; note.textContent = 'Posting…';
+    fetch('/api/reviews', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ rating: rating, name: name, role: role, message: msg, hp: hp })
+    }).then(function (r) { return r.status === 200 ? r.json() : Promise.reject(r.status); })
+      .then(function (d) {
+        if (d.review) { grid.insertBefore(card(d.review), grid.children[4] || null); }
+        note.className = 'review-note ok'; note.textContent = 'Thanks! Your review is live ❤';
+        form.reset(); rating = 0; paint(0); label.textContent = 'Tap to rate';
+      })
+      .catch(function (code) {
+        // store not connected (501) or error -> email fallback
+        note.className = 'review-note ok'; note.textContent = 'Thanks! Opening your email to send it — just hit send.';
+        emailFallback(name, role, msg);
+      })
+      .finally(function () { btn.disabled = false; });
   });
 })();
 
