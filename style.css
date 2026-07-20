@@ -646,6 +646,17 @@ figure.cs-fig.panel img{border-radius:12px;border:1px solid rgba(255,255,255,.08
 .chk-note b{color:#fff}
 @media(max-width:640px){.chk-comps{grid-template-columns:1fr}}
 
+
+/* ===== MOBILE AUDIT FIXES ===== */
+@media(max-width:560px){
+  .chk-type .spec,.ds-type .spec,.nem-type .spec{white-space:normal;font-size:10.5px;text-align:right}
+  .chk-type td,.nem-type td{padding:9px 8px}
+  .chk-type .chk-ka{font-size:20px!important}
+}
+@media(max-width:768px){
+  .cs-browser-view{aspect-ratio:4/4.4;width:100%}
+}
+
 /* ===== ONBOARDING PROTOTYPE ===== */
 .proto-wrap{display:grid;grid-template-columns:320px 1fr;gap:48px;align-items:center}
 .proto-device{position:relative;aspect-ratio:9/19.2;border-radius:40px;border:8px solid #14141d;outline:1px solid rgba(255,255,255,.09);background:#000;overflow:hidden;box-shadow:0 34px 70px rgba(0,0,0,.6),0 8px 24px rgba(44,79,255,.14);cursor:pointer;user-select:none;-webkit-user-select:none}
