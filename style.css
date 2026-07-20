@@ -220,8 +220,6 @@ img{display:block;max-width:100%}
 .test-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .test-card{padding:32px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);transition:all .3s}
 .test-card:hover{border-color:var(--border-h);transform:translateY(-4px)}
-.test-grid .test-card:nth-child(n+5){display:none}
-.test-grid.expanded .test-card:nth-child(n+5){display:block}
 .test-more-wrap{text-align:center;margin-top:40px}
 .test-more-btn{min-width:180px;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:600;font-family:inherit;background:var(--surface2);color:var(--text);border:1px solid var(--border);cursor:pointer;transition:all .3s}
 .test-more-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
