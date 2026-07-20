@@ -7,7 +7,7 @@
 <meta name="description" content="Case study: product and growth design for Nemora.ai — a live AI companion platform. Conversion-led pricing, paywall patterns, character creator, and a full growth design system.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><circle cx=%2750%27 cy=%2750%27 r=%2746%27 fill=%27%23ff6b35%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27white%27 text-anchor=%27middle%27>B</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=15">
+<link rel="stylesheet" href="../style.css?v=16">
 </head>
 <body>
 
@@ -48,13 +48,22 @@
 </section>
 
 <div class="container anim">
-  <figure class="cs-fig" style="margin-top:0">
-    <div class="cs-showcase rose" style="padding:32px">
-      <div class="cs-browser"><div class="cs-browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">nemora.ai/chat</span></div>
-      <div class="cs-browser-view" style="aspect-ratio:1920/905;overflow:hidden"><img src="../assets/case/nemora/d-chat.jpg" alt="Nemora chat: conversation list, active chat with premium-blurred image"></div></div>
+  <div class="live-wrap">
+    <div class="live-desk">
+      <div class="cs-browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">nemora.ai — live</span></div>
+      <div class="live-view" id="liveDesk">
+        <img class="live-poster" src="../assets/case/nemora/d-home.jpg" alt="Nemora Discover">
+        <div class="live-load" data-frame="liveDesk" data-src="https://nemora.ai/"><button class="live-btn">▶ Load the live site</button><small>Loads the real nemora.ai in this frame</small></div>
+        <iframe title="Nemora live desktop" loading="lazy"></iframe>
+      </div>
     </div>
-    <figcaption>The chat — where users live. Conversation list, character chat, and the blur-paywall pattern doing the monetization work inline.</figcaption>
-  </figure>
+    <div class="live-phone" id="livePhone">
+      <img class="live-poster" src="../assets/case/nemora/live-poster-m.jpg" alt="Nemora mobile home">
+      <div class="live-load" data-frame="livePhone" data-src="https://nemora.ai/"><button class="live-btn">▶ Load live</button><small>Real mobile site</small></div>
+      <iframe title="Nemora live mobile" loading="lazy"></iframe>
+    </div>
+  </div>
+  <p style="text-align:center;font-size:13px;color:var(--text2);margin-top:16px">Not a screenshot — the actual product, live. Tap either frame to load <a href="https://nemora.ai" target="_blank" rel="noopener noreferrer" style="color:var(--accent2)">nemora.ai</a>. Mobile-first: the phone frame is the primary experience.</p>
 </div>
 
 <section class="proj-section"><div class="container anim">
@@ -299,20 +308,52 @@
 </div></section>
 
 <section class="proj-section"><div class="container anim">
-  <h2>The design system behind it</h2>
-  <p>Shipped products need boring rigor: documented nav states (signed-out / signed-in / menu-open), button hierarchies, settings IA, card anatomy, and opacity ramps for every brand color — so a fast-moving team ships consistent UI without me in the room.</p>
-  <figure class="cs-fig">
-    <div class="cs-showcase rose" style="padding:24px">
-      <img src="../assets/case/nemora/styleguide.jpg" alt="Nemora style guide: nav variants, buttons, settings menu, cards and color opacity ramps" style="width:100%;border-radius:14px;display:block">
+  <h2>The design system — rebuilt in code</h2>
+  <p>Shipped products need boring rigor: documented brand tokens, opacity ramps, button hierarchies, inputs and tag chips — so a fast-moving team ships consistent UI without me in the room. Below isn't a screenshot; it's Nemora's token set and core components <strong>rebuilt in live code</strong> — click a swatch to copy its hex, focus the input, tap a tag:</p>
+  <div class="nem-ds">
+    <h5>Color tokens — click to copy</h5>
+    <div class="nem-sw">
+      <button class="nem-swatch" data-hex="#0B0508"><i style="background:#0B0508"></i><div><b>Base</b><span>#0B0508</span></div></button>
+      <button class="nem-swatch" data-hex="#160910"><i style="background:#160910"></i><div><b>Surface</b><span>#160910</span></div></button>
+      <button class="nem-swatch" data-hex="#FF2E7E"><i style="background:#FF2E7E"></i><div><b>Nemora Pink</b><span>#FF2E7E</span></div></button>
+      <button class="nem-swatch" data-hex="#FF5FA2"><i style="background:#FF5FA2"></i><div><b>Pink-2</b><span>#FF5FA2</span></div></button>
+      <button class="nem-swatch" data-hex="#7B2BFF"><i style="background:#7B2BFF"></i><div><b>Violet</b><span>#7B2BFF</span></div></button>
+      <button class="nem-swatch" data-hex="#34D399"><i style="background:#34D399"></i><div><b>Success</b><span>#34D399</span></div></button>
+      <button class="nem-swatch" data-hex="#FFFFFF"><i style="background:#FFFFFF"></i><div><b>Text</b><span>#FFFFFF</span></div></button>
+      <button class="nem-swatch" data-hex="#8A8296"><i style="background:#8A8296"></i><div><b>Text-2</b><span>#8A8296</span></div></button>
     </div>
-    <figcaption>The working style guide — nav variants, CTA states, settings navigation, card specs, and full opacity ramps.</figcaption>
-  </figure>
-  <div class="cs-tokens">
-    <span class="cs-token"><i style="background:#0b0508"></i>Base #0B0508</span>
-    <span class="cs-token"><i style="background:#ff2e7e"></i>Nemora Pink #FF2E7E</span>
-    <span class="cs-token"><i style="background:#ff5fa2"></i>Pink-2 #FF5FA2</span>
-    <span class="cs-token"><i style="background:#7b2bff"></i>Violet #7B2BFF</span>
-    <span class="cs-token"><i style="background:#1a1a22"></i>Surface #1A1A22</span>
+
+    <h5>Opacity ramp — Nemora Pink</h5>
+    <div class="nem-ramp">
+      <i style="background:rgba(255,46,126,1)">100</i><i style="background:rgba(255,46,126,.9)">90</i><i style="background:rgba(255,46,126,.8)">80</i><i style="background:rgba(255,46,126,.7)">70</i><i style="background:rgba(255,46,126,.6)">60</i><i style="background:rgba(255,46,126,.5)">50</i><i style="background:rgba(255,46,126,.4)">40</i><i style="background:rgba(255,46,126,.3)">30</i><i style="background:rgba(255,46,126,.2)">20</i><i style="background:rgba(255,46,126,.1)">10</i>
+    </div>
+
+    <h5>Typography</h5>
+    <table class="nem-type" style="width:100%;border-collapse:collapse">
+      <tr><td style="font-size:24px;font-weight:700">Heading</td><td class="spec">Space Grotesk · Bold · 24</td></tr>
+      <tr><td style="font-size:15px;font-weight:500">Body — teased, not blocked.</td><td class="spec">Inter · Medium · 15</td></tr>
+      <tr><td style="font-size:12px;color:#8a8296">Caption / meta</td><td class="spec">Inter · Regular · 12</td></tr>
+    </table>
+
+    <h5>Components — live, try them</h5>
+    <div class="nem-comps">
+      <div class="nem-col">
+        <span class="nem-lab">Buttons — hover &amp; press</span>
+        <button class="nem-btn primary">Start Chatting</button>
+        <button class="nem-btn grad">Upgrade to Premium</button>
+        <button class="nem-btn ghost">Create New</button>
+        <button class="nem-btn primary" disabled>Disabled</button>
+      </div>
+      <div class="nem-col">
+        <span class="nem-lab">Input — focus it</span>
+        <div class="nem-field"><label>Message</label><input class="nem-input" placeholder="Type a message…"></div>
+        <span class="nem-lab" style="margin-top:8px">Personality tags — tap to select</span>
+        <div class="nem-tags">
+          <span class="nem-tag on">Caregiver</span><span class="nem-tag">Sage</span><span class="nem-tag">Jester</span><span class="nem-tag">Dominant</span><span class="nem-tag">Confidant</span>
+        </div>
+      </div>
+    </div>
+    <p class="nem-note"><b>Why this matters:</b> a live product ships faster when its system is unambiguous. Every state above matches the documented Figma spec — and I can rebuild it in code myself.</p>
   </div>
 </div></section>
 
@@ -350,5 +391,29 @@
 </div></footer>
 
 <script src="../script.js?v=8"></script>
+<script>
+// live iframe: click to load
+document.querySelectorAll('.live-load').forEach(function(l){
+  l.addEventListener('click',function(){
+    var f=document.getElementById(l.getAttribute('data-frame'));
+    f.querySelector('iframe').src=l.getAttribute('data-src');
+    f.classList.add('on');l.classList.add('hide');
+  });
+});
+// design system: copy swatch
+document.querySelectorAll('.nem-swatch').forEach(function(sw){
+  sw.addEventListener('click',function(){
+    var hex=sw.getAttribute('data-hex'),lab=sw.querySelector('span'),old=lab.textContent;
+    function done(){sw.classList.add('copied');lab.textContent='Copied!';setTimeout(function(){sw.classList.remove('copied');lab.textContent=old},1200)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(hex).then(done,done)}else{done()}
+  });
+});
+// personality tags: single-select
+document.querySelectorAll('.nem-tags').forEach(function(g){
+  g.querySelectorAll('.nem-tag').forEach(function(t){
+    t.addEventListener('click',function(){g.querySelectorAll('.nem-tag').forEach(function(o){o.classList.remove('on')});t.classList.add('on')});
+  });
+});
+</script>
 </body>
 </html>
