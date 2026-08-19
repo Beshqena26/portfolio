@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blackjack Case Study | Beka Jikurishvili</title>
-<meta name="description" content="Case study: multi-seat Blackjack for MYBC. Three boxes, one dealer, and the turn-flow design that keeps a real table readable on a phone.">
-<meta property="og:title" content="Blackjack: three seats, one table">
-<meta property="og:description" content="Multi-seat blackjack that keeps the real casino rhythm without losing a phone player.">
+<meta name="description" content="Case study: Blackjack for MYBC with two modes. A focused single-hand duel and a three-box multi-hand table, built from one design system.">
+<meta property="og:title" content="Blackjack: one table, two tempos">
+<meta property="og:description" content="Single hand for focus, multi-hand for volume. One dealer, one system, two tempos.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jikurishvili.com/projects/blackjack.html">
 <meta name="twitter:card" content="summary_large_image">
@@ -33,18 +33,19 @@
 <section class="proj-hero">
   <div class="container anim">
     <a href="../index.html#games" class="proj-back">&larr; Back to Games</a>
-    <h1>Blackjack: three seats,<br>one table</h1>
-    <p class="proj-desc">A multi-seat blackjack concept for MYBC. Real blackjack tables let one player run several boxes at once; most digital versions flatten that into a single hand. This build keeps the three-box rhythm and solves the hard part: making whose-turn-is-it unmissable on a phone.</p>
+    <h1>Blackjack: one table,<br>two tempos</h1>
+    <p class="proj-desc">A blackjack for MYBC with two modes in one game. Single hand is the focused, classic duel against the dealer. Multi-hand opens three boxes at once, the way real tables let one player run several bets, and solves the hard part: making whose-turn-is-it unmissable on a phone.</p>
     <div class="proj-meta">
       <div class="proj-meta-item"><label>Role</label><span>Design &amp; build</span></div>
-      <div class="proj-meta-item"><label>Type</label><span>Table game &middot; Multi-seat</span></div>
-      <div class="proj-meta-item"><label>Status</label><span>Concept, v2 in design</span></div>
+      <div class="proj-meta-item"><label>Type</label><span>Table game &middot; Single &amp; multi-hand</span></div>
+      <div class="proj-meta-item"><label>Status</label><span>Playable, v2 in design</span></div>
       <div class="proj-meta-item"><label>Brand</label><span>MYBC</span></div>
     </div>
     <div class="cs-stats">
+      <div class="cs-stat"><b>2</b><span>Modes: single hand and multi-hand</span></div>
       <div class="cs-stat"><b>3</b><span>Boxes playable at once</span></div>
       <div class="cs-stat"><b>1</b><span>Active seat highlighted at any moment</span></div>
-      <div class="cs-stat"><b>v2</b><span>Split &amp; insurance in multi-seat</span></div>
+      <div class="cs-stat"><b>v2</b><span>Split &amp; insurance in multi-hand</span></div>
     </div>
   </div>
 </section>
@@ -52,15 +53,24 @@
 <div class="container anim">
   <div class="gcard-cover ghero" style="--gc:#0ECC68">
     <span class="gcard-word">BLACKJACK</span>
-    <span class="gcard-type">Table game &middot; Multi-seat</span>
-    <button class="btn-primary play-demo-btn" type="button" data-title="Blackjack" data-play="" hidden>Play the demo</button>
-    <span class="gcard-soon">Playable demo soon</span>
+    <span class="gcard-type">Table game &middot; Single &amp; multi-hand</span>
+    <div style="position:relative;z-index:1;display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+      <button class="btn-primary play-demo-btn" type="button" data-title="Blackjack · Single hand" data-play="" hidden>Play single hand</button>
+      <button class="btn-primary play-demo-btn" type="button" data-title="Blackjack · Multi-hand" data-play="" hidden>Play multi-hand</button>
+    </div>
+    <span class="gcard-soon">Playable demos soon</span>
   </div>
 </div>
 
 <section class="proj-section"><div class="container anim">
-  <h2>The multi-seat problem</h2>
-  <p>Three boxes triple the fun and triple the state: three bets, three hands, three sets of decisions against one dealer. The failure mode is confusion, acting on the wrong hand, missing that a box already stood, not noticing the dealer moved on. The whole interface is organized around one question: <strong>which seat is live right now?</strong></p>
+  <h2>One game, two tempos</h2>
+  <p>The two modes share one dealer, one rule set, one design system, but they serve different players. <strong>Single hand</strong> is blackjack as a conversation: one bet, full attention, big cards, room for the ritual. <strong>Multi-hand</strong> is blackjack as a session: three boxes, three bets, decisions arriving in sequence. The mode switch lives on the table itself, not buried in settings, because it's a mood choice players make round to round, not a preference they set once.</p>
+  <p>Designing both from one system kept them honest: every component, the chip tray, the action bar, the hand-value pips, the settlement animations, works identically in both modes. Single hand is not a separate game; it's the multi-hand table with two boxes closed.</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>The multi-hand problem</h2>
+  <p>Three boxes triple the fun and triple the state: three bets, three hands, three sets of decisions against one dealer. The failure mode is confusion, acting on the wrong hand, missing that a box already stood, not noticing the dealer moved on. The multi-hand interface is organized around one question: <strong>which seat is live right now?</strong></p>
   <p>The live box scales up and lights its border; the others dim and shrink. The action bar (hit, stand, double) is physically attached to the live box, not floating at screen bottom, so a mis-tap on the wrong hand is structurally impossible. Finished boxes show their result inline and stay visible: the table never hides your other bets from you.</p>
 </div></section>
 
@@ -71,7 +81,7 @@
     <div class="cs-dec-card chose"><h4>Chose: per-box settlement</h4><p>Each box celebrates or loses on its own. A push on seat one shouldn't mute a blackjack on seat three.</p></div>
     <div class="cs-dec-card rejected"><h4>Rejected: round-summary settlement</h4><p>One "you won 12" toast is efficient and lifeless. It also hides which decisions made money, which is exactly what multi-seat players study.</p></div>
   </div>
-  <div class="cs-callout"><p>v2 takes on the genuinely hard interaction: split and insurance inside multi-seat, where a single box can fork into two hands without breaking the whose-turn clarity the game is built on.</p></div>
+  <div class="cs-callout"><p>v2 takes on the genuinely hard interaction: split and insurance inside multi-hand, where a single box can fork into two hands without breaking the whose-turn clarity the game is built on.</p></div>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
