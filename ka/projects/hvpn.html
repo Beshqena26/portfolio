@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H-VPN ქეისი | ბექა ჯიკურიშვილი</title>
+<meta name="description" content="ქეისი: H-VPN-ის დიზაინი. პრივატულობის VPN ოთხ ზედაპირზე (მობილური აპი, ბრაუზერის ვიჯეტი, დესკტოპი, ლენდინგი), ერთი შეხებით ჩართული დაცვით.">
+<meta property="og:title" content="H-VPN: პრივატულობა, რომელსაც გრძნობ, ყველა ეკრანზე">
+<meta property="og:description" content="ერთი დიზაინ-სისტემა მობილურ აპზე, ბრაუზერის ვიჯეტზე, დესკტოპსა და ვებზე.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://jikurishvili.com/assets/og/hvpn.jpg">
+<meta property="og:locale" content="ka_GE">
+<meta property="og:url" content="https://jikurishvili.com/ka/projects/hvpn.html">
+<link rel="canonical" href="https://jikurishvili.com/ka/projects/hvpn.html">
+<link rel="alternate" hreflang="en" href="https://jikurishvili.com/projects/hvpn.html">
+<link rel="alternate" hreflang="ka" href="https://jikurishvili.com/ka/projects/hvpn.html">
+<link rel="alternate" hreflang="x-default" href="https://jikurishvili.com/projects/hvpn.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><circle cx=%2750%27 cy=%2750%27 r=%2746%27 fill=%27%23CAFF00%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27%23060610%27 text-anchor=%27middle%27>B</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=32">
+<style>body{font-family:'Gilroy','Noto Sans Georgian',system-ui,sans-serif}.nav-menu{gap:20px}.nav-menu a{font-size:13px;white-space:nowrap}</style>
+
+<style>
+/* ===== coded H-VPN landing (scoped) ===== */
+#hvpnLand{background:#08040f;color:#ece9f7;font-family:'Inter',sans-serif;font-size:13px}
+#hvpnLand *{box-sizing:border-box}
+#hvpnLand .hl-nav{display:flex;align-items:center;gap:18px;padding:14px 22px;border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;background:rgba(8,4,15,.85);backdrop-filter:blur(10px);z-index:5}
+#hvpnLand .hl-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;display:flex;align-items:center;gap:7px}
+#hvpnLand .hl-logo i{width:18px;height:18px;border:2px solid #7c3aed;border-radius:5px;display:inline-block;transform:rotate(45deg)}
+#hvpnLand .hl-links{display:flex;gap:14px;margin-left:auto;color:#9b93b8;font-size:12px}
+#hvpnLand .hl-links span:hover{color:#fff;cursor:pointer}
+#hvpnLand .hl-cta{padding:7px 16px;border-radius:8px;background:#7c3aed;color:#fff;font-weight:600;font-size:12px;cursor:pointer;transition:background .2s}
+#hvpnLand .hl-cta:hover{background:#6d2fd6}
+#hvpnLand .hl-hero{position:relative;text-align:center;padding:56px 24px 130px;overflow:hidden}
+#hvpnLand .hl-hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:200px;background:url('/assets/case/hvpn/globe.jpg') center top/cover no-repeat;opacity:.85;mask:linear-gradient(#000 40%,transparent);-webkit-mask:linear-gradient(#000 40%,transparent)}
+#hvpnLand h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:.5px;line-height:1.15;margin:0 0 14px}
+#hvpnLand .hl-sub{color:#9b93b8;max-width:420px;margin:0 auto 24px;line-height:1.6}
+#hvpnLand .hl-btns{display:flex;gap:10px;justify-content:center;position:relative;z-index:2}
+#hvpnLand .hl-btn{padding:11px 26px;border-radius:9px;font-weight:600;cursor:pointer;transition:transform .2s,background .2s}
+#hvpnLand .hl-btn.fill{background:#7c3aed;color:#fff}
+#hvpnLand .hl-btn.fill:hover{background:#6d2fd6;transform:translateY(-2px)}
+#hvpnLand .hl-btn.ghost{border:1px solid rgba(255,255,255,.2);color:#ece9f7}
+#hvpnLand .hl-btn.ghost:hover{border-color:#7c3aed;transform:translateY(-2px)}
+#hvpnLand .hl-guar{margin-top:14px;font-size:11px;color:#6f6790}
+#hvpnLand .hl-marq{overflow:hidden;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:12px 0}
+#hvpnLand .hl-marq-track{display:flex;gap:44px;width:max-content;animation:hlm 22s linear infinite;color:#6f6790;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;white-space:nowrap}
+@keyframes hlm{to{transform:translateX(-50%)}}
+#hvpnLand .hl-sec{padding:44px 24px;text-align:center}
+#hvpnLand .hl-tag{color:#a78bfa;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+#hvpnLand h2{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;margin:0 0 26px}
+#hvpnLand .hl-bens{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:680px;margin:0 auto}
+#hvpnLand .hl-ben{padding:18px 12px;border:1px solid rgba(255,255,255,.07);border-radius:12px;background:rgba(255,255,255,.02);transition:transform .25s,border-color .25s}
+#hvpnLand .hl-ben:hover{transform:translateY(-4px);border-color:rgba(124,58,237,.5)}
+#hvpnLand .hl-ben svg{width:22px;height:22px;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;margin-bottom:8px}
+#hvpnLand .hl-ben b{display:block;font-size:12px;margin-bottom:5px}
+#hvpnLand .hl-ben p{margin:0;font-size:10.5px;color:#8a82a8;line-height:1.5}
+#hvpnLand .hl-toggle{display:inline-flex;gap:4px;padding:4px;border:1px solid rgba(255,255,255,.1);border-radius:10px;margin-bottom:24px}
+#hvpnLand .hl-per{padding:7px 14px;border-radius:7px;font-size:11.5px;font-weight:600;color:#9b93b8;cursor:pointer;transition:all .2s}
+#hvpnLand .hl-per.on{background:#7c3aed;color:#fff}
+#hvpnLand .hl-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:700px;margin:0 auto;text-align:left}
+#hvpnLand .hl-plan{border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:18px;background:rgba(255,255,255,.02);position:relative;transition:transform .25s,border-color .25s}
+#hvpnLand .hl-plan:hover{transform:translateY(-4px)}
+#hvpnLand .hl-plan.rec{border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.15)}
+#hvpnLand .hl-rec-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#7c3aed;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:100px;white-space:nowrap}
+#hvpnLand .hl-plan small{color:#8a82a8;font-size:10.5px}
+#hvpnLand .hl-plan h3{font-family:'Space Grotesk',sans-serif;font-size:14px;margin:6px 0 2px}
+#hvpnLand .hl-price{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700}
+#hvpnLand .hl-price em{font-style:normal;font-size:11px;color:#8a82a8;font-weight:400}
+#hvpnLand .hl-plan .hl-cta{display:block;text-align:center;margin:12px 0 10px}
+#hvpnLand .hl-plan ul{list-style:none;margin:0;padding:0;font-size:10.5px;color:#9b93b8}
+#hvpnLand .hl-plan li{padding:3px 0 3px 16px;position:relative}
+#hvpnLand .hl-plan li::before{content:'✓';position:absolute;left:0;color:#7c3aed;font-weight:700}
+#hvpnLand .hl-save{position:absolute;top:14px;right:14px;font-size:9px;font-weight:700;color:#22c55e;background:rgba(34,197,94,.1);padding:3px 8px;border-radius:100px}
+#hvpnLand .hl-faq{max-width:620px;margin:0 auto;text-align:left}
+#hvpnLand .hl-q{border:1px solid rgba(255,255,255,.08);border-radius:11px;margin-bottom:8px;background:rgba(255,255,255,.02);overflow:hidden}
+#hvpnLand .hl-q button{width:100%;display:flex;justify-content:space-between;align-items:center;background:none;border:none;color:#a78bfa;font-family:inherit;font-size:12.5px;font-weight:600;padding:13px 16px;cursor:pointer;text-align:left}
+#hvpnLand .hl-q .hl-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+#hvpnLand .hl-q.open .hl-a{max-height:160px}
+#hvpnLand .hl-a p{margin:0;padding:0 16px 14px;color:#9b93b8;font-size:11.5px;line-height:1.65}
+#hvpnLand .hl-q .chev{transition:transform .3s;color:#6f6790}
+#hvpnLand .hl-q.open .chev{transform:rotate(180deg)}
+#hvpnLand .hl-foot{padding:22px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;color:#6f6790;font-size:11px}
+@media(max-width:700px){#hvpnLand .hl-bens{grid-template-columns:1fr 1fr}#hvpnLand .hl-plans{grid-template-columns:1fr}#hvpnLand .hl-links{display:none}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/ka/" class="nav-logo"><img src="/assets/thumbs/avatar.jpg?v=3" alt="ბექა" class="nav-avatar">ბექა ჯიკურიშვილი</a>
+    <div class="nav-menu" id="navMenu">
+      <a href="/ka/#work">ნამუშევრები</a>
+      <a href="/ka/#games">თამაშები</a>
+      <a href="/ka/#about">ჩემ შესახებ</a>
+      <a href="/ka/#contact">კონტაქტი</a>
+    </div>
+    <div class="nav-actions">
+      <a href="/projects/hvpn.html" class="lang-switch" title="Read in English">EN</a>
+      <a href="/ka/#contact" class="nav-cta">მომწერე</a>
+    </div>
+  </div>
+</header>
+
+<section class="proj-hero">
+  <div class="container anim">
+    <a href="/ka/#work" class="proj-back">&larr; ნამუშევრებზე დაბრუნება</a>
+    <h1>H-VPN: პრივატულობა, რომელსაც გრძნობ,<br>შენს ყველა ეკრანზე</h1>
+    <p class="proj-desc">პროდუქტის დიზაინი პრივატულობაზე ორიენტირებული VPN-ისთვის: მობილური აპი, ბრაუზერის ვიჯეტი, დესკტოპ-კლიენტი და მარკეტინგული საიტი. ერთი დიზაინ-სისტემა, ერთი მენტალური მოდელი, ერთი შეხება დაუცველსა და დაცულს შორის.</p>
+    <div class="proj-meta">
+      <div class="proj-meta-item"><label>როლი</label><span>პროდუქტის დიზაინერი</span></div>
+      <div class="proj-meta-item"><label>ხანგრძლივობა</label><span>3 თვე</span></div>
+      <div class="proj-meta-item"><label>ორგანიზაცია</label><span>Novatori</span></div>
+      <div class="proj-meta-item"><label>პლატფორმა</label><span>მულტიპლატფორმა</span></div>
+    </div>
+    <div class="cs-stats">
+      <div class="cs-stat"><b>4</b><span>ზედაპირი: აპი, ვიჯეტი, დესკტოპი, ვები</span></div>
+      <div class="cs-stat"><b>1 შეხება</b><span>დაუცველიდან დაცულამდე</span></div>
+      <div class="cs-stat"><b>94</b><span>ქვეყანა სერვერებით</span></div>
+      <div class="cs-stat"><b>2</b><span>გადახდის გზა (ბარათი / PayPal)</span></div>
+      <div class="cs-stat"><b>3</b><span>თვე სრულ ჰენდოფამდე</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="container anim">
+  <div class="cs-showcase violet">
+    <div class="cs-phones">
+      <div class="cs-device"><img src="/assets/case/hvpn/m-unprotected.jpg" alt="H-VPN მთავარი დაუცველ მდგომარეობაში, წითელი სტატუსი, გამოჩენილი IP"></div>
+      <div class="cs-device lift"><img src="/assets/case/hvpn/m-protected.jpg" alt="H-VPN მთავარი დაცულ მდგომარეობაში, მწვანე სტატუსი, დაფარული IP, ტაიმერი"></div>
+      <div class="cs-device"><img src="/assets/case/hvpn/m-countries.jpg" alt="ქვეყნების ამრჩევი სერვერების ლოკაციებით" loading="lazy"></div>
+    </div>
+  </div>
+</div>
+
+<section class="proj-section"><div class="container anim">
+  <h2>კონტექსტი და მიზნები</h2>
+  <p>VPN-ებს UX-ის პრობლემა აქვთ: პროდუქტები, რომლებიც პრივატულობას სერიოზულად უდგებიან, ქსელური ინჟინერიის ინსტრუმენტებს ჰგვანან, მეგობრული იერისებს კი არ ენდობიან. H-VPN-ის ფსონი ის იყო, რომ <strong>ნდობა დიზაინის შედეგია</strong>: თუ ადამიანი დაცვის მდგომარეობას მყისვე ხედავს და ერთი შეხებით ცვლის, პროდუქტს დაუჯერებს. და რადგან ხალხი ტელეფონებზე, ლეპტოპებზე და ბრაუზერებშივე დადის ინტერნეტში, ერთსა და იმავე მენტალურ მოდელს <strong>ოთხ სხვადასხვა ზედაპირზე</strong> უნდა გაეძლო.</p>
+  <ul>
+    <li><strong>მომხმარებლები:</strong> კითხვაზე «დაცული ვარ ახლა?» პასუხი წამზე სწრაფად, ნებისმიერ მოწყობილობაზე.</li>
+    <li><strong>ბიზნესი:</strong> უფასო პაკეტი, რომელიც კონვერტირდება: ხილული ლიმიტები, უმტკივნეულო განახლება, ორი გადახდის გზა.</li>
+    <li><strong>დიზაინი:</strong> ერთი სისტემა, გაჭიმული 375px ტელეფონიდან 1920px მარკეტინგულ გვერდამდე, გაუტეხავად.</li>
+  </ul>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>კონკურენტების სურათი</h2>
+  <p>სანამ რამეს დავხატავდი, NordVPN, ExpressVPN, ProtonVPN და TunnelBear გავზომე. ოთხივეში ერთი შაბლონი მეორდება:</p>
+  <div class="cs-decision">
+    <div class="cs-dec-card rejected"><h4>✕ სად კარგავენ ხალხს</h4><p>სერვერების სიები ცხრილებივით, პარამეტრები პროტოკოლების ჟარგონით, კავშირის მდგომარეობა პაწია აიქონში ჩამარხული და უფასო პაკეტები ისეთი შეზღუდული, რომ ხრიკებად აღიქმება. ძლიერი ფუნქციები ისეა დაპროექტებული, თითქოს ყველა ქსელის ადმინი იყოს.</p></div>
+    <div class="cs-dec-card chose"><h4>✓ რას იღებს მათგან H-VPN</h4><p>Nord-ის რუკაზე აგებულ ადგილის განცდას, TunnelBear-ის სითბოს, Proton-ის გულახდილ უფასო პაკეტს, ერთ ეკრანში შერწყმულს, სადაც <strong>მდგომარეობა თვითონაა ინტერფეისი</strong>: ფერი, IP-ის ჩვენება და ჩართვის ღილაკი მთელ ამბავს ჰყვება.</p></div>
+  </div>
+</div></section>
+
+
+<section class="proj-section"><div class="container anim">
+  <h2>ვისთვის ვაკეთებდი დიზაინს</h2>
+  <div class="cs-personas">
+    <div class="persona">
+      <div class="persona-head">
+        <img class="persona-ava" src="/assets/personas/nikoloz-hvpn.jpg" alt="პერსონას პორტრეტი: ნიკოლოზი" loading="lazy">
+        <div><strong>ნიკოლოზი, 29</strong><span>დისტანციური დეველოპერი · თბილისიდან ამერიკულ კომპანიაში მუშაობს</span></div>
+      </div>
+      <div class="persona-chips">
+        <i><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>თბილისი</i>
+        <i><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>3 მოწყობილობა</i>
+        <i><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>ინსტრუმენტებში იხდის</i>
+      </div>
+      <p class="persona-quote">თუ დეპლოის დროს VPN გაითიშა, მანამ ვერ ვიგებ, სანამ რამე არ გატყდება. უნდა ვხედავდე, რომ ჩართული ვარ.</p>
+      <div class="persona-meters">
+        <div class="pm"><span>ტექნიკური კომფორტი</span><div class="pm-bar"><i style="width:95%"></i></div></div>
+        <div class="pm"><span>სიჩქარის მგრძნობელობა</span><div class="pm-bar"><i style="width:90%"></i></div></div>
+        <div class="pm"><span>პრივატულობის შფოთვა</span><div class="pm-bar"><i style="width:55%"></i></div></div>
+      </div>
+      <div class="persona-cols">
+        <div>
+          <h6 class="goals">მიზნები</h6>
+          <ul>
+            <li class="g">სტაბილური, სწრაფი კავშირი სამუშაოდ, მთელი დღე</li>
+            <li class="g">ერთი ანგარიში ლეპტოპზე, ტელეფონსა და ბრაუზერში</li>
+            <li class="g">კავშირის მდგომარეობა ერთი მზერით</li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="pains">იმედგაცრუებები</h6>
+          <ul>
+            <li class="p">ჩუმი გათიშვები სესიის შუაში</li>
+            <li class="p">სიჩქარის დანაკარგი შიფრაციისგან</li>
+            <li class="p">პარამეტრები, ქსელის ადმინებისთვის დაწერილი</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="persona">
+      <div class="persona-head">
+        <img class="persona-ava" src="/assets/personas/tamar-hvpn.jpg" alt="პერსონას პორტრეტი: თამარი" loading="lazy">
+        <div><strong>თამარი, 34</strong><span>ჟურნალისტი · პრივატულობა პროფესიული გადარჩენაა</span></div>
+      </div>
+      <div class="persona-chips">
+        <i><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>მაღალი რისკის საქმე</i>
+        <i><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/></svg>ჯერ ტელეფონი</i>
+        <i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>დაბლოკილი წყაროები</i>
+      </div>
+      <p class="persona-quote">ყველა VPN ამბობს «ლოგები არ გვაქვსო». ამის შემოწმება არ შემიძლია, ამიტომ იმით ვასკვნი, გულწრფელად გამოიყურება თუ არა პროდუქტი.</p>
+      <div class="persona-meters">
+        <div class="pm"><span>ტექნიკური კომფორტი</span><div class="pm-bar"><i style="width:45%"></i></div></div>
+        <div class="pm"><span>სიჩქარის მგრძნობელობა</span><div class="pm-bar"><i style="width:40%"></i></div></div>
+        <div class="pm"><span>პრივატულობის შფოთვა</span><div class="pm-bar"><i style="width:95%"></i></div></div>
+      </div>
+      <div class="persona-cols">
+        <div>
+          <h6 class="goals">მიზნები</h6>
+          <ul>
+            <li class="g">მყისვე იცოდეს, დაუცველია თუ არა</li>
+            <li class="g">საიმედოდ მიწვდეს დაბლოკილ წყაროებს</li>
+            <li class="g">ჟარგონის გარეშე გამართვა ტელეფონზე</li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="pains">იმედგაცრუებები</h6>
+          <ul>
+            <li class="p">ნდობის დაპირებები, რომლებსაც ვერ ამოწმებს</li>
+            <li class="p">ორაზროვანი კავშირის ინდიკატორები</li>
+            <li class="p">უფასო პაკეტები, მახეს რომ ჰგავს</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>ნიკოლოზმა წაიყვანა მრავალზედაპირიანი სისტემა და მუდამ ხილული მდგომარეობა; თამარმა კი გულახდილი უფასო პაკეტი, IP-ის «მანამდე/მერე» ჩვენება და ერთი შეხების სიმარტივე. როცა გადაწყვეტილება ორივეს ემსახურებოდა, ის ცხოვრებაში გადიოდა.</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>მომხმარებლის ნაკადები</h2>
+  <div class="uflow-lane">ნაკადი: დაკავშირება</div>
+  <div class="uflow">
+    <span class="uf-node start">აპის გახსნა</span><span class="uf-arrow">→</span>
+    <span class="uf-node bad">დაუცველი, ნამდვილი IP ჩანს</span><span class="uf-arrow">→</span>
+    <span class="uf-node decision">ლოკაცია?</span>
+    <span class="uf-fork">
+      <span class="uf-mini"><span class="uf-node good">უფასო ლოკაცია</span></span>
+      <span class="uf-mini"><span class="uf-node">Pro ლოკაცია</span><span class="uf-arrow">→</span><span class="uf-node decision">განახლება?</span></span>
+    </span>
+    <span class="uf-arrow">→</span>
+    <span class="uf-node">ჩართვის ღილაკი</span><span class="uf-arrow">→</span>
+    <span class="uf-node good">დაცული, IP დაფარულია, ტაიმერი ირთვება</span>
+  </div>
+  <div class="uflow-lane">ნაკადი: Pro-ზე გადასვლა</div>
+  <div class="uflow">
+    <span class="uf-node start">უფასო ლიმიტი ამოიწურა</span><span class="uf-arrow">→</span>
+    <span class="uf-node">გეგმები, გულახდილი შედარება</span><span class="uf-arrow">→</span>
+    <span class="uf-node decision">გადახდა?</span>
+    <span class="uf-fork">
+      <span class="uf-mini"><span class="uf-node good">ბარათი</span></span>
+      <span class="uf-mini"><span class="uf-node good">PayPal</span></span>
+    </span>
+    <span class="uf-arrow">→</span>
+    <span class="uf-node">დადასტურება</span><span class="uf-arrow">→</span>
+    <span class="uf-fork">
+      <span class="uf-mini"><span class="uf-node good">Pro გახსნილია, 94-ვე ქვეყანა</span></span>
+      <span class="uf-mini"><span class="uf-node bad">უარყოფილი</span><span class="uf-arrow">→</span><span class="uf-node">მიზეზი + თავიდან ცდა</span></span>
+    </span>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>მთავარი გადაწყვეტილება: მდგომარეობა თვითონაა ინტერფეისი</h2>
+  <p>VPN-ის ყოველი ეკრანი ერთ კითხვას პასუხობს: <em>დაუცველი ვარ?</em> H-VPN ამ პასუხს შეუმჩნეველს ვერ დატოვებ. მთელი მთავარი ეკრანი ტემპერატურას იცვლის: <span style="color:#f87171;font-weight:600">წითელი</span>, როცა ნამდვილი IP ჩანს, <span style="color:#34d399;font-weight:600">მწვანე</span>, როცა დაფარული ხარ. ნამდვილი IP და VPN-ის IP გვერდიგვერდ ზის, ასე რომ დაცვა დაპირება კი არა, ხილული «მანამდე/მერეა». ერთი შეხება მთელ სამყაროს ატრიალებს.</p>
+  <div class="cs-showcase violet">
+    <div class="cs-state">
+      <figure style="margin:0"><div class="cs-device"><img src="/assets/case/hvpn/m-unprotected.jpg" alt="დაუცველი მდგომარეობა"></div><figcaption class="bad">დაუცველი, ნამდვილი IP ჩანს</figcaption></figure>
+      <span class="cs-state-vs">ერთი შეხება</span>
+      <figure style="margin:0"><div class="cs-device"><img src="/assets/case/hvpn/m-protected.jpg" alt="დაცული მდგომარეობა"></div><figcaption class="good">დაცული, IP დაფარულია, ტაიმერი მუშაობს</figcaption></figure>
+    </div>
+  </div>
+  <h3>დეტალები, რომლებსაც ნდობა მიაქვთ</h3>
+  <p>კავშირის ტაიმერი ამტკიცებს, რომ გვირაბი ცოცხალია. წერტილოვანი გლობუსი «მსოფლიოს რომელ წერტილში»-ს პასუხობს მძიმე რუკის გარეშე. ლოკაციის ამრჩევი ქვედა ფურცელია: ქვეყანა, დროშა, ლოკაციების რაოდენობა, და არა ცხრილი. უფასო პაკეტი კი გულახდილია: ჩაკეტილი ლოკაციები ხილულია და Pro-სკენ მკაფიო გზა აქვთ, არასდროს იმალება.</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>მობილური აპი</h2>
+  <p>მთავარი, ლოკაციები, უფასო პაკეტის შეხსენებები, პროფილი, ყველა ეკრანს ერთი ანატომია აქვს: სტატუსი ზემოთ, გლობუსი შუაში, ლოკაცია და ნავიგაცია ცერის ხაზზე.</p>
+  <div class="cs-showcase violet">
+    <div class="cs-phones cols4">
+      <div class="cs-device"><img src="/assets/case/hvpn/m-dropdown.jpg" alt="ლოკაციის სწრაფი ჩამონათვალი მთავარ ეკრანზე" loading="lazy"></div>
+      <div class="cs-device"><img src="/assets/case/hvpn/m-countries.jpg" alt="ქვეყნების სრული სია ძიებით" loading="lazy"></div>
+      <div class="cs-device"><img src="/assets/case/hvpn/m-free.jpg" alt="უფასო კავშირის ლიმიტები განახლების გზით" loading="lazy"></div>
+      <div class="cs-device"><img src="/assets/case/hvpn/m-profile.jpg" alt="პროფილისა და ანგარიშის ეკრანი" loading="lazy"></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>ერთი სისტემა, ოთხი ზედაპირი</h2>
+  <p>იგივე პროდუქტი ცხოვრობს <strong>ბრაუზერის ვიჯეტად</strong> (უსწრაფესი გზა: დაცვა ტაბიდან გაუსვლელად), <strong>დესკტოპ-კლიენტად</strong> ანგარიშის, გამოწერისა და ჩამოტვირთვების მართვით, და მობილურ აპად. იგივე მდგომარეობები, იგივე ფერები, იგივე ღილაკი, თითო ზედაპირზე თავისი ერგონომიკით.</p>
+  <div class="cs-showcase violet">
+    <div class="cs-phones">
+      <div class="cs-device"><img src="/assets/case/hvpn/w-off.jpg" alt="ბრაუზერის ვიჯეტი, გათიშული" loading="lazy"></div>
+      <div class="cs-device lift"><img src="/assets/case/hvpn/w-on.jpg" alt="ბრაუზერის ვიჯეტი, ჩართული" loading="lazy"></div>
+      <div class="cs-device"><img src="/assets/case/hvpn/w-countries.jpg" alt="ბრაუზერის ვიჯეტი, ქვეყნების ამრჩევი" loading="lazy"></div>
+    </div>
+  </div>
+  <figure class="cs-fig">
+    <div class="cs-showcase violet">
+      <div class="cs-browser"><div class="cs-browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">h-vpn.app/account</span></div>
+      <div class="cs-browser-view" style="aspect-ratio:4/3;overflow:hidden"><img src="/assets/case/hvpn/d-connect.jpg" alt="დესკტოპ-კლიენტი, ანგარიშის პარამეტრები Apple-ის მიბმის ფანჯრით" loading="lazy"></div></div>
+    </div>
+    <figcaption>დესკტოპი: ანგარიში, მიბმული ლოგინები (Google / Apple), გამოწერა და ჩამოტვირთვები, «მოსაწყენი» ეკრანები, იმავე გულმოდგინებით დაპროექტებული, რაც მთავარი.</figcaption>
+  </figure>
+  <div class="cs-grid2">
+    <figure class="cs-fig"><img src="/assets/case/hvpn/d-account.jpg" alt="დესკტოპის ანგარიშის პარამეტრები" loading="lazy"><figcaption>ანგარიშის პარამეტრები</figcaption></figure>
+    <figure class="cs-fig"><img src="/assets/case/hvpn/d-downloads.jpg" alt="დესკტოპის ჩამოტვირთვების გვერდი ყველა პლატფორმისთვის" loading="lazy"><figcaption>ჩამოტვირთვები: ყველა პლატფორმა ერთი ადგილიდან</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>ლენდინგი: დაასქროლე</h2>
+  <p>«Your Virtual Guardian in the Cyber Jungle». მარკეტინგული საიტი იმავე ამბავს ყიდის, რასაც პროდუქტი ჰყვება: სარგებელი წინა პლანზე, გეგმების გულახდილი შედარება, პლატფორმების ჩამოტვირთვები და გამართვის გზამკვლევები. (ქვემოთ ჩაშენებული მაკეტი ინგლისურ პროდუქტს ასახავს.)</p>
+  <div class="cs-showcase violet">
+    <div class="cs-browser">
+      <div class="cs-browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">h-vpn.app</span></div>
+      <div class="cs-browser-view" id="vpnLanding" style="height:620px;aspect-ratio:auto;width:100%">
+        <div id="hvpnLand">
+          <div class="hl-nav"><span class="hl-logo"><i></i>H-VPN</span><div class="hl-links"><span>What is HVPN</span><span>Plans</span><span>Download</span><span>Support</span><span>Blog</span></div><span class="hl-cta">Get it now</span></div>
+          <div class="hl-hero">
+            <h1>Your Virtual Guardian<br>in the Cyber Jungle</h1>
+            <p class="hl-sub">Enjoy secure, fast, and private internet access from anywhere in the world.</p>
+            <div class="hl-btns"><span class="hl-btn fill">Get it now</span><span class="hl-btn ghost">Download</span></div>
+            <div class="hl-guar">✓ 30-day money-back guarantee</div>
+          </div>
+          <div class="hl-marq"><div class="hl-marq-track"><span>◈ waves</span><span>✦ FlowShow</span><span>♛ travelers.</span><span>◎ goldlines</span><span>▲ velocity</span><span>◈ waves</span><span>✦ FlowShow</span><span>♛ travelers.</span><span>◎ goldlines</span><span>▲ velocity</span></div></div>
+          <div class="hl-sec">
+            <div class="hl-tag">Experience the difference</div>
+            <h2>4 Benefits of using H-VPN</h2>
+            <div class="hl-bens">
+              <div class="hl-ben"><svg viewBox="0 0 24 24" style="stroke:#a78bfa"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M8 15h4"/></svg><b>Block Ads</b><p>Enjoy a cleaner, faster and more streamlined web.</p></div>
+              <div class="hl-ben"><svg viewBox="0 0 24 24" style="stroke:#f87171"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM4 4l16 16"/></svg><b>Hide Identity</b><p>Prevent tracking by securing your online presence.</p></div>
+              <div class="hl-ben"><svg viewBox="0 0 24 24" style="stroke:#34d399"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><b>Easy to Install</b><p>It only takes a moment to install our H-VPN.</p></div>
+              <div class="hl-ben"><svg viewBox="0 0 24 24" style="stroke:#38bdf8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg><b>Global Access</b><p>Bypass geo-restrictions and access content worldwide.</p></div>
+            </div>
+          </div>
+          <div class="hl-sec">
+            <div class="hl-tag">Unlimited privacy in a few clicks</div>
+            <h2>Choose your plan</h2>
+            <div class="hl-toggle"><span class="hl-per" data-per="0">1 Month</span><span class="hl-per on" data-per="1">12 Months</span><span class="hl-per" data-per="2">2 Years</span></div>
+            <div class="hl-plans">
+              <div class="hl-plan"><span class="hl-save">Save 50%</span><small>Enterprise</small><h3>Enterprise Plan</h3><div class="hl-price">$<span data-prices="79|40|32">40</span><em>/mth</em></div><span class="hl-cta">Get Now</span><ul><li>Advanced custom fields</li><li>Audit log and data history</li><li>Unlimited individual users</li><li>Unlimited individual data</li></ul></div>
+              <div class="hl-plan rec"><span class="hl-rec-badge">⏱ Recommended</span><small>Plus</small><h3>Plus Plan</h3><div class="hl-price">$<span data-prices="19|10|8">10</span><em>/mth</em></div><span class="hl-cta">Get Now</span><ul><li>Access to all basic features</li><li>Basic reporting and analytics</li><li>Up to 10 individual users</li><li>20 GB individual data each user</li></ul></div>
+              <div class="hl-plan"><span class="hl-save">Save 50%</span><small>Basic</small><h3>Basic Plan</h3><div class="hl-price">$<span data-prices="9.99|5.23|3.99">5.23</span><em>/mth</em></div><span class="hl-cta">Get Now</span><ul><li>Advanced custom fields</li><li>Audit log and data history</li><li>Unlimited individual users</li><li>Unlimited individual data</li></ul></div>
+            </div>
+          </div>
+          <div class="hl-sec">
+            <div class="hl-tag">Get to know more about us</div>
+            <h2>Frequently Asked Questions</h2>
+            <div class="hl-faq">
+              <div class="hl-q open"><button>How do I buy a H-VPN subscription?<span class="chev">▾</span></button><div class="hl-a"><p>Order straight from our website, pick the plan you want and click "Continue to payment." Enter your email address, select your payment method, and finish the transaction.</p></div></div>
+              <div class="hl-q"><button>How much does a VPN cost?<span class="chev">▾</span></button><div class="hl-a"><p>Most VPN providers offer monthly and long-term plans. Monthly subscriptions cost $8.00–$13.00/month, while yearly plans most often go for $6.00–$7.00/month, the longer the plan, the better the deal.</p></div></div>
+              <div class="hl-q"><button>Does H-VPN log my traffic?<span class="chev">▾</span></button><div class="hl-a"><p>No. H-VPN follows a strict no-logs policy, your browsing history, IP and connection timestamps are never stored.</p></div></div>
+              <div class="hl-q"><button>How many devices can I protect?<span class="chev">▾</span></button><div class="hl-a"><p>One account covers the mobile app, browser widget and desktop client, sign in on all of them at once.</p></div></div>
+            </div>
+          </div>
+          <div class="hl-foot"><span>© H-VPN</span><span>Privacy · Terms · Support</span></div>
+        </div>
+        <span class="cs-scrollbadge" id="vpnLandingBadge" style="border-color:rgba(124,58,237,.5);color:#a78bfa"><svg viewBox="0 0 24 24" style="stroke:#a78bfa"><path d="M6 9l6 6 6-6"/></svg>scroll</span>
+      </div>
+    </div>
+  </div>
+  <figure class="cs-fig panel"><div class="panel-bg" style="background:radial-gradient(ellipse 80% 70% at 20% 10%,rgba(124,58,237,.18),transparent 60%),#0b0714;border-color:#2a2050"><img src="/assets/case/hvpn/landing-plans.jpg" alt="ფასების პაკეტები, გეგმების შედარების ცხრილი და FAQ" loading="lazy"></div><figcaption>გეგმების სრული სპეციფიკაცია დიზაინ-ფაილიდან: პაკეტები, ფუნქციების შედარება, FAQ.</figcaption></figure>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>დიზაინის ენა</h2>
+  <p>თითქმის შავი იისფერი სივრცე, ერთი ელექტრო აქცენტი და სამი სემანტიკური ფერი, რომლებიც არასდროს იტყუებიან: მწვანე დაცულს ნიშნავს, წითელი დაუცველს, ყვითელი Pro-ს. წერტილოვანი გლობუსი ბრენდის ხელმოწერაა: უსაფრთხოება ადგილის განცდით და არა ბოქლომის კლიშეთი.</p>
+  <div class="cs-tokens">
+    <span class="cs-token"><i style="background:#0b0714"></i>Space #0B0714</span>
+    <span class="cs-token"><i style="background:#7c3aed"></i>Violet #7C3AED</span>
+    <span class="cs-token"><i style="background:#a78bfa"></i>Violet-2 #A78BFA</span>
+    <span class="cs-token"><i style="background:#22c55e"></i>Protected #22C55E</span>
+    <span class="cs-token"><i style="background:#ef4444"></i>Exposed #EF4444</span>
+    <span class="cs-token"><i style="background:#fbbf24"></i>Pro #FBBF24</span>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>რას გავაკეთებდი სხვანაირად</h2>
+  <p>ავტორიზაციისა და გადახდის ნაკადებმა (შესვლა, რეგისტრაცია, აღდგენა, ბარათი, PayPal) სამი თვიდან მეტი შეჭამეს, ვიდრე მთავარმა ეკრანებმა. შემდეგ ჯერზე ჯერ მათ ავაწყობდი სისტემად, რადგან ყოველ ზედაპირს თავისი ვარიანტი სჭირდებოდა. და ვიჯეტს უფრო ადრე გავატესტებდი მომხმარებლებზე: ეს ის ზედაპირია, სადაც ხალხი რეალურად ცხოვრობს, დაპროექტებული კი ბოლოს იქნა.</p>
+  <a href="/ka/projects/multipay.html" class="cs-next anim"><div><span>შემდეგი ქეისი</span><br><strong>Multipay: მულტისავალუტო საფულე</strong></div><span class="work-arrow">&nearr;</span></a>
+</div></section>
+
+<section class="contact" id="contact"><div class="container"><div class="contact-box anim">
+  <span class="tag">კონტაქტი</span>
+  <h2>მოდი, ერთად შევქმნათ რამე მაგარი</h2>
+  <p>გაქვს პროექტი? სიამოვნებით მოგისმენ.</p>
+  <div class="contact-btns">
+    <button type="button" class="btn-primary book-call" data-book>დაჯავშნე ზარი</button>
+    <a href="mailto:jikurishvilib26@gmail.com" class="btn-ghost">jikurishvilib26@gmail.com</a>
+  </div>
+</div></div></section>
+
+<footer class="footer"><div class="container footer-inner">
+  <span>&copy; 2026 ბექა ჯიკურიშვილი</span>
+  <div class="footer-links"><a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a></div>
+</div></footer>
+
+<script src="/script.js?v=20"></script>
+<script>
+var vl=document.getElementById('vpnLanding'),vb=document.getElementById('vpnLandingBadge');
+if(vl&&vb){vl.addEventListener('scroll',function(){vb.classList.toggle('hide',vl.scrollTop>60)})}
+// plan period toggle
+document.querySelectorAll('#hvpnLand .hl-per').forEach(function(p){
+  p.addEventListener('click',function(){
+    document.querySelectorAll('#hvpnLand .hl-per').forEach(function(o){o.classList.remove('on')});
+    p.classList.add('on');
+    var i=+p.getAttribute('data-per');
+    document.querySelectorAll('#hvpnLand [data-prices]').forEach(function(el){
+      el.textContent=el.getAttribute('data-prices').split('|')[i];
+    });
+  });
+});
+// FAQ accordion
+document.querySelectorAll('#hvpnLand .hl-q button').forEach(function(b){
+  b.addEventListener('click',function(){b.parentElement.classList.toggle('open')});
+});
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
