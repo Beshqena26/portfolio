@@ -159,6 +159,44 @@ if (burger && overlay && backdrop && closeBtn) {
   });
 })();
 
+// Game demo player
+// Set data-play="https://..." on a .gcard to enable its "Play demo" button.
+(function () {
+  var modal = document.getElementById('gameModal');
+  if (!modal) return;
+  var frame = document.getElementById('gameFrame');
+  var title = document.getElementById('gameModalTitle');
+
+  document.querySelectorAll('.gcard').forEach(function (card) {
+    var url = card.getAttribute('data-play');
+    var btn = card.querySelector('.gcard-play');
+    var soon = card.querySelector('.gcard-soon');
+    if (!btn) return;
+    if (url) {
+      btn.hidden = false;
+      if (soon) soon.hidden = true;
+      btn.addEventListener('click', function () {
+        title.textContent = card.getAttribute('data-title') || 'Game';
+        frame.src = url;
+        modal.hidden = false;
+        document.body.style.overflow = 'hidden';
+      });
+    }
+  });
+
+  function closeModal() {
+    modal.hidden = true;
+    frame.src = ''; // stop the game + audio
+    document.body.style.overflow = '';
+  }
+  modal.querySelectorAll('[data-close]').forEach(function (el) {
+    el.addEventListener('click', closeModal);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modal.hidden) closeModal();
+  });
+})();
+
 // FAQ accordion
 document.querySelectorAll('.faq-q').forEach(function(btn) {
   btn.setAttribute('aria-expanded', 'false');
