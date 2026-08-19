@@ -37,7 +37,7 @@ if (glow && dot && window.innerWidth > 1024 && !reduceMotion) {
   followCursor();
 
   // Hover effect on interactive elements
-  document.querySelectorAll('a, button, .work-row, .srv-card, .test-card, .tl-card').forEach(function(el) {
+  document.querySelectorAll('a, button, .work-row, .srv-row, .test-card, .tl-card').forEach(function(el) {
     el.addEventListener('mouseenter', function() {
       glow.classList.add('hovering');
       dot.classList.add('hovering');
@@ -51,25 +51,6 @@ if (glow && dot && window.innerWidth > 1024 && !reduceMotion) {
   // Hide custom cursor on mobile
   if (glow) glow.style.display = 'none';
   if (dot) dot.style.display = 'none';
-}
-
-// Particles
-var particlesEl = document.getElementById('particles');
-if (particlesEl && window.innerWidth > 768 && !reduceMotion) {
-  for (var i = 0; i < 40; i++) {
-    var p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = Math.random() * 100 + '%';
-    p.style.top = Math.random() * 100 + '%';
-    p.style.width = (Math.random() * 2 + 1) + 'px';
-    p.style.height = p.style.width;
-    p.style.opacity = (Math.random() * 0.15 + 0.05).toFixed(2);
-    p.style.animationDuration = (Math.random() * 15 + 10) + 's';
-    p.style.animationDelay = (Math.random() * 10) + 's';
-    particlesEl.appendChild(p);
-  }
-} else if (particlesEl) {
-  particlesEl.style.display = 'none';
 }
 
 // Mobile drawer menu
@@ -122,7 +103,7 @@ if (burger && overlay && backdrop && closeBtn) {
   stars.forEach(function (s) {
     s.addEventListener('mouseenter', function () { paint(+s.dataset.v); });
     s.addEventListener('mouseleave', function () { paint(rating); });
-    s.addEventListener('click', function () { rating = +s.dataset.v; paint(rating); label.textContent = words[rating] + ' — ' + rating + '/5'; });
+    s.addEventListener('click', function () { rating = +s.dataset.v; paint(rating); label.textContent = words[rating] + ', ' + rating + '/5'; });
   });
   var grid = document.getElementById('testGrid');
   function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
@@ -132,7 +113,7 @@ if (burger && overlay && backdrop && closeBtn) {
     el.className = 'test-card anim show';
     var avatar = r.img
       ? '<img src="' + esc(r.img) + '" alt="' + esc(r.name) + '">'
-      : '<div class="test-avatar-init" style="background:linear-gradient(135deg,#ff6b35,#ffb088)">' + esc((r.name || '?').trim().charAt(0).toUpperCase()) + '</div>';
+      : '<div class="test-avatar-init" style="background:#CAFF00;color:#060610">' + esc((r.name || '?').trim().charAt(0).toUpperCase()) + '</div>';
     el.innerHTML = '<div class="test-stars">' + starHtml(r.rating) + '</div>' +
       '<p>"' + esc(r.message) + '"</p>' +
       '<div class="test-author">' + avatar +
@@ -147,7 +128,7 @@ if (burger && overlay && backdrop && closeBtn) {
   }
 
   function emailFallback(name, role, msg) {
-    var body = 'Rating: ' + rating + '/5\nName: ' + name + (role ? '\nRole: ' + role : '') + '\n\n' + msg + '\n\n— Sent from jikurishvili.com';
+    var body = 'Rating: ' + rating + '/5\nName: ' + name + (role ? '\nRole: ' + role : '') + '\n\n' + msg + '\n\nSent from jikurishvili.com';
     window.location.href = 'mailto:jikurishvilib26@gmail.com?subject=' + encodeURIComponent('Testimonial (' + rating + '/5) from ' + name) + '&body=' + encodeURIComponent(body);
   }
 
@@ -166,7 +147,7 @@ if (burger && overlay && backdrop && closeBtn) {
       body: JSON.stringify({ rating: rating, name: name, role: role, message: msg, hp: hp })
     }).then(function (r) { return r.status === 200 ? r.json() : Promise.reject(r.status); })
       .then(function () {
-        note.className = 'review-note ok'; note.textContent = 'Thanks! Your review was sent — it’ll appear here once approved ❤';
+        note.className = 'review-note ok'; note.textContent = 'Thanks! Your review was sent. It will appear here once approved.';
         form.reset(); rating = 0; paint(0); label.textContent = 'Tap to rate';
       })
       .catch(function (code) {
@@ -177,19 +158,6 @@ if (burger && overlay && backdrop && closeBtn) {
       .finally(function () { btn.disabled = false; });
   });
 })();
-
-// Theme toggle
-var themeToggle = document.getElementById('themeToggle');
-if (themeToggle) {
-  var saved = localStorage.getItem('theme');
-  if (saved) document.documentElement.setAttribute('data-theme', saved);
-  themeToggle.addEventListener('click', function() {
-    var current = document.documentElement.getAttribute('data-theme');
-    var next = current === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-  });
-}
 
 // FAQ accordion
 document.querySelectorAll('.faq-q').forEach(function(btn) {
@@ -245,7 +213,7 @@ document.querySelectorAll('.nav-menu a[href^="#"]').forEach(function(a) {
     };
   })(window, "https://app.cal.com/embed/embed.js", "init");
   Cal("init", "book", { origin: "https://cal.com" });
-  Cal.ns.book("ui", { theme: "dark", cssVarsPerTheme: { dark: { "cal-brand": "#ff6b35" } }, hideEventTypeDetails: false, layout: "month_view" });
+  Cal.ns.book("ui", { theme: "dark", cssVarsPerTheme: { dark: { "cal-brand": "#CAFF00" } }, hideEventTypeDetails: false, layout: "month_view" });
   // Note pre-fill: tell Beka which page the booking came from
   var p = location.pathname, src = 'the portfolio homepage';
   if (/multipay/.test(p)) src = 'the Multipay case study';
