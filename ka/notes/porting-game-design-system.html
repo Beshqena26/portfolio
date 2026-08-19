@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>თამაშის გადატანა დიზაინ-სისტემაში | ბექა ჯიკურიშვილი</title>
+<meta name="description" content="როგორ ავაწყვე კლონირებული Keno თავიდან, როგორც ნამდვილი MYBC Original: ჯერ ანატომია, მერე ტოკენები, ჩატვირთვის რიტმი და გადახდის წესი, რომელიც QA-მ გვასწავლა.">
+<meta property="og:title" content="თამაშის გადატანა დიზაინ-სისტემაში">
+<meta property="og:description" content="გადაღებვა სწრაფია და მცდარი. გამძლე პორტი ორ ლიანდაგზე დგას: ანატომია და ტოკენები.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ka_GE">
+<meta property="og:image" content="https://jikurishvili.com/assets/og/game-keno.jpg">
+<meta property="og:url" content="https://jikurishvili.com/ka/notes/porting-game-design-system.html">
+<link rel="canonical" href="https://jikurishvili.com/ka/notes/porting-game-design-system.html">
+<link rel="alternate" hreflang="en" href="https://jikurishvili.com/notes/porting-game-design-system.html">
+<link rel="alternate" hreflang="ka" href="https://jikurishvili.com/ka/notes/porting-game-design-system.html">
+<link rel="alternate" hreflang="x-default" href="https://jikurishvili.com/notes/porting-game-design-system.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jikurishvili.com/assets/og/game-keno.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23CAFF00%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27%23060610%27 text-anchor=%27middle%27>B</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=32">
+<style>body{font-family:'Gilroy','Noto Sans Georgian',system-ui,sans-serif}.nav-menu{gap:20px}.nav-menu a{font-size:13px;white-space:nowrap}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "თამაშის გადატანა დიზაინ-სისტემაში",
+  "datePublished": "2026-08-20",
+  "inLanguage": "ka",
+  "author": {"@type": "Person", "name": "ბექა ჯიკურიშვილი", "url": "https://jikurishvili.com/ka/"},
+  "image": "https://jikurishvili.com/assets/og/game-keno.jpg",
+  "url": "https://jikurishvili.com/ka/notes/porting-game-design-system.html"
+}
+</script>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/ka/" class="nav-logo"><img src="/assets/thumbs/avatar.jpg?v=3" alt="ბექა" class="nav-avatar">ბექა ჯიკურიშვილი</a>
+    <div class="nav-menu" id="navMenu">
+      <a href="/ka/#work">ნამუშევრები</a>
+      <a href="/ka/#games">თამაშები</a>
+      <a href="/ka/#notes">ჩანაწერები</a>
+      <a href="/ka/#contact">კონტაქტი</a>
+    </div>
+    <div class="nav-actions">
+      <a href="/notes/porting-game-design-system.html" class="lang-switch" title="Read in English">EN</a>
+      <a href="/ka/#contact" class="nav-cta">მომწერე</a>
+    </div>
+  </div>
+</header>
+
+<section class="proj-hero">
+  <div class="container anim">
+    <a href="/ka/#notes" class="proj-back">&larr; ყველა ჩანაწერი</a>
+    <h1>თამაშის გადატანა<br>დიზაინ-სისტემაში</h1>
+    <p class="proj-desc">გვქონდა მომუშავე Keno, რომელიც სხვის პროდუქტს ჰგავდა. მისმა თავიდან აწყობამ ჩვენი ლაინაფის ნამდვილ ნაწილად მასწავლა, რით განსხვავდება თამაშის გადაღებვა თამაშის ნამდვილი გადატანისგან.</p>
+    <div class="proj-meta">
+      <div class="proj-meta-item"><label>გამოქვეყნდა</label><span>2026 აგვისტო</span></div>
+      <div class="proj-meta-item"><label>წასაკითხი დრო</label><span>6 წთ</span></div>
+      <div class="proj-meta-item"><label>თემა</label><span>დიზაინ-სისტემები</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>საწყისი წერტილი: კლონი სხვის ტანსაცმელში</h2>
+  <p>Keno, რომელიც მე მერგო, სხვა ოპერატორის თამაშის კლონად იყო აწყობილი. მუქი ლურჯი და ინდიგოს პალიტრა, მარცხენა გვერდითი პანელი, სხვა შრიფტების სისტემა. არაფერი იყო გატეხილი. უბრალოდ ჩვენს ლობიში მჯდომ უცნობს ჰგავდა, ამას კი მოთამაშეები იმაზე სწრაფად ამჩნევენ, ვიდრე გვინდა ვაღიაროთ: თამაში, რომელიც თავის მეზობლებს არ ჰგავს, მესამე მხარის პროდუქტად იკითხება, მესამე მხარე კი ნაკლებად ანგარიშვალდებულად.</p>
+  <p>აშკარა ნაბიჯი გადასტილვაა: ხსნი CSS-ს, ცვლი ფერებს და ერთ დღეში უშვებ. ეს გამიკეთებია და მერე საფასურიც გადამიხდია. ყოველი hex-მნიშვნელობა ხელით ჩასმული რჩება, ასე რომ ბრენდის პირველივე ცვლილებაზე თამაში ისევ სცდება ლაინაფს და გადასტილვა უსასრულოდ გრძელდება. ამჯერად მინდოდა, პორტი სამუდამო ყოფილიყო.</p>
+
+  <h2>ორი ლიანდაგი: ჯერ ანატომია, მერე ტოკენები</h2>
+  <p>პორტი ორ ლიანდაგზე წავიდა, თანმიმდევრობით. პირველი: ანატომია. ჩვენს ლაინაფს საერთო ჩონჩხი აქვს: ერთი და იგივე ჰედერი, ერთი და იგივე ფსონის კონტროლები, ერთნაირი უჯრები ისტორიისა და სამართლიანობისთვის, ერთი და იგივე ჩატვირთვის თანმიმდევრობა. Keno-მ ეს გარსი ერთი ფერის შეცვლამდე მიიღო. ეს ის ნაწილია, რომელსაც გადასტილვების უმეტესობა გამოტოვებს და ზუსტად ის ნაწილია, რომელსაც მოთამაშეები რეალურად გრძნობენ. ვინც ჩვენს Moles-ს უთამაშია, უკვე იცის, სად ცხოვრობს Keno-ს ისტორია, როგორ მუშაობს ფსონის ზოლი და სად შემოწმდება რაუნდი. ნულოვანი ხელახალი სწავლა.</p>
+  <p>მეორე: ტოკენები. ელემენტების სათითაოდ გადასტილვის ნაცვლად, კლონის ყველა ფერი ჩვენი ბრენდ-სისტემის ტოკენს მიება. თამაშს ფერზე საკუთარი აზრი აღარ აქვს. როცა ტოკენების ნაკრები იცვლება, Keno-ც იცვლება, ავტომატურად, ყველა სხვა თამაშთან ერთად. ანატომია თამაშს მოთამაშისთვის ხდის მშობლიურს; ტოკენები მას გუნდისთვის ინარჩუნებს ასეთად.</p>
+
+  <h2>დეტალები, რომლებიც პორტს ყიდის</h2>
+  <p>გარსი და ტოკენები თამაშს სწორს ხდის. რამდენიმე უფრო წვრილმა გადაწყვეტილებამ კი ისეთად აქცია, თითქოს ყოველთვის ჩვენი ყოფილიყო. თამაშმა საკუთარი ვორდმარკი და ბრენდირებული ჩატვირთვის ეკრანი მიიღო პროგრეს-ბარით, ლაინაფის დანარჩენი თამაშების იდენტური მინიმალური ხანგრძლივობით, რადგან ჩატვირთვის რიტმიც ოჯახური იდენტობის ნაწილია. სწრაფი კარგია, მაგრამ თანმიმდევრული უფრო დამამშვიდებელია.</p>
+  <p>დაფაზე მოხვედრები დაჭრილი თვლის ფორმით ინიშნება, აცდენები კი წითელი ციფრებით, რაც დეკორაციად ჟღერს, სანამ წესად არ ჩამოაყალიბებ: ფორმა პლუს ფერი, არასდროს მხოლოდ ფერი. 520 პიქსელს ქვემოთ კი დაფა კომპაქტურ რეჟიმზე გადადის, რადგან ათი არჩევანი 40-რიცხვიან ბადეზე პატარა ტელეფონზეც კომფორტულად დასაჭერი უნდა დარჩეს, იქ, სადაც ჩვენი მოთამაშეების უმეტესობა რეალურად ზის.</p>
+
+  <h2>წესი, რომელიც QA-მ გვასწავლა</h2>
+  <p>პორტის ყველაზე მჭრელი აღმოჩენა ვიზუალური არ ყოფილა. ერთი ტიპის უფასო რაუნდზე თამაშის ძრავი ჯამურ გადახდას უკვე ფსონგამოკლებულს აბრუნებს. კლონირებული კლიენტი კი გადახდებს თვითონ ითვლიდა, ასე რომ ყველა ასეთი მოგება არასწორ რიცხვს აჩვენებდა. გამოსავალი ერთი წესი გახდა, რომელიც ახლა კოდშიც წერია და ტესტ-მოკებშიც მეორდება: ძრავის რიცხვი უცვლელად აჩვენე და კლიენტში ფული არასდროს გადათვალო. რეალური ფულის თამაშში ერთი და იმავე რიცხვის ორი ვერსია მოთამაშის სამუდამოდ დაკარგვის ყველაზე სწრაფი გზაა.</p>
+  <p>სამართლიანობის ფენას იგივე მიდგომა ერგო: ლაინაფის რაუნდობითი გადამოწმების ნაკადის მიზანმიმართული ერთი-ერთში პორტი, სუფთა JavaScript-ის ჰეშირების სათადარიგო გზამდე, რომ ვერიფიკაცია იქაც იმუშაოს, სადაც ბრაუზერის კრიპტო API არ არის. მთელი აზრი პარიტეტი იყო. პორტი, რომელიც 95%-ით თანმიმდევრულია, არათანმიმდევრულია.</p>
+
+  <h2>გაამართლა?</h2>
+  <p>გადატანილი Keno რეალური ფულის ოპერატორთან გავიდა ლაივზე და ჯერჯერობით 23,000+ რაუნდი აქვს დაფიქსირებული 340+ მოთამაშისგან, ისე, რომ თავისი მშობლიური მეზობლებისგან ვერ გაარჩევ, რაც მთელი დავალება იყო. ის მოცულობით ჩვენი ლაინაფის ყველაზე პატარა თამაშია და ჩემთვის ალბათ ყველაზე მნიშვნელოვანი, რადგან მან სისტემა დაამტკიცა: ჩვენს სამყაროს გარეთ აშენებული თამაში შეიძლება მთლიანად შემოიყვანო შიგნით, სამუდამოდ, ერთ გავლაზე.</p>
+  <p>თუ იგივე საქმე გელის, ჩემი გულწრფელი რჩევაა, გადაღებვას გაუძალიანდე. ჯერ ჩონჩხი მიიღე, მერე ტოკენებზე გადადი, უხილავ დეტალებზე ხაზი არ დათმო და ყველა ადგილი, სადაც თამაში სიმართლის საკუთარ ვერსიას ითვლის, ბაგად მიიჩნიე. კანი მარტივი ნაწილია. მიკუთვნებულობა არის მისატანი შედეგი.</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <a href="provably-fair-ux.html" class="cs-next"><div><span>შემდეგი ჩანაწერი</span><br><strong>Provably fair UX-ის პრობლემაა და არა მათემატიკის</strong></div><span class="work-arrow">&nearr;</span></a>
+</div></section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span>&copy; 2026 ბექა ჯიკურიშვილი</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/script.js?v=20"></script>
+</body>
+</html>
