@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Porting a Game Into a Design System | Beka Jikurishvili</title>
+<meta name="description" content="How I rebuilt a cloned Keno into a native MYBC Original: anatomy before tokens, boot rhythm, shape plus color signals, and the payout rule QA taught us.">
+<meta property="og:title" content="Porting a game into a design system">
+<meta property="og:description" content="Repainting is fast and wrong. The port that lasts runs on two rails: anatomy and tokens.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://jikurishvili.com/assets/og/game-keno.jpg">
+<meta property="og:url" content="https://jikurishvili.com/notes/porting-game-design-system.html">
+<link rel="canonical" href="https://jikurishvili.com/notes/porting-game-design-system.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jikurishvili.com/assets/og/game-keno.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23CAFF00%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27%23060610%27 text-anchor=%27middle%27>B</text></svg>">
+<link rel="stylesheet" href="../style.css?v=32">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Porting a game into a design system",
+  "datePublished": "2026-08-20",
+  "author": {"@type": "Person", "name": "Beka Jikurishvili", "url": "https://jikurishvili.com/"},
+  "image": "https://jikurishvili.com/assets/og/game-keno.jpg",
+  "url": "https://jikurishvili.com/notes/porting-game-design-system.html"
+}
+</script>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/thumbs/avatar.jpg?v=3" alt="Beka" class="nav-avatar">Beka Jikurishvili</a>
+    <div class="nav-menu" id="navMenu">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#games">Games</a>
+      <a href="../index.html#notes">Notes</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="../index.html#contact" class="nav-cta">Let's Talk</a>
+    </div>
+  </div>
+</header>
+
+<section class="proj-hero">
+  <div class="container anim">
+    <a href="../index.html#notes" class="proj-back">&larr; All notes</a>
+    <h1>Porting a game<br>into a design system</h1>
+    <p class="proj-desc">We had a working Keno that looked like someone else's product. Rebuilding it as a native part of our lineup taught me the difference between repainting a game and actually porting one.</p>
+    <div class="proj-meta">
+      <div class="proj-meta-item"><label>Published</label><span>August 2026</span></div>
+      <div class="proj-meta-item"><label>Reading time</label><span>6 min</span></div>
+      <div class="proj-meta-item"><label>Topic</label><span>Design systems</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>The starting point: a clone in the wrong clothes</h2>
+  <p>The Keno I inherited was built as a clone of another operator's game. Navy and indigo palette, a left sidebar layout, a different type system. Nothing was broken. It just looked like a stranger sitting in our lobby, and players notice that faster than we like to admit: a game that doesn't match its siblings reads as third-party, and third-party reads as less accountable.</p>
+  <p>The obvious move is a restyle: open the CSS, swap the colors, ship it in a day. I've done that before and paid for it later. Every hex value stays hand-placed, so the game drifts out of sync with the lineup on the very next brand tweak, and you end up re-restyling forever. This time I wanted the port to be permanent.</p>
+
+  <h2>Two rails: anatomy, then tokens</h2>
+  <p>The port ran on two rails, in order. First, anatomy. Our lineup shares a skeleton: the same header, the same bet controls, the same drawers for history and fairness, the same boot sequence. Keno adopted that shell before a single color changed. This is the part most restyles skip, and it's the part players actually feel. Someone who has played our Moles already knows where Keno's history lives, how the bet bar works, where to verify a round. Zero relearning.</p>
+  <p>Second, tokens. Instead of restyling elements one by one, every color in the clone was mapped to a token in our brand system. The game stopped having its own opinions about color. When the token set changes, Keno changes with it, automatically, along with every other game. Anatomy makes the game feel native to players; tokens make it stay native for the team.</p>
+
+  <h2>The details that sell the port</h2>
+  <p>A shell and tokens make the game correct. A few smaller decisions made it feel like it had always been ours. The game got its own generated wordmark and a branded boot screen with a progress bar, held to the same minimum duration as the rest of the lineup, because boot rhythm is part of a family identity too. Fast is good, but consistent is calmer.</p>
+  <p>Hits on the board are marked with a cut-gem shape and misses with red numbers, which sounds decorative until you state it as the rule it is: shape plus color, never color alone. And below 520 pixels the board switches to a compact mode, because ten picks on a 40-number grid have to stay comfortably tappable on a small phone, where most of our players actually are.</p>
+
+  <h2>The rule QA taught us</h2>
+  <p>The sharpest finding of the port wasn't visual. For one type of free round, the game engine reports the total payout already net of the stake. The cloned client recomputed payouts on its own, so every one of those wins displayed a wrong number. The fix was a single rule that's now documented in the code and mirrored in our test mocks: display the engine's number verbatim, never re-derive money in the client. In a real-money game, two versions of the same number is the fastest way to lose a player for good.</p>
+  <p>The fairness layer got the same treatment as everything else: a deliberate one-to-one port of the lineup's per-round verification flow, down to a pure JavaScript hashing fallback so verification works even in contexts where the browser's crypto API doesn't. Parity was the point. A port that's 95% consistent is inconsistent.</p>
+
+  <h2>Did it work?</h2>
+  <p>The ported Keno went live with a real-money operator and has logged 23,000+ rounds from 340+ players so far, behaving indistinguishably from its native siblings, which was the entire brief. It's the smallest game in our lineup by volume and it might be the most important one to me, because it proved the system: a game built outside our world can be brought fully inside it, permanently, in one pass.</p>
+  <p>If you're facing the same job, my honest advice is to resist the repaint. Adopt the skeleton first, map to tokens second, hold the line on the invisible details, and treat any place where the game computes its own version of the truth as a bug. The skin is the easy part. Belonging is the deliverable.</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <a href="provably-fair-ux.html" class="cs-next"><div><span>Next note</span><br><strong>Provably fair is a UX problem, not a math problem</strong></div><span class="work-arrow">&nearr;</span></a>
+</div></section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span>&copy; 2026 Beka Jikurishvili</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js?v=19"></script>
+</body>
+</html>

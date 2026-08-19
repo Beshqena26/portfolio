@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Provably Fair Is a UX Problem | Beka Jikurishvili</title>
+<meta name="description" content="What building six casino games taught me about trust: the math of provably fair is solved, the design of it mostly isn't. Real challenges and fixes from the MYBC lineup.">
+<meta property="og:title" content="Provably fair is a UX problem, not a math problem">
+<meta property="og:description" content="The math is solved. Getting a suspicious player to actually believe it is design work.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://jikurishvili.com/assets/og/game-dice.jpg">
+<meta property="og:url" content="https://jikurishvili.com/notes/provably-fair-ux.html">
+<link rel="canonical" href="https://jikurishvili.com/notes/provably-fair-ux.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jikurishvili.com/assets/og/game-dice.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23CAFF00%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27%23060610%27 text-anchor=%27middle%27>B</text></svg>">
+<link rel="stylesheet" href="../style.css?v=32">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Provably fair is a UX problem, not a math problem",
+  "datePublished": "2026-08-20",
+  "author": {"@type": "Person", "name": "Beka Jikurishvili", "url": "https://jikurishvili.com/"},
+  "image": "https://jikurishvili.com/assets/og/game-dice.jpg",
+  "url": "https://jikurishvili.com/notes/provably-fair-ux.html"
+}
+</script>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/thumbs/avatar.jpg?v=3" alt="Beka" class="nav-avatar">Beka Jikurishvili</a>
+    <div class="nav-menu" id="navMenu">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#games">Games</a>
+      <a href="../index.html#notes">Notes</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="../index.html#contact" class="nav-cta">Let's Talk</a>
+    </div>
+  </div>
+</header>
+
+<section class="proj-hero">
+  <div class="container anim">
+    <a href="../index.html#notes" class="proj-back">&larr; All notes</a>
+    <h1>Provably fair is a UX problem,<br>not a math problem</h1>
+    <p class="proj-desc">The cryptography behind fair casino games was solved years ago. Getting a suspicious player to actually believe it is design work, and most games skip it. Notes from building the fairness layer across six live games.</p>
+    <div class="proj-meta">
+      <div class="proj-meta-item"><label>Published</label><span>August 2026</span></div>
+      <div class="proj-meta-item"><label>Reading time</label><span>6 min</span></div>
+      <div class="proj-meta-item"><label>Topic</label><span>iGaming UX</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>The gap nobody designs for</h2>
+  <p>Every serious crypto casino game is "provably fair." The server commits to a result before you bet, you can check the commitment after the round, and the math makes cheating detectable. This is standard. It's also, in most games I've studied, completely invisible: a link in the footer, a wall of hex strings, maybe a link to a third-party verifier site.</p>
+  <p>Here's the thing I kept coming back to while building the MYBC lineup: a fairness system nobody uses builds no trust. The player who suspects the game is rigged is not going to copy a server seed into an external SHA-256 calculator. They're going to close the tab. So the real brief was never "implement provably fair." It was: make checking a round so easy that a suspicious player actually does it once. Once is usually enough.</p>
+
+  <h2>The verification drawer</h2>
+  <p>The pattern we landed on across the lineup is boring on purpose. Every game has a round history, one tap away. Every row in that history opens a drawer that shows the round's seeds and result, and verifies it right there, in the game, with no external tools. You watch the same numbers the game just paid you on get recomputed in front of you.</p>
+  <p>Two details matter more than they look. First, verification happens locally, so it works without trusting our server twice. Second, it's per round, not per session: the round you're angry about is the round you can check. Anger is specific. The UX has to be specific too.</p>
+
+  <h2>The bug that taught me the rule</h2>
+  <p>The clearest lesson came from a bug that wasn't really a bug. During the Keno port, QA found that free-round wins sometimes displayed the wrong total. The engine was correct the whole time: for one type of free round it reports the payout already net of the stake, and our client was helpfully re-deriving the number and getting a different one.</p>
+  <p>The fix was one rule: display the engine's number verbatim, never recompute it in the client. But the lesson was bigger than the fix. Trust dies at the first mismatch between two numbers on the same screen. A player who sees the win popup say one thing and the history say another doesn't file a bug report. They decide the game is broken in the way casinos are always broken, and they leave. Fairness UX is mostly the discipline of never showing two versions of the truth.</p>
+
+  <h2>Exact thresholds, or the "it busted as I clicked" problem</h2>
+  <p>Hammer King is a crash game: the multiplier climbs, you cash out before the bust, and an auto-cashout lets you set a target in advance. Early on I had to decide what happens when a round's crash point and a player's auto target are close. The tempting implementation resolves the crash first, because it's simpler. The result is a game where players who set 2.00x sometimes lose rounds that crashed at 2.00x, and every one of them is certain they were robbed.</p>
+  <p>So the loop resolves auto-cashout before the crash check. If your target was reachable in this round, you win at exactly that number. It cost some care in the game loop and it removed an entire category of complaint, the "it busted just as I clicked" feeling that poisons crash games. Players don't read your code, but they feel its priorities.</p>
+
+  <h2>Fairness that survives bad conditions</h2>
+  <p>A small war story. While testing Keno on a plain HTTP connection inside our LAN, the in-game verification quietly stopped working. The browser's crypto API is only available in secure contexts, so on http:// the whole fairness feature just wasn't there, with no error and no explanation. In production this would likely never happen. But "likely never" is a bad property for the one feature whose entire job is being reliable.</p>
+  <p>I wrote a pure JavaScript SHA-256 and HMAC fallback so verification works in any context. Was it necessary? Arguably not. But it fixed how I think about fairness features: they're not allowed to silently disappear, ever, because their absence looks exactly like guilt.</p>
+
+  <h2>What I'd tell another designer</h2>
+  <p>Treat fairness like onboarding, not like documentation. It's a ritual you're designing: the player arrives suspicious, performs a small verification act, and leaves calmer. Make the ritual one tap deep, make it specific to the round they care about, make the numbers match everywhere, and never let the feature fail silently. The math earns you the right to say "provably fair." The design decides whether anyone believes it.</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <a href="million-rounds-game-feel.html" class="cs-next"><div><span>Next note</span><br><strong>What a million rounds taught me about game feel</strong></div><span class="work-arrow">&nearr;</span></a>
+</div></section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span>&copy; 2026 Beka Jikurishvili</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js?v=19"></script>
+</body>
+</html>

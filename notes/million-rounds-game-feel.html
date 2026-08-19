@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Million Rounds of Game Feel | Beka Jikurishvili</title>
+<meta name="description" content="Game feel lessons from 3M+ real casino rounds: reveal before you settle, spend the animation budget on two moments, and let volume players play fast.">
+<meta property="og:title" content="What a million rounds taught me about game feel">
+<meta property="og:description" content="Real production data settled our game feel arguments. The players were right.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://jikurishvili.com/assets/og/game-plinko.jpg">
+<meta property="og:url" content="https://jikurishvili.com/notes/million-rounds-game-feel.html">
+<link rel="canonical" href="https://jikurishvili.com/notes/million-rounds-game-feel.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jikurishvili.com/assets/og/game-plinko.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23CAFF00%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27%23060610%27 text-anchor=%27middle%27>B</text></svg>">
+<link rel="stylesheet" href="../style.css?v=32">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What a million rounds taught me about game feel",
+  "datePublished": "2026-08-20",
+  "author": {"@type": "Person", "name": "Beka Jikurishvili", "url": "https://jikurishvili.com/"},
+  "image": "https://jikurishvili.com/assets/og/game-plinko.jpg",
+  "url": "https://jikurishvili.com/notes/million-rounds-game-feel.html"
+}
+</script>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/thumbs/avatar.jpg?v=3" alt="Beka" class="nav-avatar">Beka Jikurishvili</a>
+    <div class="nav-menu" id="navMenu">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#games">Games</a>
+      <a href="../index.html#notes">Notes</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="../index.html#contact" class="nav-cta">Let's Talk</a>
+    </div>
+  </div>
+</header>
+
+<section class="proj-hero">
+  <div class="container anim">
+    <a href="../index.html#notes" class="proj-back">&larr; All notes</a>
+    <h1>What a million rounds<br>taught me about game feel</h1>
+    <p class="proj-desc">Designers argue about game feel in the abstract. Shipping six casino games and watching 3M+ real rounds settled a few of those arguments for me, sometimes against my own instincts.</p>
+    <div class="proj-meta">
+      <div class="proj-meta-item"><label>Published</label><span>August 2026</span></div>
+      <div class="proj-meta-item"><label>Reading time</label><span>7 min</span></div>
+      <div class="proj-meta-item"><label>Topic</label><span>Game design</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Game feel is a budget</h2>
+  <p>The most useful mental model I have for game feel: it's a budget, not a coat of paint. Every screen shake, particle burst and easing curve costs attention, and a player's attention is finite. Spread the budget evenly and everything feels like mush. The games in our lineup that players actually stayed with are the ones where nearly the whole budget is spent on two moments: the commitment (bet, drop, strike) and the resolution (win, bust, miss).</p>
+  <p>Hammer King is the purest example. It's a crash game wearing a carnival high striker costume: a strongman slams a puck up a tower and your multiplier rides the climb. Almost all of its feel work lives in one instant. The hammer's impact frame, the bell sound, and the puck launch resolve on the same tick. If they drift apart by even a couple of frames, the strike feels fake, and the strike is the whole game. Meanwhile the bust is deliberately cheap: an instant burn, one sound, no slow-motion consolation. Losing fast keeps the sting clean and the next round close.</p>
+
+  <h2>Reveal first, settle second</h2>
+  <p>Moles taught me the ordering rule I now apply everywhere. In early builds, a winning pick updated the balance and played the character animation at the same time. It felt fine to us and flat to everyone else. The fix was embarrassingly small: let the mole pop up grinning first, then move the number. Emotion first, accounting second.</p>
+  <p>The reason it works: when the number moves first, the animation becomes a rerun of news you already have, and players learn to ignore it. When the character carries the news, players watch the character. That's also why Moles' animation timing is tuned so the reveal lands a beat before settlement. With 366,000+ rounds played, that beat has been felt a lot of times, and it's the thing casual players mention when they describe the game.</p>
+
+  <h2>Let volume players play fast</h2>
+  <p>My instinct with Plinko was one ball at a time. It's cleaner state management and it showcases the physics. The counterargument, which won, was that a plinko player who wants volume should never wait out an animation to place the next bet. So drops queue freely, several balls fly at once, and the history strip settles them in landing order.</p>
+  <p>Production data made this the most defensible call in the lineup. Plinko is our biggest game, past a million rounds from 27,000+ players, and the play pattern is exactly what the concurrent design serves: rapid sequences of drops, not single contemplative ones. If I had shipped my instinct, the game would fight its own best customers every round.</p>
+  <p>There's a fairness wrinkle here worth naming. Plinko's outcome is decided by verifiable math before the ball moves; the bounce path is choreography toward a predetermined bin. Some designers feel this is dishonest. I think the opposite: deciding outcomes with physics would make fair play unverifiable. The design job is making choreography feel like gravity, springy but never impossible, and being honest about which layer is in charge.</p>
+
+  <h2>Settlement is storytelling</h2>
+  <p>Blackjack gave me the clearest data on a feel decision. Our table supports multi-hand play, three boxes against one dealer, and the question was how a round should end. The efficient version shows one summary: you won 12. We shipped per-box settlement instead, where each hand celebrates or loses on its own, in dealing order, because a push on seat one shouldn't mute a blackjack on seat three.</p>
+  <p>Then the numbers came in. Multi-hand attracts fewer players than the classic single hand, 1,500+ versus 2,600+, but it out-volumes it, 753,000+ rounds versus 667,000+. That's the profile of a session mode: the players who choose it stay and grind. A summary toast would compress their three stories per round into one, and those players study exactly which box made money. The feel decision and the retention pattern turned out to be the same thing.</p>
+
+  <h2>Pacing is math wearing a costume</h2>
+  <p>Last one, from Hammer King again. The multiplier climb follows an exponential curve tuned so 2x arrives around four seconds. That number came from testing, not theory: faster and the cashout decision stops being a decision, slower and the round feels bureaucratic. A turbo mode runs the same curve at four times speed for grinders. The curve is math; whether four seconds of it feels tense or tedious is design. Most of game feel lives in exactly that gap.</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <a href="porting-game-design-system.html" class="cs-next"><div><span>Next note</span><br><strong>Porting a game into a design system</strong></div><span class="work-arrow">&nearr;</span></a>
+</div></section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span>&copy; 2026 Beka Jikurishvili</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js?v=19"></script>
+</body>
+</html>

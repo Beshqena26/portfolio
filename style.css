@@ -806,3 +806,8 @@ img.persona-ava{object-fit:cover;padding:0;background:var(--surface2)}
   .work-thumb{width:36px;height:28px;border-radius:6px}
   .footer-big{font-size:36px;letter-spacing:-1px}
 }
+
+/* ===== NOTES ===== */
+.notes-list .srv-num{font-size:10px;letter-spacing:.08em;white-space:nowrap}
+.notes-list .srv-row{color:inherit}
+.notes-list .srv-row:hover h3{color:var(--accent)}
