@@ -388,6 +388,7 @@ figure.cs-fig.panel img{border-radius:12px;border:1px solid rgba(255,255,255,.08
 .j-emo em{display:block;font-style:normal;font-size:11px;color:var(--text2)}
 .persona-chips i svg{width:12px;height:12px;fill:none;stroke:var(--accent2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-right:5px;vertical-align:-1.5px}
 .persona-ava{font-family:'Gilroy',system-ui,sans-serif;font-weight:700;color:var(--accent);font-size:26px}
+img.persona-ava{object-fit:cover;padding:0;background:var(--surface2)}
 .j-fix{color:var(--text)}
 .j-fix::before{content:'→ ';color:var(--green)}
 .journey-hint{display:none;font-size:12px;color:var(--text2);text-align:center;margin-top:-18px;margin-bottom:24px}
