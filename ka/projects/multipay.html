@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multipay ქეისი | ბექა ჯიკურიშვილი</title>
+<meta name="description" content="ქეისი: Multipay-ის დიზაინი, მულტისავალუტო ციფრული საფულე ქართული ბაზრისთვის. კვლევა, კონკურენტების ანალიზი, 2,000+ ეკრანი და დეველოპერისთვის მზა ჰენდოფი ერთ თვეში.">
+<meta property="og:title" content="Multipay: მულტისავალუტო საფულე, რომელსაც ქართველები ფულს ანდობენ">
+<meta property="og:description" content="ფინტექ პროდუქტის დიზაინი · 2,000+ ეკრანი · მზა ჰენდოფი ერთ თვეში.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://jikurishvili.com/assets/og/multipay.jpg">
+<meta property="og:locale" content="ka_GE">
+<meta property="og:url" content="https://jikurishvili.com/ka/projects/multipay.html">
+<link rel="canonical" href="https://jikurishvili.com/ka/projects/multipay.html">
+<link rel="alternate" hreflang="en" href="https://jikurishvili.com/projects/multipay.html">
+<link rel="alternate" hreflang="ka" href="https://jikurishvili.com/ka/projects/multipay.html">
+<link rel="alternate" hreflang="x-default" href="https://jikurishvili.com/projects/multipay.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><circle cx=%2750%27 cy=%2750%27 r=%2746%27 fill=%27%23CAFF00%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27%23060610%27 text-anchor=%27middle%27>B</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=32">
+<style>body{font-family:'Gilroy','Noto Sans Georgian',system-ui,sans-serif}.nav-menu{gap:20px}.nav-menu a{font-size:13px;white-space:nowrap}</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/ka/" class="nav-logo"><img src="/assets/thumbs/avatar.jpg?v=3" alt="ბექა" class="nav-avatar">ბექა ჯიკურიშვილი</a>
+    <div class="nav-menu" id="navMenu">
+      <a href="/ka/#work">ნამუშევრები</a>
+      <a href="/ka/#games">თამაშები</a>
+      <a href="/ka/#about">ჩემ შესახებ</a>
+      <a href="/ka/#contact">კონტაქტი</a>
+    </div>
+    <div class="nav-actions">
+      <a href="/projects/multipay.html" class="lang-switch" title="Read in English">EN</a>
+      <a href="/ka/#contact" class="nav-cta">მომწერე</a>
+    </div>
+  </div>
+</header>
+
+<section class="proj-hero">
+  <div class="container anim">
+    <a href="/ka/#work" class="proj-back">&larr; ნამუშევრებზე დაბრუნება</a>
+    <h1>Multipay: მულტისავალუტო საფულე,<br>რომელსაც ქართველები ფულს ანდობენ</h1>
+    <p class="proj-desc">ფინტექ მობილური აპის სრული პროდუქტ-დიზაინი: მულტისავალუტო ანგარიშები (₾ / $ / €), შევსება ადგილობრივი ბანკების ბარათებით, KYC სახის ამოცნობით და ბიომეტრიული შესვლა. ბაზრის კვლევიდან სრულად დოკუმენტირებულ, დეველოპერისთვის მზა ჰენდოფამდე ერთ თვეში.</p>
+    <div class="proj-meta">
+      <div class="proj-meta-item"><label>როლი</label><span>პროდუქტის დიზაინერი</span></div>
+      <div class="proj-meta-item"><label>ხანგრძლივობა</label><span>1 თვე</span></div>
+      <div class="proj-meta-item"><label>ორგანიზაცია</label><span>Multiverse</span></div>
+      <div class="proj-meta-item"><label>პლატფორმა</label><span>მობილური აპი</span></div>
+    </div>
+    <div class="cs-stats">
+      <div class="cs-stat"><b>2,000+</b><span>დახატული ეკრანი</span></div>
+      <div class="cs-stat"><b>49</b><span>მრავალჯერადი კომპონენტი</span></div>
+      <div class="cs-stat"><b>20+</b><span>დოკუმენტირებული ნაკადი</span></div>
+      <div class="cs-stat"><b>5</b><span>ფერის მიმართულება</span></div>
+      <div class="cs-stat"><b>3</b><span>ვალუტა (₾ $ €)</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="container anim">
+  <div class="cs-showcase">
+    <div class="cs-phones">
+      <div class="cs-device"><img src="/assets/case/multipay/phone-home-2.jpg" alt="Multipay ანგარიშის ეკრანის ვარიანტი"></div>
+      <div class="cs-device lift"><img src="/assets/case/multipay/phone-home-1.jpg" alt="Multipay მთავარი ეკრანი შავი პრემიუმ ბარათით, ლარის ბალანსითა და ვალუტების ჩიპებით"></div>
+      <div class="cs-device"><img src="/assets/case/multipay/phone-home-3.jpg" alt="Multipay ანგარიშის ეკრანის ვარიანტი" loading="lazy"></div>
+    </div>
+  </div>
+</div>
+
+<section class="proj-section"><div class="container anim">
+  <h2>კონტექსტი და მიზნები</h2>
+  <p>საქართველოში ხალხი სამ ვალუტას შორის ცხოვრობს: ხელფასი ლარში, დანაზოგი დოლარში, გამოწერები ევროში. ამის მართვა ჩვეულებრივ ორი საბანკო აპისა და ჯიხურთან სიარულის ჟონგლიორობაა. Multipay-ის ფსონი იყო ერთი საფულე, სადაც ლარი, დოლარი და ევრო გვერდიგვერდ ცხოვრობს, ივსება ადგილობრივი ბანკის ბარათებით, გადაცვლა კი თვითონ გადარიცხვის ნაკადშია ჩაშენებული.</p>
+  <h3>როგორი უნდა ყოფილიყო წარმატება</h3>
+  <ul>
+    <li><strong>ბიზნესი:</strong> MVP, რომელიც ფულის სრულ ციკლს ფარავს, შევსება, შენახვა, გადაცვლა, გადარიცხვა, გამოტანა, დეველოპმენტისთვის მზა ერთ თვეში.</li>
+    <li><strong>მომხმარებლები:</strong> გახსნას აპი და «რამდენი მაქვს და რომელ ვალუტაში?» წამზე სწრაფად გაიგოს; ფული ვალუტებს შორის ერთი ეკრანიდან გაუსვლელად გადაიტანოს.</li>
+    <li><strong>რეგულაცია:</strong> სრული KYC (დოკუმენტები + სახის ამოცნობა), რომელსაც ხალხი მართლა ამთავრებს, ის ნაკადი, სადაც საფულეები ტრადიციულად კარგავენ მომხმარებლებს.</li>
+    <li><strong>ჰენდოფი:</strong> ორაზროვნების გარეშე დოკუმენტაცია, ყველა მდგომარეობა დახატული, რომ დეველოპერს შეცდომის ეკრანის მოგონება არასდროს მოუწიოს.</li>
+  </ul>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>კონკურენტების ანალიზი</h2>
+  <p>ეკრანების ხატვამდე გავწერე, როგორ ეპყრობიან ქართველები რეალურად ფულს: ფრილანსერები დოლარში იღებენ, ოჯახებს ევროს გამოწერები აქვთ, ხარჯავს კი ყველა ლარში, და გავზომე ყველა პროდუქტი, რომელსაც ამისთვის იყენებენ.</p>
+  <p>ველი: ორი დიდი საბანკო აპი (TBC და საქართველოს ბანკის mBank, პლუს TBC-ის ნეობანკი <strong>Space</strong>), ადგილობრივი საფულე <strong>eMoney</strong> და გლობალური ნეობანკები, რომლებსაც სამოგზაუროდ აყენებენ. თითოეული სადღაც იგებს, მაგრამ სრული წრე, სამ ვალუტაში შენახვა, შევსება ნებისმიერი ადგილობრივი ბარათიდან, გადახდა და გამოტანა, არცერთს ჰქონდა:</p>
+  <div class="comp-scroll">
+    <div class="comp">
+      <div class="c-cell c-head"></div>
+      <div class="c-cell c-head c-us">Multipay</div>
+      <div class="c-cell c-head">Space / TBC</div>
+      <div class="c-cell c-head">BOG mBank</div>
+      <div class="c-cell c-head">eMoney</div>
+      <div class="c-cell c-head">Revolut / Wise</div>
+
+      <div class="c-cell c-row">მულტისავალუტო საფულე (₾ $ €)</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-mid">~</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+
+      <div class="c-cell c-row">შევსება BOG-ისა და TBC-ის ბარათებიდან</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-mid">~</div>
+      <div class="c-cell c-mark c-mid">~</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-mid">~</div>
+
+      <div class="c-cell c-row">გაგზავნა ნომრით / QR-ით</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-mid">~</div>
+
+      <div class="c-cell c-row">გამოტანა ნებისმიერ ქართულ IBAN-ზე</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-mid">~</div>
+      <div class="c-cell c-mark c-no">✕</div>
+
+      <div class="c-cell c-row">საფეხურებრივი KYC (მსუბუქად დაწყება, გვიან ვერიფიკაცია)</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-mid">~</div>
+      <div class="c-cell c-mark c-mid">~</div>
+      <div class="c-cell c-mark c-mid">~</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+
+      <div class="c-cell c-row">უნაღდო გადახდები ივენთებზე და სავაჭროებში</div>
+      <div class="c-cell c-mark c-yes">✓</div>
+      <div class="c-cell c-mark c-no">✕</div>
+      <div class="c-cell c-mark c-no">✕</div>
+      <div class="c-cell c-mark c-no">✕</div>
+      <div class="c-cell c-mark c-no">✕</div>
+    </div>
+  </div>
+  <p class="journey-hint">← გადაასრიალე ცხრილი →</p>
+  <p style="font-size:13px;color:var(--text2)">პროდუქტის კონტექსტი: Multipay Multiverse-ის რეალური პროდუქტია (<a href="https://multipay.ge/" target="_blank" rel="noopener noreferrer" style="color:var(--accent2)">multipay.ge</a>): QR და ნომრით გადარიცხვები, IBAN-ზე გამოტანა, უნაღდო გადახდები ივენთებზე და ორსაფეხურიანი რეგისტრაცია, რამაც ქვემოთ მოცემული ნაკადები ჩამოაყალიბა.</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>ვისთვის ვაკეთებდი დიზაინს</h2>
+  <div class="cs-personas">
+    <div class="persona">
+      <div class="persona-head">
+        <img class="persona-ava" src="/assets/personas/nino-multipay.jpg" alt="პერსონას პორტრეტი: ნინო" loading="lazy">
+        <div><strong>ნინო, 27</strong><span>ფრილანს დიზაინერი · უცხოელი კლიენტები დოლარში უხდიან</span></div>
+      </div>
+      <div class="persona-chips">
+        <i><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>თბილისი</i>
+        <i><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/></svg>iPhone</i>
+        <i><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>USD → ₾ ყოველთვე</i>
+        <i><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9M19 21V9M12 3L3 9h18l-9-6zM9 21v-6h6v6"/></svg>2 საბანკო აპი</i>
+      </div>
+      <p class="persona-quote">ყოველ ხელფასზე ფულს ვკარგავ: ბანკის კურსი, გადარიცხვის საკომისიო, ლოდინი.</p>
+      <div class="persona-meters">
+        <div class="pm"><span>ტექნიკური კომფორტი</span><div class="pm-bar"><i style="width:92%"></i></div></div>
+        <div class="pm"><span>ფინტექის ნდობა</span><div class="pm-bar"><i style="width:70%"></i></div></div>
+        <div class="pm"><span>ვალუტის გადაცვლის აქტიურობა</span><div class="pm-bar"><i style="width:85%"></i></div></div>
+      </div>
+      <div class="persona-cols">
+        <div>
+          <h6 class="goals">მიზნები</h6>
+          <ul>
+            <li class="g">ხელფასის დღეს USD → GEL, კურსი წინასწარ ჩანდეს</li>
+            <li class="g">ორივე ბალანსი ერთ ადგილას</li>
+            <li class="g">ბარათი ყოველდღიური ლარის ხარჯებისთვის</li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="pains">იმედგაცრუებები</h6>
+          <ul>
+            <li class="p">გადაცვლა საბანკო აპში ღრმად ჩამარხული</li>
+            <li class="p">საკომისიოები მხოლოდ გადარიცხვის მერე ჩანს</li>
+            <li class="p">უკეთესი კურსისთვის ორი ბანკი სჭირდება</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="persona">
+      <div class="persona-head">
+        <img class="persona-ava" src="/assets/personas/dato-multipay.jpg" alt="პერსონას პორტრეტი: დათო" loading="lazy">
+        <div><strong>დათო, 43</strong><span>მაღაზიის მფლობელი · ქეშის ჩვევები · დიდი ბალანსები</span></div>
+      </div>
+      <div class="persona-chips">
+        <i><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>ქუთაისი</i>
+        <i><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/></svg>Android</i>
+        <i><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>TBC ბარათი</i>
+        <i><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>აპებს ნაკლებად ენდობა</i>
+      </div>
+      <p class="persona-quote">თუ ვერ ვხედავ, სად არის ჩემი ფული ახლა, ვერ ვენდობი აპს, რომელიც მას ინახავს.</p>
+      <div class="persona-meters">
+        <div class="pm"><span>ტექნიკური კომფორტი</span><div class="pm-bar"><i style="width:45%"></i></div></div>
+        <div class="pm"><span>ფინტექის ნდობა</span><div class="pm-bar"><i style="width:30%"></i></div></div>
+        <div class="pm"><span>ვალუტის გადაცვლის აქტიურობა</span><div class="pm-bar"><i style="width:40%"></i></div></div>
+      </div>
+      <div class="persona-cols">
+        <div>
+          <h6 class="goals">მიზნები</h6>
+          <ul>
+            <li class="g">სწრაფი შევსება თავისი TBC ბარათიდან</li>
+            <li class="g">მუდამ ხილული ბალანსი, დამალული მდგომარეობების გარეშე</li>
+            <li class="g">ყველაფრის გაყინვა, თუ ტელეფონი დაიკარგა</li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="pains">იმედგაცრუებები</h6>
+          <ul>
+            <li class="p">ვერიფიკაცია, რომელიც დოკუმენტებს «განხილვაში» ყლაპავს</li>
+            <li class="p">გადარიცხვები მკაფიო დადასტურების გარეშე</li>
+            <li class="p">უსაფრთხოება პარამეტრებში ჩამალული</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>მოგზაურობის რუკა: ჩამოტვირთვიდან ყოველდღიურ გამოყენებამდე</h3>
+  <div class="journey-scroll">
+    <div class="journey">
+      <div class="j-cell j-head"></div>
+      <div class="j-cell j-head">აღმოჩენა</div>
+      <div class="j-cell j-head">რეგისტრაცია</div>
+      <div class="j-cell j-head">ვერიფიკაცია (KYC)</div>
+      <div class="j-cell j-head">პირველი შევსება</div>
+      <div class="j-cell j-head">გადაცვლა და ყოველდღიურობა</div>
+
+      <div class="j-cell j-label">აკეთებს</div>
+      <div class="j-cell">ტვირთავს, როცა მულტისავალუტო ანგარიშებზე გაიგებს</div>
+      <div class="j-cell">ნომერი, OTP, პაროლი, რთავს Face ID-ს</div>
+      <div class="j-cell">ავსებს პირად ინფოს, ასკანერებს ID-ს, იღებს სელფის</div>
+      <div class="j-cell">აბამს BOG/TBC ბარათს, ირჩევს თანხას, ადასტურებს</div>
+      <div class="j-cell">ცვლის ხელფასს ₾↔$, რიცხავს, ამოწმებს ბალანსებს</div>
+
+      <div class="j-cell j-label">გრძნობს</div>
+      <div class="j-cell j-emo"><svg viewBox="0 0 24 24" class="mood-good"><circle cx="12" cy="12" r="10"/><circle cx="9" cy="9.5" r="1" class="dot"/><circle cx="15" cy="9.5" r="1" class="dot"/><path d="M8.5 14s1.3 2 3.5 2 3.5-2 3.5-2"/></svg><em>ცნობისმოყვარედ</em></div>
+      <div class="j-cell j-emo"><svg viewBox="0 0 24 24" class="mood-mid"><circle cx="12" cy="12" r="10"/><circle cx="9" cy="9.5" r="1" class="dot"/><circle cx="15" cy="9.5" r="1" class="dot"/><path d="M8.5 15h7"/></svg><em>ფრთხილად</em></div>
+      <div class="j-cell j-emo"><svg viewBox="0 0 24 24" class="mood-bad"><circle cx="12" cy="12" r="10"/><circle cx="9" cy="9.5" r="1" class="dot"/><circle cx="15" cy="9.5" r="1" class="dot"/><path d="M8.5 16s1.3-2 3.5-2 3.5 2 3.5 2"/></svg><em>შფოთვით, ყველაზე დაბალი წერტილი</em></div>
+      <div class="j-cell j-emo"><svg viewBox="0 0 24 24" class="mood-mid"><circle cx="12" cy="12" r="10"/><circle cx="9" cy="9.5" r="1" class="dot"/><circle cx="15" cy="9.5" r="1" class="dot"/><rect x="8.5" y="13.5" width="7" height="2.6" rx="1.3"/></svg><em>პატარა თანხით სინჯავს</em></div>
+      <div class="j-cell j-emo"><svg viewBox="0 0 24 24" class="mood-good"><circle cx="12" cy="12" r="10"/><path d="M7.5 9.5c.5-.8 1.5-.8 2 0M14.5 9.5c.5-.8 1.5-.8 2 0"/><path d="M8 13.5s1.6 2.5 4 2.5 4-2.5 4-2.5"/></svg><em>თავდაჯერებულად</em></div>
+
+      <div class="j-cell j-label">მტკივნეული წერტილი</div>
+      <div class="j-cell">«კიდევ ერთი საფულე?», ნდობის მიზეზი ჯერ არაა</div>
+      <div class="j-cell">პაროლის წესები და OTP-ის ხახუნი გაქცევისკენ უბიძგებს</div>
+      <div class="j-cell">შიში, რომ დოკუმენტები «განხილვაში» გაქრება</div>
+      <div class="j-cell">«რა მოხდება, თუ ფული გადარიცხვისას გაქრა?»</div>
+      <div class="j-cell">კურსები და საკომისიოები ჩვეულებრივ გვიანამდე იმალება</div>
+
+      <div class="j-cell j-label">დიზაინის პასუხი</div>
+      <div class="j-cell j-fix">ბალანსით დაწყებული მთავარი მაღაზიის სქრინებშივე</div>
+      <div class="j-cell j-fix">ერთი კითხვა თითო ეკრანზე; ბიომეტრია შეთავაზებულია და არა იძულებითი</div>
+      <div class="j-cell j-fix">მოლოდინი / უარი / დადასტურება ნამდვილი ეკრანებია შემდეგი ნაბიჯებით</div>
+      <div class="j-cell j-fix">სწრაფი ჩიპები, შენახული ბარათები, მკაფიო წარმატება / უარი</div>
+      <div class="j-cell j-fix">კურსი თანხის ნაბიჯზევე ჩანს, გადარიცხვის შიგნით</div>
+    </div>
+  </div>
+  <p class="journey-hint">← გადაასრიალე რუკა →</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>დიზაინის პრინციპები</h2>
+  <div class="cs-decision">
+    <div class="cs-dec-card chose"><h4>01: ნდობა საწყისი მდგომარეობით</h4><p>ბალანსები მუდამ ჩანს, IBAN დაფარულია, მაგრამ კოპირებადი, განგაშის მოქმედებები (ანგარიშის დაბლოკვა, ბარათის გაყინვა) მთავარიდან ერთ შეხებაზეა. აპი არასდროს მალავს, რა ხდება ფულთან.</p></div>
+    <div class="cs-dec-card chose"><h4>02: ერთი ეკრანი, ერთი გადაწყვეტილება</h4><p>ყოველი ნაკადის ყოველი ნაბიჯი ზუსტად ერთ კითხვას სვამს: საიდან, სად, რამდენი, დაადასტურე. არცერთი ეკრანი არ ურევს გადაწყვეტილებებს, ამიტომაც რჩება 20+ ნაკადი ადვილად ასათვისებელი.</p></div>
+    <div class="cs-dec-card chose"><h4>03: მულტივალუტა თვითონაა პროდუქტი</h4><p>ვალუტების ჩიპები ყოველ ეკრანზე პირდაპირ მთავარი ბალანსის ქვეშ ზის. ₾ / $ / €-ს შორის გადართვა მზერაა და არა მოგზაურობა.</p></div>
+    <div class="cs-dec-card chose"><h4>04: ყველა მდგომარეობა დახატულია</h4><p>არცერთი ეკრანი არ გადის დედმამიშვილების გარეშე: ჩატვირთვა, ცარიელი, შეცდომა, უარი. თუ დეველოპერს ჩავარდნის ეკრანის მოგონება უწევს, დიზაინი დაუმთავრებელია.</p></div>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>ვიზუალური მიმართულების ძიება</h2>
+  <p>დავიწყე მუდბორდით, მერე კი ერთი და იგივე ძირითადი ეკრანები <strong>ხუთ სრულ ფერით მიმართულებაში</strong> ავაწყვე, არა ფერების სინჯები, არამედ სრული ნაკადები: Google-ის შთაგონებული პალიტრა, Facebook-ისებური ლურჯი, მენტორის შემოთავაზებული ვარიანტი, მუქი იისფერი და ცისფერი. ნამდვილი ეკრანების გვერდიგვერდ დანახვამ გადაწყვეტილება თეორიულის ნაცვლად გულახდილი გახადა.</p>
+  <figure class="cs-fig">
+    <div class="cs-showcase"><div class="cs-phones cols4">
+      <div class="cs-dir"><div class="cs-device"><img src="/assets/case/multipay/dir-purple.jpg" alt="მუქი იისფერი მიმართულება, მისალმების ეკრანი" loading="lazy"></div><span>მუქი იისფერი</span></div>
+      <div class="cs-dir"><div class="cs-device"><img src="/assets/case/multipay/dir-cyan.jpg" alt="ცისფერი მიმართულება, მთავარი ეკრანი" loading="lazy"></div><span>ცისფერი</span></div>
+      <div class="cs-dir"><div class="cs-device"><img src="/assets/case/multipay/dir-google.jpg" alt="Google-ის პალიტრის მიმართულება, მთავარი ეკრანი" loading="lazy"></div><span>Google-ის პალიტრა</span></div>
+      <div class="cs-dir"><div class="cs-device"><img src="/assets/case/multipay/dir-giorgi.jpg" alt="მენტორის ვარიანტი, მთავარი ეკრანი" loading="lazy"></div><span>მენტორის ვარიანტი</span></div>
+    </div></div>
+    <figcaption>ერთი ეკრანი, უარყოფილი ხუთი მიმართულებიდან ოთხი, თითოეული სრულ ნაკადად იყო შესწავლილი გადაწყვეტამდე.</figcaption>
+  </figure>
+  <div class="cs-decision">
+    <div class="cs-dec-card chose"><h4>✓ რა ავირჩიე</h4><p>ელექტრო ლურჯი <b>#2C4FFF</b> თითქმის შავ ლურჯზე <b>#090411</b>. ლურჯი ბანკად და უსაფრთხოებად იკითხება; მუქი ბაზა ბალანსებსა და პრემიუმ ბარათს ყოველი ეკრანის გმირებად აქცევს და კონტრასტის შემოწმებებს პატარა ზომებზეც უძლებს.</p></div>
+    <div class="cs-dec-card rejected"><h4>✕ რა უარვყავი</h4><p>მუქი იისფერი ეფექტური იყო, მაგრამ კრიპტოდ/გეიმინგად იკითხებოდა, არასწორი ასოციაცია აპისთვის, რომელიც ხელფასებს ინახავს. Google-ისა და Facebook-ის პალიტრები უფრო თბილად გამოიცადა, მაგრამ ნასესხები ჩანდა; საფულემ სხვისი ბრენდი არ უნდა გაგახსენოს.</p></div>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>მთავარი ფუნქციები და რატომ მუშაობს ისინი ასე</h2>
+
+  <h3>მთავარი: პასუხი კითხვამდე</h3>
+  <p>მთავარი ეკრანი ფიზიკური ბარათითა და ჯამური ბალანსით იწყება, პირდაპირ ქვემოთ ვალუტების ჩიპები (₾ 15,354.60 / $ 14.53 / € 0.00), მერე კი ის ხუთი მოქმედება, რისთვისაც ხალხი რეალურად მოდის: შევსება, გამოტანა, გადარიცხვა, დაბლოკვა, ბარათის დეტალები. ექვსკუთხა <strong>PAY</strong> ღილაკი ტაბ-ბარს ამაგრებს: გადახდა პროდუქტის ცენტრია, ამიტომ ნავიგაციის ფიზიკური ცენტრიცაა.</p>
+
+  <h3>შევსებები, რომლებიც ჩავარდნას უძლებენ</h3>
+  <p>შევსება ადგილობრივი <strong>BOG-ისა და TBC-ის ბარათებიდან</strong> ხდება, ორი ბარათი, რომელიც ყველა ქართველს რეალურად აქვს. სწრაფი თანხის ჩიპები (10 / 20 / 50 / 100₾) რეალური შევსებების უმეტესობას ფარავს; ბარათის შეყვანას «შემდეგისთვის შენახვა» აქვს; ნაკადი კი ყოველთვის მკაფიო დასასრულამდე მიდის.</p>
+  <figure class="cs-fig">
+    <div class="cs-showcase"><div class="cs-phones cols4">
+      <div class="cs-device"><img src="/assets/case/multipay/dep-1.jpg" alt="პირველი შევსების ეკრანი სწრაფი თანხის ჩიპებით" loading="lazy"></div>
+      <div class="cs-device"><img src="/assets/case/multipay/dep-2.jpg" alt="ბარათის არჩევის უჯრა BOG და TBC ბარათებით" loading="lazy"></div>
+      <div class="cs-device"><img src="/assets/case/multipay/dep-3.jpg" alt="წარმატებული ტრანზაქციის მდგომარეობა" loading="lazy"></div>
+      <div class="cs-device"><img src="/assets/case/multipay/dep-4.jpg" alt="უარყოფილი ტრანზაქცია მიზეზითა და თავიდან ცდით" loading="lazy"></div>
+    </div></div>
+    <figcaption>შევსება: თანხა სწრაფი ჩიპებით → ადგილობრივი BOG / TBC ბარათი → და ორივე დასასრული, წარმატება <em>და</em> უარი თავიდან ცდის გზით.</figcaption>
+  </figure>
+
+  <h3>სამი გადარიცხვა, ერთი მენტალური მოდელი</h3>
+  <p>შიდა ერთვალუტიანი, შიდა გადაცვლით და გარე IBAN-ზე სპეციფიკაციაში სამი ცალკე ნაკადია, მომხმარებლისთვის კი ერთი და იგივე ოთხი კითხვა: საიდან, სად, რამდენი, დაადასტურე. გადაცვლა კურსს თანხის ნაბიჯზევე აჩვენებს, ასე რომ ხელფასის დოლარში გადაყვანა გადარიცხვაა და არა მოსაძებნი ფუნქცია.</p>
+
+  <h3>გამოტანა და ბარათები</h3>
+  <p>ფული ან საბანკო ბარათზე გადის, ან IBAN-ზე, სარკისებური ნაკადები იმავე დადასტურების კონტრაქტით. ბარათების მართვა მიბმას, დაბლოკვასა და დეტალებს საფულიდან გაუსვლელად ფარავს.</p>
+  <figure class="cs-fig">
+    <div class="cs-showcase"><div class="cs-phones cols4">
+      <div class="cs-device"><img src="/assets/case/multipay/wd-1.jpg" alt="გამოტანის ფორმა" loading="lazy"></div>
+      <div class="cs-device"><img src="/assets/case/multipay/wd-3.jpg" alt="წარმატებული გამოტანის მდგომარეობა" loading="lazy"></div>
+      <div class="cs-device"><img src="/assets/case/multipay/card-1.jpg" alt="მიბმული ბარათების სია TBC და BOG ბარათებით" loading="lazy"></div>
+      <div class="cs-device"><img src="/assets/case/multipay/card-3.jpg" alt="ბარათის დეტალები ტრანზაქციებით" loading="lazy"></div>
+    </div></div>
+    <figcaption>გამოტანა ბარათზე და ჩემი ბარათები: ყველგან იგივე კონტრაქტი: წყარო → დანიშნულება → თანხა → მკაფიო დასასრული.</figcaption>
+  </figure>
+
+  <h3>უსაფრთხოება, რომელსაც მომხმარებელი გრძნობს</h3>
+  <p>Face ID / Touch ID პირველი შესვლის მერე, მოწყობილობების ეკრანი ყველა აქტიური სესიით და ანგარიშის დაბლოკვა მთავარიდან ერთი შეხებით. უსაფრთხოება პარამეტრების გვერდი კი არა, აპის მთავარი ოთახების ავეჯია.</p>
+  <figure class="cs-fig">
+    <div class="cs-showcase"><div class="cs-phones">
+      <div class="cs-device"><img src="/assets/case/multipay/bio-1.jpg" alt="Face ID-ის ჩართვის ეკრანი" loading="lazy"></div>
+      <div class="cs-device"><img src="/assets/case/multipay/bio-2.jpg" alt="ბიომეტრიული შესვლის ეკრანი" loading="lazy"></div>
+      <div class="cs-device"><img src="/assets/case/multipay/bio-3.jpg" alt="Touch ID-ის ჩართვის ეკრანი" loading="lazy"></div>
+    </div></div>
+    <figcaption>ბიომეტრიის ჩართვა, ისე დაპროექტებული, რომ პაროლი ერთჯერად მოვლენად იქცეს.</figcaption>
+  </figure>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>ონბორდინგი: ნამდვილი ნაკადი და არა იდეალური გზა</h2>
+  <p>KYC ის ადგილია, სადაც საფულეები მომხმარებლებს კარგავენ, ამიტომ ვერიფიკაცია <strong>საფეხურებრივია</strong>: მსუბუქი რეგისტრაცია შეზღუდულ ანგარიშს მაშინვე ხსნის, სრული KYC კი, დოკუმენტები პლუს სახის ამოცნობა, გამოტანას მაშინ ხსნის, როცა მომხმარებელი მზადაა. საბუთების კედელს პროდუქტის ნახვამდე არავინ ეჯახება. ყველა ჩავარდნის მდგომარეობა დახატულია: ბუნდოვანი ID, უარყოფილი სელფი, განხილვის მოლოდინი. ჩემი საძიებო გვერდი 600 ეკრანს გასცდა, სანამ ეს ნაკადი გამოიწურთნებოდა.</p>
+  <div class="uflow-lane">ნაკადი: ონბორდინგი</div>
+  <div class="uflow">
+    <span class="uf-node start">ჩამოტვირთვა</span><span class="uf-arrow">→</span>
+    <span class="uf-node">რეგისტრაცია, ნომერი</span><span class="uf-arrow">→</span>
+    <span class="uf-node">OTP</span><span class="uf-arrow">→</span>
+    <span class="uf-node">პაროლი</span><span class="uf-arrow">→</span>
+    <span class="uf-node decision">ბიომეტრია?</span>
+    <span class="uf-fork">
+      <span class="uf-mini"><span class="uf-node good">Face ID-ის ჩართვა</span></span>
+      <span class="uf-mini"><span class="uf-node">ჯერ გამოტოვება</span></span>
+    </span>
+    <span class="uf-arrow">→</span>
+    <span class="uf-node">მარტივი ანგარიში, შეზღუდული ფუნქციები</span><span class="uf-arrow">→</span>
+    <span class="uf-node">KYC, პირადი ინფო</span><span class="uf-arrow">→</span>
+    <span class="uf-node">ID-ის სკანი</span><span class="uf-arrow">→</span>
+    <span class="uf-node decision">სახის ამოცნობა</span>
+    <span class="uf-fork">
+      <span class="uf-mini"><span class="uf-node good">დადასტურდა</span><span class="uf-arrow">→</span><span class="uf-node good">სრული ანგარიში</span><span class="uf-arrow">→</span><span class="uf-node">მთავარი</span></span>
+      <span class="uf-mini"><span class="uf-node bad">უარი</span><span class="uf-arrow">→</span><span class="uf-node">თავიდან ცდა მითითებებით</span></span>
+      <span class="uf-mini"><span class="uf-node">მოლოდინში</span><span class="uf-arrow">→</span><span class="uf-node">სტატუსის ეკრანი და არა მეილი</span></span>
+    </span>
+  </div>
+  <div class="uflow-lane">ნაკადი: პირველი შევსება</div>
+  <div class="uflow">
+    <span class="uf-node start">მთავარი</span><span class="uf-arrow">→</span>
+    <span class="uf-node">შევსება</span><span class="uf-arrow">→</span>
+    <span class="uf-node decision">ბარათი?</span>
+    <span class="uf-fork">
+      <span class="uf-mini"><span class="uf-node good">შენახული BOG / TBC</span></span>
+      <span class="uf-mini"><span class="uf-node">ახალი ბარათი</span></span>
+    </span>
+    <span class="uf-arrow">→</span>
+    <span class="uf-node">თანხა + სწრაფი ჩიპები</span><span class="uf-arrow">→</span>
+    <span class="uf-node">დადასტურება</span><span class="uf-arrow">→</span>
+    <span class="uf-fork">
+      <span class="uf-mini"><span class="uf-node good">წარმატება</span></span>
+      <span class="uf-mini"><span class="uf-node bad">უარი</span><span class="uf-arrow">→</span><span class="uf-node">მიზეზი + თავიდან ცდა</span></span>
+    </span>
+  </div>
+  <p style="margin-top:24px"><strong>ახლა თვითონ გაიარე.</strong> იგივე დაკლიკებადი აწყობა, რომელსაც იუზაბილითი ტესტებზე ვიყენებ:</p>
+  <div class="cs-showcase">
+    <div class="proto-wrap">
+      <div class="proto-device" id="protoDevice" role="button" tabindex="0" aria-label="ინტერაქტიული ონბორდინგის პროტოტიპი, დააჭირე გასაგრძელებლად">
+        <span class="proto-hint" id="protoHint">დააჭირე გასაგრძელებლად →</span>
+        <span class="proto-scrolltip" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+      </div>
+      <div class="proto-side">
+        <h3>ონბორდინგის პროტოტიპი</h3>
+        <div class="proto-step-label" id="protoTitle"></div>
+        <p class="proto-step-desc" id="protoDesc"></p>
+        <div class="proto-dots" id="protoDots"></div>
+        <div class="proto-ctrl">
+          <button class="proto-btn" id="protoPrev">← უკან</button>
+          <button class="proto-btn" id="protoNext">შემდეგი →</button>
+          <button class="proto-btn" id="protoRestart">↺ თავიდან</button>
+        </div>
+        <p class="proto-count" id="protoCount"></p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>დიზაინ-სისტემა: კოდში აწყობილი</h2>
+  <p>2,000+ ეკრანი ერთგვაროვანი იმიტომ რჩება, რომ <strong>49 კომპონენტისგან</strong> და ორი დოკუმენტირებული გადაფარვის სტრუქტურისგან შენდება, პოპაპი და მოქმედების უჯრა, ფიქსირებული დაშორების წესებით. ყოველ კონტროლს ნეიტრალური, ფოკუსირებული, შევსებული, შეცდომისა და გამორთული მდგომარეობები აქვს.</p>
+  <p>ქვემოთ სქრინშოტი არაა. ეს Multipay-ის ნამდვილი ტოკენებისა და ძირითადი კომპონენტების <strong>ცოცხალი კოდია</strong>: დააჭირე ფერს ჰექსის დასაკოპირებლად, გაააქტიურე ველები, აკრიფე OTP:</p>
+  <div class="ds">
+    <h5>ფერის ტოკენები: დააჭირე დასაკოპირებლად</h5>
+    <div class="ds-swatches">
+      <button class="ds-swatch" data-hex="#090411"><i style="background:#090411"></i><div><b>Background</b><span>#090411</span></div></button>
+      <button class="ds-swatch" data-hex="#0E1020"><i style="background:#0E1020"></i><div><b>Drawer BG</b><span>#0E1020</span></div></button>
+      <button class="ds-swatch" data-hex="#22273F"><i style="background:#22273F"></i><div><b>Stroke</b><span>#22273F</span></div></button>
+      <button class="ds-swatch" data-hex="#1A182D"><i style="background:#1A182D"></i><div><b>Select BG</b><span>#1A182D</span></div></button>
+      <button class="ds-swatch" data-hex="#2C4FFF"><i style="background:#2C4FFF"></i><div><b>Primary</b><span>#2C4FFF</span></div></button>
+      <button class="ds-swatch" data-hex="#2C4FFF60"><i style="background:rgba(44,79,255,.38)"></i><div><b>Primary BG</b><span>#2C4FFF60</span></div></button>
+      <button class="ds-swatch" data-hex="#FFFFFF"><i style="background:#FFFFFF"></i><div><b>Text Primary</b><span>#FFFFFF</span></div></button>
+      <button class="ds-swatch" data-hex="#7584A3"><i style="background:#7584A3"></i><div><b>Text Secondary</b><span>#7584A3</span></div></button>
+      <button class="ds-swatch" data-hex="#49BA27"><i style="background:#49BA27"></i><div><b>Success</b><span>#49BA27</span></div></button>
+      <button class="ds-swatch" data-hex="#FFA812"><i style="background:#FFA812"></i><div><b>Warning</b><span>#FFA812</span></div></button>
+      <button class="ds-swatch" data-hex="#FF2D55"><i style="background:#FF2D55"></i><div><b>Error</b><span>#FF2D55</span></div></button>
+      <button class="ds-swatch" data-hex="#09041150"><i style="background:rgba(9,4,17,.31);border-style:dashed"></i><div><b>Overlay</b><span>#09041150</span></div></button>
+    </div>
+
+    <h5>ტიპოგრაფია: Gilroy</h5>
+    <table class="ds-type">
+      <tr><td class="ds-th3">Heading 3</td><td class="spec">Gilroy Bold · 24 / 20</td></tr>
+      <tr><td class="ds-tbody">Body, Balances always visible, actions one tap away.</td><td class="spec">Gilroy Medium · 14 / 16</td></tr>
+      <tr><td class="ds-tcap">Caption, Amounts are given in GEL for a year</td><td class="spec">Gilroy Regular · 12 / 16</td></tr>
+      <tr><td class="ds-tbtn">Button Label</td><td class="spec">Gilroy Bold · 14 / 20</td></tr>
+    </table>
+
+    <h5>კომპონენტები: ცოცხალია, სცადე</h5>
+    <div class="ds-comps">
+      <div class="ds-comp-col">
+        <span class="ds-label">ღილაკები: ჰოვერი და დაჭერა</span>
+        <button class="ds-btn primary">Log In</button>
+        <button class="ds-btn secondary">Register</button>
+        <button class="ds-btn primary" disabled>Log In, disabled</button>
+        <span class="ds-label" style="margin-top:10px">ნომრის ველი: დააჭირე კოდს</span>
+        <div class="ds-phone-row">
+          <button class="ds-cc" id="dsCc" aria-haspopup="listbox" aria-expanded="false">
+            <svg class="ds-flag" id="dsCcFlag" viewBox="0 0 18 13"><rect width="18" height="13" fill="#fff"/><rect x="8" width="2" height="13" fill="#e8112d"/><rect y="5.5" width="18" height="2" fill="#e8112d"/><path d="M3.5 2h1v.8h.8v1h-.8v.8h-1v-.8h-.8v-1h.8zM13.5 2h1v.8h.8v1h-.8v.8h-1v-.8h-.8v-1h.8zM3.5 8.4h1v.8h.8v1h-.8v.8h-1V10h-.8V9h.8zM13.5 8.4h1v.8h.8v1h-.8v.8h-1V10h-.8V9h.8z" fill="#e8112d"/></svg>
+            <span id="dsCcCode">+995</span>
+            <svg class="chev" viewBox="0 0 12 8"><path d="M1 1.5l5 5 5-5"/></svg>
+          </button>
+          <input class="ds-input" type="tel" id="dsPhone" placeholder="123 123 123" aria-label="Phone number">
+          <div class="ds-dd" id="dsDd" role="listbox" aria-label="Country code">
+            <input class="ds-dd-search" id="dsDdSearch" placeholder="Search" aria-label="Search country">
+            <button class="ds-dd-item sel" data-code="+995" data-name="Georgia"><svg class="ds-flag" viewBox="0 0 18 13"><rect width="18" height="13" fill="#fff"/><rect x="8" width="2" height="13" fill="#e8112d"/><rect y="5.5" width="18" height="2" fill="#e8112d"/><path d="M3.5 2h1v.8h.8v1h-.8v.8h-1v-.8h-.8v-1h.8zM13.5 2h1v.8h.8v1h-.8v.8h-1v-.8h-.8v-1h.8zM3.5 8.4h1v.8h.8v1h-.8v.8h-1V10h-.8V9h.8zM13.5 8.4h1v.8h.8v1h-.8v.8h-1V10h-.8V9h.8z" fill="#e8112d"/></svg><b>+995</b>Georgia</button>
+            <button class="ds-dd-item" data-code="+1" data-name="United States"><svg class="ds-flag" viewBox="0 0 18 13"><rect width="18" height="13" fill="#fff"/><g fill="#b22234"><rect width="18" height="1"/><rect y="2" width="18" height="1"/><rect y="4" width="18" height="1"/><rect y="6" width="18" height="1"/><rect y="8" width="18" height="1"/><rect y="10" width="18" height="1"/><rect y="12" width="18" height="1"/></g><rect width="7.2" height="7" fill="#3c3b6e"/></svg><b>+1</b>United States</button>
+            <button class="ds-dd-item" data-code="+44" data-name="United Kingdom"><svg class="ds-flag" viewBox="0 0 18 13"><rect width="18" height="13" fill="#012169"/><path d="M0 0l18 13M18 0L0 13" stroke="#fff" stroke-width="2.4"/><path d="M0 0l18 13M18 0L0 13" stroke="#c8102e" stroke-width="1"/><rect x="7" width="4" height="13" fill="#fff"/><rect y="4.5" width="18" height="4" fill="#fff"/><rect x="7.9" width="2.2" height="13" fill="#c8102e"/><rect y="5.4" width="18" height="2.2" fill="#c8102e"/></svg><b>+44</b>United Kingdom</button>
+            <button class="ds-dd-item" data-code="+1" data-name="Canada"><svg class="ds-flag" viewBox="0 0 18 13"><rect width="18" height="13" fill="#fff"/><rect width="4.5" height="13" fill="#d80621"/><rect x="13.5" width="4.5" height="13" fill="#d80621"/><path d="M9 3l.7 1.8 1.6-.4-.8 1.9 1.2.5L9 8.6 6.3 6.8l1.2-.5-.8-1.9 1.6.4z" fill="#d80621"/></svg><b>+1</b>Canada</button>
+            <button class="ds-dd-item" data-code="+86" data-name="China"><svg class="ds-flag" viewBox="0 0 18 13"><rect width="18" height="13" fill="#ee1c25"/><path d="M3.6 1.7l.6 1.4 1.5.1-1.1 1 .3 1.4-1.3-.8-1.3.8.3-1.4-1.1-1 1.5-.1z" fill="#ffde00"/></svg><b>+86</b>China</button>
+            <button class="ds-dd-item" data-code="+91" data-name="India"><svg class="ds-flag" viewBox="0 0 18 13"><rect width="18" height="4.33" fill="#f93"/><rect y="4.33" width="18" height="4.33" fill="#fff"/><rect y="8.66" width="18" height="4.34" fill="#128807"/><circle cx="9" cy="6.5" r="1.4" fill="none" stroke="#008" stroke-width=".5"/></svg><b>+91</b>India</button>
+          </div>
+        </div>
+      </div>
+      <div class="ds-comp-col">
+        <span class="ds-label">ველის მდგომარეობები: გაააქტიურე და ცარიელი დატოვე</span>
+        <div class="ds-field" id="dsPwField">
+          <label>Password</label>
+          <input class="ds-input" type="password" placeholder="Enter Password" id="dsPw">
+          <span class="ds-err-msg">Must be at least 8 characters</span>
+        </div>
+        <span class="ds-label" style="margin-top:10px">OTP: აკრიფე კოდი</span>
+        <div class="ds-otp" id="dsOtp">
+          <input maxlength="1" inputmode="numeric" aria-label="OTP digit 1">
+          <input maxlength="1" inputmode="numeric" aria-label="OTP digit 2">
+          <input maxlength="1" inputmode="numeric" aria-label="OTP digit 3">
+          <input maxlength="1" inputmode="numeric" aria-label="OTP digit 4">
+        </div>
+      </div>
+    </div>
+    <p class="ds-note"><b>რატომ აქვს ამას მნიშვნელობა:</b> ვაბარებ დიზაინ-სისტემებს, რომლებსაც დეველოპერები ენდობიან, და კოდში მათი აწყობა თვითონვე შემიძლია. ყოველი ზემოთ ნაჩვენები მდგომარეობა (ჰოვერი, დაჭერა, ფოკუსი, შეცდომა, გამორთული) დოკუმენტირებულ Figma სპეციფიკაციას ემთხვევა.</p>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>ჰენდოფი</h2>
+  <p>საბოლოო პროდუქტი ცალკე ჰენდოფის გვერდი იყო: 20 ნაკადი, შესვლა, რეგისტრაცია, შევსებები, სამი ტიპის გადარიცხვა, ორი ტიპის გამოტანა, ბარათები, ტრანზაქციები, შეტყობინებები, მოწყობილობები, ანგარიშის მართვა, თითოეული ეკრან-ეკრან გაშლილი, სტილის გზამკვლევით თავში. დეველოპერს ნებისმიერი ეკრანის აწყობა ისე შეუძლია, რომ «რა ხდება, თუ ეს ჩავარდა?» არ იკითხოს, რადგან პასუხი უკვე დახატულია.</p>
+  <div class="cs-callout"><p>«კვლევა, ხუთი მიმართულება, 2,000+ ეკრანი, 49 კომპონენტი, ოცი დოკუმენტირებული ნაკადი, ერთი თვე».</p></div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>რას გავაკეთებდი სხვანაირად</h2>
+  <p>KYC ნაკადში იუზაბილითი ტესტებს უფრო ადრე შემოვიტანდი: ყველა ჩავარდნის მდგომარეობა დავხატე, მაგრამ რეალური მომხმარებლები მაჩვენებდნენ, რომელს ეჯახებიან ყველაზე ხშირად, და ნაკადი ამის გარშემო დალაგდებოდა. და კომპონენტების ბიბლიოთეკას ფერების ძიებამდე ჩავკეტავდი და არა მერე; ხუთი მიმართულების აწყობამ დაუმთავრებელ კომპონენტებზე დღეები დამიჯდა, რომლებსაც ტესტებში დავხარჯავდი.</p>
+  <a href="/ka/projects/hvpn.html" class="cs-next anim"><div><span>შემდეგი ქეისი</span><br><strong>H-VPN: პრივატულობა ყველა ეკრანზე</strong></div><span class="work-arrow">&nearr;</span></a>
+</div></section>
+
+<section class="contact" id="contact"><div class="container"><div class="contact-box anim">
+  <span class="tag">კონტაქტი</span>
+  <h2>მოდი, ერთად შევქმნათ რამე მაგარი</h2>
+  <p>გაქვს პროექტი? სიამოვნებით მოგისმენ.</p>
+  <div class="contact-btns">
+    <button type="button" class="btn-primary book-call" data-book>დაჯავშნე ზარი</button>
+    <a href="mailto:jikurishvilib26@gmail.com" class="btn-ghost">jikurishvilib26@gmail.com</a>
+  </div>
+</div></div></section>
+
+<footer class="footer"><div class="container footer-inner">
+  <span>&copy; 2026 ბექა ჯიკურიშვილი</span>
+  <div class="footer-links"><a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a></div>
+</div></footer>
+
+<script src="/script.js?v=20"></script>
+<script>
+// ---- Onboarding prototype ----
+(function(){
+  var STEPS=[
+    {src:'/assets/case/multipay/kyc-2.jpg',title:'პირადი ინფორმაცია',desc:'KYC იმ კითხვებით იწყება, რასაც რეგულაცია ითხოვს: მისამართი, საქმიანობა, შემოსავალი, ისე დაჯგუფებული, რომ ყოველი ეკრანი ერთ რამეს ეკითხება.'},
+    {src:'/assets/case/multipay/kyc-4.jpg',title:'ფინანსური პროფილი',desc:'შემოსავლის წყარო და მოსალოდნელი ბრუნვა. რადიო-ჯგუფები და ჩექლისთები იურიდიულ კითხვარს ფორმად ინახავს და არა დაკითხვად.'},
+    {src:'/assets/case/multipay/bio-1.jpg',title:'ანგარიშის დაცვა',desc:'პირველი შესვლის მერე აპი ბიომეტრიას სთავაზობს, რომ პაროლი ერთჯერად მოვლენად იქცეს.'},
+    {src:'/assets/case/multipay/bio-2.jpg',title:'Face ID',desc:'ერთი შეხება ჩასართავად. გამოტოვება დაშვებულია: უსაფრთხოების ფანჯრები, პროგრესს რომ ბლოკავენ, მიტოვებას იწვევენ.'},
+    {src:'/assets/case/multipay/bio-3.jpg',title:'Touch ID სათადარიგოდ',desc:'ძველი მოწყობილობები Touch ID-ს იღებენ იდენტური ჩარჩოთი: ერთი სისტემა, ორი სენსორი.'},
+    {src:'/assets/case/multipay/phone-home-1.jpg',title:'დადასტურდა, კეთილი იყოს შენი მობრძანება',desc:'ონბორდინგი ანგარიშის ეკრანზე მთავრდება: ბალანსი ჩანს, ბარათი მზადაა, შევსება ერთ შეხებაზეა.'}
+  ];
+  var device=document.getElementById('protoDevice');
+  if(!device)return;
+  var hint=document.getElementById('protoHint'),title=document.getElementById('protoTitle'),desc=document.getElementById('protoDesc'),
+      dots=document.getElementById('protoDots'),count=document.getElementById('protoCount'),cur=0,screens=[];
+  STEPS.forEach(function(s,idx){
+    var wrap=document.createElement('div');wrap.className='proto-screen';
+    var im=document.createElement('img');im.src=s.src;im.alt=s.title;
+    wrap.appendChild(im);device.insertBefore(wrap,hint);screens.push(wrap);
+    wrap.addEventListener('scroll',updateScrolltip);
+    var d=document.createElement('button');d.className='proto-dot';d.setAttribute('aria-label','Step '+(idx+1)+': '+s.title);
+    d.addEventListener('click',function(){go(idx)});dots.appendChild(d);
+  });
+  function updateScrolltip(){
+    var s=screens[cur];
+    var more=s.scrollHeight-s.clientHeight-s.scrollTop>10;
+    device.classList.toggle('scrollable',more);
+  }
+  function go(i){
+    cur=Math.max(0,Math.min(STEPS.length-1,i));
+    screens.forEach(function(s,idx){
+      s.classList.toggle('active',idx===cur);
+      if(idx===cur)s.scrollTop=0;
+    });
+    Array.prototype.forEach.call(dots.children,function(d,idx){
+      d.classList.toggle('on',idx===cur);d.classList.toggle('done',idx<cur);
+    });
+    title.textContent=STEPS[cur].title;desc.textContent=STEPS[cur].desc;
+    count.textContent='Step '+(cur+1)+' of '+STEPS.length+(screens[cur].scrollHeight>screens[cur].clientHeight+10?' · scrollable screen':'');
+    if(cur>0)hint.classList.add('hide');
+    requestAnimationFrame(updateScrolltip);
+  }
+  var lastSwipe=0;
+  device.addEventListener('click',function(e){
+    if(Date.now()-lastSwipe<500)return;
+    var r=device.getBoundingClientRect();
+    (e.clientX-r.left<r.width*0.3)?go(cur-1):go(cur+1);
+  });
+  var tx=0,ty=0;
+  device.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+  device.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+    if(Math.abs(dx)>44&&Math.abs(dx)>Math.abs(dy)*1.5){
+      lastSwipe=Date.now();
+      go(dx<0?cur+1:cur-1);
+    }
+  },{passive:true});
+  device.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='Enter'||e.key===' '){e.preventDefault();go(cur+1)}
+    if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}
+  });
+  window.addEventListener('resize',updateScrolltip);
+  document.getElementById('protoNext').addEventListener('click',function(){go(cur+1)});
+  document.getElementById('protoPrev').addEventListener('click',function(){go(cur-1)});
+  document.getElementById('protoRestart').addEventListener('click',function(){hint.classList.remove('hide');go(0)});
+  window.addEventListener('load',function(){go(cur)});
+  go(0);
+})();
+
+// ---- Design system: copy swatch ----
+document.querySelectorAll('.ds-swatch').forEach(function(sw){
+  sw.addEventListener('click',function(){
+    var hex=sw.getAttribute('data-hex'),label=sw.querySelector('span'),old=label.textContent;
+    function done(){sw.classList.add('copied');label.textContent='Copied!';setTimeout(function(){sw.classList.remove('copied');label.textContent=old},1200)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(hex).then(done,done)}else{done()}
+  });
+});
+
+// ---- Design system: password error state ----
+var dsPw=document.getElementById('dsPw');
+if(dsPw){
+  var pwField=document.getElementById('dsPwField');
+  dsPw.addEventListener('blur',function(){
+    pwField.classList.toggle('error',dsPw.value.length>0&&dsPw.value.length<8);
+  });
+  dsPw.addEventListener('input',function(){
+    if(dsPw.value.length>=8||dsPw.value.length===0)pwField.classList.remove('error');
+  });
+}
+
+// ---- Design system: phone country select ----
+(function(){
+  var cc=document.getElementById('dsCc'),dd=document.getElementById('dsDd');
+  if(!cc||!dd)return;
+  var code=document.getElementById('dsCcCode'),flag=document.getElementById('dsCcFlag'),
+      search=document.getElementById('dsDdSearch'),items=dd.querySelectorAll('.ds-dd-item'),
+      phone=document.getElementById('dsPhone');
+  function close(){dd.classList.remove('open');cc.setAttribute('aria-expanded','false')}
+  function open(){dd.classList.add('open');cc.setAttribute('aria-expanded','true');search.value='';filter('');search.focus()}
+  function filter(q){
+    q=q.toLowerCase();
+    items.forEach(function(it){
+      var hit=it.getAttribute('data-name').toLowerCase().indexOf(q)>-1||it.getAttribute('data-code').indexOf(q)>-1;
+      it.style.display=hit?'flex':'none';
+    });
+  }
+  cc.addEventListener('click',function(e){
+    e.stopPropagation();
+    dd.classList.contains('open')?close():open();
+  });
+  search.addEventListener('input',function(){filter(search.value)});
+  search.addEventListener('click',function(e){e.stopPropagation()});
+  items.forEach(function(it){
+    it.addEventListener('click',function(e){
+      e.stopPropagation();
+      items.forEach(function(o){o.classList.remove('sel')});
+      it.classList.add('sel');
+      code.textContent=it.getAttribute('data-code');
+      flag.innerHTML=it.querySelector('.ds-flag').innerHTML;
+      close();phone.focus();
+    });
+  });
+  document.addEventListener('click',function(e){if(!dd.contains(e.target))close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  if(phone){phone.addEventListener('input',function(){phone.value=phone.value.replace(/[^\d ]/g,'')})}
+})();
+
+// ---- Design system: OTP boxes ----
+var otp=document.getElementById('dsOtp');
+if(otp){
+  var boxes=otp.querySelectorAll('input');
+  boxes.forEach(function(b,i){
+    b.addEventListener('input',function(){
+      b.value=b.value.replace(/\D/g,'');
+      b.classList.toggle('filled',!!b.value);
+      if(b.value&&i<boxes.length-1)boxes[i+1].focus();
+    });
+    b.addEventListener('keydown',function(e){
+      if(e.key==='Backspace'&&!b.value&&i>0)boxes[i-1].focus();
+    });
+  });
+}
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
