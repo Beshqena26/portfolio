@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plinko Case Study | Beka Jikurishvili</title>
+<meta name="description" content="Case study: Plinko for MYBC Originals. Predetermined outcomes presented as physics: the ball is choreography, the fairness is math.">
+<meta property="og:title" content="Plinko: fairness first, physics feel second">
+<meta property="og:description" content="The bin is decided before the ball drops. The job is making the drop worth watching.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jikurishvili.com/projects/plinko.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23CAFF00%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27%23060610%27 text-anchor=%27middle%27>B</text></svg>">
+<link rel="stylesheet" href="../style.css?v=32">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/thumbs/avatar.jpg?v=3" alt="Beka" class="nav-avatar">Beka Jikurishvili</a>
+    <div class="nav-menu" id="navMenu">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#games">Games</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="../index.html#contact" class="nav-cta">Let's Talk</a>
+    </div>
+  </div>
+</header>
+
+<section class="proj-hero">
+  <div class="container anim">
+    <a href="../index.html#games" class="proj-back">&larr; Back to Games</a>
+    <h1>Plinko: fairness first,<br>physics feel second</h1>
+    <p class="proj-desc">An MYBC Originals ball-drop game. The honest secret of every fair plinko: the winning bin is decided by the math before the ball ever moves. The design job is to make a predetermined outcome feel like gravity, and to never lie about which one is in charge.</p>
+    <div class="proj-meta">
+      <div class="proj-meta-item"><label>Role</label><span>Design &amp; build</span></div>
+      <div class="proj-meta-item"><label>Type</label><span>Instant win &middot; Ball drop</span></div>
+      <div class="proj-meta-item"><label>Fairness</label><span>Provably fair</span></div>
+      <div class="proj-meta-item"><label>Brand</label><span>MYBC Originals</span></div>
+    </div>
+    <div class="cs-stats">
+      <div class="cs-stat"><b>0</b><span>Outcomes decided by animation</span></div>
+      <div class="cs-stat"><b>1 tap</b><span>Per drop, hold for repeat</span></div>
+      <div class="cs-stat"><b>100%</b><span>Rounds verifiable in-game</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="container anim">
+  <div class="gcard-cover ghero" style="--gc:#5581F7">
+    <span class="gcard-word">PLINKO</span>
+    <span class="gcard-type">Instant win &middot; Ball drop</span>
+    <button class="btn-primary play-demo-btn" type="button" data-title="Plinko" data-play="" hidden>Play the demo</button>
+    <span class="gcard-soon">Playable demo soon</span>
+  </div>
+</div>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Choreography, not simulation</h2>
+  <p>A physics simulation that decides outcomes can't be provably fair; a fair outcome with no physics feels like a slot machine wearing a costume. Plinko squares that by drawing the bin from the verifiable math first, then computing a peg-by-peg path that lands the ball exactly there. Every bounce is choreography toward a destination the player can verify afterward.</p>
+  <p>That inversion drives every visual decision: bounces are springy but never so chaotic that a path looks impossible, the ball accelerates believably, and near-miss bins get a subtle shake when the ball skims past them, tension the math permits, honesty the math requires.</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>The multiplier wall is the interface</h2>
+  <p>The bins along the bottom are the whole payout table, always on screen. Edge bins carry the big multipliers and glow accordingly; center bins are the frequent, small outcomes. Rapid play is first-class: drops queue without blocking each other, several balls can be in flight at once, and the history strip settles them in the order they land.</p>
+  <div class="cs-decision">
+    <div class="cs-dec-card chose"><h4>Chose: concurrent balls</h4><p>Players who want volume shouldn't wait out an animation. Each ball carries its own settled outcome; the board is a stage, not a lock.</p></div>
+    <div class="cs-dec-card rejected"><h4>Rejected: one ball at a time</h4><p>Simpler state, but it caps the game's rhythm at the animation's length and turns excitement into waiting.</p></div>
+  </div>
+  <div class="cs-callout"><p>Same lineup rules as every Original: branded shell, bet drawer, round history, and per-round provably fair verification, so a plinko player already knows how to check their drop.</p></div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <a href="dice.html" class="cs-next"><div><span>Next game</span><br><strong>Dice: the simplest game, designed honestly</strong></div><span class="work-arrow">&nearr;</span></a>
+</div></section>
+
+<!-- Game demo player -->
+<div class="game-modal" id="gameModal" hidden>
+  <div class="game-modal-backdrop" data-close></div>
+  <div class="game-modal-box">
+    <div class="game-modal-bar">
+      <strong id="gameModalTitle">Game</strong>
+      <span class="game-demo-pill">Demo mode &middot; no real money</span>
+      <button class="game-modal-close" type="button" data-close aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="game-modal-frame"><iframe id="gameFrame" title="Game demo" allow="fullscreen; autoplay" loading="lazy"></iframe></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span>&copy; 2026 Beka Jikurishvili</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js?v=19"></script>
+</body>
+</html>

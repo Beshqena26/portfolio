@@ -6,6 +6,7 @@
 
 /* ===== RESET ===== */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+[hidden]{display:none!important}
 :root{
   /* MYBC ORIGINALS dark system */
   --bg:#060610;--surface:#0D0D16;--surface2:#12121A;
@@ -166,6 +167,17 @@ img{display:block;max-width:100%}
 .gcard-play{font-family:inherit;font-size:12px;font-weight:700;padding:8px 16px;border-radius:var(--r-s);border:none;background:var(--gc,var(--accent));color:#060610;cursor:pointer;transition:filter .2s}
 .gcard-play:hover{filter:brightness(1.1)}
 .gcard-soon{font-size:11px;font-weight:600;color:var(--label);letter-spacing:.06em;text-transform:uppercase}
+
+.gcard-cover-link{display:block}
+.gcard-cs{font-size:12px;font-weight:600;color:var(--text2);text-decoration:none;transition:color .2s}
+.gcard-cs:hover{color:var(--gc,var(--accent))}
+
+/* game case-study hero panel (reuses gcard-cover look) */
+.ghero{aspect-ratio:21/9;border-radius:var(--r2);border:1px solid var(--border);margin:36px 0;gap:12px}
+.ghero .gcard-word{font-size:clamp(28px,4.5vw,54px)}
+.ghero .btn-primary{position:relative;z-index:1;background:var(--gc,var(--accent))}
+.ghero .gcard-soon{position:relative;z-index:1}
+@media(max-width:640px){.ghero{aspect-ratio:16/10}}
 
 /* game demo modal */
 .game-modal{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;padding:20px}

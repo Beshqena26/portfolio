@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moles Case Study | Beka Jikurishvili</title>
+<meta name="description" content="Case study: Moles, a character-driven instant win for MYBC Originals. Level-climb tension, 2D characters, free rounds, and player-verifiable fairness.">
+<meta property="og:title" content="Moles: an instant win with a personality">
+<meta property="og:description" content="Pick a hole, climb the levels, cash out before the greed does it for you.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jikurishvili.com/projects/moles.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23CAFF00%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27%23060610%27 text-anchor=%27middle%27>B</text></svg>">
+<link rel="stylesheet" href="../style.css?v=32">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/thumbs/avatar.jpg?v=3" alt="Beka" class="nav-avatar">Beka Jikurishvili</a>
+    <div class="nav-menu" id="navMenu">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#games">Games</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="../index.html#contact" class="nav-cta">Let's Talk</a>
+    </div>
+  </div>
+</header>
+
+<section class="proj-hero">
+  <div class="container anim">
+    <a href="../index.html#games" class="proj-back">&larr; Back to Games</a>
+    <h1>Moles: an instant win<br>with a personality</h1>
+    <p class="proj-desc">An MYBC Originals level-climb game. Pick a hole on each row; find the mole and the multiplier climbs, cash out any time, hit the trap and the round is gone. It's the lineup's charm carrier: 2D characters doing the emotional work that raw numbers can't.</p>
+    <div class="proj-meta">
+      <div class="proj-meta-item"><label>Role</label><span>Design &amp; build</span></div>
+      <div class="proj-meta-item"><label>Type</label><span>Instant win &middot; Level climb</span></div>
+      <div class="proj-meta-item"><label>Fairness</label><span>Provably fair</span></div>
+      <div class="proj-meta-item"><label>Brand</label><span>MYBC Originals</span></div>
+    </div>
+    <div class="cs-stats">
+      <div class="cs-stat"><b>2</b><span>RTP configurations (96.5 / 99)</span></div>
+      <div class="cs-stat"><b>1 tap</b><span>Cash out at any level</span></div>
+      <div class="cs-stat"><b>2</b><span>Free-round payout modes</span></div>
+      <div class="cs-stat"><b>100%</b><span>Rounds verifiable in-game</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="container anim">
+  <div class="gcard-cover ghero" style="--gc:#7B6FE3">
+    <span class="gcard-word">MOLES</span>
+    <span class="gcard-type">Instant win &middot; Level climb</span>
+    <button class="btn-primary play-demo-btn" type="button" data-title="Moles" data-play="" hidden>Play the demo</button>
+    <span class="gcard-soon">Playable demo soon</span>
+  </div>
+</div>
+
+<section class="proj-section"><div class="container anim">
+  <h2>The tension mechanic</h2>
+  <p>Moles is a ladder of decisions. Every row you climb multiplies your potential payout and raises the odds of the trap. The design problem isn't explaining the rules, players get them in one round, it's making the <em>next pick</em> feel heavier than the last one. The multiplier ladder stays visible at all times, the current cashout value sits on the button itself, and each successful pick plays a bigger celebration than the one before, so walking away always means leaving a party.</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Characters as feedback</h2>
+  <p>The moles aren't decoration; they're the feedback system. A found mole pops up grinning, a trap does the opposite, and the animation timing is tuned so the reveal lands before the balance updates: emotion first, accounting second. This game defined the character-driven template that other Originals (and Keno's port) later reused: the shell, the drawers, the history, and the boot rhythm all originated here.</p>
+  <div class="cs-decision">
+    <div class="cs-dec-card chose"><h4>Chose: reveal, then settle</h4><p>The character reaction plays before the balance changes. Players read the outcome from the character, not from a number diff.</p></div>
+    <div class="cs-dec-card rejected"><h4>Rejected: instant settlement</h4><p>Technically simpler, emotionally flat. When the number moves first, the animation becomes a rerun of news you already have.</p></div>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Money mechanics done honestly</h2>
+  <p>The game ships in two RTP configurations (96.5 and 99) against the production RGS engine. Free rounds support both payout contracts: inclusive rounds pay the full payout, exclusive rounds pay the payout minus the stake, and the history labels which was which. Every round can be verified in-game through the provably fair drawer, with a local verification path so trust doesn't require a network call.</p>
+  <div class="cs-callout"><p>Moles set the standard for the lineup: if a pattern works here, in the shell, the drawers, the free-round contract, the verification ritual, it becomes the pattern everywhere.</p></div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <a href="plinko.html" class="cs-next"><div><span>Next game</span><br><strong>Plinko: fairness first, physics feel second</strong></div><span class="work-arrow">&nearr;</span></a>
+</div></section>
+
+<!-- Game demo player -->
+<div class="game-modal" id="gameModal" hidden>
+  <div class="game-modal-backdrop" data-close></div>
+  <div class="game-modal-box">
+    <div class="game-modal-bar">
+      <strong id="gameModalTitle">Game</strong>
+      <span class="game-demo-pill">Demo mode &middot; no real money</span>
+      <button class="game-modal-close" type="button" data-close aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="game-modal-frame"><iframe id="gameFrame" title="Game demo" allow="fullscreen; autoplay" loading="lazy"></iframe></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span>&copy; 2026 Beka Jikurishvili</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js?v=19"></script>
+</body>
+</html>

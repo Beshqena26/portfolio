@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dice Case Study | Beka Jikurishvili</title>
+<meta name="description" content="Case study: Dice for MYBC Originals. One slider, two outcomes, and an interface built to show the odds with total honesty.">
+<meta property="og:title" content="Dice: the simplest game, designed honestly">
+<meta property="og:description" content="Roll over or under. The UI's only job is to never blur what you're risking.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jikurishvili.com/projects/dice.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23CAFF00%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27%23060610%27 text-anchor=%27middle%27>B</text></svg>">
+<link rel="stylesheet" href="../style.css?v=32">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/thumbs/avatar.jpg?v=3" alt="Beka" class="nav-avatar">Beka Jikurishvili</a>
+    <div class="nav-menu" id="navMenu">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#games">Games</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="../index.html#contact" class="nav-cta">Let's Talk</a>
+    </div>
+  </div>
+</header>
+
+<section class="proj-hero">
+  <div class="container anim">
+    <a href="../index.html#games" class="proj-back">&larr; Back to Games</a>
+    <h1>Dice: the simplest game,<br>designed honestly</h1>
+    <p class="proj-desc">An MYBC Originals over/under dice game. There's nowhere to hide in dice: one slider, one roll, win or lose. That makes it the purest UI test in the lineup, because the entire game is the clarity of a single trade-off between win chance and multiplier.</p>
+    <div class="proj-meta">
+      <div class="proj-meta-item"><label>Role</label><span>Design &amp; build</span></div>
+      <div class="proj-meta-item"><label>Type</label><span>Instant win &middot; Over/under</span></div>
+      <div class="proj-meta-item"><label>Fairness</label><span>Provably fair</span></div>
+      <div class="proj-meta-item"><label>Brand</label><span>MYBC Originals</span></div>
+    </div>
+    <div class="cs-stats">
+      <div class="cs-stat"><b>1</b><span>Slider, the whole game</span></div>
+      <div class="cs-stat"><b>3</b><span>Numbers that always agree: target, chance, payout</span></div>
+      <div class="cs-stat"><b>&lt;1s</b><span>Round length at full speed</span></div>
+      <div class="cs-stat"><b>100%</b><span>Rounds verifiable in-game</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="container anim">
+  <div class="gcard-cover ghero" style="--gc:#CAFF00">
+    <span class="gcard-word">DICE</span>
+    <span class="gcard-type">Instant win &middot; Roll over/under</span>
+    <button class="btn-primary play-demo-btn" type="button" data-title="Dice" data-play="" hidden>Play the demo</button>
+    <span class="gcard-soon">Playable demo soon</span>
+  </div>
+</div>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Three numbers, one truth</h2>
+  <p>Dice is a triangle: target, win chance, and payout multiplier. Move any corner and the other two must follow, instantly and visibly. The slider, the chance readout, and the multiplier are locked together with no rounding tricks: drag to 49.50 over and you see exactly what that costs and pays. Both directions work, roll over or roll under, flipped with one tap, and the slider track is painted so the winning region is always the readable one.</p>
+  <div class="cs-decision">
+    <div class="cs-dec-card chose"><h4>Chose: editable numbers everywhere</h4><p>Every readout is also an input. Type a multiplier and the slider jumps; type a chance and the target moves. Power players think in numbers, not pixels.</p></div>
+    <div class="cs-dec-card rejected"><h4>Rejected: slider-only control</h4><p>Prettier demo, worse tool. Precision betting through a drag handle is guesswork, and dice players hate guesswork.</p></div>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Speed as a feature, honesty as a rule</h2>
+  <p>Rounds resolve in under a second, and the result presentation is built for repetition: the rolled number strikes onto the track exactly where it landed relative to your target, so a near miss is visible as distance rather than as a taunt. History chips keep recent rolls one glance away. Auto-bet runs the same rules as manual play with stop conditions the player controls.</p>
+  <div class="cs-callout"><p>Same Originals contract as the rest of the lineup: branded shell, provably fair rounds with in-game verification, and free-round support with clearly labeled payout modes.</p></div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <a href="blackjack.html" class="cs-next"><div><span>Next game</span><br><strong>Blackjack: three seats, one table</strong></div><span class="work-arrow">&nearr;</span></a>
+</div></section>
+
+<!-- Game demo player -->
+<div class="game-modal" id="gameModal" hidden>
+  <div class="game-modal-backdrop" data-close></div>
+  <div class="game-modal-box">
+    <div class="game-modal-bar">
+      <strong id="gameModalTitle">Game</strong>
+      <span class="game-demo-pill">Demo mode &middot; no real money</span>
+      <button class="game-modal-close" type="button" data-close aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="game-modal-frame"><iframe id="gameFrame" title="Game demo" allow="fullscreen; autoplay" loading="lazy"></iframe></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span>&copy; 2026 Beka Jikurishvili</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js?v=19"></script>
+</body>
+</html>

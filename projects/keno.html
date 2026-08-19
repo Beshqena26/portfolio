@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keno Case Study | Beka Jikurishvili</title>
+<meta name="description" content="Case study: porting Keno into the MYBC Originals design system. Shared game anatomy, brand tokens, boot screen, and per-round provably fair verification.">
+<meta property="og:title" content="Keno: porting a game into a design system">
+<meta property="og:description" content="From a generic clone to a native MYBC Original, one token at a time.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jikurishvili.com/projects/keno.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23CAFF00%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27%23060610%27 text-anchor=%27middle%27>B</text></svg>">
+<link rel="stylesheet" href="../style.css?v=32">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/thumbs/avatar.jpg?v=3" alt="Beka" class="nav-avatar">Beka Jikurishvili</a>
+    <div class="nav-menu" id="navMenu">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#games">Games</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="../index.html#contact" class="nav-cta">Let's Talk</a>
+    </div>
+  </div>
+</header>
+
+<section class="proj-hero">
+  <div class="container anim">
+    <a href="../index.html#games" class="proj-back">&larr; Back to Games</a>
+    <h1>Keno: porting a game<br>into a design system</h1>
+    <p class="proj-desc">The game existed; the brand didn't fit. This project took a generic keno frontend and rebuilt it as a native MYBC Original: shared game anatomy, brand tokens, a generated identity, and fairness tooling that matches the rest of the lineup 1:1.</p>
+    <div class="proj-meta">
+      <div class="proj-meta-item"><label>Role</label><span>Design &amp; build</span></div>
+      <div class="proj-meta-item"><label>Type</label><span>Instant win &middot; Number draw</span></div>
+      <div class="proj-meta-item"><label>Fairness</label><span>Provably fair</span></div>
+      <div class="proj-meta-item"><label>Brand</label><span>MYBC Originals</span></div>
+    </div>
+    <div class="cs-stats">
+      <div class="cs-stat"><b>1:1</b><span>Verification parity with the lineup</span></div>
+      <div class="cs-stat"><b>&le;520px</b><span>Compact mode breakpoint</span></div>
+      <div class="cs-stat"><b>2.5s</b><span>Branded boot, minimum</span></div>
+      <div class="cs-stat"><b>0</b><span>Layout patterns invented just for keno</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="container anim">
+  <div class="gcard-cover ghero" style="--gc:#FBCE04">
+    <span class="gcard-word">KENO</span>
+    <span class="gcard-type">Instant win &middot; Number draw</span>
+    <button class="btn-primary play-demo-btn" type="button" data-title="Keno" data-play="" hidden>Play the demo</button>
+    <span class="gcard-soon">Playable demo soon</span>
+  </div>
+</div>
+
+<section class="proj-section"><div class="container anim">
+  <h2>The problem: a clone in the wrong clothes</h2>
+  <p>The starting point was a keno frontend built as a clone of another operator's game: navy and indigo palette, left-sidebar layout, a different type system. Functional, but it looked like someone else's product sitting inside the MYBC lobby.</p>
+  <p>The job wasn't to redesign keno. It was to make keno <em>belong</em>: same anatomy, same tokens, same fairness rituals as every other Original, so a player moving between games never has to relearn where anything lives.</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Porting, not repainting</h2>
+  <p>The port ran on two rails. First, <strong>anatomy</strong>: the game adopted the shared Originals shell, the same header, bet controls, drawers, and history structure used across the lineup, so its skeleton matches its siblings. Second, <strong>tokens</strong>: every color in the clone was mapped to a brand token instead of being individually restyled. When the token set changes, keno changes with it.</p>
+  <div class="cs-decision">
+    <div class="cs-dec-card chose"><h4>Chose: shared shell + token mapping</h4><p>One source of truth. The game inherits future brand changes for free and stays consistent with the other Originals without coordination.</p></div>
+    <div class="cs-dec-card rejected"><h4>Rejected: in-place restyle of the clone</h4><p>Faster on day one, but every hex value stays hand-placed and the game drifts out of sync with the lineup on the first brand tweak.</p></div>
+  </div>
+  <h3>The details that make it feel native</h3>
+  <p>A generated KENO wordmark and a branded boot screen with a progress bar (2.5 second minimum, matching the lineup's boot rhythm). Hits are marked with an emerald-cut brand gem; misses show as red numbers, color plus shape, never color alone. Below 520px the board switches to a compact mode so ten picks stay comfortably tappable on small phones.</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Fairness and the payout bug that wasn't</h2>
+  <p>Every round is verifiable in-game with the same per-round verification drawer as the rest of the Originals, a deliberate 1:1 port of that flow. Where a secure crypto context isn't available (plain HTTP on a LAN during testing), a pure-JS SHA-256/HMAC fallback keeps verification working instead of silently disabling it.</p>
+  <p>The sharpest finding of the QA pass was contractual, not visual: for exclusive free rounds the engine's reported total payout is already net of stake. The client has to display it verbatim rather than re-deriving it, otherwise every free-round win shows the wrong number. The fix was one rule, documented in the code and mirrored in the mock engine so the discrepancy can never ship silently again.</p>
+  <div class="cs-callout"><p>A port's real deliverable isn't the skin. It's the guarantee that the skin, the math display, and the verification ritual behave identically to every other game the player already trusts.</p></div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <a href="moles.html" class="cs-next"><div><span>Next game</span><br><strong>Moles: an instant win with a personality</strong></div><span class="work-arrow">&nearr;</span></a>
+</div></section>
+
+<!-- Game demo player -->
+<div class="game-modal" id="gameModal" hidden>
+  <div class="game-modal-backdrop" data-close></div>
+  <div class="game-modal-box">
+    <div class="game-modal-bar">
+      <strong id="gameModalTitle">Game</strong>
+      <span class="game-demo-pill">Demo mode &middot; no real money</span>
+      <button class="game-modal-close" type="button" data-close aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="game-modal-frame"><iframe id="gameFrame" title="Game demo" allow="fullscreen; autoplay" loading="lazy"></iframe></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span>&copy; 2026 Beka Jikurishvili</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js?v=19"></script>
+</body>
+</html>

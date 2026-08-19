@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hammer King Case Study | Beka Jikurishvili</title>
+<meta name="description" content="Case study: Hammer King, a crash game disguised as a carnival high striker. Limbo math, provably fair rounds, cashout tension, and an AI-generated sprite character.">
+<meta property="og:title" content="Hammer King: a crash game disguised as a carnival high striker">
+<meta property="og:description" content="Crash math, provably fair rounds, and a strongman who reacts to every hit.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jikurishvili.com/projects/hammerking.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23CAFF00%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27%23060610%27 text-anchor=%27middle%27>B</text></svg>">
+<link rel="stylesheet" href="../style.css?v=32">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/thumbs/avatar.jpg?v=3" alt="Beka" class="nav-avatar">Beka Jikurishvili</a>
+    <div class="nav-menu" id="navMenu">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#games">Games</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="../index.html#contact" class="nav-cta">Let's Talk</a>
+    </div>
+  </div>
+</header>
+
+<section class="proj-hero">
+  <div class="container anim">
+    <a href="../index.html#games" class="proj-back">&larr; Back to Games</a>
+    <h1>Hammer King: a crash game<br>disguised as a carnival high striker</h1>
+    <p class="proj-desc">An MYBC Originals crash game. Under the hood it runs limbo math; on screen it's a night-carnival strongman slamming a puck up a tower while your multiplier climbs. You cash out before the burn, or you don't.</p>
+    <div class="proj-meta">
+      <div class="proj-meta-item"><label>Role</label><span>Math, design &amp; build</span></div>
+      <div class="proj-meta-item"><label>Type</label><span>Crash / cashout</span></div>
+      <div class="proj-meta-item"><label>Fairness</label><span>Provably fair</span></div>
+      <div class="proj-meta-item"><label>Brand</label><span>MYBC Originals</span></div>
+    </div>
+    <div class="cs-stats">
+      <div class="cs-stat"><b>2x &asymp; 4s</b><span>Flight pacing</span></div>
+      <div class="cs-stat"><b>96.5%</b><span>RTP configuration</span></div>
+      <div class="cs-stat"><b>12</b><span>Character sprite poses</span></div>
+      <div class="cs-stat"><b>1 tap</b><span>Between riding and cashing out</span></div>
+      <div class="cs-stat"><b>100%</b><span>Rounds verifiable by the player</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="container anim">
+  <div class="gcard-cover ghero" style="--gc:#00BFA5">
+    <span class="gcard-word">HAMMER KING</span>
+    <span class="gcard-type">Crash &middot; High striker</span>
+    <button class="btn-primary play-demo-btn" type="button" data-title="Hammer King" data-play="" hidden>Play the demo</button>
+    <span class="gcard-soon">Playable demo soon</span>
+  </div>
+</div>
+
+<section class="proj-section"><div class="container anim">
+  <h2>The idea: give crash a body</h2>
+  <p>Most crash games are a line on a graph. The math is exciting; the picture isn't. Hammer King keeps the exact crash contract, a hidden crash point drawn per round, a live multiplier, cash out any moment, and wraps it in something physical: a retro carnival stage, a sliding log tower, and a strongman whose hammer strike launches the round.</p>
+  <p>The bet was that tension reads better on a body than on a curve. When the puck burns, the character slumps and facepalms. When you cash out big, he flexes. The math didn't change; the empathy did.</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Math and fairness</h2>
+  <p>Each round draws a hidden crash point from a limbo distribution (96.5% RTP configuration). The visible flight maps time to multiplier with <strong>m = e<sup>0.1733&middot;t</sup></strong>, so 2x lands at roughly four seconds: fast enough to feel alive, slow enough to make the cashout decision real. A turbo mode runs the same curve at 4x speed for players who want volume.</p>
+  <p>Fairness is player-checkable: every round's crash point is committed before the round starts and verifiable after it ends, with a full round history and a verification drawer in the game. Auto-cashout is resolved <em>before</em> the crash check in the loop, so a player who set 2.00x wins at exactly 2.00x whenever the crash point allows it. No "it busted just as I clicked" ambiguity.</p>
+  <div class="cs-decision">
+    <div class="cs-dec-card chose"><h4>Chose: exact-threshold auto-cashout</h4><p>If your auto target is reachable this round, you win at that exact number. Trust is the product; rounding against the player would poison it.</p></div>
+    <div class="cs-dec-card rejected"><h4>Rejected: mid-round server calls in the demo</h4><p>The demo is fully local and provably fair. A real-money version needs a server-authoritative crash engine, because the limbo contract can't settle a mid-round cashout. That's stated, not hidden.</p></div>
+  </div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Game feel: the tower, the puck, the burn</h2>
+  <p>The multiplier is a puck climbing a log tower. The puck pins at 75% of the screen and the tower slides underneath it, so the sense of speed comes from the world moving, not the puck: the same trick side-scrollers use. Passing your auto-cashout marker shows a win-chance pill right at the threshold. The bust is instant: a burn effect and a sound, no slow-motion consolation.</p>
+  <h3>An AI-built character with real timing rules</h3>
+  <p>The strongman is a sprite character generated with an AI pipeline: concept, turnaround reference, twelve pose frames with reference chaining, background removal, then heel-aligned onto a fixed canvas so every frame stands on the same ground line. Animation is state-driven: strike, release, win (pump and flex loop), lose (slump and facepalm), and the strike resolves exactly on the impact frame so the sound, the puck launch, and the hammer hit land on the same tick.</p>
+  <p>Around him: a night-carnival backdrop, a flame trail on the puck, a bell burst at launch, circus-tension background music that starts on the first gesture, and a boot screen with the MYBC mark. Feel is a budget; all of it was spent on the two moments that matter, launch and resolution.</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Player-money details</h2>
+  <p>Free rounds are supported with the same contract as the other Originals: inclusive rounds pay the full payout, exclusive rounds pay the payout minus the stake, and both are labeled in the history. Auto mode runs 10, 50, 100 or endless rounds with the same cashout rules as manual play. Everything a player can win or lose is visible in the round drawer with local verification.</p>
+  <div class="cs-callout"><p>The whole game is built against the same contract as the production RGS limbo engine, so the real-money backend can be wired in without touching the frontend.</p></div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <a href="keno.html" class="cs-next"><div><span>Next game</span><br><strong>Keno: porting a game into a design system</strong></div><span class="work-arrow">&nearr;</span></a>
+</div></section>
+
+<!-- Game demo player -->
+<div class="game-modal" id="gameModal" hidden>
+  <div class="game-modal-backdrop" data-close></div>
+  <div class="game-modal-box">
+    <div class="game-modal-bar">
+      <strong id="gameModalTitle">Game</strong>
+      <span class="game-demo-pill">Demo mode &middot; no real money</span>
+      <button class="game-modal-close" type="button" data-close aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="game-modal-frame"><iframe id="gameFrame" title="Game demo" allow="fullscreen; autoplay" loading="lazy"></iframe></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span>&copy; 2026 Beka Jikurishvili</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js?v=19"></script>
+</body>
+</html>

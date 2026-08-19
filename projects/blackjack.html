@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blackjack Case Study | Beka Jikurishvili</title>
+<meta name="description" content="Case study: multi-seat Blackjack for MYBC. Three boxes, one dealer, and the turn-flow design that keeps a real table readable on a phone.">
+<meta property="og:title" content="Blackjack: three seats, one table">
+<meta property="og:description" content="Multi-seat blackjack that keeps the real casino rhythm without losing a phone player.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jikurishvili.com/projects/blackjack.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23CAFF00%27/><text x=%2750%27 y=%2768%27 font-size=%2752%27 font-family=%27Arial%27 font-weight=%27bold%27 fill=%27%23060610%27 text-anchor=%27middle%27>B</text></svg>">
+<link rel="stylesheet" href="../style.css?v=32">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/thumbs/avatar.jpg?v=3" alt="Beka" class="nav-avatar">Beka Jikurishvili</a>
+    <div class="nav-menu" id="navMenu">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#games">Games</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="../index.html#contact" class="nav-cta">Let's Talk</a>
+    </div>
+  </div>
+</header>
+
+<section class="proj-hero">
+  <div class="container anim">
+    <a href="../index.html#games" class="proj-back">&larr; Back to Games</a>
+    <h1>Blackjack: three seats,<br>one table</h1>
+    <p class="proj-desc">A multi-seat blackjack concept for MYBC. Real blackjack tables let one player run several boxes at once; most digital versions flatten that into a single hand. This build keeps the three-box rhythm and solves the hard part: making whose-turn-is-it unmissable on a phone.</p>
+    <div class="proj-meta">
+      <div class="proj-meta-item"><label>Role</label><span>Design &amp; build</span></div>
+      <div class="proj-meta-item"><label>Type</label><span>Table game &middot; Multi-seat</span></div>
+      <div class="proj-meta-item"><label>Status</label><span>Concept, v2 in design</span></div>
+      <div class="proj-meta-item"><label>Brand</label><span>MYBC</span></div>
+    </div>
+    <div class="cs-stats">
+      <div class="cs-stat"><b>3</b><span>Boxes playable at once</span></div>
+      <div class="cs-stat"><b>1</b><span>Active seat highlighted at any moment</span></div>
+      <div class="cs-stat"><b>v2</b><span>Split &amp; insurance in multi-seat</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="container anim">
+  <div class="gcard-cover ghero" style="--gc:#0ECC68">
+    <span class="gcard-word">BLACKJACK</span>
+    <span class="gcard-type">Table game &middot; Multi-seat</span>
+    <button class="btn-primary play-demo-btn" type="button" data-title="Blackjack" data-play="" hidden>Play the demo</button>
+    <span class="gcard-soon">Playable demo soon</span>
+  </div>
+</div>
+
+<section class="proj-section"><div class="container anim">
+  <h2>The multi-seat problem</h2>
+  <p>Three boxes triple the fun and triple the state: three bets, three hands, three sets of decisions against one dealer. The failure mode is confusion, acting on the wrong hand, missing that a box already stood, not noticing the dealer moved on. The whole interface is organized around one question: <strong>which seat is live right now?</strong></p>
+  <p>The live box scales up and lights its border; the others dim and shrink. The action bar (hit, stand, double) is physically attached to the live box, not floating at screen bottom, so a mis-tap on the wrong hand is structurally impossible. Finished boxes show their result inline and stay visible: the table never hides your other bets from you.</p>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>Dealer rhythm and table truth</h2>
+  <p>Cards deal in real casino order, first card to each box, then the dealer, then the second round, because players who know blackjack notice when the ritual is wrong. Hand values update on the card, not in a side panel. The dealer's hole card flips with deliberate timing, and payouts settle box by box so a three-seat round ends as three separate stories rather than one summary toast.</p>
+  <div class="cs-decision">
+    <div class="cs-dec-card chose"><h4>Chose: per-box settlement</h4><p>Each box celebrates or loses on its own. A push on seat one shouldn't mute a blackjack on seat three.</p></div>
+    <div class="cs-dec-card rejected"><h4>Rejected: round-summary settlement</h4><p>One "you won 12" toast is efficient and lifeless. It also hides which decisions made money, which is exactly what multi-seat players study.</p></div>
+  </div>
+  <div class="cs-callout"><p>v2 takes on the genuinely hard interaction: split and insurance inside multi-seat, where a single box can fork into two hands without breaking the whose-turn clarity the game is built on.</p></div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <a href="hammerking.html" class="cs-next"><div><span>Next game</span><br><strong>Hammer King: a crash game with a body</strong></div><span class="work-arrow">&nearr;</span></a>
+</div></section>
+
+<!-- Game demo player -->
+<div class="game-modal" id="gameModal" hidden>
+  <div class="game-modal-backdrop" data-close></div>
+  <div class="game-modal-box">
+    <div class="game-modal-bar">
+      <strong id="gameModalTitle">Game</strong>
+      <span class="game-demo-pill">Demo mode &middot; no real money</span>
+      <button class="game-modal-close" type="button" data-close aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="game-modal-frame"><iframe id="gameFrame" title="Game demo" allow="fullscreen; autoplay" loading="lazy"></iframe></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span>&copy; 2026 Beka Jikurishvili</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js?v=19"></script>
+</body>
+</html>

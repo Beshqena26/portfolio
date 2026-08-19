@@ -167,21 +167,32 @@ if (burger && overlay && backdrop && closeBtn) {
   var frame = document.getElementById('gameFrame');
   var title = document.getElementById('gameModalTitle');
 
+  function openGame(name, url) {
+    title.textContent = name || 'Game';
+    frame.src = url;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  // grid cards: data-play on the .gcard enables its button
   document.querySelectorAll('.gcard').forEach(function (card) {
     var url = card.getAttribute('data-play');
     var btn = card.querySelector('.gcard-play');
     var soon = card.querySelector('.gcard-soon');
-    if (!btn) return;
-    if (url) {
-      btn.hidden = false;
-      if (soon) soon.hidden = true;
-      btn.addEventListener('click', function () {
-        title.textContent = card.getAttribute('data-title') || 'Game';
-        frame.src = url;
-        modal.hidden = false;
-        document.body.style.overflow = 'hidden';
-      });
-    }
+    if (!btn || !url) return;
+    btn.hidden = false;
+    if (soon) soon.hidden = true;
+    btn.addEventListener('click', function () { openGame(card.getAttribute('data-title'), url); });
+  });
+
+  // standalone buttons (game case-study pages): data-play + data-title on the button itself
+  document.querySelectorAll('.play-demo-btn').forEach(function (btn) {
+    var url = btn.getAttribute('data-play');
+    var soon = btn.parentElement ? btn.parentElement.querySelector('.gcard-soon') : null;
+    if (!url) return;
+    btn.hidden = false;
+    if (soon) soon.hidden = true;
+    btn.addEventListener('click', function () { openGame(btn.getAttribute('data-title'), url); });
   });
 
   function closeModal() {
