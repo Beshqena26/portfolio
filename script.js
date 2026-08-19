@@ -1,3 +1,25 @@
+// Language-aware UI strings (EN default; Georgian on /ka/ pages via <html lang="ka">)
+var IS_KA = document.documentElement.lang === 'ka';
+var T = IS_KA ? {
+  words: ['', 'ცუდი', 'საშუალო', 'კარგი', 'მაგარი', 'შესანიშნავი'],
+  pickRating: 'ჯერ ვარსკვლავებით შეაფასე.',
+  addNameMsg: 'დაწერე სახელი და მოკლე შეფასება.',
+  posting: 'იგზავნება…',
+  sent: 'მადლობა! შეფასება გაიგზავნა და დადასტურების შემდეგ აქვე გამოჩნდება.',
+  emailFallback: 'მადლობა! ვხსნი შენს მეილს გასაგზავნად. უბრალოდ დააჭირე გაგზავნას.',
+  tapToRate: 'შეაფასე',
+  game: 'თამაში'
+} : {
+  words: ['', 'Poor', 'Fair', 'Good', 'Great', 'Excellent'],
+  pickRating: 'Please pick a star rating first.',
+  addNameMsg: 'Please add your name and a short message.',
+  posting: 'Posting…',
+  sent: 'Thanks! Your review was sent. It will appear here once approved.',
+  emailFallback: 'Thanks! Opening your email to send it. Just hit send.',
+  tapToRate: 'Tap to rate',
+  game: 'Game'
+};
+
 // Scroll animations
 var obs = new IntersectionObserver(function(entries) {
   entries.forEach(function(e) {
@@ -98,7 +120,7 @@ if (burger && overlay && backdrop && closeBtn) {
   var label = document.getElementById('rateLabel');
   var note = document.getElementById('reviewNote');
   var rating = 0;
-  var words = ['', 'Poor', 'Fair', 'Good', 'Great', 'Excellent'];
+  var words = T.words;
   function paint(n) { stars.forEach(function (s, i) { s.classList.toggle('on', i < n); }); }
   stars.forEach(function (s) {
     s.addEventListener('mouseenter', function () { paint(+s.dataset.v); });
@@ -138,21 +160,21 @@ if (burger && overlay && backdrop && closeBtn) {
     var role = document.getElementById('revRole').value.trim();
     var msg = document.getElementById('revMsg').value.trim();
     var hp = document.getElementById('revHp').value;
-    if (!rating) { note.className = 'review-note err'; note.textContent = 'Please pick a star rating first.'; return; }
-    if (!name || !msg) { note.className = 'review-note err'; note.textContent = 'Please add your name and a short message.'; return; }
+    if (!rating) { note.className = 'review-note err'; note.textContent = T.pickRating; return; }
+    if (!name || !msg) { note.className = 'review-note err'; note.textContent = T.addNameMsg; return; }
     var btn = form.querySelector('.review-submit');
-    btn.disabled = true; note.className = 'review-note'; note.textContent = 'Posting…';
+    btn.disabled = true; note.className = 'review-note'; note.textContent = T.posting;
     fetch('/api/reviews', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ rating: rating, name: name, role: role, message: msg, hp: hp })
     }).then(function (r) { return r.status === 200 ? r.json() : Promise.reject(r.status); })
       .then(function () {
-        note.className = 'review-note ok'; note.textContent = 'Thanks! Your review was sent. It will appear here once approved.';
-        form.reset(); rating = 0; paint(0); label.textContent = 'Tap to rate';
+        note.className = 'review-note ok'; note.textContent = T.sent;
+        form.reset(); rating = 0; paint(0); label.textContent = T.tapToRate;
       })
       .catch(function (code) {
         // store not connected (501) or error -> email fallback
-        note.className = 'review-note ok'; note.textContent = 'Thanks! Opening your email to send it — just hit send.';
+        note.className = 'review-note ok'; note.textContent = T.emailFallback;
         emailFallback(name, role, msg);
       })
       .finally(function () { btn.disabled = false; });
@@ -168,7 +190,7 @@ if (burger && overlay && backdrop && closeBtn) {
   var title = document.getElementById('gameModalTitle');
 
   function openGame(name, url) {
-    title.textContent = name || 'Game';
+    title.textContent = name || T.game;
     frame.src = url;
     modal.hidden = false;
     document.body.style.overflow = 'hidden';

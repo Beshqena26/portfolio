@@ -811,3 +811,7 @@ img.persona-ava{object-fit:cover;padding:0;background:var(--surface2)}
 .notes-list .srv-num{font-size:10px;letter-spacing:.08em;white-space:nowrap}
 .notes-list .srv-row{color:inherit}
 .notes-list .srv-row:hover h3{color:var(--accent)}
+
+/* ===== LANGUAGE SWITCH ===== */
+.lang-switch{display:inline-flex;align-items:center;justify-content:center;min-width:38px;height:34px;padding:0 10px;border-radius:var(--r-s);background:var(--glass-fill);border:1px solid var(--glass-border);color:var(--text2);font-size:12px;font-weight:700;letter-spacing:.04em;transition:all .2s;flex-shrink:0}
+.lang-switch:hover{color:var(--text);border-color:var(--selected-border);background:var(--selected-fill)}
