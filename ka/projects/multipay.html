@@ -575,7 +575,7 @@
 document.querySelectorAll('.ds-swatch').forEach(function(sw){
   sw.addEventListener('click',function(){
     var hex=sw.getAttribute('data-hex'),label=sw.querySelector('span'),old=label.textContent;
-    function done(){sw.classList.add('copied');label.textContent='Copied!';setTimeout(function(){sw.classList.remove('copied');label.textContent=old},1200)}
+    function done(){sw.classList.add('copied');label.textContent='დაკოპირდა!';setTimeout(function(){sw.classList.remove('copied');label.textContent=old},1200)}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(hex).then(done,done)}else{done()}
   });
 });

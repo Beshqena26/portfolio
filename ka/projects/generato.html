@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Generato UX Case Study | Beka Jikurishvili</title>
-<meta name="description" content="Generato UX case study: redesigning an AI image generator. Research, journey map, IA, wireframes, prompt strength meter, and results.">
-<meta property="og:title" content="Generato: one workspace from prompt to production">
+<title>Generato UX ქეისი | ბექა ჯიკურიშვილი</title>
+<meta name="description" content="Generato-ს UX ქეისი: AI სურათების გენერატორის რედიზაინი. კვლევა, მოგზაურობის რუკა, IA, ვაირფრეიმები, პრომპტის სიძლიერის მზომი და შედეგები.">
+<meta property="og:title" content="Generato: ერთი სამუშაო სივრცე პრომპტიდან მზა სურათამდე">
 <meta property="og:description" content="AI image platform · 92% of first-timers succeed in under 5 minutes.">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://jikurishvili.com/assets/og/generato.jpg">
-<meta property="og:url" content="https://jikurishvili.com/projects/generato.html">
-<link rel="canonical" href="https://jikurishvili.com/projects/generato.html">
+<meta property="og:locale" content="ka_GE">
+<meta property="og:url" content="https://jikurishvili.com/ka/projects/generato.html">
+<link rel="canonical" href="https://jikurishvili.com/ka/projects/generato.html">
 <link rel="alternate" hreflang="en" href="https://jikurishvili.com/projects/generato.html">
 <link rel="alternate" hreflang="ka" href="https://jikurishvili.com/ka/projects/generato.html">
 <link rel="alternate" hreflang="x-default" href="https://jikurishvili.com/projects/generato.html">
@@ -19,7 +20,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=30">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v=32">
+<style>body{font-family:'Gilroy','Noto Sans Georgian',system-ui,sans-serif}.nav-menu{gap:20px}.nav-menu a{font-size:13px;white-space:nowrap}</style>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -839,16 +842,16 @@ a{color:inherit;text-decoration:none}
 
 <header class="nav" id="nav">
   <div class="nav-inner">
-    <a href="../index.html" class="nav-logo"><img src="../assets/thumbs/avatar.jpg?v=3" alt="Beka" class="nav-avatar">Beka Jikurishvili</a>
+    <a href="/ka/" class="nav-logo"><img src="/assets/thumbs/avatar.jpg?v=3" alt="ბექა" class="nav-avatar">ბექა ჯიკურიშვილი</a>
     <div class="nav-menu" id="navMenu">
-      <a href="../index.html#work">Work</a>
-      <a href="../index.html#about">About</a>
-      <a href="../index.html#services">Services</a>
-      <a href="../index.html#contact">Contact</a>
+      <a href="/ka/#work">ნამუშევრები</a>
+      <a href="/ka/#games">თამაშები</a>
+      <a href="/ka/#about">ჩემ შესახებ</a>
+      <a href="/ka/#contact">კონტაქტი</a>
     </div>
     <div class="nav-actions">
-      <a href="/ka/projects/generato.html" class="lang-switch" title="ქართულად ნახვა">ქა</a>
-      <a href="../index.html#contact" class="nav-cta">Let's Talk</a>
+      <a href="/projects/generato.html" class="lang-switch" title="Read in English">EN</a>
+      <a href="/ka/#contact" class="nav-cta">მომწერე</a>
     </div>
   </div>
 </header>
@@ -856,20 +859,20 @@ a{color:inherit;text-decoration:none}
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero__top">
-    <div class="hero__eyebrow">Selected Work &middot; Case Study 01</div>
+    <div class="hero__eyebrow">რჩეული ნამუშევრები &middot; ქეისი 01</div>
   </div>
   <div class="hero__content">
     <h1 class="hero__title" data-split="word"><span class="word-wrap"><span class="word">Generato</span></span></h1>
-    <p class="hero__lede">An AI image generator, redesigned so first-time users can describe what they <em>see in their head</em>, and actually get it back.</p>
+    <p class="hero__lede">AI სურათების გენერატორი, ისე გადაკეთებული, რომ ახალბედამ ის აღწეროს, რასაც <em>თავში ხედავს</em>, და მართლა ეგ მიიღოს.</p>
   </div>
   <div class="hero__bottom">
     <dl class="hero__meta">
-      <div class="hero__meta-item"><dt>Role</dt><dd>Lead Product Designer</dd></div>
-      <div class="hero__meta-item"><dt>Timeline</dt><dd>12 Weeks</dd></div>
-      <div class="hero__meta-item"><dt>Team</dt><dd>3 Eng &middot; 1 PM</dd></div>
-      <div class="hero__meta-item"><dt>Year</dt><dd>2024</dd></div>
+      <div class="hero__meta-item"><dt>როლი</dt><dd>წამყვანი პროდუქტის დიზაინერი</dd></div>
+      <div class="hero__meta-item"><dt>ვადა</dt><dd>12 კვირა</dd></div>
+      <div class="hero__meta-item"><dt>გუნდი</dt><dd>3 დეველოპერი &middot; 1 PM</dd></div>
+      <div class="hero__meta-item"><dt>წელი</dt><dd>2024</dd></div>
     </dl>
-    <div class="hero__scroll"><span></span>Scroll</div>
+    <div class="hero__scroll"><span></span>დასქროლე</div>
   </div>
 </section>
 
@@ -884,9 +887,9 @@ a{color:inherit;text-decoration:none}
   <div class="dark-glow"></div>
   <div class="morph-blob" style="width:420px;height:420px;background:#CAFF00;top:10%;left:15%"></div>
   <div class="morph-blob" style="width:340px;height:340px;background:#DBFF66;bottom:10%;right:15%;animation-delay:3s"></div>
-  <p class="showcase__label rv rv--blur">The Product</p>
+  <p class="showcase__label rv rv--blur">პროდუქტი</p>
   <div class="w rv rv--scale">
-    <div class="ph ph--hero ph--dark"><img class="ph-shot" src="../assets/case/generato/d-generated.jpg" alt="Generato workspace with generated image" loading="lazy" style="object-position:top"></div>
+    <div class="ph ph--hero ph--dark"><img class="ph-shot" src="/assets/case/generato/d-generated.jpg" alt="Generato workspace with generated image" loading="lazy" style="object-position:top"></div>
   </div>
 </div>
 
@@ -895,13 +898,13 @@ a{color:inherit;text-decoration:none}
 <div class="dark" data-darkglow style="padding:clamp(80px,14vh,180px) 0">
   <div class="dark-glow"></div>
   <div class="morph-blob" style="width:380px;height:380px;background:#CAFF00;top:15%;right:12%;animation-delay:2s"></div>
-  <p class="showcase__label rv rv--blur">Same system, in your pocket</p>
+  <p class="showcase__label rv rv--blur">იგივე სისტემა, შენს ჯიბეში</p>
   <div class="phone-row rv rv--scale">
-    <div class="phone"><img src="../assets/case/generato/m-gen1.jpg" alt="Mobile generation result" loading="lazy"></div>
-    <div class="phone phone--lift"><img src="../assets/case/generato/m-styles.jpg" alt="Mobile style picker sheet" loading="lazy"></div>
-    <div class="phone"><img src="../assets/case/generato/m-lighting.jpg" alt="Mobile lighting picker" loading="lazy"></div>
-    <div class="phone phone--lift"><img src="../assets/case/generato/m-bgresult.jpg" alt="Background remover result, dog cutout" loading="lazy"></div>
-    <div class="phone"><img src="../assets/case/generato/m-credits.jpg" alt="Out of credits state" loading="lazy"></div>
+    <div class="phone"><img src="/assets/case/generato/m-gen1.jpg" alt="Mobile generation result" loading="lazy"></div>
+    <div class="phone phone--lift"><img src="/assets/case/generato/m-styles.jpg" alt="Mobile style picker sheet" loading="lazy"></div>
+    <div class="phone"><img src="/assets/case/generato/m-lighting.jpg" alt="Mobile lighting picker" loading="lazy"></div>
+    <div class="phone phone--lift"><img src="/assets/case/generato/m-bgresult.jpg" alt="Background remover result, dog cutout" loading="lazy"></div>
+    <div class="phone"><img src="/assets/case/generato/m-credits.jpg" alt="Out of credits state" loading="lazy"></div>
   </div>
 </div>
 
@@ -909,46 +912,46 @@ a{color:inherit;text-decoration:none}
 <section class="problem">
   <div class="w">
     <div class="problem__head">
-      <p class="ey rv">01 &middot; The Problem</p>
+      <p class="ey rv">01 &middot; პრობლემა</p>
       <p class="problem__num rv rv-d1">47%</p>
-      <h2 class="problem__sub rv rv-d2">of new users were churning in their first session.</h2>
-      <p class="problem__desc rv rv-d2">Six weeks of model tuning hadn't moved the needle. The numbers said it was a product problem, not an AI one.</p>
+      <h2 class="problem__sub rv rv-d2">ახალი მომხმარებლებისა პირველივე სესიაზე მიდიოდა.</h2>
+      <p class="problem__desc rv rv-d2">მოდელის ექვსკვირიან წვრთნას ისარი არ დაუძრავს. ციფრები ამბობდა, რომ პრობლემა პროდუქტში იყო და არა AI-ში.</p>
     </div>
     <div class="problem-cards stagger">
       <div class="pc rv">
         <div class="pc__num">01</div>
-        <h3>Prompt anxiety</h3>
-        <p>Users didn't know the magic words. Empty field, blank stare, deleted draft.</p>
+        <h3>პრომპტის შფოთვა</h3>
+        <p>მომხმარებლებმა ჯადოსნური სიტყვები არ იცოდნენ. ცარიელი ველი, გაშეშებული მზერა, წაშლილი მონახაზი.</p>
       </div>
       <div class="pc rv">
         <div class="pc__num">02</div>
-        <h3>No feedback loop</h3>
-        <p>40&#8209;second generations with zero signal. Blind attempts, silent failures.</p>
+        <h3>უკუკავშირის გარეშე</h3>
+        <p>40-წამიანი გენერაციები ნულოვანი სიგნალით. ბრმა მცდელობები, ჩუმი ჩავარდნები.</p>
       </div>
       <div class="pc rv">
         <div class="pc__num">03</div>
-        <h3>Interface overload</h3>
-        <p>Ten expert controls shoved onto a first-time user. Choice paralysis.</p>
+        <h3>ინტერფეისის გადატვირთვა</h3>
+        <p>ათი საექსპერტო კონტროლი, ახალბედას რომ მიაჩეჩეს. არჩევანის პარალიჩი.</p>
       </div>
     </div>
 
     <!-- PULLQUOTE -->
     <blockquote class="pullquote rv">
-      <p>"We don't need a redesign. We need a better model."</p>
-      <cite>Founding CTO, kickoff meeting</cite>
+      <p>«რედიზაინი არ გვჭირდება. უკეთესი მოდელი გვჭირდება».</p>
+      <cite>დამფუძნებელი CTO, საწყისი შეხვედრა</cite>
     </blockquote>
 
     <!-- BEFORE / AFTER SLIDER -->
     <div style="margin-top:clamp(80px,12vh,160px)">
-      <div class="compare-arrow rv"><span>The Resolution Upscaler, drag right for 4K, left for standard</span></div>
+      <div class="compare-arrow rv"><span>გარჩევადობის გამზრდელი: გასწიე მარჯვნივ 4K-სთვის, მარცხნივ სტანდარტულისთვის</span></div>
       <div class="ab-wrap">
         <div class="ab" id="ab" style="--x:4%;--xn:0.04">
-          <div class="ab__layer ab__old"><img src="../assets/case/generato/ab-lq.jpg" alt="Standard low-resolution AI output" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
-          <div class="ab__layer ab__new"><img src="../assets/case/generato/ab-hq.jpg" alt="Same image after 4K AI upscaling" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
-          <span class="ab__label ab__label--before">&larr; Standard</span>
-          <span class="ab__label ab__label--after">4K Upscaled &rarr;</span>
+          <div class="ab__layer ab__old"><img src="/assets/case/generato/ab-lq.jpg" alt="Standard low-resolution AI output" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+          <div class="ab__layer ab__new"><img src="/assets/case/generato/ab-hq.jpg" alt="Same image after 4K AI upscaling" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+          <span class="ab__label ab__label--before">&larr; სტანდარტული</span>
+          <span class="ab__label ab__label--after">4K გაზრდილი &rarr;</span>
           <div class="ab__handle"><div class="ab__knob"></div></div>
-          <span class="ab__hint">Drag right to upscale</span>
+          <span class="ab__hint">გასწიე მარჯვნივ</span>
         </div>
       </div>
     </div>
@@ -959,23 +962,23 @@ a{color:inherit;text-decoration:none}
 <section class="research">
   <div class="w">
     <div class="research__head rv">
-      <div class="research__title stroke-text rv underline-expand">8 interviews.<br>800+ surveys.</div>
-      <p class="research__sub">Three patterns kept repeating across every conversation.</p>
+      <div class="research__title stroke-text rv underline-expand">8 ინტერვიუ.<br>800+ გამოკითხვა.</div>
+      <p class="research__sub">სამი შაბლონი ყველა საუბარში მეორდებოდა.</p>
     </div>
     <div class="notes stagger">
-      <div class="note note--y rv rv--rotate" style="--r:-2deg"><strong>Prompt Anxiety</strong>"I don't know the magic words to make it work"</div>
-      <div class="note note--p rv rv--rotate" style="--r:1.5deg"><strong>No Feedback</strong>"Did I type enough? There's no way to tell"</div>
-      <div class="note note--b rv rv--rotate" style="--r:-1deg"><strong>Overload</strong>"Too many settings, I just want to generate"</div>
-      <div class="note note--g rv rv--rotate" style="--r:2deg"><strong>Trial & Error</strong>"I guess randomly until something works"</div>
-      <div class="note note--o rv rv--rotate" style="--r:1deg"><strong>Copy-Paste</strong>"I copy prompts from Reddit"</div>
-      <div class="note note--y rv rv--rotate" style="--r:-1.5deg"><strong>Wasted Time</strong>"45 seconds and it's usually wrong"</div>
-      <div class="note note--p rv rv--rotate" style="--r:.5deg"><strong>No Learning</strong>"I can't figure out what makes a good prompt"</div>
-      <div class="note note--b rv rv--rotate" style="--r:-2.5deg"><strong>Intimidation</strong>"This tool is made for experts, not me"</div>
+      <div class="note note--y rv rv--rotate" style="--r:-2deg"><strong>პრომპტის შფოთვა</strong>«არ ვიცი ჯადოსნური სიტყვები, რომ იმუშაოს»</div>
+      <div class="note note--p rv rv--rotate" style="--r:1.5deg"><strong>უკუკავშირი არაა</strong>«საკმარისი დავწერე? ვერაფრით გავიგებ»</div>
+      <div class="note note--b rv rv--rotate" style="--r:-1deg"><strong>გადატვირთვა</strong>«ძალიან ბევრი პარამეტრია, უბრალოდ გენერაცია მინდა»</div>
+      <div class="note note--g rv rv--rotate" style="--r:2deg"><strong>ცდა და შეცდომა</strong>«შემთხვევით ვცდი, სანამ რამე გამოვა»</div>
+      <div class="note note--o rv rv--rotate" style="--r:1deg"><strong>კოპი-პეისტი</strong>«პრომპტებს Reddit-იდან ვიწერ»</div>
+      <div class="note note--y rv rv--rotate" style="--r:-1.5deg"><strong>დაკარგული დრო</strong>«45 წამი და უმეტესად მცდარია»</div>
+      <div class="note note--p rv rv--rotate" style="--r:.5deg"><strong>სწავლა არაა</strong>«ვერ გავიგე, რა ხდის პრომპტს კარგს»</div>
+      <div class="note note--b rv rv--rotate" style="--r:-2.5deg"><strong>დაშინება</strong>«ეს ინსტრუმენტი ექსპერტებისთვისაა და არა ჩემთვის»</div>
     </div>
     <div class="stats stagger">
-      <div class="stat rv rv--zoom"><div class="stat__num" data-target="73" data-suffix="%">0</div><div class="stat__desc">Said prompt confidence<br>was #1 frustration</div></div>
-      <div class="stat rv rv--zoom"><div class="stat__num" data-target="88" data-suffix="%">0</div><div class="stat__desc">Never read a<br>prompting guide</div></div>
-      <div class="stat rv rv--zoom"><div class="stat__num" data-target="47" data-suffix="%">0</div><div class="stat__desc">Churned in<br>first session</div></div>
+      <div class="stat rv rv--zoom"><div class="stat__num" data-target="73" data-suffix="%">0</div><div class="stat__desc">თქვა, რომ პრომპტის თავდაჯერება<br>#1 პრობლემა იყო</div></div>
+      <div class="stat rv rv--zoom"><div class="stat__num" data-target="88" data-suffix="%">0</div><div class="stat__desc">არასდროს წაუკითხავს<br>პრომპტინგის გზამკვლევი</div></div>
+      <div class="stat rv rv--zoom"><div class="stat__num" data-target="47" data-suffix="%">0</div><div class="stat__desc">წავიდა პირველივე<br>სესიაზე</div></div>
     </div>
   </div>
 </section>
@@ -992,7 +995,7 @@ a{color:inherit;text-decoration:none}
   <div class="glow-dot" style="width:200px;height:200px;background:rgba(255,140,90,.06);bottom:15%;right:15%;animation-delay:2s"></div>
   <div class="morph-blob" style="width:350px;height:350px;background:#CAFF00;top:30%;right:20%;animation-delay:2s"></div>
   <div class="rv rv--blur">
-    <p class="insight__text" data-split="word">The problem wasn't the AI.<br>It was the gap between what users <em>imagined</em> and what they could <em>describe</em>.</p>
+    <p class="insight__text" data-split="word">პრობლემა AI არ იყო.<br>პრობლემა იყო უფსკრული იმას შორის, რასაც მომხმარებლები <em>წარმოიდგენდნენ</em> და რის <em>აღწერასაც</em> ახერხებდნენ.</p>
   </div>
 </div>
 
@@ -1001,40 +1004,40 @@ a{color:inherit;text-decoration:none}
   <div class="w">
     <!-- Hero heading -->
     <div class="process__hero">
-      <p class="process__title split-line rv"><span class="line">How I</span><span class="line">solved it.</span></p>
-      <p class="process__desc rv rv-d1">From user stories to wireframes, the artifacts I produced to turn three research themes into a concrete redesign.</p>
+      <p class="process__title split-line rv"><span class="line">როგორ</span><span class="line">მოვაგვარე.</span></p>
+      <p class="process__desc rv rv-d1">იუზერ-სთორებიდან ვაირფრეიმებამდე: არტეფაქტები, რომლებითაც კვლევის სამი თემა კონკრეტულ რედიზაინად ვაქციე.</p>
     </div>
 
     <div class="process__steps">
 
       <!-- Step 1: User Stories -->
       <div class="process__step">
-        <div class="process__step-label rv"><span class="process__step-num">1</span> User Stories</div>
+        <div class="process__step-label rv"><span class="process__step-num">1</span> იუზერ-სთორები</div>
         <div class="step-meta rv"><span>Week <b>03</b></span><span><b>24</b> stories drafted</span><span><b>3</b> prioritized</span><span>Framework <b>INVEST</b></span></div>
         <div class="step-body">
           <div class="step-body__main">
             <div class="stories stagger">
               <div class="story rv">
-                <div class="story__num">01 &middot; Beginner</div>
-                <div class="story__persona">Sam, first-time user</div>
-                <p class="story__text">As a first-time user, I want to <em>describe scenes in plain English</em> so that I don't have to learn prompt engineering before I see a result.</p>
-                <div class="story__need">Solves: Prompt Anxiety</div>
+                <div class="story__num">01 &middot; ახალბედა</div>
+                <div class="story__persona">სემი, პირველად მოსული</div>
+                <p class="story__text">როგორც ახალბედას, მინდა <em>სცენა ჩვეულებრივი ენით აღვწერო</em>, რომ შედეგის ნახვამდე პრომპტ-ინჟინერიის სწავლა არ დამჭირდეს.</p>
+                <div class="story__need">ხსნის: პრომპტის შფოთვას</div>
               </div>
               <div class="story rv">
-                <div class="story__num">02 &middot; Marketer</div>
-                <div class="story__persona">Jamie, content creator</div>
-                <p class="story__text">As a creator on a credit budget, I want to <em>know if my prompt is strong</em> before I generate, so that I stop burning runs on weak inputs.</p>
-                <div class="story__need">Solves: No Feedback Loop</div>
+                <div class="story__num">02 &middot; მარკეტოლოგი</div>
+                <div class="story__persona">ჯეიმი, კონტენტის შემქმნელი</div>
+                <p class="story__text">როგორც კრედიტების ბიუჯეტზე მჯდომ შემქმნელს, მინდა გენერაციამდე <em>ვიცოდე, ძლიერია თუ არა ჩემი პრომპტი</em>, რომ სუსტ ტექსტებზე გაშვებები აღარ დავწვა.</p>
+                <div class="story__need">ხსნის: უკუკავშირის არქონას</div>
               </div>
               <div class="story rv">
-                <div class="story__num">03 &middot; Returning</div>
-                <div class="story__persona">Alex, casual designer</div>
-                <p class="story__text">As a returning user, I want the interface to <em>stay out of my way</em> so that I can focus on the image I'm trying to make, not the controls around it.</p>
-                <div class="story__need">Solves: Interface Overload</div>
+                <div class="story__num">03 &middot; დაბრუნებული</div>
+                <div class="story__persona">ალექსი, მოყვარული დიზაინერი</div>
+                <p class="story__text">როგორც დაბრუნებულ მომხმარებელს, მინდა ინტერფეისი <em>გზაზე არ მედგას</em>, რომ იმ სურათზე ვიფიქრო, რომელსაც ვქმნი, და არა კონტროლებზე მის გარშემო.</p>
+                <div class="story__need">ხსნის: ინტერფეისის გადატვირთვას</div>
               </div>
             </div>
             <div class="stories-cut rv">
-              <div class="stories-cut__label">On the cutting floor &middot; 21 others</div>
+              <div class="stories-cut__label">მოჭრილები &middot; კიდევ 21</div>
               <div class="stories-cut__list">
                 <span class="stories-cut__item">Collaborate on a prompt in real time</span>
                 <span class="stories-cut__item">Generate from voice input</span>
@@ -1048,89 +1051,89 @@ a{color:inherit;text-decoration:none}
             </div>
           </div>
           <aside class="step-aside rv rv-d1">
-            <div class="step-aside__eyebrow">Designer note</div>
-            <p class="step-aside__note">Twenty-four stories came out of the interviews, but most of them were <em>features</em>, not <em>problems</em>. I kept cutting until three stayed, the three that mapped directly back to the research themes.</p>
-            <p class="step-aside__note">Every story that survived had to fix something a real person said out loud in an interview. No speculative ones.</p>
-            <div class="step-aside__decision">Kept only what research earned</div>
+            <div class="step-aside__eyebrow">დიზაინერის შენიშვნა</div>
+            <p class="step-aside__note">ინტერვიუებიდან ოცდაოთხი სთორი გამოვიდა, მაგრამ უმეტესობა <em>ფუნქცია</em> იყო და არა <em>პრობლემა</em>. ვჭრიდი, სანამ სამი დარჩა, ის სამი, რომელიც პირდაპირ კვლევის თემებს უბრუნდებოდა.</p>
+            <p class="step-aside__note">ყოველ გადარჩენილ სთორის ისეთი რამ უნდა გამოესწორებინა, რაც რეალურმა ადამიანმა ინტერვიუზე ხმამაღლა თქვა. სპეკულაციურები არა.</p>
+            <div class="step-aside__decision">დარჩა მხოლოდ ის, რაც კვლევამ დაიმსახურა</div>
           </aside>
         </div>
       </div>
 
       <!-- Step 2: Journey Map -->
       <div class="process__step">
-        <div class="process__step-label rv"><span class="process__step-num">2</span> Journey Map &middot; current state</div>
+        <div class="process__step-label rv"><span class="process__step-num">2</span> მოგზაურობის რუკა &middot; არსებული მდგომარეობა</div>
         <div class="step-meta rv"><span>Week <b>04</b></span><span><b>8</b> interviews synthesized</span><span><b>5</b> stages mapped</span><span><b>47%</b> churn at Stage 05</span></div>
         <div class="step-body step-body--wide">
           <div class="step-body__main">
         <div class="jmap rv rv--scale">
           <div class="jmap__grid">
             <div class="jmap__col">
-              <div class="jmap__stage">Discover</div>
+              <div class="jmap__stage">აღმოჩენა</div>
               <div class="jmap__step">Stage 01</div>
-              <div class="jmap__action">Hears about Generato from a friend, signs up, lands on an empty prompt field.</div>
-              <div class="jmap__thought">"Cool, let me just type something and see what happens."</div>
-              <div class="jmap__feel jmap__feel--good"><span class="jmap__feel-dot"></span>Hopeful</div>
-              <div class="jmap__pain"><strong>Friction</strong>No onboarding, no examples, a blank canvas.</div>
+              <div class="jmap__action">Generato-ზე მეგობრისგან იგებს, რეგისტრირდება, ცარიელ პრომპტის ველზე ეშვება.</div>
+              <div class="jmap__thought">«კარგი, რამეს დავწერ და ვნახოთ, რა მოხდება».</div>
+              <div class="jmap__feel jmap__feel--good"><span class="jmap__feel-dot"></span>იმედიანი</div>
+              <div class="jmap__pain"><strong>ხახუნი</strong>არც ონბორდინგი, არც მაგალითები, ცარიელი ტილო.</div>
             </div>
             <div class="jmap__col">
-              <div class="jmap__stage">Try</div>
+              <div class="jmap__stage">ცდა</div>
               <div class="jmap__step">Stage 02</div>
-              <div class="jmap__action">Types "a cat sitting on a chair" and hits generate. Waits 45 seconds.</div>
-              <div class="jmap__thought">"Is there a trick to this? It looks kind of flat."</div>
-              <div class="jmap__feel jmap__feel--mid"><span class="jmap__feel-dot"></span>Unsure</div>
-              <div class="jmap__pain"><strong>Friction</strong>No preview of prompt quality before spending credits.</div>
+              <div class="jmap__action">წერს «a cat sitting on a chair» და აჭერს გენერაციას. ელოდება 45 წამს.</div>
+              <div class="jmap__thought">«რამე ხრიკი ხომ არაა? რაღაც უსიცოცხლოდ გამოიყურება».</div>
+              <div class="jmap__feel jmap__feel--mid"><span class="jmap__feel-dot"></span>დაეჭვებული</div>
+              <div class="jmap__pain"><strong>ხახუნი</strong>პრომპტის ხარისხი კრედიტების დახარჯვამდე არ ჩანს.</div>
             </div>
             <div class="jmap__col">
-              <div class="jmap__stage">Fail</div>
+              <div class="jmap__stage">ჩავარდნა</div>
               <div class="jmap__step">Stage 03</div>
-              <div class="jmap__action">Result is blurry and off-composition. Opens advanced settings, doesn't recognize half the labels.</div>
-              <div class="jmap__thought">"Wait, what's CFG scale? Am I supposed to know this?"</div>
-              <div class="jmap__feel jmap__feel--bad"><span class="jmap__feel-dot"></span>Intimidated</div>
-              <div class="jmap__pain"><strong>Friction</strong>Expert controls dumped on a beginner with no explanation.</div>
+              <div class="jmap__action">შედეგი ბუნდოვანი და აწყვეტილი კომპოზიციისაა. ხსნის დამატებით პარამეტრებს, ნახევარ სახელს ვერ ცნობს.</div>
+              <div class="jmap__thought">«მოიცა, CFG scale რა არის? ეს უნდა ვიცოდე?»</div>
+              <div class="jmap__feel jmap__feel--bad"><span class="jmap__feel-dot"></span>დაფრთხობილი</div>
+              <div class="jmap__pain"><strong>ხახუნი</strong>საექსპერტო კონტროლები ახალბედას აუხსნელად დააყარეს.</div>
             </div>
             <div class="jmap__col">
-              <div class="jmap__stage">Retry</div>
+              <div class="jmap__stage">თავიდან ცდა</div>
               <div class="jmap__step">Stage 04</div>
-              <div class="jmap__action">Copies a prompt from Reddit, tweaks random sliders, generates again.</div>
-              <div class="jmap__thought">"I have no idea what I changed or why it worked."</div>
-              <div class="jmap__feel jmap__feel--bad"><span class="jmap__feel-dot"></span>Frustrated</div>
-              <div class="jmap__pain"><strong>Friction</strong>Nothing to learn from, trial and error with no feedback.</div>
+              <div class="jmap__action">იწერს პრომპტს Reddit-იდან, შემთხვევით სლაიდერებს ამოძრავებს, ისევ აგენერირებს.</div>
+              <div class="jmap__thought">«წარმოდგენა არ მაქვს, რა შევცვალე და რატომ იმუშავა».</div>
+              <div class="jmap__feel jmap__feel--bad"><span class="jmap__feel-dot"></span>იმედგაცრუებული</div>
+              <div class="jmap__pain"><strong>ხახუნი</strong>სასწავლი არაფერია: ცდა და შეცდომა უკუკავშირის გარეშე.</div>
             </div>
             <div class="jmap__col">
-              <div class="jmap__stage">Churn</div>
+              <div class="jmap__stage">წასვლა</div>
               <div class="jmap__step">Stage 05</div>
-              <div class="jmap__action">Closes the tab. Never comes back. 47% of first-session users drop off here.</div>
-              <div class="jmap__thought">"This tool's not for me."</div>
-              <div class="jmap__feel jmap__feel--bad"><span class="jmap__feel-dot"></span>Gave Up</div>
-              <div class="jmap__pain"><strong>Friction</strong>No reason to return, no progress, no hook, no win.</div>
+              <div class="jmap__action">ხურავს ტაბს. აღარ ბრუნდება. პირველი სესიის მომხმარებელთა 47% აქ ცვივა.</div>
+              <div class="jmap__thought">«ეს ინსტრუმენტი ჩემთვის არაა».</div>
+              <div class="jmap__feel jmap__feel--bad"><span class="jmap__feel-dot"></span>დანებებული</div>
+              <div class="jmap__pain"><strong>ხახუნი</strong>დაბრუნების მიზეზი არაა: არც პროგრესი, არც კაუჭი, არც მოგება.</div>
             </div>
           </div>
           <div class="jmap__curve">
             <svg viewBox="0 0 1000 80" preserveAspectRatio="none" role="img" aria-labelledby="jc-t"><title id="jc-t">Emotional arc</title>
               <path class="jmap__curve-area" d="M 0 20 C 150 10, 250 35, 400 55 S 650 80, 800 78 L 1000 80 L 1000 80 L 0 80 Z"/>
               <path class="jmap__curve-path" d="M 0 20 C 150 10, 250 35, 400 55 S 650 80, 800 78 L 1000 80"/>
-              <text class="jmap__curve-label" x="0" y="15">Emotional arc</text>
+              <text class="jmap__curve-label" x="0" y="15">ემოციური რკალი</text>
             </svg>
           </div>
         </div>
             <div class="jmap-verbatim rv">
-              <div class="jmap-verbatim__label">Interview verbatim &middot; P04</div>
-              <p class="jmap-verbatim__text">"I kept pressing generate hoping it would just figure out what I meant. By the fourth try I realized the tool wasn't going to meet me halfway."</p>
-              <div class="jmap-verbatim__cite">Returning user, churned session 2</div>
+              <div class="jmap-verbatim__label">ციტატა ინტერვიუდან &middot; P04</div>
+              <p class="jmap-verbatim__text">«ვაჭერდი გენერაციას იმ იმედით, რომ თვითონ მიხვდებოდა, რას ვგულისხმობდი. მეოთხე ცდაზე მივხვდი, რომ ინსტრუმენტი შუა გზაზე არ შემომეგებებოდა».</p>
+              <div class="jmap-verbatim__cite">დაბრუნებული მომხმარებელი, წავიდა მე-2 სესიაზე</div>
             </div>
           </div>
           <aside class="step-aside rv rv-d1">
-            <div class="step-aside__eyebrow">Designer note</div>
-            <p class="step-aside__note">The emotional arc was the unlock. Users weren't confused, they were <em>optimistic</em>, then slowly abandoned. The drop happens between Try and Fail, not at the start.</p>
-            <p class="step-aside__note">That shifted the redesign target from "onboarding" to "the second attempt." Most tools fix the first run. I had to fix the one after.</p>
-            <div class="step-aside__decision">Target: the second attempt</div>
+            <div class="step-aside__eyebrow">დიზაინერის შენიშვნა</div>
+            <p class="step-aside__note">გასაღები ემოციური რკალი აღმოჩნდა. მომხმარებლები დაბნეულები კი არა, <em>ოპტიმისტები</em> იყვნენ, რომლებიც ნელ-ნელა ნებდებოდნენ. ვარდნა ცდასა და ჩავარდნას შორის ხდება და არა დასაწყისში.</p>
+            <p class="step-aside__note">ამან რედიზაინის სამიზნე «ონბორდინგიდან» «მეორე მცდელობაზე» გადაიტანა. ინსტრუმენტების უმეტესობა პირველ გაშვებას ასწორებს. მე მისი მომდევნო უნდა გამესწორებინა.</p>
+            <div class="step-aside__decision">სამიზნე: მეორე მცდელობა</div>
           </aside>
         </div>
       </div>
 
       <!-- Step 3: Information Architecture -->
       <div class="process__step">
-        <div class="process__step-label rv"><span class="process__step-num">3</span> Information Architecture</div>
+        <div class="process__step-label rv"><span class="process__step-num">3</span> ინფორმაციული არქიტექტურა</div>
         <div class="step-meta rv"><span>Week <b>06</b></span><span><b>v1 &rarr; v3</b></span><span><b>8</b> top-level items &rarr; <b>4</b></span><span>Card sort <b>n=14</b></span></div>
         <div class="step-body">
           <div class="step-body__main">
@@ -1138,8 +1141,8 @@ a{color:inherit;text-decoration:none}
 
               <div class="ia-version ia-version--old rv">
                 <div class="ia-version__header">
-                  <div class="ia-version__v">v1 &middot; Audited, current product</div>
-                  <div class="ia-version__title">Everything at the top level.</div>
+                  <div class="ia-version__v">v1 &middot; აუდიტი, არსებული პროდუქტი</div>
+                  <div class="ia-version__title">ყველაფერი ზედა დონეზე.</div>
                 </div>
                 <svg class="ia-svg" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ia-old-t"><title id="ia-old-t">Old information architecture, flat</title>
                   <rect class="ia-node ia-root" x="370" y="10" width="160" height="44" rx="10" ry="10"/><text class="ia-label" x="450" y="37" text-anchor="middle">Generato</text>
@@ -1174,8 +1177,8 @@ a{color:inherit;text-decoration:none}
 
               <div class="ia-version ia-version--new rv">
                 <div class="ia-version__header">
-                  <div class="ia-version__v">v3 &middot; Chosen, prompt-centric</div>
-                  <div class="ia-version__title">Generate is the spine.</div>
+                  <div class="ia-version__v">v3 &middot; არჩეული, პრომპტზე ცენტრირებული</div>
+                  <div class="ia-version__title">Generate ხერხემალია.</div>
                 </div>
                 <svg class="ia-svg" viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ia-t"><title id="ia-t">New information architecture</title>
             <rect class="ia-node ia-root" x="370" y="10" width="160" height="44" rx="10" ry="10"/><text class="ia-label" x="450" y="37" text-anchor="middle">Generato</text>
@@ -1207,91 +1210,91 @@ a{color:inherit;text-decoration:none}
             </div>
           </div>
           <aside class="step-aside rv rv-d1">
-            <div class="step-aside__eyebrow">Designer note</div>
-            <p class="step-aside__note">The audit showed Generate sitting as one of <em>eight peer items</em> in the top bar. Visually, it read like Settings or Help. No wonder new users skimmed past it.</p>
-            <p class="step-aside__note">v2 tried to tuck half the siblings into a Browse hub. v3 won the card sort, Generate became the spine, everything else a satellite.</p>
-            <div class="step-aside__decision">One hero, three satellites</div>
+            <div class="step-aside__eyebrow">დიზაინერის შენიშვნა</div>
+            <p class="step-aside__note">აუდიტმა აჩვენა, რომ Generate ზედა ზოლში <em>რვა თანასწორი პუნქტიდან</em> ერთ-ერთად იჯდა. ვიზუალურად Settings-ივით ან Help-ივით იკითხებოდა. გასაკვირი არაა, რომ ახლები გვერდით ჩაუვლიდნენ.</p>
+            <p class="step-aside__note">v2-მ დების ნახევრის Browse ჰაბში შენახვა სცადა. ქარდ-სორთი v3-მა მოიგო: Generate ხერხემალი გახდა, დანარჩენი კი თანამგზავრები.</p>
+            <div class="step-aside__decision">ერთი გმირი, სამი თანამგზავრი</div>
           </aside>
         </div>
       </div>
 
       <!-- Step 4: User Flow -->
       <div class="process__step">
-        <div class="process__step-label rv"><span class="process__step-num">4</span> User Flow &middot; redesigned</div>
+        <div class="process__step-label rv"><span class="process__step-num">4</span> მომხმარებლის ნაკადი &middot; გადაკეთებული</div>
         <div class="step-meta rv"><span>Week <b>07</b></span><span><b>3</b> flow iterations</span><span><b>7</b> steps &rarr; <b>4</b></span><span>Validated <b>think-aloud</b> n=6</span></div>
         <div class="step-body">
           <div class="step-body__main">
         <div class="uflow rv rv--scale">
           <div class="uflow__step">
             <div class="uflow__step-num">01</div>
-            <div class="uflow__step-title">Write Prompt</div>
-            <p class="uflow__step-desc">Natural language, no jargon required. A single field greets the user with three example prompts underneath.</p>
-            <span class="uflow__step-tag">Plain English</span>
+            <div class="uflow__step-title">დაწერე პრომპტი</div>
+            <p class="uflow__step-desc">ბუნებრივი ენა, ჟარგონის გარეშე. ერთი ველი მომხმარებელს სამი სამაგალითო პრომპტით ხვდება.</p>
+            <span class="uflow__step-tag">ჩვეულებრივი ენა</span>
           </div>
           <div class="uflow__arrow">&rarr;</div>
           <div class="uflow__step">
             <div class="uflow__step-num">02</div>
-            <div class="uflow__step-title">AI Enhances</div>
-            <p class="uflow__step-desc">Suggestions appear inline for lighting, angle, and style. One tap to accept, users learn vocabulary naturally.</p>
-            <span class="uflow__step-tag">Inline assist</span>
+            <div class="uflow__step-title">AI აძლიერებს</div>
+            <p class="uflow__step-desc">შემოთავაზებები ველშივე ჩნდება: განათება, კუთხე, სტილი. ერთი შეხება მისაღებად, ლექსიკას მომხმარებლები ბუნებრივად სწავლობენ.</p>
+            <span class="uflow__step-tag">დახმარება ველშივე</span>
           </div>
           <div class="uflow__arrow">&rarr;</div>
           <div class="uflow__step">
             <div class="uflow__step-num">03</div>
-            <div class="uflow__step-title">Score Check</div>
-            <p class="uflow__step-desc">A strength meter scores specificity, style, and detail <em>before</em> generating. Weak prompts get a nudge, not a failure.</p>
-            <span class="uflow__step-tag">Pre-flight</span>
+            <div class="uflow__step-title">ქულის შემოწმება</div>
+            <p class="uflow__step-desc">სიძლიერის მზომი კონკრეტულობას, სტილსა და დეტალს <em>გენერაციამდე</em> აფასებს. სუსტი პრომპტი მინიშნებას იღებს და არა ჩავარდნას.</p>
+            <span class="uflow__step-tag">წინასწარი შემოწმება</span>
           </div>
           <div class="uflow__arrow">&rarr;</div>
           <div class="uflow__step">
             <div class="uflow__step-num">04</div>
-            <div class="uflow__step-title">Generate</div>
-            <p class="uflow__step-desc">High-confidence runs with no guessing. Result screen suggests one specific tweak to try next.</p>
-            <span class="uflow__step-tag">Confident run</span>
+            <div class="uflow__step-title">გენერაცია</div>
+            <p class="uflow__step-desc">თავდაჯერებული გაშვებები გამოცნობის გარეშე. შედეგის ეკრანი ერთ კონკრეტულ შესწორებას სთავაზობს შემდეგისთვის.</p>
+            <span class="uflow__step-tag">თავდაჯერებული გაშვება</span>
           </div>
         </div>
             <div class="uflow-iter rv">
-              <div class="uflow-iter__label">Iterations</div>
-              <span class="uflow-iter__item uflow-iter__item--cut">v1 &middot; 7 steps, manual tuning</span>
-              <span class="uflow-iter__item uflow-iter__item--cut">v2 &middot; 5 steps, template picker</span>
-              <span class="uflow-iter__item uflow-iter__item--chosen">v3 &middot; 4 steps, inline assist</span>
+              <div class="uflow-iter__label">იტერაციები</div>
+              <span class="uflow-iter__item uflow-iter__item--cut">v1 &middot; 7 ნაბიჯი, ხელით წყობა</span>
+              <span class="uflow-iter__item uflow-iter__item--cut">v2 &middot; 5 ნაბიჯი, შაბლონების ამრჩევი</span>
+              <span class="uflow-iter__item uflow-iter__item--chosen">v3 &middot; 4 ნაბიჯი, დახმარება ველშივე</span>
             </div>
           </div>
           <aside class="step-aside rv rv-d1">
-            <div class="step-aside__eyebrow">Designer note</div>
-            <p class="step-aside__note">v1 mirrored the old flow but politer. Testers still got lost at step 4, "enhancement" felt like a second job.</p>
-            <p class="step-aside__note">v2 added a template picker up front. Faster, but users reported feeling "boxed in." v3 collapses enhancement into the prompt field itself. No new screens.</p>
-            <div class="step-aside__decision">Fewer screens. More trust.</div>
+            <div class="step-aside__eyebrow">დიზაინერის შენიშვნა</div>
+            <p class="step-aside__note">v1 ძველი ნაკადის უფრო თავაზიანი სარკე იყო. ტესტერები მე-4 ნაბიჯზე მაინც იკარგებოდნენ: «გაძლიერება» მეორე სამსახურად იგრძნობოდა.</p>
+            <p class="step-aside__note">v2-მ წინ შაბლონების ამრჩევი დაამატა. უფრო სწრაფი იყო, მაგრამ მომხმარებლები «ჩარჩოში მომწყვდეულობას» უჩიოდნენ. v3 გაძლიერებას თვითონ პრომპტის ველში კეცავს. ახალი ეკრანების გარეშე.</p>
+            <div class="step-aside__decision">ნაკლები ეკრანი. მეტი ნდობა.</div>
           </aside>
         </div>
       </div>
 
       <!-- Step 5: Wireframe Exploration -->
       <div class="process__step">
-        <div class="process__step-label rv"><span class="process__step-num">5</span> Wireframe Exploration</div>
+        <div class="process__step-label rv"><span class="process__step-num">5</span> ვაირფრეიმების ძიება</div>
         <div class="step-meta rv"><span>Week <b>08</b></span><span><b>4</b> directions explored</span><span><b>1</b> chosen</span><span>Tested <b>n=12</b></span></div>
         <div class="wf-grid stagger">
-          <div class="wf rv" data-wf="0"><div class="wf__screen"><div class="wf__dots"><span></span><span></span><span></span></div><div style="display:flex;gap:6px;margin:10px 0;align-items:flex-start"><div class="wf__block--circle"></div><div style="flex:1;background:rgba(0,0,0,.06);border-radius:10px 10px 10px 2px;padding:8px"><div class="wf__bar" style="width:85%;margin-bottom:5px"></div><div class="wf__bar wf__bar--s" style="margin:0"></div></div></div><div style="display:flex;gap:6px;margin:10px 0;justify-content:flex-end"><div style="width:60%;background:rgba(202,255,0,.14);border-radius:10px 10px 2px 10px;padding:8px"><div class="wf__bar" style="width:90%;margin:0"></div></div></div><div style="display:flex;gap:6px;margin:10px 0;align-items:flex-start"><div class="wf__block--circle"></div><div style="flex:1;background:rgba(0,0,0,.06);border-radius:10px 10px 10px 2px;padding:8px"><div class="wf__bar wf__bar--m" style="margin:0"></div></div></div><div style="border:1.5px dashed rgba(0,0,0,.2);border-radius:100px;padding:7px 12px;margin-top:14px"><div class="wf__bar wf__bar--s" style="margin:0"></div></div></div><div class="wf__info"><div class="wf__name">Conversational</div><div class="wf__desc">Too slow</div><span class="wf__badge wf__badge--n">Rejected</span></div></div>
-          <div class="wf rv" data-wf="1"><div class="wf__screen"><div class="wf__dots"><span></span><span></span><span></span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:8px"><div class="wf__block" style="height:36px"></div><div class="wf__block" style="height:36px"></div><div class="wf__block" style="height:36px"></div><div class="wf__block" style="height:36px"></div></div><div class="wf__block--img" style="margin-top:8px"></div></div><div class="wf__info"><div class="wf__name">Visual Builder</div><div class="wf__desc">Overwhelming</div><span class="wf__badge wf__badge--n">Rejected</span></div></div>
-          <div class="wf wf--chosen rv" data-wf="2"><div class="wf__screen"><div class="wf__dots"><span></span><span></span><span></span></div><div style="border:1.5px solid rgba(0,0,0,.25);border-radius:8px;padding:9px;margin-top:10px"><div class="wf__bar wf__bar--m" style="margin:0"></div></div><div style="display:flex;align-items:center;gap:6px;margin-top:8px"><span style="font-size:8px;font-weight:700;color:#CAFF00;border:1px dashed rgba(202,255,0,.5);border-radius:100px;padding:3px 8px;white-space:nowrap">+ suggestion</span><span style="font-size:8px;font-weight:700;color:#CAFF00;border:1px dashed rgba(202,255,0,.5);border-radius:100px;padding:3px 8px;white-space:nowrap">+ style</span></div><div style="margin-top:12px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:7px;font-weight:700;color:#999;text-transform:uppercase">Strength</span><span style="font-size:7px;font-weight:800;color:#CAFF00">82</span></div><div style="height:6px;background:rgba(0,0,0,.08);border-radius:3px;overflow:hidden"><div style="width:82%;height:100%;background:#CAFF00;border-radius:3px"></div></div></div><div class="wf__block--btn"></div></div><div class="wf__info"><div class="wf__name">Smart Enhancement</div><div class="wf__desc">Simple + AI + meter</div><span class="wf__badge wf__badge--y">Chosen</span></div></div>
-          <div class="wf rv" data-wf="3"><div class="wf__screen"><div class="wf__dots"><span></span><span></span><span></span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:8px"><div class="wf__block--img" style="height:50px"></div><div class="wf__block--img" style="height:50px"></div><div class="wf__block--img" style="height:50px"></div><div class="wf__block--img" style="height:50px"></div></div></div><div class="wf__info"><div class="wf__name">Template Gallery</div><div class="wf__desc">Too constraining</div><span class="wf__badge wf__badge--s">Secondary</span></div></div>
+          <div class="wf rv" data-wf="0"><div class="wf__screen"><div class="wf__dots"><span></span><span></span><span></span></div><div style="display:flex;gap:6px;margin:10px 0;align-items:flex-start"><div class="wf__block--circle"></div><div style="flex:1;background:rgba(0,0,0,.06);border-radius:10px 10px 10px 2px;padding:8px"><div class="wf__bar" style="width:85%;margin-bottom:5px"></div><div class="wf__bar wf__bar--s" style="margin:0"></div></div></div><div style="display:flex;gap:6px;margin:10px 0;justify-content:flex-end"><div style="width:60%;background:rgba(202,255,0,.14);border-radius:10px 10px 2px 10px;padding:8px"><div class="wf__bar" style="width:90%;margin:0"></div></div></div><div style="display:flex;gap:6px;margin:10px 0;align-items:flex-start"><div class="wf__block--circle"></div><div style="flex:1;background:rgba(0,0,0,.06);border-radius:10px 10px 10px 2px;padding:8px"><div class="wf__bar wf__bar--m" style="margin:0"></div></div></div><div style="border:1.5px dashed rgba(0,0,0,.2);border-radius:100px;padding:7px 12px;margin-top:14px"><div class="wf__bar wf__bar--s" style="margin:0"></div></div></div><div class="wf__info"><div class="wf__name">Conversational</div><div class="wf__desc">ძალიან ნელი</div><span class="wf__badge wf__badge--n">უარყოფილი</span></div></div>
+          <div class="wf rv" data-wf="1"><div class="wf__screen"><div class="wf__dots"><span></span><span></span><span></span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:8px"><div class="wf__block" style="height:36px"></div><div class="wf__block" style="height:36px"></div><div class="wf__block" style="height:36px"></div><div class="wf__block" style="height:36px"></div></div><div class="wf__block--img" style="margin-top:8px"></div></div><div class="wf__info"><div class="wf__name">Visual Builder</div><div class="wf__desc">გადამტვირთავი</div><span class="wf__badge wf__badge--n">უარყოფილი</span></div></div>
+          <div class="wf wf--chosen rv" data-wf="2"><div class="wf__screen"><div class="wf__dots"><span></span><span></span><span></span></div><div style="border:1.5px solid rgba(0,0,0,.25);border-radius:8px;padding:9px;margin-top:10px"><div class="wf__bar wf__bar--m" style="margin:0"></div></div><div style="display:flex;align-items:center;gap:6px;margin-top:8px"><span style="font-size:8px;font-weight:700;color:#CAFF00;border:1px dashed rgba(202,255,0,.5);border-radius:100px;padding:3px 8px;white-space:nowrap">+ suggestion</span><span style="font-size:8px;font-weight:700;color:#CAFF00;border:1px dashed rgba(202,255,0,.5);border-radius:100px;padding:3px 8px;white-space:nowrap">+ style</span></div><div style="margin-top:12px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:7px;font-weight:700;color:#999;text-transform:uppercase">Strength</span><span style="font-size:7px;font-weight:800;color:#CAFF00">82</span></div><div style="height:6px;background:rgba(0,0,0,.08);border-radius:3px;overflow:hidden"><div style="width:82%;height:100%;background:#CAFF00;border-radius:3px"></div></div></div><div class="wf__block--btn"></div></div><div class="wf__info"><div class="wf__name">Smart Enhancement</div><div class="wf__desc">მარტივი + AI + მზომი</div><span class="wf__badge wf__badge--y">არჩეული</span></div></div>
+          <div class="wf rv" data-wf="3"><div class="wf__screen"><div class="wf__dots"><span></span><span></span><span></span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:8px"><div class="wf__block--img" style="height:50px"></div><div class="wf__block--img" style="height:50px"></div><div class="wf__block--img" style="height:50px"></div><div class="wf__block--img" style="height:50px"></div></div></div><div class="wf__info"><div class="wf__name">Template Gallery</div><div class="wf__desc">ზედმეტად შემზღუდავი</div><span class="wf__badge wf__badge--s">მეორეული</span></div></div>
         </div>
-        <p class="wf-decision rv rv-d2"><span>3 rejected.</span> One chosen.</p>
+        <p class="wf-decision rv rv-d2"><span>3 უარყოფილი.</span> ერთი არჩეული.</p>
         <div class="wf-commentary rv">
           <div class="wf-commentary__item">
             <div class="wf-commentary__num">01</div>
-            <div class="wf-commentary__label">Why Conversational failed</div>
-            <p class="wf-commentary__text">Chat framing made every run feel like a negotiation. Users wanted a canvas, not a conversation partner.</p>
+            <div class="wf-commentary__label">რატომ ჩავარდა Conversational</div>
+            <p class="wf-commentary__text">ჩატის ჩარჩომ ყოველი გაშვება მოლაპარაკებად აქცია. მომხმარებლებს ტილო უნდოდათ და არა თანამოსაუბრე.</p>
           </div>
           <div class="wf-commentary__item">
             <div class="wf-commentary__num">02</div>
-            <div class="wf-commentary__label">Why Visual Builder failed</div>
-            <p class="wf-commentary__text">Ten controls on screen tested worse than the audit baseline. Choice paralysis beat the old interface overload.</p>
+            <div class="wf-commentary__label">რატომ ჩავარდა Visual Builder</div>
+            <p class="wf-commentary__text">ეკრანზე ათმა კონტროლმა აუდიტის საწყისზე უარესად გამოსცადა. არჩევანის პარალიჩმა ძველ გადატვირთვასაც აჯობა.</p>
           </div>
           <div class="wf-commentary__item">
             <div class="wf-commentary__num">03</div>
-            <div class="wf-commentary__label">Why Smart Enhancement won</div>
-            <p class="wf-commentary__text">One prompt field + an inline strength meter. It earned trust by being quiet, not clever, the exact opposite of v1.</p>
+            <div class="wf-commentary__label">რატომ მოიგო Smart Enhancement-მა</div>
+            <p class="wf-commentary__text">ერთი პრომპტის ველი + სიძლიერის მზომი ველშივე. ნდობა სიმშვიდით დაიმსახურა და არა ეშმაკობით, v1-ის ზუსტი საპირისპირო.</p>
           </div>
         </div>
       </div>
@@ -1305,7 +1308,7 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <!-- ===== FEATURES ===== -->
-<div class="dark feat"><div class="w"><div class="feat__inner rv"><div><div class="feat__num rv rv--zoom" style="transition-delay:0s">01</div><div class="feat__title">Dynamic Prompt<br>Enhancement</div><p class="feat__body">Type a rough idea. The AI suggests lighting, angles, and style in real-time. One click to accept. Users learn vocabulary naturally.</p><div class="feat__tag">Solves: Prompt Anxiety</div></div><div class="feat-mock"><div class="pe">
+<div class="dark feat"><div class="w"><div class="feat__inner rv"><div><div class="feat__num rv rv--zoom" style="transition-delay:0s">01</div><div class="feat__title">პრომპტის დინამიური<br>გაძლიერება</div><p class="feat__body">დაწერე უხეში იდეა. AI რეალურ დროში გთავაზობს განათებას, კუთხეებსა და სტილს. ერთი კლიკი მისაღებად. ლექსიკას მომხმარებლები ბუნებრივად სწავლობენ.</p><div class="feat__tag">ხსნის: პრომპტის შფოთვას</div></div><div class="feat-mock"><div class="pe">
   <div class="pe__from">a cat on a chair</div>
   <div class="pe__arrow">&darr;</div>
   <div class="pe__to"><span class="pe__tag">AI Enhanced</span>
@@ -1313,7 +1316,7 @@ a{color:inherit;text-decoration:none}
     <div class="pe__chips"><span class="pe__chip">+ soft lighting</span><span class="pe__chip">+ 50mm lens</span><span class="pe__chip">+ warm tones</span></div>
   </div>
 </div></div></div></div></div>
-<div class="dark feat"><div class="w"><div class="feat__inner feat__inner--rev rv"><div><div class="feat__num rv rv--zoom" style="transition-delay:0s">02</div><div class="feat__title">Prompt Strength<br>Indicator</div><p class="feat__body">A visual meter scoring specificity, style, and technical detail before generating. Users see exactly what to improve. Confidence +41%.</p><div class="feat__tag">Solves: No Feedback Loop</div></div><div class="feat-mock"><div class="sr">
+<div class="dark feat"><div class="w"><div class="feat__inner feat__inner--rev rv"><div><div class="feat__num rv rv--zoom" style="transition-delay:0s">02</div><div class="feat__title">პრომპტის სიძლიერის<br>ინდიკატორი</div><p class="feat__body">ვიზუალური მზომი, რომელიც კონკრეტულობას, სტილსა და ტექნიკურ დეტალს გენერაციამდე აფასებს. მომხმარებელი ზუსტად ხედავს, რა გააუმჯობესოს. თავდაჯერება +41%.</p><div class="feat__tag">ხსნის: უკუკავშირის არქონას</div></div><div class="feat-mock"><div class="sr">
   <div class="sr__ring"><div class="sr__arc"></div><div><div class="sr__val">82</div><div class="sr__sub">Prompt strength</div></div></div>
   <div class="sr__scores">
     <div class="sr__score"><small>Specificity</small><strong>A</strong></div>
@@ -1321,11 +1324,11 @@ a{color:inherit;text-decoration:none}
     <div class="sr__score"><small>Detail</small><strong>A-</strong></div>
   </div>
 </div></div></div></div></div>
-<div class="dark feat"><div class="w"><div class="feat__inner rv"><div><div class="feat__num rv rv--zoom" style="transition-delay:0s">03</div><div class="feat__title">Simplified<br>Interface</div><p class="feat__body">Prompt field front and center. Advanced settings behind progressive disclosure. 40% less noise. Generate button found 3s faster.</p><div class="feat__tag">Solves: Interface Overload</div></div><div class="feat-mock"><div class="cui">
+<div class="dark feat"><div class="w"><div class="feat__inner rv"><div><div class="feat__num rv rv--zoom" style="transition-delay:0s">03</div><div class="feat__title">გამარტივებული<br>ინტერფეისი</div><p class="feat__body">პრომპტის ველი ცენტრში. დამატებითი პარამეტრები თანდათანობითი გახსნის უკან. 40%-ით ნაკლები ხმაური. Generate ღილაკი 3 წამით სწრაფად იძებნება.</p><div class="feat__tag">ხსნის: ინტერფეისის გადატვირთვას</div></div><div class="feat-mock"><div class="cui">
   <div class="cui__bar"><span class="cui__dot" style="background:#ff5f57"></span><span class="cui__dot" style="background:#febc2e"></span><span class="cui__dot" style="background:#28c840"></span></div>
   <div class="cui__body"><div class="cui__line cui__line--s"></div><div class="cui__line"></div><div class="cui__canvas"></div><div class="cui__btn">Generate</div></div>
 </div></div></div></div></div>
-<div class="dark feat"><div class="w"><div class="feat__inner feat__inner--rev rv"><div><div class="feat__num rv rv--zoom" style="transition-delay:0s">04</div><div class="feat__title">Customizable<br>Themes</div><p class="feat__body">Six themes adjusting density, contrast, and accent colors. Users shape the tool to how they work. Sessions +23%.</p><div class="feat__tag">Solves: One-Size-Fits-All</div></div><div class="feat-mock"><div class="themes">
+<div class="dark feat"><div class="w"><div class="feat__inner feat__inner--rev rv"><div><div class="feat__num rv rv--zoom" style="transition-delay:0s">04</div><div class="feat__title">მოსარგები<br>თემები</div><p class="feat__body">ექვსი თემა სიმჭიდროვის, კონტრასტისა და აქცენტების სამართავად. მომხმარებელი ინსტრუმენტს თავის სამუშაო სტილზე ირგებს. სესიები +23%.</p><div class="feat__tag">ხსნის: ერთი-ზომა-ყველას პრობლემას</div></div><div class="feat-mock"><div class="themes">
   <div class="th sel" style="background:linear-gradient(160deg,#0a0a0f,#1a1a24)"><span class="th__name">Midnight</span></div>
   <div class="th" style="background:linear-gradient(160deg,#f5f5f0,#e2e2da)"><span class="th__name" style="color:rgba(0,0,0,.5)">Paper</span></div>
   <div class="th" style="background:linear-gradient(160deg,#1a1206,#3a2a10)"><span class="th__name">Amber</span></div>
@@ -1338,24 +1341,24 @@ a{color:inherit;text-decoration:none}
 <section class="testing">
   <div class="w">
     <div class="testing__hero">
-      <p class="testing__hero-title split-line rv"><span class="line">The feature</span><span class="line">I had to kill.</span></p>
+      <p class="testing__hero-title split-line rv"><span class="line">ფუნქცია, რომელიც</span><span class="line">უნდა მომეკლა.</span></p>
     </div>
     <div class="testing__grid stagger">
-      <div class="test-card rv rv--left elastic"><div class="test-card__label">Round 1, Week 6</div><h3>Prototype</h3><div class="fd"><span>&#10003;</span> 10/12 understood Strength Indicator instantly</div><div class="fd"><span>&#10003;</span> Enhancement most praised feature</div><div class="fd"><span style="opacity:.3">&#10007;</span> Auto-correction frustrated users</div><div class="fd"><span style="opacity:.3">&#10007;</span> 3 couldn't find Advanced Settings</div><div class="fd"><span style="color:#ccc">&bull;</span> Task time: 4.8 min (from 8.2 baseline)</div></div>
-      <div class="test-card rv rv--right elastic"><div class="test-card__label">Round 2, Week 10</div><h3>After Fixes</h3><div class="fd"><span>&#10003;</span> Opt-in replaced auto-correction</div><div class="fd"><span>&#10003;</span> Progressive disclosure for settings</div><div class="fd"><span>&#10003;</span> All 12 completed the task</div><div class="fd"><span>&#10003;</span> Task time: 3.1 min average</div><div class="fd"><span style="color:#ccc">&bull;</span> Satisfaction: 4.6/5</div></div>
+      <div class="test-card rv rv--left elastic"><div class="test-card__label">რაუნდი 1, კვირა 6</div><h3>პროტოტიპი</h3><div class="fd"><span>&#10003;</span> 12-დან 10-მა სიძლიერის ინდიკატორი მყისვე გაიგო</div><div class="fd"><span>&#10003;</span> გაძლიერება ყველაზე ნაქები ფუნქცია</div><div class="fd"><span style="opacity:.3">&#10007;</span> ავტო-შესწორება მომხმარებლებს აღიზიანებდა</div><div class="fd"><span style="opacity:.3">&#10007;</span> 3-მა დამატებითი პარამეტრები ვერ იპოვა</div><div class="fd"><span style="color:#ccc">&bull;</span> დავალების დრო: 4.8 წთ (8.2-დან)</div></div>
+      <div class="test-card rv rv--right elastic"><div class="test-card__label">რაუნდი 2, კვირა 10</div><h3>შესწორებების მერე</h3><div class="fd"><span>&#10003;</span> ავტო-შესწორება ნებაყოფლობითმა ჩაანაცვლა</div><div class="fd"><span>&#10003;</span> პარამეტრები თანდათანობით იხსნება</div><div class="fd"><span>&#10003;</span> 12-ვემ დაასრულა დავალება</div><div class="fd"><span>&#10003;</span> დავალების დრო: საშუალოდ 3.1 წთ</div><div class="fd"><span style="color:#ccc">&bull;</span> კმაყოფილება: 4.6/5</div></div>
     </div>
     <div class="mistake rv rv--scale">
-      <div class="mistake__label">What went wrong</div>
-      <h3>I auto-corrected prompts without asking</h3>
-      <p>My initial design silently "improved" vague prompts. Output quality +15%. Satisfaction &minus;22%.</p>
-      <p><em>"It changed my words without asking."</em></p>
-      <p class="takeaway">Agency matters more than optimization.</p>
+      <div class="mistake__label">რა წავიდა ცუდად</div>
+      <h3>პრომპტებს უკითხავად ვასწორებდი</h3>
+      <p>ჩემი საწყისი დიზაინი ბუნდოვან პრომპტებს ჩუმად «აუმჯობესებდა». შედეგის ხარისხი +15%. კმაყოფილება &minus;22%.</p>
+      <p><em>«ჩემი სიტყვები უკითხავად შეცვალა».</em></p>
+      <p class="takeaway">არჩევანის უფლება ოპტიმიზაციაზე მეტს ნიშნავს.</p>
     </div>
 
     <!-- PROTOTYPE SCREENS: auto-correct vs opt-in -->
     <div class="screen-pair" style="margin:clamp(32px,5vh,56px) 0">
       <div class="rv rv--left">
-        <div class="screen-label" style="color:rgba(255,255,255,.3)">V1, Auto-correct (killed)</div>
+        <div class="screen-label" style="color:rgba(255,255,255,.3)">V1, ავტო-შესწორება (მოკლული)</div>
         <div class="proto proto--dark">
   <div class="proto__bar proto__bar--dark"><span class="proto__dot" style="background:#ff5f57"></span><span class="proto__dot" style="background:#febc2e"></span><span class="proto__dot" style="background:#28c840"></span></div>
   <div class="proto__body">
@@ -1367,7 +1370,7 @@ a{color:inherit;text-decoration:none}
 </div>
       </div>
       <div class="rv rv--right">
-        <div class="screen-label" style="color:rgba(255,255,255,.3)">V2, Opt-in suggestions (shipped)</div>
+        <div class="screen-label" style="color:rgba(255,255,255,.3)">V2, ნებაყოფლობითი შემოთავაზებები (გავიდა)</div>
         <div class="proto proto--dark">
   <div class="proto__bar proto__bar--dark"><span class="proto__dot" style="background:#ff5f57"></span><span class="proto__dot" style="background:#febc2e"></span><span class="proto__dot" style="background:#28c840"></span></div>
   <div class="proto__body">
@@ -1381,7 +1384,7 @@ a{color:inherit;text-decoration:none}
       </div>
     </div>
 
-    <div class="fix-card rv"><div class="fix-card__label">The fix</div><p>Opt-in suggestions, same intelligence, user stays in control. Satisfaction: 2.8 &rarr; 4.4/5.</p></div>
+    <div class="fix-card rv"><div class="fix-card__label">გამოსავალი</div><p>ნებაყოფლობითი შემოთავაზებები: იგივე ინტელექტი, კონტროლი მომხმარებელთან რჩება. კმაყოფილება: 2.8 &rarr; 4.4/5.</p></div>
   </div>
 </section>
 
@@ -1390,24 +1393,24 @@ a{color:inherit;text-decoration:none}
   <div class="w">
     <div class="results__hero scale-section">
       <p class="results__hero-num glitch-hover" data-counter="-62" data-suffix="%">-62%</p>
-      <p class="results__hero-label">Time to first image. 8.2 min &rarr; 3.1 min.</p>
-      <p class="results__hero-detail">Timed tasks, 12 participants</p>
+      <p class="results__hero-label">დრო პირველ სურათამდე. 8.2 წთ &rarr; 3.1 წთ.</p>
+      <p class="results__hero-detail">დროზე გაზომილი დავალებები, 12 მონაწილე</p>
     </div>
     <div class="results__grid stagger">
       <div class="result-card rv rv--zoom elastic">
-        <div class="result-card__label">Prompt Confidence</div>
+        <div class="result-card__label">პრომპტის თავდაჯერება</div>
         <div class="result-card__num" data-counter="41" data-prefix="+" data-suffix="%">+41%</div>
         <div class="result-card__detail">3.2 &rarr; 5.4 / 7</div>
         <div class="result-card__bar"><div class="result-card__bar-b" data-w="46"></div><div class="result-card__bar-a" data-w="77"></div></div>
       </div>
       <div class="result-card rv rv--zoom elastic">
-        <div class="result-card__label">First-Gen Acceptance</div>
+        <div class="result-card__label">პირველი გენერაციის მიღება</div>
         <div class="result-card__num" data-counter="28" data-prefix="+" data-suffix="pp">+28pp</div>
         <div class="result-card__detail">22% &rarr; 51%</div>
         <div class="result-card__bar"><div class="result-card__bar-b" data-w="22"></div><div class="result-card__bar-a" data-w="51"></div></div>
       </div>
       <div class="result-card rv rv--zoom elastic">
-        <div class="result-card__label">Satisfaction</div>
+        <div class="result-card__label">კმაყოფილება</div>
         <div class="result-card__num" data-counter="48" data-prefix="+" data-suffix="%">+48%</div>
         <div class="result-card__detail">3.1 &rarr; 4.6 / 5</div>
         <div class="result-card__bar"><div class="result-card__bar-b" data-w="62"></div><div class="result-card__bar-a" data-w="92"></div></div>
@@ -1416,7 +1419,7 @@ a{color:inherit;text-decoration:none}
 
     <!-- ANALYTICS DASHBOARD SCREEN -->
     <div style="margin-top:clamp(48px,8vh,100px)">
-      <div class="screen-label rv" style="color:#aaa">Post-launch metrics dashboard</div>
+      <div class="screen-label rv" style="color:#aaa">გაშვების შემდგომი მეტრიკების დაფა</div>
       <div class="ph ph--wide ph--dark rv rv--scale" style="margin-top:16px;display:block;aspect-ratio:auto">
 <div class="analytics" style="width:100%">
   <div class="analytics__row">
@@ -1442,26 +1445,26 @@ a{color:inherit;text-decoration:none}
 
 <!-- ===== GALLERY ===== -->
 <div class="dark gallery" data-darkglow><div class="dark-glow"></div>
-  <div class="gallery__head rv rv--blur"><p class="gallery__title">The screens.</p></div>
+  <div class="gallery__head rv rv--blur"><p class="gallery__title">ეკრანები.</p></div>
   <div class="gallery__track">
     <div class="gallery__row">
-      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="../assets/case/generato/d-generated.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
-      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="../assets/case/generato/d-opened.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
-      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="../assets/case/generato/d-bgremover.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
-      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="../assets/case/generato/d-upscaler.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
-      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="../assets/case/generato/d-brush.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
-      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="../assets/case/generato/d-169.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
-      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="../assets/case/generato/d-916.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
+      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="/assets/case/generato/d-generated.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
+      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="/assets/case/generato/d-opened.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
+      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="/assets/case/generato/d-bgremover.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
+      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="/assets/case/generato/d-upscaler.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
+      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="/assets/case/generato/d-brush.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
+      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="/assets/case/generato/d-169.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
+      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="/assets/case/generato/d-916.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
     </div>
     <!-- duplicate for seamless loop -->
     <div class="gallery__row">
-      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="../assets/case/generato/d-generated.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
-      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="../assets/case/generato/d-opened.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
-      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="../assets/case/generato/d-bgremover.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
-      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="../assets/case/generato/d-upscaler.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
-      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="../assets/case/generato/d-brush.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
-      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="../assets/case/generato/d-169.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
-      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="../assets/case/generato/d-916.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
+      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="/assets/case/generato/d-generated.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
+      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="/assets/case/generato/d-opened.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
+      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="/assets/case/generato/d-bgremover.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
+      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="/assets/case/generato/d-upscaler.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
+      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="/assets/case/generato/d-brush.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
+      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="/assets/case/generato/d-169.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
+      <div class="gal-item"><div class="ph ph--gallery ph--dark"><img class="ph-shot" src="/assets/case/generato/d-916.jpg" alt="Generato screen" loading="lazy" style="object-position:top"></div></div>
     </div>
   </div>
 </div>
@@ -1471,17 +1474,17 @@ a{color:inherit;text-decoration:none}
   <div class="dark-glow"></div>
   <div class="morph-blob" style="width:500px;height:500px;background:#CAFF00;top:10%;left:50%;transform:translateX(-50%);animation-delay:1s"></div>
   <div class="w">
-    <p class="rv rv--blur" style="font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:clamp(24px,4vh,48px)">The final product</p>
+    <p class="rv rv--blur" style="font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:clamp(24px,4vh,48px)">საბოლოო პროდუქტი</p>
     <div class="phone-row rv rv--scale">
-      <div class="phone"><img src="../assets/case/generato/m-gen1.jpg" alt="Generation result on mobile" loading="lazy"></div>
-      <div class="phone phone--lift"><img src="../assets/case/generato/m-styles.jpg" alt="Style picker on mobile" loading="lazy"></div>
-      <div class="phone"><img src="../assets/case/generato/m-lighting.jpg" alt="Lighting picker on mobile" loading="lazy"></div>
-      <div class="phone phone--lift"><img src="../assets/case/generato/m-gen3.jpg" alt="Generated variations on mobile" loading="lazy"></div>
-      <div class="phone"><img src="../assets/case/generato/m-bgresult.jpg" alt="Background remover on mobile" loading="lazy"></div>
-      <div class="phone phone--lift"><img src="../assets/case/generato/m-bgupload.jpg" alt="Background remover upload screen on mobile" loading="lazy"></div>
-      <div class="phone"><img src="../assets/case/generato/m-upscale.jpg" alt="Before/after upscale on mobile" loading="lazy"></div>
-      <div class="phone phone--lift"><img src="../assets/case/generato/m-brush.jpg" alt="Magic brush on mobile" loading="lazy"></div>
-      <div class="phone"><img src="../assets/case/generato/m-credits.jpg" alt="Out of credits on mobile" loading="lazy"></div>
+      <div class="phone"><img src="/assets/case/generato/m-gen1.jpg" alt="Generation result on mobile" loading="lazy"></div>
+      <div class="phone phone--lift"><img src="/assets/case/generato/m-styles.jpg" alt="Style picker on mobile" loading="lazy"></div>
+      <div class="phone"><img src="/assets/case/generato/m-lighting.jpg" alt="Lighting picker on mobile" loading="lazy"></div>
+      <div class="phone phone--lift"><img src="/assets/case/generato/m-gen3.jpg" alt="Generated variations on mobile" loading="lazy"></div>
+      <div class="phone"><img src="/assets/case/generato/m-bgresult.jpg" alt="Background remover on mobile" loading="lazy"></div>
+      <div class="phone phone--lift"><img src="/assets/case/generato/m-bgupload.jpg" alt="Background remover upload screen on mobile" loading="lazy"></div>
+      <div class="phone"><img src="/assets/case/generato/m-upscale.jpg" alt="Before/after upscale on mobile" loading="lazy"></div>
+      <div class="phone phone--lift"><img src="/assets/case/generato/m-brush.jpg" alt="Magic brush on mobile" loading="lazy"></div>
+      <div class="phone"><img src="/assets/case/generato/m-credits.jpg" alt="Out of credits on mobile" loading="lazy"></div>
     </div>
   </div>
 </div>
@@ -1490,21 +1493,21 @@ a{color:inherit;text-decoration:none}
 <section class="closing">
   <div class="w">
     <div class="rv rv--blur">
-      <p class="closing__text perspective-item"><span>The best features disappear into the experience.</span> Users don't notice the Strength Indicator helping them, they just notice their images got better.</p>
+      <p class="closing__text perspective-item"><span>საუკეთესო ფუნქციები გამოცდილებაში ქრებიან.</span> მომხმარებლები ვერ ამჩნევენ, რომ სიძლიერის ინდიკატორი ეხმარებათ, უბრალოდ ამჩნევენ, რომ მათი სურათები გაუმჯობესდა.</p>
       <div class="cta-row">
-        <a href="mailto:jikurishvilib26@gmail.com" class="cta cta--fill magnetic" data-magnetic>Get in touch</a>
+        <a href="mailto:jikurishvilib26@gmail.com" class="cta cta--fill magnetic" data-magnetic>დამიკავშირდი</a>
         <a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer" class="cta cta--ghost magnetic" data-magnetic>LinkedIn</a>
       </div>
     </div>
     <div class="proj-nav">
-      <a href="../index.html#work"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>All Projects</a>
-      <a href="multipay.html">Next Project: Multipay<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3l5 5-5 5"/></svg></a>
+      <a href="/ka/#work"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>ყველა პროექტი</a>
+      <a href="/ka/projects/multipay.html">შემდეგი პროექტი: Multipay<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3l5 5-5 5"/></svg></a>
     </div>
   </div>
 </section>
 
 <footer class="footer"><div class="container footer-inner">
-  <span>&copy; 2026 Beka Jikurishvili</span>
+  <span>&copy; 2026 ბექა ჯიკურიშვილი</span>
   <div class="footer-links"><a href="https://www.linkedin.com/in/beka-jikurishvili/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://dribbble.com/Beshkena" target="_blank" rel="noopener noreferrer">Dribbble</a></div>
 </div></footer>
 
@@ -1525,9 +1528,9 @@ a{color:inherit;text-decoration:none}
       <div class="lb__eval" id="lbEval"></div>
     </div>
     <div class="lb__nav">
-      <button class="lb__nav-btn" id="lbPrev"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg> Previous</button>
+      <button class="lb__nav-btn" id="lbPrev"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg> წინა</button>
       <div class="lb__nav-dots" id="lbDots"></div>
-      <button class="lb__nav-btn" id="lbNext">Next <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3l5 5-5 5"/></svg></button>
+      <button class="lb__nav-btn" id="lbNext">შემდეგი <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3l5 5-5 5"/></svg></button>
     </div>
   </div>
 </div>
@@ -1895,7 +1898,7 @@ a{color:inherit;text-decoration:none}
   if(!prefersRM){
     const hint=document.createElement('div');
     hint.classList.add('snap-hint');
-    hint.textContent='Scroll';
+    hint.textContent='დასქროლე';
     document.body.appendChild(hint);
     let hintTimeout;
     window.addEventListener('scroll',()=>{
@@ -1914,8 +1917,8 @@ a{color:inherit;text-decoration:none}
   const wfData=[
     {
       title:'Conversational',
-      verdict:'Rejected',verdictClass:'fail',
-      rationale:'The idea was to guide users through prompt creation via a <strong>step-by-step conversation</strong>. The AI would ask "What subject?", "What mood?", "What style?" one question at a time. Felt intuitive in theory, but in testing, users found it <strong>painfully slow</strong>. Average time to first image: 6.2 minutes.',
+      verdict:'უარყოფილი',verdictClass:'fail',
+      rationale:'იდეა იყო, მომხმარებელი პრომპტის შექმნაში <strong>ნაბიჯ-ნაბიჯ საუბარს</strong> გაეყვანა. AI იკითხავდა: «რა საგანი?», «რა განწყობა?», «რა სტილი?», თითო კითხვა ერთ ჯერზე. თეორიაში ინტუიციური ჩანდა, ტესტებში კი მომხმარებლებმა <strong>აუტანლად ნელი</strong> აღმოაჩინეს. საშუალო დრო პირველ სურათამდე: 6.2 წუთი.',
       screens:[
         {label:'Welcome state',bars:[{w:'60%'},{w:'35%'}],hasCircle:true,hasBtn:true,btnText:'Start chatting'},
         {label:'Mid-conversation',bars:[{w:'80%'},{w:'50%'},{w:'70%'},{w:'40%'}],hasBtn:false,hasChat:true},
@@ -1926,8 +1929,8 @@ a{color:inherit;text-decoration:none}
     },
     {
       title:'Visual Builder',
-      verdict:'Rejected',verdictClass:'fail',
-      rationale:'A <strong>drag-and-drop canvas</strong> where users could compose prompts visually, picking style blocks, mood blocks, subject blocks and arranging them. Inspired by node-based tools like ComfyUI. Users were <strong>overwhelmed immediately</strong>. The freedom that power users loved was exactly what beginners couldn\'t handle.',
+      verdict:'უარყოფილი',verdictClass:'fail',
+      rationale:'<strong>გადაათრიე-და-ჩააგდე ტილო</strong>, სადაც პრომპტი ვიზუალურად აეწყობოდა: სტილის, განწყობისა და საგნის ბლოკები. შთაგონებული node-ინსტრუმენტებით, ComfyUI-ს მსგავსად. მომხმარებლები <strong>მაშინვე გადაიტვირთნენ</strong>. თავისუფლება, რომელიც გამოცდილებს უყვარდათ, ზუსტად ის იყო, რასაც ახალბედები ვერ უმკლავდებოდნენ.',
       screens:[
         {label:'Empty canvas',grid:true,gridCols:2,gridItems:4,hasBtn:false},
         {label:'Block palette',grid:true,gridCols:2,gridItems:6,hasBtn:false,hasPalette:true},
@@ -1938,8 +1941,8 @@ a{color:inherit;text-decoration:none}
     },
     {
       title:'Smart Enhancement',
-      verdict:'Chosen',verdictClass:'pass',
-      rationale:'The winning direction. <strong>One text field, zero jargon.</strong> Type naturally, and the AI enhances your prompt in real-time with a visible suggestion below. A <strong>strength meter</strong> gives instant feedback before generating. Users learn prompt vocabulary <strong>organically</strong> by seeing what the AI adds. Average task time dropped to <strong>3.1 minutes</strong>.',
+      verdict:'არჩეული',verdictClass:'pass',
+      rationale:'გამარჯვებული მიმართულება. <strong>ერთი ტექსტის ველი, ნულოვანი ჟარგონი.</strong> წერ ბუნებრივად და AI პრომპტს რეალურ დროში აძლიერებს, ხილული შემოთავაზებით ქვემოთ. <strong>სიძლიერის მზომი</strong> მყისიერ უკუკავშირს იძლევა გენერაციამდე. ლექსიკას მომხმარებლები <strong>ორგანულად</strong> სწავლობენ, ხედავენ რა, რას ამატებს AI. დავალების საშუალო დრო <strong>3.1 წუთამდე</strong> დაეცა.',
       screens:[
         {label:'Empty state',bars:[{w:'70%'}],hasEnhance:true,enhanceEmpty:true,hasRing:true,hasBtn:true,btnText:'Generate'},
         {label:'Typing + enhancement',bars:[{w:'60%'}],hasEnhance:true,enhanceEmpty:false,hasRing:true,hasBtn:true,btnText:'Generate'},
@@ -1950,8 +1953,8 @@ a{color:inherit;text-decoration:none}
     },
     {
       title:'Template Gallery',
-      verdict:'Secondary',verdictClass:'mid',
-      rationale:'A <strong>curated gallery of prompt templates</strong> organized by category, portraits, landscapes, abstract, product shots. Users pick a template and customize variables. Great as a <strong>secondary entry point</strong> for inspiration, but too constraining as the primary interaction. Users felt the templates limited their creativity.',
+      verdict:'მეორეული',verdictClass:'mid',
+      rationale:'<strong>პრომპტ-შაბლონების შერჩეული გალერეა</strong> კატეგორიებად: პორტრეტები, პეიზაჟები, აბსტრაქცია, პროდუქტის კადრები. ირჩევ შაბლონს და ცვლადებს ირგებ. შესანიშნავია <strong>მეორეულ შესასვლელად</strong> შთაგონებისთვის, მაგრამ მთავარ ინტერაქციად ზედმეტად შემზღუდავი. მომხმარებლები გრძნობდნენ, რომ შაბლონები კრეატიულობას ბოჭავდა.',
       screens:[
         {label:'Category grid',grid:true,gridCols:2,gridItems:4,hasBtn:false,hasFilter:true},
         {label:'Template detail',bars:[{w:'90%'},{w:'60%'}],hasBtn:true,btnText:'Use template',hasVars:true},
@@ -2023,7 +2026,7 @@ a{color:inherit;text-decoration:none}
 
 })();
 </script>
-<script src="../script.js?v=16"></script>
+<script src="/script.js?v=20"></script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
