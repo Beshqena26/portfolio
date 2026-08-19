@@ -59,6 +59,8 @@
       <div class="proj-meta-item"><label>Brand</label><span>MYBC Originals</span></div>
     </div>
     <div class="cs-stats">
+      <div class="cs-stat"><b>23K+</b><span>Rounds played in production</span></div>
+      <div class="cs-stat"><b>340+</b><span>Unique players</span></div>
       <div class="cs-stat"><b>1:1</b><span>Verification parity with the lineup</span></div>
       <div class="cs-stat"><b>&le;520px</b><span>Compact mode breakpoint</span></div>
       <div class="cs-stat"><b>2.5s</b><span>Branded boot, minimum</span></div>
@@ -106,6 +108,11 @@
   <p>Every round is verifiable in-game with the same per-round verification drawer as the rest of the Originals, a deliberate 1:1 port of that flow. Where a secure crypto context isn't available (plain HTTP on a LAN during testing), a pure-JS SHA-256/HMAC fallback keeps verification working instead of silently disabling it.</p>
   <p>The sharpest finding of the QA pass was contractual, not visual: for exclusive free rounds the engine's reported total payout is already net of stake. The client has to display it verbatim rather than re-deriving it, otherwise every free-round win shows the wrong number. The fix was one rule, documented in the code and mirrored in the mock engine so the discrepancy can never ship silently again.</p>
   <div class="cs-callout"><p>A port's real deliverable isn't the skin. It's the guarantee that the skin, the math display, and the verification ritual behave identically to every other game the player already trusts.</p></div>
+</div></section>
+
+<section class="proj-section"><div class="container anim">
+  <h2>In production</h2>
+  <p>The ported Keno is live with a real-money operator: <strong>23,000+ rounds</strong> played by <strong>340+ unique players</strong> so far. The port didn't just survive contact with real players, it behaves indistinguishably from its native siblings, which was the whole brief.</p>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
