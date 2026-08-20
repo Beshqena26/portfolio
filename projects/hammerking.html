@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hammer King Case Study | Beka Jikurishvili</title>
-<meta name="description" content="Case study: Hammer King, a crash game disguised as a carnival high striker. Limbo math, provably fair rounds, cashout tension, and an AI-generated sprite character.">
+<meta name="description" content="Case study: Hammer King, a crash game disguised as a carnival high striker. Aviator-style crash math, provably fair rounds, live cashout tension, and an AI-generated sprite character.">
 <meta property="og:title" content="Hammer King: a crash game disguised as a carnival high striker">
 <meta property="og:description" content="Crash math, provably fair rounds, and a strongman who reacts to every hit.">
 <meta property="og:type" content="article">
@@ -50,7 +50,7 @@
   <div class="container anim">
     <a href="../index.html#games" class="proj-back">&larr; Back to Games</a>
     <h1>Hammer King: a crash game<br>disguised as a carnival high striker</h1>
-    <p class="proj-desc">An MYBC Originals crash game. Under the hood it runs limbo math; on screen it's a night-carnival strongman slamming a puck up a tower while your multiplier climbs. You cash out before the burn, or you don't.</p>
+    <p class="proj-desc">An MYBC Originals crash game built on the Aviator principle: the multiplier climbs live and you cash out any moment. On screen it's a night-carnival strongman slamming a puck up a tower. You cash out before the burn, or you don't.</p>
     <div class="proj-meta">
       <div class="proj-meta-item"><label>Role</label><span>Math, design &amp; build</span></div>
       <div class="proj-meta-item"><label>Type</label><span>Crash / cashout</span></div>
@@ -92,11 +92,11 @@
 
 <section class="proj-section"><div class="container anim">
   <h2>Math and fairness</h2>
-  <p>Each round draws a hidden crash point from a limbo distribution (96.5% RTP configuration). The visible flight maps time to multiplier with <strong>m = e<sup>0.1733&middot;t</sup></strong>, so 2x lands at roughly four seconds: fast enough to feel alive, slow enough to make the cashout decision real. A turbo mode runs the same curve at 4x speed for players who want volume.</p>
+  <p>Each round draws a hidden crash point from a provably fair crash distribution (96.5% RTP configuration). The visible flight maps time to multiplier with <strong>m = e<sup>0.1733&middot;t</sup></strong>, so 2x lands at roughly four seconds: fast enough to feel alive, slow enough to make the cashout decision real. A turbo mode runs the same curve at 4x speed for players who want volume.</p>
   <p>Fairness is player-checkable: every round's crash point is committed before the round starts and verifiable after it ends, with a full round history and a verification drawer in the game. Auto-cashout is resolved <em>before</em> the crash check in the loop, so a player who set 2.00x wins at exactly 2.00x whenever the crash point allows it. No "it busted just as I clicked" ambiguity.</p>
   <div class="cs-decision">
     <div class="cs-dec-card chose"><h4>Chose: exact-threshold auto-cashout</h4><p>If your auto target is reachable this round, you win at that exact number. Trust is the product; rounding against the player would poison it.</p></div>
-    <div class="cs-dec-card rejected"><h4>Rejected: mid-round server calls in the demo</h4><p>The demo is fully local and provably fair. A real-money version needs a server-authoritative crash engine, because the limbo contract can't settle a mid-round cashout. That's stated, not hidden.</p></div>
+    <div class="cs-dec-card rejected"><h4>Rejected: settling cashouts in the client</h4><p>Cashout follows the Aviator principle: the backend is authoritative for when you cashed out and at what multiplier, and the client only renders that truth. Settling money client-side would be quicker to build and impossible to trust.</p></div>
   </div>
 </div></section>
 
@@ -111,7 +111,7 @@
 <section class="proj-section"><div class="container anim">
   <h2>Player-money details</h2>
   <p>Free rounds are supported with the same contract as the other Originals: inclusive rounds pay the full payout, exclusive rounds pay the payout minus the stake, and both are labeled in the history. Auto mode runs 10, 50, 100 or endless rounds with the same cashout rules as manual play. Everything a player can win or lose is visible in the round drawer with local verification.</p>
-  <div class="cs-callout"><p>The whole game is built against the same contract as the production RGS limbo engine, so the real-money backend can be wired in without touching the frontend.</p></div>
+  <div class="cs-callout"><p>The whole game is built against the production RGS crash engine's contract, cashout included, so the real-money backend wires in without touching the frontend.</p></div>
 </div></section>
 
 <section class="proj-section"><div class="container anim">
